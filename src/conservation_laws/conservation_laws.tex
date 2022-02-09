@@ -1,0 +1,42 @@
+\begin{sectionbox}
+    Conservative PDEs are usually derived from constitutive (physical) laws that \textit{conserve} certain quantities $\uvec$
+    e.g.\ mass, momentum, density, heat, energy, population, particles, cars,\ldots\\
+    PDEs in conservative form are so called because conservation laws can always be written in conservative form.
+\end{sectionbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Scalar Conservation Law]\label{defn:conservation_law}
+        \begin{align*}
+          &\pdv{t}u+\divg_{\xvec}\flux\left(u(\xvec,t),\xvec\right)=\sourceterm\left(u(\xvec,t),\xvec,t\right)&&
+                    \text{in}\widetilde{\Omega}:=\vec{\Omega}\times]0,T[
+        \end{align*}
+        \begin{flalign}
+          \begin{aligned}
+            &\text{$\flux$: \rd{flux} of \rd{conserved quantity} u}\\[-1\jot]
+            &\text{$\sourceterm$: \rd{production}/\rd{source} term}
+          \end{aligned}&&
+        \end{flalign}
+    \end{defn}
+\end{defnbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[1D Conservation Law]\label{defn:1d_conservation_law}
+        \begin{align}
+          &u_{t}+\pdv{x}\flux\left(u(x,t),x\right)=\sourceterm\left(u(x,t),x,t\right)&&
+                    \text{in }\widetilde{\Omega}:=\Omega\times]0,T[\label{eq:conservation_law}
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[1D inviscide Conservation Law]\label{defn:1d_inviscide_conservation_law}
+        \begin{alignat}{3}
+         u_{t}+\flux\left(u(x,t),x\right)_{x}&=0&\qquad&
+                                                    \text{in }\widetilde{\Omega}:=\Omega\times]0,T[\label{eq:inviscide_conservation_law}\\[-1\jot]
+         u(0,x)&=u_{0}(x)\nonumber
+        \end{alignat}
+    \end{defn}
+\end{defnbox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../formulary"
+%%% End:

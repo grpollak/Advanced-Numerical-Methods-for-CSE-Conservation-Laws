@@ -1,0 +1,75 @@
+%% Creator: Inkscape 1.1.1 (3bf5ae0d25, 2021-09-20, custom), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'three_wave_flux.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{310.49214521bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.43899771)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0.9550005,0.11796245){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$x$\end{tabular}}}}%
+    \put(0.39352981,0.08256298){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$x_{\idxj+1/2}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{three_wave_flux.pdf}}%
+    \put(0.1298872,0.34444587){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\rhoc_{\idxj+1/2}^{l,\idxn}$\end{tabular}}}}%
+    \put(0.01549696,0.1773403){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\Uvec_L=\Uvec_{\idxj}^{\idxn}$\end{tabular}}}}%
+    \put(0.79859359,0.42920978){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$s_r=s_{\idxj+1/2}^{r,\idxn}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{three_wave_flux.pdf}}%
+    \put(0.64089636,0.1773403){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\Uvec_R=\Uvec_{\idxj+1}^{\idxn}$\end{tabular}}}}%
+    \put(0.40771856,0.42707005){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$s_m=s_{\idxj+1/2}^{m,\idxn}=v^*$\end{tabular}}}}%
+    \put(-0.00106937,0.42732024){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$s_l=s_{\idxj+1/2}^{l,\idxn}$\end{tabular}}}}%
+    \put(0.21421035,0.28645968){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$v_{\idxj+1/2}^{l,\idxn}$\end{tabular}}}}%
+    \put(0.29494321,0.21828246){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$p_{\idxj+1/2}^{l,\idxn}$\end{tabular}}}}%
+    \put(0.44959572,0.23083277){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$p_{\idxj+1/2}^{r,\idxn}$\end{tabular}}}}%
+    \put(0.55778308,0.30566991){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$v_{\idxj+1/2}^{r,\idxn}$\end{tabular}}}}%
+    \put(0.66325277,0.3658737){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\rhoc_{\idxj+1/2}^{r,\idxn}$\end{tabular}}}}%
+    \put(0.00527721,0.00303821){\color[rgb]{0.07058824,0.44313725,0.10980392}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$x(t)=s_{\idxj+1/2}^{l,\idxn}\cdot t$\end{tabular}}}}%
+    \put(0.33753928,0.00303821){\color[rgb]{0.54509804,0.16862745,0.88627451}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$x(t)=s_{\idxj+1/2}^{m,\idxn}\cdot t$\end{tabular}}}}%
+    \put(0.66538345,0.00303821){\color[rgb]{0.54901961,0.03137255,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$x(t)=s_{\idxj+1/2}^{r,\idxn}\cdot t$\end{tabular}}}}%
+  \end{picture}%
+\endgroup%

@@ -1,0 +1,29 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[\newline Einfeldt Scheme]\label{defn:einfeldt_scheme}\leavevmode\\
+        Is a more refined version of the HLL scheme:
+        \begin{align}
+          &s_{\idxj+1/2}^{l,n}=\min_{\idxp}\min\left(\eigenval_{\idxj}^{\idxp,n},\widehat{\eigenval}_{\idxj+1}^{\idxp,n}\right)\\[-1\jot]
+          &s_{\idxj+1/2}^{r,n}=\max_{\idxp}\max\left(\eigenval_{\idxj}^{\idxp,n},\widehat{\eigenval}_{\idxj+1}^{\idxp,n}\right)
+        \end{align}
+        $\widehat{\eigenval}_{\idxj+1}^{\idxp,n}$ is the $\idxp$-th eigenvalue of the Roe-matrix $\linfluxvec_{\idxj+1/2}^{2}$ (\cref{subsubsubsec:roe_matrices}).
+    \end{defn}
+\end{defnbox}
+\begin{sectionbox}\nospacing
+    \begin{minipage}[t]{0.4\textwidth}
+       \begin{proslist}
+           \item Takes into account local information
+           \item No longer symmetric, thus can capture unidirectional wavs
+       \end{proslist}
+    \end{minipage}
+    \begin{minipage}[t]{0.55\textwidth}
+       \begin{conslist}
+           \item Is still an approximation consisting just of three waves i.e.\ already for
+           three waves it will no longer model the middle wave.
+       \end{conslist}
+    \end{minipage}
+\end{sectionbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../../../formulary"
+%%% End:

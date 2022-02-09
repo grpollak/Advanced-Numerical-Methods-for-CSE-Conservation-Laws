@@ -1,0 +1,25 @@
+\begin{proofbox}\nospacing
+    \begin{proof}[Central Scheme\cref{defn:central_schemes}]\label{proof:defn:central_schemes}
+        \begin{align*}
+          u(x,t)=
+          \begin{cases}
+              u_{\idxj}^{n} &\text{if }x<s_{\idxj+1/2}t \\
+              u_{\idxj+1/2}^{n}&\text{if }s_{\idxj+1/2}^{l}t<x<s_{\idxj+1/2}^{r}t \\
+              u_{\idxj+1}^{n}&x>s_{\idxj+1/2}^{r}t
+          \end{cases}
+        \end{align*}
+        By local conservation using the RH-condition\cref{eq:rankine-hugoniot_condition} we can determine the middle state:
+        \begin{align}
+          \flux \left(u_{\idxj+1}^{n}\right)-\flux_{\idxj+1/2}^{*}&=s^{r}_{\idxj+1/2}\left(u_{\idxj+1}^{n}-u_{\idxj+1/2}^{*}\right)\label{eq:proof_central1}\\[-1\jot]
+          \flux \left(u_{\idxj}^{n}\right)-\flux_{\idxj+1/2}^{*}&=s^{l}_{\idxj+1/2}\left(u_{\idxj}^{n}-u_{\idxj+1/2}^{*}\right)\label{eq:proof_central1}
+        \end{align}
+        \begin{align*}
+            &\cref{eq:proof_central1}*s^{l}_{\idxj+1/2}+\cref{eq:proof_central1}/s^{r}_{\idxj+1/2}
+        \end{align*}
+        \scalematho{
+        \begin{align*}
+          &\Rightarrow s^{l}_{\idxj+1/2}s^{R}_{\idxj+1/2} \left(u_{\idxj+1}^{n}-u_{\idxj}^{n}\right)\\[-1\jot]
+          &\quad=s^{l}_{\idxj+1/2}\flux \left(u_{\idxj+1}^{n}\right)+s^{R}_{\idxj+1/2}\flux \left(u_{\idxj}^{n}\right)+\left(s^{l}_{\idxj+1/2}-s^{R}_{\idxj+1/2}\right)f^{*}_{\idxj+1/2}
+        \end{align*}}
+    \end{proof}
+\end{proofbox}

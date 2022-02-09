@@ -1,0 +1,42 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\exampleref{example:defn:semi_discrete_fvm}\newline Semi-Discrete FVM]\label{defn:semi_discrete_fvm}
+        Is a discrete time-continuous but space-discrete formulation of\cref{defn:fvm_evolution_and_averaging}:
+        \begin{align}
+          \dv{\uvec}{t}=\LT(\uvec)
+        \end{align}
+        \begin{align}
+          \dv{t}u_{\idxj}(t)=&\LT(\uvec_{\idxj})\qquad\qquad\text{\rd{rate of change}}\label{eq:evolution_and_averaging}\\[-1\jot]
+          =&:-\frac{1}{\Delta x} \left(\Flux \left(u_{\idxj^{+}}^{n},u_{{\idxj+1}^{-}}^{n}\right)- \Flux \left(u_{{\idxj-1}^{+}}^{n},u_{{\idxj}^{-}}^{n}\right) \right)\nonumber
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Semi-discrete Cell Averages]\label{defn:cell_averages_semi_discrete}\leavevmode
+      \begin{align}
+        U_{\idxj}^{n}:\approx\frac{1}{\Delta x}\int_{x_{\idxj-\frac{1}{2}}}^{x_{\idxj+\frac{1}{2}}}u\left(x,t\right)\diff x
+      \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Strong Stability Preserving \rb{SSP} Runge-Kutta Methods]\label{defn:s_runge-kutta_methods}
+        Are Runge-Kutta methods that preserve the TVD property\cref{eq:discrete_total_variation_diminishing}.
+    \end{defn}
+\end{defnbox}
+\begin{sectionbox}[Summary what we need]\nospacing
+    \begin{circlelistnosep}
+        \item Mesh/Grid
+        \item Numerical Flux $\Flux(u,v)$ (consistent/monotone)
+        \item Reconstruction: given $\left\{u_{\idxj}\right\}$ output $\left\{u_{\idxj}^{\pm}\right\}$
+        \begin{align*}
+          u_{\idxj}^{\pm}=u_{\idxj}\pm\sigmac_{\idxj}\frac{\Delta x}{2}
+        \end{align*}
+        \item Slope Limiters for the slope $\sigmac_{\idxj}$
+        \item SSP-RK scheme
+    \end{circlelistnosep}
+\end{sectionbox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../formulary"
+%%% End:

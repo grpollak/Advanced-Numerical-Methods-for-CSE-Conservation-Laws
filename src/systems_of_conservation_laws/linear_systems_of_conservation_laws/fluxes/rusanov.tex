@@ -1,0 +1,19 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[\newline Rusanov\aslash Local-Lax-Friedrichs Scheme]\label{defn:Rusanov_local_friedrichs_scheme_system}\leavevmode\\
+        Takes into account the local speeds $\eigenval_{\idxp}$ of the waves (and not only the grid):
+        \begin{align}
+          s_{\idxj+1/2}=\max\abs{\Lambdac}&&
+        \end{align}
+        with \cref{eq:central_scheme_symmetric_waves} and $s_{\idxj+1/2}^{r}=s_{\idxj+1/2}=-s_{\idxj+1/2}^{l}$ it follows:
+        \begin{align}
+          \Fluxvec_{\idxj+1/2}^{\idxn}=&\Fluxvec^{\text{Rus}}\left(u^{\idxn}_{\idxj},u^{\idxn}_{\idxj+1}\right)\\[-1\jot]
+                                   =&\frac{1}{2}\Avec \left(\Uvec_{\idxj}^{n}+\Uvec_{\idxj+1}^{n}\right)\\[-1\jot]
+          &-\frac{\eigenval_{\max}}{2}\left(\Uvec_{\idxj+1}^{n}-\Uvec_{\idxj}^{n}\right)\nonumber
+        \end{align}
+    \end{defn}
+\end{defnbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../formulary"
+%%% End:

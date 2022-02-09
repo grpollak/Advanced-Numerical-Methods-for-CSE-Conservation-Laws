@@ -1,0 +1,49 @@
+\begin{proofbox}\nospacing
+    \begin{proof}[TVD FVM REA Scheme]\label{proof:lemma:tvd_fvm_rea_scheme}
+        From\cref{eq:linear_reconstruction_approximation} we know:
+        \begin{align*}
+          u_{\idxj^{+}}^{n}&=u_{\idxj}^{n}+\frac{\sigmac_{\idxj}^{n}}{2}\Delta x=u_{\idxj}^{n}+\frac{\deltac_{\idxj}^{n}}{2}\\[-1\jot]
+          u_{\idxj^{-}}^{n}&=u_{\idxj}^{n}-\frac{\sigmac_{\idxj}^{n}}{2}\Delta x=u_{\idxj}^{n}-\frac{\deltac_{\idxj}^{n}}{2}
+        \end{align*}
+        \begin{align*}
+          T_{1}=&\frac{u_{\idxj+1}^{n}-\frac{\deltac_{\idxj-1}^{n}}{2}-u_{\idxj}^{n}+\frac{\deltac_{\idxj}^{n}}{2}}{u_{\idxj+1}^{n}-u_{\idxj}^{n}}\\[-1\jot]
+          =&1-\frac{1}{2}\left[\frac{\deltac_{\idxj+1}^{n}-\deltac_{\idxj}^{n}}{u_{\idxj+1}^{n}-u_{\idxj}^{n}}\right]\\[-1\jot]
+          T_{2}=&1+\frac{1}{2}\left[\frac{\deltac_{\idxj+1}^{n}-\deltac_{\idxj}^{n}}{u_{\idxj+1}^{n}-u_{\idxj}^{n}}\right]
+        \end{align*}
+        \begin{align*}
+          \implies T_{1}+T_{2}\equiv2
+        \end{align*}
+        and the rest follows from the condition that $T_{1},T_{2}\geq0$
+    \end{proof}
+\end{proofbox}
+\begin{proofbox}\nospacing
+    \begin{proof}[TVD Minmod Limiter\cref{cor:minmod_is_tvd},\cref{lemma:tvd_fvm_rea_scheme}]\label{proof:tvd_minmod_limiter}
+        \scalematho{
+        \begin{align*}
+          \frac{\deltac_{\idxj}^{n}}{u_{\idxj+1}-u_{\idxj}^{n}}=&\frac{\Delta x\sigmac_{\idxj}^{n}}{u_{\idxj+1}-u_{\idxj}^{n}}=
+         \frac{\text{minmod} \left(u_{\idxj+1}^{n}-u_{\idxj}^{n},u_{\idxj}^{n}-u_{\idxj-1}^{n}\right)}{u_{\idxj+1}-u_{\idxj}^{n}}
+        \end{align*}}
+      \begin{align*}
+        \text{sign}(u_{\idxj+1}^{n}-u_{\idxj}^{n})\neq\text{sign}(u_{\idxj}^{n}-u_{\idxj-1}^{n})&&\implies\sigmac_{\idxj}^{n}=0
+      \end{align*}
+      \begin{align*}
+        \text{sign}(u_{\idxj+1}^{n}-u_{\idxj}^{n})=\text{sign}(u_{\idxj}^{n}-u_{\idxj-1}^{n})=\pm1
+      \end{align*}
+      \begin{align*}
+        \implies\quad\frac{\deltac_{\idxj}^{n}}{u_{\idxj+1}-u_{\idxj}^{n}}=&\text{minmod}\left(\frac{{u_{\idxj+1}-u_{\idxj}^{n}}}{u_{\idxj+1}-u_{\idxj}^{n}},\frac{{u_{\idxj+1}-u_{\idxj}^{n}}}{u_{\idxj+1}-u_{\idxj}^{n}}\right)\\[-1\jot]
+        =&\text{minmod}\Big(1,\underbrace{\frac{{u_{\idxj+1}-u_{\idxj}^{n}}}{u_{\idxj+1}-u_{\idxj}^{n}}}_{\geq0}\Big)\leq 1
+      \end{align*}
+      \begin{align*}
+        \implies\quad 0\leq\frac{\deltac_{\idxj}^{n}}{u_{\idxj+1}-u_{\idxj}^{n}}\leq 1&&0\leq\frac{\deltac_{\idxj+1}^{n}}{u_{\idxj+1}-u_{\idxj}^{n}}\leq 1
+      \end{align*}
+      \begin{align}
+        \implies&-1\leq\frac{\deltac_{\idxj+1}^{n}-\deltac_{\idxj}^{n}}{u_{\idxj+1}-u_{\idxj}^{n}}\leq 1
+      \end{align}
+    \end{proof}
+\end{proofbox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../formulary"
+%%% End:

@@ -1,0 +1,32 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[\newline FVM RP for Sys.\ of Non-linear Cons. Laws]\label{defn:fvm_riemann_problem_for_non_linear_systems_of_conservations_laws}
+            \begin{align}
+              \begin{aligned}
+                \partial_{t}\Uvec+\partial_{x}\fluxvec\left(\Uvec\right)&=\vec{0}\\[-1.5\jot]
+                \Uvec(x,t^{n})&=\begin{cases}
+                        \Uvec_{\idxj}&\text{if }x<x_{\idxj+1/2} \\
+                        \Uvec_{\idxj+1}&\text{if }x>x_{\idxj+1/2}
+                \end{cases}
+                \end{aligned}\label{eq:riemann_problem_nonlinear_systems_of_conservation_laws}
+            \end{align}
+        \end{defn}
+\end{defnbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[\newline Finite Volume Scheme]\label{defn:fvm_method_for_non-linear_systems_of_sclar_conservation_laws}
+        For non-linear scalar systems of conservation laws it holds:
+        \begin{align}
+          &\Uvec_{\idxj}^{n+1}=\Uvec_{\idxj}^{n}-\frac{\Delta t}{\Delta x}\left(\Fluxvec^{n}_{\idxj+1/2}-\Fluxvec^{n}_{\idxj-1/2}\right)&&\forall\idxj,n
+           \label{eq:finite_volume_scheme_for_non_linear_sytems_of_conservation_laws}
+        \end{align}
+        \begin{align*}
+          &\Uvec_{\idxj}^{0}=\frac{1}{\Delta x}\int^{x_{\idxj+1/2}}_{x_{\idxj+1/2}}\Uvec_{0}(x)\diff x&&\Fluxvec_{\idxj+1/2}^{n}=\fluxvec(\uvec(0))\nonumber
+        \end{align*}
+    \end{defn}
+\end{defnbox}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../formulary"
+%%% End:

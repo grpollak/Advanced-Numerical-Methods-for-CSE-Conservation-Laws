@@ -1,0 +1,35 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\proofref{proof:rarefaction_waves}\newline Rarefaction Wave]
+        \label{defn:rarefaction_wave}\leavevmode\\
+        A rarefaction wave is a \textit{self-similar} solutions of the form:
+        \begin{align}
+          u(x,t)=v \left(\frac{x}{t}\right)=\left(\flux^{'}\right)^{-1}\left(\frac{x}{t}\right)
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{corbox}\nospacing
+    \begin{cor}[\hfill\exampleref{example:cor:rarefaction_solution_riemann_problem}\newline Rarefaction Solution for the Riemann Problem]\leavevmode\\
+        \label{cor:rarefaction_solution_riemann_problem}
+        Consider the Riemann problem \cref{eq:riemann_problem}, then a
+        solution given by rarefaction wave is given by:
+        \begin{align}
+          u(x,t)=
+          \left\{\begin{aligned}
+                  &u_{L}\\
+                  &\left(\flux^{'}\right)^{-1}\left(\frac{x}{t}\right)\\
+                  &u_{R}
+          \end{aligned}\right.&&\text{if}&&
+                                    \begin{aligned}
+                                     &x\leq\flux'\left(u_{L}\right)t\\
+                                     \flux'\left(u_{L}\right)t<&x\leq\flux'\left(u_{R}\right)t\\
+                                     &x>\flux'\left(u_{R}\right)t
+                                    \end{aligned}
+        \end{align}
+        and satisfies the Lax-entropy condition:
+    \end{cor}
+\end{corbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../formulary"
+%%% End:

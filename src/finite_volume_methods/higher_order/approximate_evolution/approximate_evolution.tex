@@ -1,0 +1,77 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[Approximate Reconstruction]\label{defn:approximate_reconstruction}\leavevmode\\
+        \begin{minipage}{0.5\textwidth}
+            Approximate \textit{piecewise-linears} of the cell-averages\cref{defn:cell_averages} by
+            two a simpler problem:
+        \begin{align*}
+          &\polynomial^{n}(x)=\left\{\polynomial_{\idxj}^{n}(x)\right\}_{\idxj}\\[-1\jot]
+          &\polynomial_{\idxj}^{n}(x)=\mca_{\idxj}^{n}x+\mcb_{\idxj}^{n}\\[-1\jot]
+          &u_{\idxj^{+}}^{n}=\polynomial_{\idxj}^{n}\left(x_{\idxj+1/2}\right)\\[-1\jot]
+          &u_{\idxj^{-}}^{n}=\polynomial_{\idxj}^{n}\left(x_{\idxj-1/2}\right)
+        \end{align*}
+        \end{minipage}
+        \begin{minipage}[c]{0.45\textwidth}
+            \begin{figure}[H]
+                \centering{
+                  \def\svgwidth{100pt}
+                  \resizebox{0.85\linewidth}{!}{\input{src/finite_volume_methods/higher_order/approximate_evolution/figures/approximate_evolution.pdf_tex}}
+                }
+            \end{figure}
+        \end{minipage}
+    \end{defn}
+\end{defnbox}
+\begin{corbox}\nospacing
+    \begin{cor}[Linear Approximate Reconstruction]
+        \begin{align}
+          u_{\idxj\pm}^{n}\eqs{\text{\cref{eq:finite_volume_scheme}}}\polynomial_{\idxj}^{n} \left(x_{\idxj\pm 1/2}\right)=\underbrace{u_{\idxj}^{n}}_{\text{midpoint}}\pm\overbrace{\frac{\Delta x}{2}}^{\mathclap{\text{distance to boundary}}}\sigmac_{\idxj}^{n}\label{eq:linear_reconstruction_approximation}
+        \end{align}
+    \end{cor}
+\end{corbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[FVM Evolution and Averaging]\label{defn:fvm_evolution_and_averaging}
+        \begin{align}
+          u_{\idxj}^{n+1}=u_{\idxj}^{n}-\frac{\Delta t}{\Delta x}
+          \left(\Flux \left(u_{\idxj^{+}}^{n},u_{{\idxj+1}^{-}}^{n}\right)-
+         \Flux \left(u_{{\idxj-1}^{+}}^{n},u_{{\idxj}^{-}}^{n}\right) \right)\label{eq:evolution_and_averaging}
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{corbox}\nospacing
+    \begin{cor}[\hfill\proofref{proof:cor:fvm_evolution_and_averaging_in_incremental_form}
+        \newline FVM Evolution and Averaging in Incremental Form]\label{cor:fvm_evolution_and_averaging_in_incremental_form}
+        \begin{align*}
+        U_{\idxj}^{n+1}=U_{\idxj}^{n}+\mcC_{\idxj+1/2}^{n} \left(U_{\idxj+1}^{n}-U_{\idxj}^{n}\right)-\mcD_{\idxj-1/2}^{n} \left(U_{\idxj}^{n}-U_{\idxj-1}^{n}\right)\label{eq:finite_volume_scheme_incremental_form}
+        \end{align*}
+        \begin{align}
+          &\mcc_{\idxj+1/2}^{n}=\frac{\Delta t}{\Delta x}\frac{\flux \left(u_{\idxj^+}^{n},u_{\idxj^{-}}^{n}\right)-\flux \left(u_{\idxj^+}^{n},u_{\idxj+1^{-}}^{n}\right)}{u_{\idxj+1}^{n}-u_{\idxj}^{n}}\nonumber\\[-1\jot]
+          &\mcd_{\idxj+1/2}^{n}=\frac{\Delta t}{\Delta x}\frac{\flux \left(u_{\idxj+1^+}^{n},u_{\idxj+1^{-}}^{n}\right)-\flux \left(u_{\idxj^+}^{n},u_{\idxj-1^{-}}^{n}\right)}{u_{\idxj+1}^{n}-u_{\idxj}^{n}}
+        \end{align}
+    \end{cor}
+\end{corbox}
+\begin{lemmabox}\nospacing
+    \begin{lemma}[\newline TVD REA Scheme]\leavevmode\\
+        A FVM REA\cref{defn:rea_algorithm} scheme is TVD iff \textit{construction}, \textit{averaging} and \textit{evolution} are all TVD.
+    \end{lemma}
+\end{lemmabox}
+\begin{sectionbox}\nospacing
+	We know that evolution\cref{cor:evolution_is_tvd} and averaging\cref{cor:averaging_is_tvd} is TVD thus we need to find a \textit{reconstruction} that is TVD.
+\end{sectionbox}
+\begin{lemmabox}\nospacing
+    \begin{lemma}[\hfill\proofref{proof:eq:fvm_rea}\newline TVD REA scheme]\label{eq:fvm_rea}\leavevmode\\
+        A REA\cref{defn:rea_algorithm} scheme is TVD iff:
+        \begin{circlelistnosep}
+            \item \cref{eq:evolution_and_averaging} satisfies the CFL condition \cref{eq:cfl_condition_for_fvs}
+            \item $T_{1},T_{2}\geq0$
+            \item $T_{1}+T_{2}\leq2$
+        \end{circlelistnosep}
+        \begin{align}
+          T_{1}:=\frac{U_{{\idxj+1}^{-}}^{n}-U_{\idxj^{-}}^{n}}{U_{\idxj+1}^{n+1}-U_{\idxj}^{n}}&&
+          T_{2}:=\frac{U_{{\idxj+1}^{+}}^{n}-U_{\idxj^{+}}^{n}}{U_{\idxj+1}^{n+1}-U_{\idxj}^{n}}
+        \end{align}
+    \end{lemma}
+\end{lemmabox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../formulary"
+%%% End:

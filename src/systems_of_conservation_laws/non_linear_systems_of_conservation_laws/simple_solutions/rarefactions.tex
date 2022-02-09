@@ -1,0 +1,68 @@
+\begin{lemmabox}\nospacing
+    \begin{lemma}[Existence Rarefaction Solution]\label{lemma:existence_rarefactio_solution_non_linear_systems_of_equations}\leavevmode\\
+        Let the $\idxj$-th wave family\cref{defn:wave_family} be \textit{genuinely nonlinear}\cref{defn:genuinely_nonlinear_wave_family}
+        and let $\Uvec_{L}\in\admissibleset$.
+        Then by the Piccard-Lindeloef Theorem\cref{defn:todo} there exists an \textit{integral curve} solving \cref{eq:simple_ode}:
+        \begin{align}
+          \mathcal{R}_{\idxj}\left(\Uvec_{L}\right)=\left\{\Wvec_{\idxj}\left(\epsilonc^{*}\right)\in\R^{\idxm}: \epsilonc^{*}\in[0,\widebar{\epsilonc})\right\}
+        \end{align}
+        if $\Uvec_{R}\in\mathcal{R}_{\idxj}\left(\Uvec_{L}\right)$ then there exists a \cref{rarefaction solution}\cref{defn:rarefaction_solution_non_linear_systems_of_equations} $\Uvec$ to the Riemann problem\cref{eq:riemann_problem_nonlinear_systems_of_conservation_laws}.
+    \end{lemma}
+\end{lemmabox}
+\begin{notebox}[Note: Lipschitz Boundaries]\nospacing
+    We exclude $-\widebar{\epsilonc}$ i.e.\ use $[0,\widebar{\epsilonc})$ as integration boundaries because for the
+    rarefaction solution we have different eigenvalues and in this case the right eigenvalue could be larger than the left eigenvalue, which wouldn't make sense:
+    \begin{align*}
+      \eigenval_{\idxj}\left(\Uvec_{R}\right)=\epsilonc+\eigenval_{\idxj}\left(\Uvec_{L}\right)<\eigenval_{\idxj}\left(\Uvec_{L}\right)&& \lightning
+    \end{align*}
+\end{notebox}
+\begin{propositionbox}\nospacing
+    \begin{proposition}[\hfill\proofref{proof:rarefaction_and_gnl_wave_families}\newline Rarefaction and GNL wave families]
+        \label{proposition:rarefaction_and_gnl_wave_families}
+        Rarefaction solutions of non-linear systems of conservation laws\cref{defn:nonlinear_systems_of_conservation_laws} exist
+        if the wave families are \textit{genuinely nonlinear}\cref{defn:genuinely_nonlinear_wave_family}:
+        \begin{align}
+          \nabla \eigenval_{\idxj}\left(\vvec(\xic)\right)^{\T}\vec{r}_{\idxj}\left(\vvec(\xic)\right)=1&&\forall\idxj\in \left\{1,\ldots,\idxm\right\}\label{eq:rarefaction_and_gnl_wave_families}
+        \end{align}
+    \end{proposition}
+\end{propositionbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\proofref{proof:rarefaction_and_gnl_wave_families}\newline Rarefaction Solution]
+        \label{defn:rarefaction_solution_non_linear_systems_of_equations}\leavevmode\\
+        If \cref{lemma:existence_rarefactio_solution_non_linear_systems_of_equations} is satisfied then the solution of \cref{eq:riemann_problem_nonlinear_systems_of_conservation_laws} is given by:
+        \begin{align}
+          \Uvec(x,t)=
+          \left\{\begin{alignedat}{5}
+              &\Uvec_{L}&&&&\frac{x}{t}<\eigenval_{\idxj}\left(\Uvec_{L}\right) \\
+              &\Wvec_{\idxj}\left(\frac{x}{t}-\eigenval_{\idxj}\left(\Uvec_{L}\right)\right)&&\qquad&\eigenval_{\idxj}\left(\Uvec_{L}\right)<&\frac{x}{t}<\eigenval_{\idxj}\left(\Uvec_{R}\right) \\
+              &\Uvec_{R}&&&\eigenval_{\idxj}\left(\Uvec_{R}\right)<&\frac{x}{t}
+          \end{alignedat}\right.\label{eq:rarefaction_solution_non_linear_systems_of_equations}
+        \end{align}
+        \begin{figure}[H]
+            \centering
+            \begin{subfigure}{.5\columnwidth}
+                \centering{
+                \def\svgwidth{120pt}
+              \resizebox{\linewidth}{!}{\input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/simple_solutions/figures/characteristics_non_linear_sys.pdf_tex}}}
+                \caption{Characteristics splitting the solution in three regsion. The RH-condition \cref{eq:rankine-hugoniot_condition_systems} is trivaly fulfilled}
+            \end{subfigure}%
+            \hfill
+            \begin{subfigure}[t]{.45\columnwidth}
+                \centering{
+                  \def\svgwidth{120pt}
+              \resizebox{\linewidth}{!}{\input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/simple_solutions/figures/rarefaction_non_linear_sys.pdf_tex}}
+                }
+                \caption{Solution for inital data and later point; both waves travel with the same speed, one to the right the other to the left.}
+            \end{subfigure}
+        \end{figure}
+    \end{defn}
+\end{defnbox}
+\todo[inline]{tell mishra there is a typo in the script UR instead of UL}
+\begin{notebox}[Note]\nospacing
+    The eigenvectors $\vec{r}_{\idxj}\left(\vvec(\xic)\right)$ for a gnl family can always be rescaled s.t.\ \cref{eq:rarefaction_and_gnl_wave_families} equals to 1.
+\end{notebox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../formulary"
+%%% End:

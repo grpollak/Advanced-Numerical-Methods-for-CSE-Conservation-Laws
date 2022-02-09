@@ -1,0 +1,47 @@
+\begin{proofbox}\nospacing
+    \begin{proof}[Heun's Method TVD\cref{defn:heuns_method}]\label{proof:defn:heuns_method_tvd}
+          We know that F.E.\ is TVD s.t.\
+          \begin{align*}
+            \text{TV}\left(U^{*}\right)\leq\text{TV}\left(U^{n}\right)\\[-1\jot]
+            \text{TV}\left(U^{**}\right)\leq\text{TV}\left(U^{*}\right)
+          \end{align*}
+          \begin{align*}
+            \implies\text{TV}\left(U^{**}\right)\leq\text{TV}\left(U^{*}\right)\leq\text{TV}\left(U^{n}\right)
+          \end{align*}
+          \begin{align*}
+            \text{TV}\left(U^{n+1}\right)=&\text{TV}\left(\frac{U^{n}+U^{**}}{2}\right)\\[-1\jot]
+            \vspace{-2em}\stackrel{\scalemath{\text{TV}(\mca u+\mcb v)\leq\mca \text{TV}(u)+\mcb \text{TV}(v)}}{\leq}&\frac{1}{2}\text{TV}\left(U^{n}\right)+\frac{1}{2}\text{TV}\left(U^{**}\right)\\[-1\jot]
+            \leq\frac{1}{2}\text{TV}\left(U^{n}\right)+\frac{1}{2}\text{TV}\left(U^{n}\right)=&\text{TV}\left(U^{n}\right)
+          \end{align*}
+          \begin{align*}
+            \text{TV}\left(U^{n+1}\right)\leq\text{TV}\left(U^{n}\right)
+          \end{align*}
+    \end{proof}
+\end{proofbox}
+\begin{proofbox}\nospacing
+    \begin{proof}[Heuristic Heun's Method 2nd Order\cref{defn:heuns_method}]\label{proof:defn:heuns_method_order}
+        We take a linear ODE:
+        \begin{align*}
+          u_{t}=\mca u&&\stackrel{\text{exac. sol}}{\implies}&&
+                                                                u_{n+1}=u_{n}\e^{\mca\Delta t}
+        \end{align*}
+        with the discretization $U_{n}:=u(t_{n})$ for our scheme it follows:
+        \begin{align*}
+          U^{*}=&U_{n}+\mca\Delta t U_{n}\\[-1\jot]
+          U^{**}=&U^{*}+\mca\Delta t U^{*}\\[-1\jot]
+                &U_{n}+\mca\Delta t U_{n}+\mca\Delta t U_{n}+\mca^{2}\Delta t^{2} U_{n}\\[-1\jot]
+                &U_{n}+2\mca\Delta t U_{n}+\mca^{2}\Delta t^{2} U_{n}
+        \end{align*}
+        \begin{align*}
+          U_{n+1}=&\frac{1}{2}\left(U^{n}+U^{**}\right)=U_{n}+\mca\Delta t U_{n}+\frac{1}{2}\mca^{2}\Delta t^{2} U_{n}\\[-1\jot]
+          =&U_{n}\left(1+\mca\Delta t+\frac{1}{2}\mca^{2}\Delta t^{2}\right)
+        \end{align*}
+        for a Taylor expansion of the exact solution it holds:
+        \begin{align*}
+          U_{n+1}=u_{n}e^{\mca\Delta t}=U_{n} \left(1+\mca\Delta t+\frac{1}{2}\mca^{2}\Delta t^{2}+\frac{1}{6}\mca^{3}\Delta t^{3}+\ldots\right)
+        \end{align*}
+        \begin{align*}
+          \implies&&\tauc_{n}=\abs*{u_{n+1}-U_{n+1}}=\bigO{\Delta t^{3}}&&\implies&&\text{2nd order}
+        \end{align*}
+    \end{proof}
+\end{proofbox}

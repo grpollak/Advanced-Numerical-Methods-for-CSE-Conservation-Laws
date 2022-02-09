@@ -1,0 +1,32 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[Shock Waves]\label{defn:riemann_shock_waves}
+        For conservation laws with convex flux function $\flux$ and Riemann data \cref{defn:riemann_problem}:
+            \begin{align}
+            u_{t}+\flux \left(u\right)_{x}=0
+            \end{align}
+            \begin{align}
+            u_{0}=\begin{cases}
+                    U_{R}&\text{if }x>0\\
+                    U_{L}&\text{if }x<0
+                    \end{cases}
+            \end{align}
+    \end{defn}
+\end{defnbox}
+\todo[inline]{check again this solution}
+\begin{corbox}\nospacing
+    \begin{cor}[Shock Wave Solution]\label{cor:shock_wave_solution}
+        \begin{align}
+          u(x,t)=
+          \begin{cases}
+              0&\text{ if }x<s(t)t\\
+              1&\text{ if }x>s(t)t
+          \end{cases}
+        \end{align}
+    \end{cor}
+\end{corbox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../formulary"
+%%% End:

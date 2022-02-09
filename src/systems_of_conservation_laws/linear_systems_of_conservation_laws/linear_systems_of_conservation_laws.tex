@@ -1,0 +1,30 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\exampleref{example:wave_equation,example:maxwells_equations,example:linearized_euler_equations}\newline Linear System of Conservation Laws]
+        \label{defn:linear_system_of_conservation_laws}
+        \begin{align}
+          &\uvec_{t}+\linfluxvec\uvec_{\xvec}=\sourceterm\left(\uvec(\xvec,t),\xvec,t\right)&&
+                                                                                         \text{in }\widetilde{\Omega}:=\Omega\times]0,T[\nonumber \\[-1\jot]
+          &\uvec=\bvect{u_{1}&u_{2}&\Cdots&u_{m}}^{\T}&&\uvec=\bvect{\flux_{1}&\flux_{2}&\Cdots&\flux_{m}}^{\T}\label{eq:linear_system_of_conservation_law}
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{corbox}\nospacing
+    \begin{cor}[\newline Linear Sys.\ of Cons.\ Laws with Variable Coefficients]\label{cor:linear_system_of_conservation_laws_with_variable_coefficients}
+        \begin{align}
+          &\uvec_{t}+\left(\linfluxvec(\xvec,t)\uvec\right)_{\xvec}=\sourceterm\left(\uvec(\xvec,t),\xvec,t\right)&&
+                    \text{in }\widetilde{\Omega}:=\Omega\times]0,T[\label{eq:linear_system_of_conservation_law_variable_coef}
+        \end{align}
+    \end{cor}
+\end{corbox}
+\begin{corbox}\nospacing
+    \begin{cor}[\hfill\proofref{proof:cor:linearizing_systems_of_consveration_laws}\newline Linearizing Systems of Conservation Laws]
+        \label{cor:linearizing_systems_of_consveration_laws}
+        \leavevmode\\
+        \Cref{eq:system_of_conservation_law} can be linearized into \cref{eq:linear_system_of_conservation_law}.
+    \end{cor}
+\end{corbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

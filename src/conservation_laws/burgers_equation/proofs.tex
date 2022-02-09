@@ -1,0 +1,50 @@
+\begin{proofbox}\nospacing
+    \begin{proof}[Conservative Form Burgers Equation\cref{cor:burgers_equation_conservative_formulation}]\label{proof:cor:burgers_equation_conservative_formulation}
+        \begin{align*}
+            \pdv{x}\frac{1}{2}u(\xvec,t)^2=\frac{2}{2}u(\xvec,t)_{\xvec} u(\xvec,t)
+        \end{align*}
+    \end{proof}
+\end{proofbox}
+\begin{proofbox}\nospacing
+    \begin{proof}[\newline Evolution of Spatial Gradients along Characteristics]\label{proof:burgers_gradient}
+        \begin{align*}
+             u_t+u u_x&=0 \\[-1\jot]
+              u(x,0)&=u_{0}(x)
+        \end{align*}
+        Consider the problem for solving for the spatial gradients $v:=u_{x}$:
+        \begin{align*}
+          \pdv{x}\left(\cdot\right)&\Rightarrow&&\left(u_{x}\right)_{t}+u \left(u_{x}\right)_{x}+u_{x}\cdot u_{x}=0
+        \end{align*}
+        \begin{empheq}[box=\fbox]{align}
+             v_t+u v_x&=\ul[ulc2]{-v^{2}}\nonumber\\[-1\jot]
+             v(x,0)&=v_{0}(0)=u'_{0}(x)
+        \end{empheq}
+        \begin{align*}
+          &\imp{\text{ODEs} }u&&\dv{x}{t}=\ul{u} \left(x(t),t\right)\\[-1\jot]
+          &&&\dv{v\left(x(t),t\right)}{t}\eqs{\text{C.R.}}=v_{t}+v_{x}\ul{\dv{x}{t}}=\ul[ulc2]{v_{x}+v_{t}u}=-v^{2}\\[-1\jot]
+          &\imp{\text{ODEs} }v&&
+                                 \left.\begin{aligned}
+                                        \dv{v}{t}=-v^{2} \\[-1\jot] v(0)=v_{0}
+                                \end{aligned}\right\}\quad v(t)=\frac{v_{0}(x)}{1+v_{0}(x)t}=\frac{u'_{0}(x)}{1+u_{0}'(x)\ul[ulc3]{t}}
+        \end{align*}
+          \todo[inline]{add integration of ODE}
+          \begin{align*}
+            \text{If }
+            \left\{\begin{aligned}
+                &u'_0(t)>0\\
+                &u'_0(t)<0
+            \end{aligned}\right.&&\Rightarrow&&
+            \begin{cases}
+                v(t)&\text{well behaved}\\
+                v(t)\to\infty&\text{as $\ul[ulc3]{t}\to-\frac{1}{u'_{0}(x)}$}
+            \end{cases}
+          \end{align*}
+          Thus soon as we have a negative gradient for the initial data we will run into blow up at some time.
+    \end{proof}
+\end{proofbox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

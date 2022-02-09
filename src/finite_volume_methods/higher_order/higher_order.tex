@@ -1,0 +1,26 @@
+\begin{sectionbox}[Goal]\nospacing
+    Design higher-order (2$^{nd}$)-order schemes which are stable:
+    \begin{itemizenosep}
+        \item TVD
+        \item Max Principle
+    \end{itemizenosep}
+    and reduce the error/are more accurate.
+\end{sectionbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Truncation Error\hfill\tcblack{$\tauc$}]\label{defn:truncation_error}\leavevmode\\
+        The truncation error w.r.t.\ $u_{\idxj}^{n+1}=H\left(u_{\idxj-1}^{n},u_{\idxj}^{n},u_{\idxj+1}^{n}\right)$
+        is defined as:
+        \begin{align}
+          \tauc:=u \left(x_{\idxj},t^{n+1}\right)-
+          H \left(u \left(x_{\idxj-1},t^{n}\right),u \left(x_{\idxj},t^{n}\right),u \left(x_{\idxj+1},t^{n}\right)\right)
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Order of Scheme]\label{defn:order_of_scheme}\leavevmode\\
+        The order of a scheme is defined:
+        \begin{align}
+          \quadOrder:\quad\max_{\idxj,n}\abs*{\tauc_{\idxj}^{n}}\leq C\Delta t^{\quadOrder+1}
+        \end{align}
+    \end{defn}
+\end{defnbox}

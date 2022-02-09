@@ -1,0 +1,21 @@
+\begin{principbox}\nospacing
+    \begin{princip}[\hfill\proofref{proof:princip:maximum_principle}\newline Maximum Principle]\label{princip:maximum_principle}
+        \Cref{eq:inviscide_conservation_law} attains its maximums on the boundary or its a constant:
+        \begin{align}
+          &\max\left(u(x,t)\right)\leq\max\left(0,\max u_{0}(x)\right)\label{eq:maximum_principle_inviscid_conservation_law}\\[-1\jot]
+          &\min\left(u(x,t)\right)\geq\min\left(0,\min u_{0}(x)\right)
+        \end{align}
+        \begin{figure}[H]
+            \centering{
+              \vspace{-0.3em}
+              \def\svgwidth{100pt}
+              \resizebox{0.4\linewidth}{!}{\input{src/entropy_solutions/maximum_principle/figures/maximum_principle_example.pdf_tex}}
+            }
+        \end{figure}
+    \end{princip}
+\end{principbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

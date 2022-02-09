@@ -1,0 +1,75 @@
+\begin{sectionbox}\nospacing
+    If $\idxp$-th component of \textit{Numerical Diffusion} in \cref{eq:roe_flux_linearized_system} is zero that is if $\abs*{\eigenval_{\idxj+1/2}^{\idxp,n}}\propto\text{average}\left(\eigenval_{\idxj}^{\idxp,n},\eigenval_{\idxj+1}^{\idxp,n}\right)=0$,
+    then there exists nothing to stabilize, leading to instability in the $\idxp$-th component.\\
+    When is the $\idxp$-th component of \textit{Numerical Diffusion} zero?\\
+    The problem arises in the $\idxp$-th component if:
+    \begin{align*}
+      \sign\left(\eigenval_{\idxj}^{\idxp,n}\right)\neq\sign\left(\eigenval_{\idxj+1}^{\idxp,n}\right)&&\text{and}&&\abs*{\eigenval_{\idxj}^{\idxp,n}}\approx\abs*{\eigenval_{\idxj+1}^{\idxp,n}}
+    \end{align*}
+\end{sectionbox}
+\begin{sectionbox}[Case I:\hfil $\eigenval_{\idxj}^{\idxp,n}>0$\hfil and \hfil$\eigenval_{\idxj+1}^{\idxp,n}<0$]\nospacing \leavevmode\\
+    By the Lax-entropy condition we obtain a shock wave.
+    Thus information will only be taken from one side thus we have no averaging and no problem.
+    \vspace{-2em}
+    \begin{figure}[H]
+        \centering{
+            \def\svgwidth{120pt}
+            \resizebox{0.6\linewidth}{!}{\input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/fvm/figures/roe_shock.pdf_tex}}
+        }
+    \end{figure}
+\end{sectionbox}
+\begin{sectionbox}[Case II\hfil $\eigenval_{\idxj}^{\idxp,n}<0$\hfil and \hfil$\eigenval_{\idxj+1}^{\idxp,n}>0$]\nospacing
+    Here we cross a zero at some point.
+    Thus the Roe scheme can fail due to averaging of positive and negative eigenvalues s.t. the diffusion becomes zero and we end up with blow up at some point.
+    \vspace{-1em}
+\begin{figure}[H]
+    \centering{
+        \def\svgwidth{120pt}
+        \resizebox{0.6\linewidth}{!}{\input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/fvm/figures/transonic_rarefaction.pdf_tex}}
+    }
+\end{figure}
+\end{sectionbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Roe Flux with Harten's Entropy Fix]\label{defn:roe_flux_hartens_fix_linearized_system}
+        Makes sure that the numerical flux term does not reach zero and thus avoid blow up:
+        \begin{align}
+          \Fluxvec_{\idxj+1/2}^{n}=&\linfluxvec\Uvec_{\idxj+1/2}=\frac{\Avec \left(\Uvec_{\idxj}^{n}+\Uvec_{\idxj+1}^{n}\right)}{2}\\[-1\jot]
+                                &-\frac{1}{2}\vec{R}_{\idxj+1/2}^{n}\abs*{\Lambdacvec_{\idxj+1/2}^{n}}_{\epsilonc}\left(\vec{R}_{\idxj+1/2}^{n}\right)^{-1}\left(\Uvec_{\idxj+1}^{n}-\Uvec_{\idxj}^{n}\right)\nonumber
+        \end{align}
+        \begin{align*}
+          \vec{R}_{\idxj+1/2}^{n}&=\bmat{\vec{r}_{\idxj+1/2}^{1,n} & \Cdots & \vec{r}_{\idxj+1/2}^{\idxm,n}}\\[-1\jot]
+          \abs*{\Lambdacvec_{\idxj+1/2}^{n}}_{\epsilonc}&=\bmat{\abs*{\eigenval_{\idxj+1/2}^{1,n}}_{\epsilonc} & \Cdots & \abs*{\eigenval_{\idxj+1/2}^{\idxm,n}}_{\epsilonc}}
+        \end{align*}
+        $\vec{r}_{\idxj+1/2}^{\idxp,n}, \eigenval_{\idxj+1/2}^{\idxp,n}$-pth eienvector pair of $\linfluxvec_{\idxj+1/2}^{n}$.
+        \begin{align}
+          \abs{\eigenval}_{\epsilonc}=
+          \begin{cases}
+              \abs{\eigenval}&\text{if }\abs{\eigenval}\geq\epsilonc \\
+              \frac{\eigenval^{2}+\epsilonc^{2}}{2\epsilonc}&\text{if }\abs{\eigenval}\leq\epsilonc
+          \end{cases}&&\abs{\cdot}_{\epsilonc}:\R\mapsto\R
+        \end{align}
+   \end{defn}
+\end{defnbox}
+\begin{sectionbox}\nospacing
+    \begin{minipage}[t]{0.45\textwidth}
+        \begin{proslist}
+            \item Great at approximating shocks
+            \item Approximates \textit{Linear}\\ systems of conservation laws exactly
+            \todo[inline]{check if this is true?}
+        \end{proslist}
+    \end{minipage}
+    \begin{minipage}[t]{0.45\textwidth}
+        \begin{conslist}
+            \item Computationally expensive as we eigenvaluedecomposition
+            \item We do not know the right size for $\epsilonc$
+        \end{conslist}
+    \end{minipage}
+\end{sectionbox}
+\begin{notebox}[Note]\nospacing
+    Rarely used in practive nowadays.
+\end{notebox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../../formulary"
+%%% End:

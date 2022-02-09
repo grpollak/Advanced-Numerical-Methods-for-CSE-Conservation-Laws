@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="84.969391mm"
+   height="35.873657mm"
+   viewBox="0 0 84.969391 35.873657"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20, custom)"
+   sodipodi:docname="godunov_scheme_wave_splitting.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect2894"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <marker
+       style="overflow:visible"
+       id="Arrow2Mstart"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Mstart"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.6)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:0.625;stroke-linejoin:round"
+         id="path881" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Sstart"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.2,0,0,0.2,1.2,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path869" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.6"
+     inkscape:cx="112.94643"
+     inkscape:cy="42.767857"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     width="64mm"
+     inkscape:window-width="1390"
+     inkscape:window-height="954"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:pagecheckerboard="0"
+     inkscape:snap-global="false" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(6.2287301,-242.20656)">
+    <path
+       style="fill:none;stroke:#cc78bc;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 71.520337,262.58415 30.5611,273.24244"
+       id="path2838"
+       inkscape:transform-center-x="-15.393293"
+       inkscape:transform-center-y="-7.9832241"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#12711c;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 67.728451,248.48516 30.5611,273.24244"
+       id="path2104"
+       inkscape:transform-center-x="-15.393293"
+       inkscape:transform-center-y="-7.9832241"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#8b2be2;stroke:#8b2be2;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M -5.0962976,256.2884 30.751354,273.37823"
+       id="path1581"
+       inkscape:transform-center-x="10.935082"
+       inkscape:transform-center-y="-10.863306"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#b1400d;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 13.649567,244.6549 17.101787,28.72333"
+       id="path2102"
+       inkscape:transform-center-x="10.935082"
+       inkscape:transform-center-y="-10.863306"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:1.41111px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
+       x="75.720367"
+       y="273.76749"
+       id="text6202"><tspan
+         sodipodi:role="line"
+         id="tspan6200"
+         style="stroke-width:0.264583"
+         x="75.720367"
+         y="273.76749">$x$</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.352778;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow1Sstart)"
+       d="M 73.605209,273.26807 H -6.0152578"
+       id="path855" />
+    <text
+       xml:space="preserve"
+       style="font-size:0.705556px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
+       x="-5.7223725"
+       y="277.91382"
+       id="text2921"><tspan
+         sodipodi:role="line"
+         id="tspan2919"
+         style="font-size:0.705556px;stroke-width:0.264583"
+         x="-5.7223725"
+         y="277.91382">$\lambdac_{\idxp}&lt;0$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:0.705556px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
+       x="63.993343"
+       y="277.91382"
+       id="text3005"><tspan
+         sodipodi:role="line"
+         id="tspan3003"
+         style="font-size:0.705556px;stroke-width:0.264583"
+         x="63.993343"
+         y="277.91382">$\lambdac_{\idxp}&gt;0$</tspan></text>
+    <path
+       style="fill:#8c8c8c;stroke:#8c8c8c;stroke-width:0.265;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.53, 0.53;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 30.699132,273.20765 c 0,-9.97545 0,-19.95117 0,-29.92714"
+       id="path2892"
+       inkscape:path-effect="#path-effect2894"
+       inkscape:original-d="m 30.699132,273.20765 c 2.65e-4,-9.97545 2.65e-4,-19.95117 0,-29.92714" />
+    <text
+       xml:space="preserve"
+       style="font-size:0.705556px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
+       x="-6.2872968"
+       y="255.45372"
+       id="text4554"><tspan
+         sodipodi:role="line"
+         id="tspan4552"
+         style="stroke-width:0.264583"
+         x="-6.2872968"
+         y="255.45372">$x=\eigenval_1 t$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:0.705556px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
+       x="13.218711"
+       y="243.74828"
+       id="text6140"><tspan
+         sodipodi:role="line"
+         id="tspan6138"
+         style="stroke-width:0.264583"
+         x="13.218711"
+         y="243.74828">$x=\eigenval_2 t$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:0.705556px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
+       x="68.120857"
+       y="247.99127"
+       id="text6144"><tspan
+         sodipodi:role="line"
+         id="tspan6142"
+         style="stroke-width:0.264583"
+         x="68.120857"
+         y="247.99127">$x=\eigenval_4 t$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:0.705556px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
+       x="72.347252"
+       y="262.61884"
+       id="text6148"><tspan
+         sodipodi:role="line"
+         id="tspan6146"
+         style="stroke-width:0.264583"
+         x="72.347252"
+         y="262.61884">$x=\eigenval_4 t$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:0.705556px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
+       x="29.676424"
+       y="277.77133"
+       id="text17492"><tspan
+         sodipodi:role="line"
+         id="tspan17490"
+         style="stroke-width:0.264583"
+         x="29.676424"
+         y="277.77133">$x_{\idxj+1/2}$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:0.705556px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
+       x="-4.1041765"
+       y="269.6488"
+       id="text21250"><tspan
+         sodipodi:role="line"
+         id="tspan21248"
+         style="stroke-width:0.264583"
+         x="-4.1041765"
+         y="269.6488">$\Uvec_{\idxj}^n$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:0.705556px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
+       x="69.39669"
+       y="268.82291"
+       id="text26224"><tspan
+         sodipodi:role="line"
+         id="tspan26222"
+         style="stroke-width:0.264583"
+         x="69.39669"
+         y="268.82291">$\Uvec_{\idxj+1}^n$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:0.705556px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
+       x="31.861544"
+       y="242.74261"
+       id="text28892"><tspan
+         sodipodi:role="line"
+         id="tspan28890"
+         style="stroke-width:0.264583"
+         x="31.861544"
+         y="242.74261">$\Uvec_{\idxj+1/2}^*$</tspan></text>
+  </g>
+</svg>

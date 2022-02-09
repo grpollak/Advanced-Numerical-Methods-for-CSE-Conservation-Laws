@@ -1,0 +1,180 @@
+\begin{proofbox}\nospacing
+    \begin{proof}[Eigenvalue Equation Conservation Laws\cref{defn:eigenvalue_problem_non-lin._sys._of_con.s_laws}]
+        \label{proof:eigenvalue_problem_conservation_laws}\leavevmode\\
+        The solution of the conservation law\cref{defn:nonlinear_systems_of_conservation_laws} is invariant to the scaling of the input parameters:
+        \begin{align*}
+          &&&\Uvec(x,t)\text{ solves \cref{eq:nonlinear_systems_of_conservation_laws}}\\[-1\jot]
+          &\implies&&\vec{w}(x,t):=\Uvec(\lambdac x,\lambdac t)\text{ solves \cref{eq:nonlinear_systems_of_conservation_laws}}&&\lambdac\neq0
+        \end{align*}
+        thus it is natural to assume \text{self-similarity} -- i.e.\ a solution $\vvec(\xic)$ that only depends on the ration $\xic:=x/t$:
+        \begin{align*}
+          \Uvec(x,t)=v \left(\frac{x}{t}\right)=\vvec(\xic)
+        \end{align*}
+        \begin{align*}
+          &\xic_{t}=\frac{-x}{t^{2}}&&\xic_{x}=\frac{1}{t} \\[-1\jot]
+          &\Uvec_{t}=\vvec'(\xic)\xic_{t}=\vvec'(\xic)\frac{-x}{t^{2}}&&\Uvec_{x}=\vvec'(\xic)\xic_{x}=\vvec'(\xic)\frac{1}{t}
+        \end{align*}
+        \begin{align*}
+          \fluxvec\left(\Uvec\right)_{x}=\fluxvec'\left(\Uvec\right)\Uvec_{x}=\fluxvec' \left(\vvec(\xic)\right)\vvec'(\xic)\xic_{x}
+          =\frac{1}{t}\fluxvec' \left(\vvec(\xic)\right)\vvec'(\xic)
+        \end{align*}
+        Plug it into \cref{eq:nonlinear_system_of_eq:conservation_laws}:\hfil $0=\ul{\partial_{t}\Uvec}+\ul[ulc2]{\partial_{x}\fluxvec\left(\Uvec\right)}$
+        \begin{align*}
+          0&=\ul{\vvec'(\xic)\frac{-x}{t^{2}}}+\ul[ulc2]{\frac{1}{t}\fluxvec'\left(\vvec(\xic)\right)\vvec'(\xic)} \\[-1\jot]
+          &=\ul{\vvec'(\xic)\frac{-\xic}{t}}+\ul[ulc2]{\frac{1}{t}\fluxvec'\left(\vvec(\xic)\right)\vvec'(\xic)}&\Big|\cdot t
+        \end{align*}
+        \begin{align*}
+          \implies\quad\fluxvec'\left(\vvec(\xic)\right)\vvec'(\xic)=\xic\vvec'(\xic)
+        \end{align*}
+        Thus either $\vvec(\xic)'=0$ or in the non-trivial case it follows that $\vvec(\xic)'$ is an eigenvector of the Jacobian
+        $\fluxvec'\left(\vvec(\xic)\right)$ with corresponding eigenvalue $\xic$:
+        \begin{align}
+          \fluxvec'\left(\vvec(\xic)\right)\vvec'(\xic)=\xic\vvec'(\xic)&&
+          \begin{aligned}
+                \vvec'\left(\xic\right)&=\vec{r}_{\idxj}\left(\vvec\left(\xic\right)\right)\\
+                \xic&=\eigenval_{\idxj}\left(\vvec\left(\xic\right)\right)
+          \end{aligned}&&\idxj\in \left\{1,\ldots,\idxm\right\}\label{eq:eigenvalue_problem_simple_solutions}
+        \end{align}
+    \end{proof}
+\end{proofbox}
+\begin{proofbox}\nospacing
+    \begin{proof}[Simple ODE\cref{defn:simple_ode,defn:rarefaction_solution_non_linear_systems_of_equations}]\label{proof:defn:simple_ode}\leavevmode\\
+        From \cref{eq:eigenvalue_problem_simple_solutions}:
+        \begin{align}
+                \vvec'\left(\xic\right)=\vec{r}_{\idxj}\left(\vvec\left(\xic\right)\right)&&\xic=\eigenval_{\idxj}\left(\ul{\vvec\left(\xic\right)}\right)
+                                                                                             \label{eq:proof:defn:simple_ode_eigenvalues}
+        \end{align}
+        we see that if:
+        \begin{align*}
+            \ul{\vvec \left(\xic_{L}\right)}=\Uvec_{L}&&\text{and}&&\ul{\vvec \left(\xic_{R}\right)}=\Uvec_{R}&&\text{for some }\xic_{L},\xic_{R}\in\R
+        \end{align*}
+        then it must hold that:
+        \begin{align*}
+         \xic_{L}=\eigenval_{\idxj}\left(\Uvec_{L}\right) &&\xic_{R}=\eigenval_{\idxj}\left(\Uvec_{R}\right)
+        \end{align*}
+        from which it follows that:
+        \begin{align}
+          \Uvec(x,t)=
+          \left\{\begin{alignedat}{5}
+              &\Uvec_{L}&&&&\frac{x}{t}<\eigenval_{\idxj}\left(\Uvec_{L}\right)=\xic_{L} \\
+              &\vvec_{\idxj}\left(\frac{x}{t}\right)&&\qquad&\eigenval_{\idxj}\left(\Uvec_{L}\right)<&\frac{x}{t}<\eigenval_{\idxj}\left(\Uvec_{R}\right) \\
+              &\Uvec_{R}&&&\xic_{R}=\eigenval_{\idxj}\left(\Uvec_{R}\right)<&\frac{x}{t}
+          \end{alignedat}\right.\label{eq:simple_solution_unshifted}
+        \end{align}
+        now we need to take care of the initial condition.\\ We know that
+        \begin{align}
+          \vvec \left(\xic_{L}\right)=\Uvec_{L}&&\iff&&\xic_{L}=\Uvec_{L}\label{eq:proof_rarefaction_inital_conditon}
+        \end{align} but we do not know what $\xic_{L}=\eigenval_{\idxj}\left(\Uvec_{L}\right)$ is.\\
+        \imp{Idea}: we re-parameterize \cref{eq:eigenvalue_problem_simple_solutions} in terms of a new variable $\epsilonc$ s.t.\ that \cref{eq:proof_rarefaction_inital_conditon}
+        is satisfied at $\xic=0$ and $\vvec \left(\xic_{L}\right)$:
+        \begin{align*}
+          \epsilonc:=\xic_{L}-\eigenval_{\idxj}\left(\Uvec_{L}\right)&&\stackrel{\substack{\text{if $\epsilonc=0$}\\ \xic_{L}=\eigenval_{\idxj}\left(\Uvec_{L}\right)}}{\implies}&&\Wvec(\epsilonc)\Big|_{\epsilonc=0}=U_{L}
+        \end{align*}
+    \end{proof}
+\end{proofbox}
+\begin{proofbox}\nospacing
+    \begin{proof}[Contact Discontinuity\cref{defn:contact_discontinuity_solution_non_linear_systems_of_equations}]\label{proof:contact_discontinuity}\leavevmode\\
+        We are looking at \cref{eq:proof:defn:simple_ode_eigenvalues} and differentiate $\eigenval \left(\Wvec_{\idxj}(\epsilonc)\right)$:
+        \begin{align*}
+          \dv{\epsilonc}\eigenval \left(\Wvec_{\idxj}(\epsilonc)\right)&=\nabla\eigenval \left(\Wvec_{\idxj}(\epsilonc)\right)\Wvec_{\idxj}'(\epsilonc)
+          =\nabla\eigenval \left(\Wvec_{\idxj}(\epsilonc)\right)\vec{r}_{\idxj}\left(\Wvec(\epsilonc)\right)\\[-1\jot]
+          &=0\qquad (\text{\cref{eq:linearly_degenerat_wave_family}})
+        \end{align*}
+        \begin{align*}
+          &\implies&&\int_{0}^{\epsilonc}\nabla\eigenval\left(\Wvec_{\idxj}(\epsilonc)\right)\diff\epsilonc=0 \\[-1\jot]
+          &\implies&&\ul[ulc2]{\eigenval\left(\Wvec_{\idxj}\right)}=\eigenval\left(\Wvec_{\idxj}(0)\right)\eqs{{\text{\cref{eq:simple_ode}}}}\eigenval\left(\Uvec_{L}\right)
+                      &&\forall\epsilonc\in(-\widebar{\epsilonc},\widebar{\epsilonc})
+        \end{align*}
+        We know that $\eigenval\left(\Wvec_{\idxj}\right)=\eigenval\left(\Uvec_{L}\right)$, thus if $\exists\epsilonc\in(-\widebar{\epsilonc},\widebar{\epsilonc})$
+        s.t.\ $\Uvec_{R}=\Wvec_{\idxj}(\epsilonc)$ then it holds:
+        \begin{align*}
+          \eigenval\left(\Wvec_{\idxj}\right)=\eigenval\left(\Uvec_{L}\right)=\eigenval\left(\Uvec_{R}\right)=\text{const}
+        \end{align*}
+        Thus the middle rarefaction solution in \cref{eq:simple_solution_unshifted} cannot exist.
+    \end{proof}
+\end{proofbox}
+\begin{proofbox}\nospacing
+    \begin{proof}[RH condition for contact discontinuities\cref{defn:rankine-hugoniot_condition_contact_discontinuity}]
+        \label{proof:defn:rankine-hugoniot_condition_contact_discontinuity}\leavevmode\\
+        We want to proof a RH condition. From \cref{proof:contact_discontinuity} we know that:
+        \begin{align*}
+          \eigenval\left(\Wvec_{\idxj}\right)=\eigenval\left(\Uvec_{L}\right)\eqs{\text{if }\exists\epsilonc:\Uvec_{R}=\Wvec_{\idxj}(\epsilonc)}
+          \eigenval\left(\Uvec_{R}\right)=\text{const}
+        \end{align*}
+        let us differentiate $\flux(\Wvec_{\idxj})-\eigenval_{\idxj} \left(\Wvec_{\idxj}\right)\Wvec_{\idxj}$:
+        \begin{align*}
+          \dv{\epsilonc}&\left(\flux\left(\Wvec_{\idxj}\right)-\ul[ulc2]{\eigenval_{\idxj} \left(\Wvec_{\idxj}\right)}\Wvec_{\idxj}\right)
+          =\dv{\epsilonc}\left(\flux\left(\Wvec_{\idxj}\right)-\eigenval_{\idxj} \left(\Wvec_{\idxj}\right)\Wvec_{\idxj}\right)\\[-1\jot]
+          &=\flux'\left(\Wvec_{\idxj}\right)\Wvec'_{\idxj}-\eigenval_{\idxj} \left(\Wvec_{\idxj}\right)\Wvec'_{\idxj}\\[-1\jot]
+          &=\left(\flux'\left(\Wvec_{\idxj}\right)-\eigenval_{\idxj} \left(\Wvec_{\idxj}\right)\right)\vec{r}_{\idxj}\\[-1\jot]
+          &=\left(\eigenval\left(\Wvec_{\idxj}\right)-\eigenval_{\idxj} \left(\Wvec_{\idxj}\right)\right)\vec{r}_{\idxj}\\[-1\jot]
+          &=\left(\eigenval\left(\Wvec_{\idxj}\right)-\eigenval_{\idxj} \left(\Wvec_{\idxj}\right)\right)\vec{r}_{\idxj}=0\qquad\forall\epsilonc\in(-\widebar{\epsilonc},\widebar{\epsilonc})
+        \end{align*}
+        Thus:
+        \begin{align*}
+          \flux\left(\Wvec_{\idxj}\right)-\ul[ulc2]{\eigenval_{\idxj} \left(\Wvec_{\idxj}\right)}\Wvec_{\idxj}=\text{const}&&\forall\epsilonc\in(-\widebar{\epsilonc},\widebar{\epsilonc})
+        \end{align*}
+        Thus it must hold that:
+        \begin{align*}
+          \flux\left(\Uvec_{L}\right)-\eigenval_{\idxj} \left(\Uvec_{L}\right)\Uvec_{L}
+          =\flux\left(\Uvec_{R}\right)-\eigenval_{\idxj} \left(\Uvec_{R}\right)\Uvec_{R}
+        \end{align*}
+        \begin{align*}
+          \flux\left(\Uvec_{R}\right)-\flux\left(\Uvec_{L}\right)
+          &=s \left(\Uvec_{R}-\Uvec_{L}\right)\quad \\[-1\jot]
+          s:=\eigenval_{\idxj} \left(\Uvec_{R}\right)&=\eigenval_{\idxj} \left(\Uvec_{L}\right)
+        \end{align*}
+    \end{proof}
+\end{proofbox}
+\begin{proofbox}\nospacing
+    \begin{proof}[\newline Rarefaction sol.\ of non-linear sys.\ of conser.\ laws$^{prop.~\text{\ref{proposition:rarefaction_and_gnl_wave_families}}}$]\leavevmode\\
+        \label{proof:rarefaction_and_gnl_wave_families}
+        Differentiate \cref{eq:eigenvalue_problem_simple_solutions} w.r.t.\ $\xic$:
+        \begin{align*}
+          \dv{\xic}\xic&=\dv{\xic}\eigenval_{\idxj}\left(\vvec(\xic)\right)\\[-1\jot]
+          &=\nabla\eigenval_{\idxj}\left(\vvec(\xic)\right)^{\T}\vvec'(\xic)\\[-1\jot]
+          &=\nabla\eigenval_{\idxj}\left(\vvec(\xic)\right)^{\T}\vec{r}_{\idxj}\left(\vvec(\xic)\right)&&(\text{\cref{eq:eigenvalue_problem_simple_solutions}})\\[-1\jot]
+          &=\mcc=1&&(\text{\cref{eq:genuinely_nonlinear_wave_family}}+\text{rescaling }\vec{r}_{\idxj})
+        \end{align*}
+        Thus in comparison to the contact discontinuity \imp{we do not have} the condition that $\eigenval\left(\Uvec_{L}\right)=\eigenval\left(\Uvec_{R}\right)=\text{const}$.
+    \end{proof}
+\end{proofbox}
+\begin{proofbox}\nospacing
+    \begin{proof}[Shock Wave ODE]\label{proof:defn:shock_wave_ode}
+        We want to find another expression for the shock speed in \cref{eq:hugoniot_locus}.
+        Idea we use the mean value theorem\cref{theorem:mean_value_theorem}:
+        \todo[inline]{why $f'$ and not $f$}
+        \scalematho[0.96]{
+        \begin{align*}
+          M(\Uvec_{L},\Uvec)=\int_{0}^{1}\flux' \left(\tauc\Uvec_{L}+(\tauc-1)\Uvec\right)\diff\tauc=\frac{\flux(\Uvec)-\flux(\Uvec_{L})}{\Uvec-\Uvec_{L}}
+        \end{align*}}
+      Thus we obtain the equation:
+      \begin{align}
+          \mathcal{H}\left(\Uvec_{L}\right)=\Big\{&\Uvec\in\admissibleset:\exists s\in\R\text{ s.t. }\nonumber\\[-1\jot]
+          &M(\Uvec_{L},\Uvec)\left(\Uvec-\Uvec_{L}\right)=s \left(\Uvec-\Uvec_{L}\right)\Big\}\label{eq:hugoniot_locus_proof}
+      \end{align}
+      Thus we obtain an equation with $\idxm+1$ unknown's $(\Uvec_{L},s)$, where $\left(\Uvec-\Uvec_{L}\right)$ must be an eigenvector of $M(\Uvec_{L},\Uvec)$.\\
+      By the \textit{Implicit Function Theorem}\cref{theorem:todo_implicit_function_theorem} theorem we know that
+      \cref{eq:hugoniot_locus} must have $\idxm$ curves $\left\{\Wvec_{\idxj}\right\}_{\idxj=1}^{\idxm}$:
+      \begin{align}
+        \begin{aligned}
+            \flux \left(\Wvec_{\idxj}(\epsilonc)\right)-\flux \left(\Uvec_{L}\right)&=s \left(\Wvec_{\idxj}\left(\epsilonc\right)-\Uvec_{L}\right)\\
+            \Wvec_{\idxj}(0)&=\Uvec_{L}
+        \end{aligned}&&\forall\idxj=1,\ldots,\idxm
+      \end{align}
+      Dividing by $\epsilonc$ and taking the limit leads to:
+      \begin{align*}
+        &&&\frac{\flux \left(\Wvec_{\idxj}(\epsilonc)\right)-\flux \left(\Uvec_{L}\right)}{\epsilonc}=s \frac{\left(\Wvec_{\idxj}\left(\epsilonc\right)-\Uvec_{L}\right)}{\epsilonc}\\[-1\jot]
+        &\lim_{\epsilonc\to0}&&\flux'\left(\Wvec_{\idxj}(0)\right)\Wvec'_{\idxj}(0)=s\Wvec'_{\idxj}(0)
+      \end{align*}
+      \begin{align*}
+        s=\eigenval_{\idxj}(\Uvec_{L})&&\Wvec_{\idxj}'(0)=\vec{r}_{\idxj}(\Uvec_{L})
+      \end{align*}
+      \todo[inline]{this explaination is weird in comparison with video lecture}
+    \end{proof}
+\end{proofbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../formulary"
+%%% End:

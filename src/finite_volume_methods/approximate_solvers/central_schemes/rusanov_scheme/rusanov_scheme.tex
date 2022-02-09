@@ -1,0 +1,19 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[\newline Rusanov\aslash Local-Lax-Friedrichs Scheme]\label{defn:Rusanov_local_friedrichs_scheme}\leavevmode\\
+        Takes also into account the local speeds of the waves:
+        \begin{align}
+          s_{\idxj+1/2}=\max \left(\abs{\flux'\left(u_{\idxj}^{n}\right)},\abs{\flux'\left(u_{\idxj+1}^{n}\right)}\right)&&
+        \end{align}
+        with \cref{eq:central_scheme_symmetric_waves} and $s_{\idxj+1/2}^{r}=s_{\idxj+1/2}=-s_{\idxj+1/2}^{l}$ it follows:
+        \begin{align}
+          \Flux_{\idxj+1/2}^{\idxn}=&\Flux^{\text{Rus}}\left(u^{\idxn}_{\idxj},u^{\idxn}_{\idxj+1}\right)\\[-1\jot]
+                                   =&\frac{\flux\left(u_{\idxj}^{n}\right)-\flux \left(u_{\idxj+1/2}^{n}\right)}{2}\\[-1\jot]
+          &-\frac{\max \left(\abs{\flux'\left(u_{\idxj}^{n}\right)},\abs{\flux'\left(u_{\idxj+1}^{n}\right)}\right)}{2}\left(u_{\idxj+1}^{n}-u_{\idxj}^{n}\right)\nonumber
+        \end{align}
+    \end{defn}
+\end{defnbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../../formulary"
+%%% End:

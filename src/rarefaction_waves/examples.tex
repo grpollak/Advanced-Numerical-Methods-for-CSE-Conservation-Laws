@@ -1,0 +1,44 @@
+\begin{examplebox}\nospacing
+    \begin{example}[Riemann Rarefaction\cref{cor:rarefaction_solution_riemann_problem}]\label{example:cor:rarefaction_solution_riemann_problem}
+        \begin{align*}
+          u(x,0)=
+          \begin{cases}
+              0 &\text{if }x<0\\
+              1 &\text{if }x>0
+          \end{cases}&&u_{t}\left(\frac{u^{2}}{2}\right)_{x}=0
+        \end{align*}
+        Thus $f'(u)=u$ $\implies (f')^{-1}(u)=u$ s.t.:
+        \begin{align*}
+          u(x,t)=
+          \begin{cases}
+              0 &\text{if }x<0\\
+              \frac{x}{t} &\text{if }x>0\\
+              1 &\text{if }x>0
+          \end{cases}
+        \end{align*}
+        \begin{minipage}{0.4\textwidth}
+            \begin{figure}[H]
+                \centering{
+                  \def\svgwidth{70pt}
+                  \resizebox{\linewidth}{!}{\input{src/rarefaction_waves/figures/riemann_problem_char_rarefaction_sol.pdf_tex}}
+                }
+            \end{figure}
+        \end{minipage}\hfill
+        \begin{minipage}{0.55\textwidth}
+            \begin{figure}[H]
+                \centering{
+                  \def\svgwidth{110pt}
+                  \resizebox{\linewidth}{!}{\input{src/rarefaction_waves/figures/riemann_problem_moving_rarefaction_sol.pdf_tex}}
+                }
+            \end{figure}
+        \end{minipage}
+        \begin{itemizenosep}
+            \item Thus after the after a small time period our solution will be piecewise/lipschitz continious $\implies$ $u^{-}=u^{+}$  $\implies$
+            $\flux\left(u^{+}\right)=\flux\left(u^{-}\right)$ $\implies$ RH condition\cref{eq:rankine-hugoniot_condition} will be automatically satisfied.
+            \item From this it also follows that the Lax-entropy condition\cref{eq:lax_entropy_condtion_convex} is fullfiled.
+            \begin{align*}
+              \flux\left(u^{+}\right)=s(t)=\flux\left(u^{-}\right)
+            \end{align*}
+        \end{itemizenosep}
+    \end{example}
+\end{examplebox}

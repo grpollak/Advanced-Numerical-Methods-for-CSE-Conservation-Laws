@@ -1,0 +1,17 @@
+\begin{proofbox}\nospacing
+    \begin{proof}[Linearizing Conservation Laws\cref{cor:linearizing_systems_of_consveration_laws}]\label{proof:cor:linearizing_systems_of_consveration_laws}\leavevmode\\
+        Let $\widebar{\uvec}(\xvec,t)\in\R^{\idxm}$ a solution of \cref{eq:system_of_conservation_law} and define $\widehat{\uvec}(\xvec,t):=\uvec-\widebar{\uvec}(\xvec,t)$ s.t.:
+        \begin{align*}
+          &\left(\uvec-\widebar{\uvec}(\xvec,t)\right)_{t}+\left(\flux(\uvec)-\flux(\widebar{\uvec})\right)_{\xvec}=0 \\[-1\jot]
+          &\widehat{\uvec}_{t}+\left(\flux(\uvec)-\flux(\widebar{\uvec})\right)_{\xvec}=0
+        \end{align*}
+        $\flux(\uvec)-\flux(\widebar{\uvec}$ can be approximated by a Taylor expansion:
+        \begin{align*}
+          \ul{\flux(\uvec)-\flux(\widebar{\uvec})}=\flux'(\widebar{\uvec})\left(\uvec-\widebar{\uvec}\right)+\bigO{\norm{\uvec-\widebar{\uvec}}^{2}}
+        \end{align*}
+        for small perturbations/step sizes $\deltac$ $\uvec+\deltac=\widebar{\uvec}$ it holds that $\bigO{\norm{\uvec-\widebar{\uvec}}^{2}}\ll1$:
+        \begin{align*}
+          \implies&\widehat{\uvec}_{t}+\left(\ul{\flux'(\widebar{u})\widehat{u})}\right)_{x}=:\widehat{\uvec}_{t}+\left(\Avec(\xvec,t)\widehat{u})\right)_{x}0
+        \end{align*}
+    \end{proof}
+\end{proofbox}

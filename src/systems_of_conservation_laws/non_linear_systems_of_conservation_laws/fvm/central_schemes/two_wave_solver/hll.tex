@@ -1,0 +1,28 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[\newline HLL original]\label{defn:hll_original}\leavevmode\\
+        Approximates the wave cone to capture everything:
+        \begin{align}
+          s_{\idxj+1/2}^{l,n}=\min\left(\eigenval_{\idxj}^{\idxp[1],n},\eigenval_{\idxj+1}^{\idxp[1],n}\right)&&
+          s_{\idxj+1/2}^{r,n}=\max\left(\eigenval_{\idxj}^{\idxm,n},\eigenval_{\idxj+1}^{\idxm,n}\right)
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{sectionbox}\nospacing
+    \begin{minipage}[t]{0.4\textwidth}
+       \begin{proslist}
+           \item Takes into account local information
+           \item No longer symmetric, thus can capture unidirectional wavs
+       \end{proslist}
+    \end{minipage}
+    \begin{minipage}[t]{0.55\textwidth}
+       \begin{conslist}
+           \item Is still an approximation consisting just of three waves i.e.\ already for
+           three waves it will no longer model the middle wave.
+       \end{conslist}
+    \end{minipage}
+\end{sectionbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../../../formulary"
+%%% End:

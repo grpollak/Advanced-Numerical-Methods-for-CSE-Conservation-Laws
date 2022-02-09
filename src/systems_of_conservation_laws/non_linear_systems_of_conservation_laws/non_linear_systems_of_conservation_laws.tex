@@ -1,0 +1,104 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill \newline Nonlinear Systems of Conservation Laws]\label{defn:nonlinear_systems_of_conservation_laws}
+        \begin{align}
+          \begin{aligned}
+            \partial_{t}\Uvec+\partial_{x}\fluxvec\left(\Uvec\right)&=\vec{0}\\
+            \Uvec(x,0)&=\Uvec_{0}(x)\label{eq:nonlinear_systems_of_conservation_laws}
+        \end{aligned}&&
+        \begin{aligned}
+            &\Uvec:\R\times\Rp\to\admissibleset\in\R^{\idxm} \\[-1\jot]
+            &\Uvec\in L^{\infty}\left(\R\times[0,T];\admissibleset\right) \\[-1\jot]
+            &\fluxvec:\admissibleset\to\R^{\idxm}\text{ (nonlinear)}
+        \end{aligned}
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Admissible Set\hfill$\tcblack{\admissibleset}$]\label{defn:admissible_set}\leavevmode\\
+        Is the domain of admissible values that make sense in a physical way.
+    \end{defn}
+\end{defnbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[$\idxj$-th Wave Family]\label{defn:wave_family}
+        The $\idxj$-th wave family of nonlinear systems of conservation laws\cref{defn:nonlinear_systems_of_conservation_laws} is defined as the
+        eigenvalue-eigenvector pair of the Jaccobian $\fluxvec'(\Uvec)$:
+        \begin{align}
+          \left\{\eigenval_{\idxj}(\Uvec),\vec{r}_{\idxj}(\Uvec)\right\}
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\exampleref{example:shallow_water_equations}\newline Hyperbolic Nonlinear Systems of Conservation Laws]\label{defn:hyperbolic_nonlinear_systems_of_conservation_laws}
+        A nonlinear scalar conservation law\cref{eq:nonlinear_systems_of_conservation_laws}
+        is \textit{hyperbolic} if the Jaccobian\cref{defn:jaccobian} $\fluxvec'\left(\Uvec\right)$ has:
+        \begin{circlelistnosep}
+            \item \textit{real eigenvalues} $\iff \text{spectrum}\left(\fluxvec'(\Uvec)\right)\in\R$:
+            \begin{align*}
+              \eigenval\left(\fluxvec'(\Uvec)\right)
+              =\left\{\eigenval_{1}(\Uvec)\leq\eigenval_{2}(\Uvec)\leq\ldots\leq\eigenval_{\idxm}(\Uvec)\right\}\in\R
+            \end{align*}
+            \item Linearly independent eigenvectors:
+            \begin{align}
+              r_{1}\left(\Uvec\right),r_{2}\left(\Uvec\right),\ldots,r_{\idxm}\left(\Uvec\right)
+            \end{align}
+        \end{circlelistnosep}
+    \end{defn}
+\end{defnbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\exampleref{example:compressible_euler_equations}\newline Strictly Hyperbolic Non. Lin. Sys. of Conservation Laws]\label{defn:strictly_hyperbolic_nonlinear_systems_of_conservation_laws}
+        Is a hyperbolic Nonlinear Systems of Conservation Laws with distinct
+            \textit{real eigenvalues}:
+        \begin{align*}
+            \eigenval\left(\fluxvec'(\Uvec)\right)
+            =\left\{\eigenval_{1}(\Uvec)<\eigenval_{2}(\Uvec)<\ldots<\eigenval_{\idxm}(\Uvec)\right\}\in\R
+        \end{align*}
+    \end{defn}
+\end{defnbox}
+\begin{corbox}\nospacing
+    \begin{cor}[Diagonalizability]\label{cor:diagonalizability_non_linear_systems_of_conervations_laws}
+        A Hyperbolic Nonlinear System of Conservation laws has a diagonalizable Jacobian matrix $\fluxvec'\left(\Uvec\right)$:
+        \begin{align}
+          \fluxvec'\left(\Uvec\right)=\vec{R}\left(\Uvec\right)\Lambdac(\Uvec)\vec{R}\left(\Uvec\right)^{-1}
+        \end{align}
+        \begin{align*}
+            \Lambdac(\Uvec)&:=\text{diag}\left(\lambdac_{1}\left(\Uvec\right),\ldots,\lambdac_{\idxm}\left(\Uvec\right)\right)\\[-1\jot]
+            \vec{R}\left(\Uvec\right)&:=\bmat{\vec{r}_{1}(\Uvec)&\Cdots&\vec{r}_{\idxm}(\Uvec)}
+        \end{align*}
+    \end{cor}
+\end{corbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\exampleref{example:shallow_water_equations}\newline Genuinely Nonlinear Wave Family]\label{defn:genuinely_nonlinear_wave_family}
+        A \textit{hyperbolic systems}\cref{defn:hyperbolic_nonlinear_systems_of_conservation_laws} $\idxj^{\text{th}}$-\textit{wave family} is
+        \textit{genuinely nonlinear} iff:
+        \begin{align}
+          \nabla\eigenval_{\idxj}\left(\Uvec\right)\cdot\vec{r}_{\idxj}\left(\Uvec\right)\neq0&&\forall\Uvec\in\admissibleset,&&\idxj\in \left\{1,\ldots,\idxm\right\}\label{eq:genuinely_nonlinear_wave_family}
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{explanationbox}\nospacing
+    \begin{explanation}
+        Corresponds to a notion of convexity.
+    \end{explanation}
+\end{explanationbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[\newline Linearly Degenerat Wave Family]\label{defn:linearly_degenerat_wave_family}
+        A \textit{hyperbolic systems}\cref{defn:hyperbolic_nonlinear_systems_of_conservation_laws} $\idxj^{\text{th}}$-\textit{wave family} is
+        \textit{linearly degenerated} iff:
+        \begin{align}
+          \nabla\eigenval_{\idxj}\left(\Uvec\right)\cdot\vec{r}_{\idxj}\left(\Uvec\right)=0&&\forall\Uvec\in\admissibleset,&&\idxj\in \left\{1,\ldots,\idxm\right\}\label{eq:linearly_degenerat_wave_family}
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{explanationbox}\nospacing
+    \begin{explanation}
+        Linearly to a notion of convexity.
+    \end{explanation}
+\end{explanationbox}
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

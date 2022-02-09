@@ -1,0 +1,68 @@
+\begin{sectionbox}\nospacing
+   In the previous section we considered \textit{strictly hyperbolic}\cref{cor:strictly_hyperbolic_system} Riemann problems for systems of scalar conservation laws\cref{defn:riemann_problem_for_non_linear_systems_of_conservations_laws}.
+   We have seen that if \textit{each} wave family is either \textit{linear degenerate}\cref{defn:linearly_degenerat_wave_family} or \textit{genuinely-nonlinear}\cref{eq:genuinely_nonlinear_wave_family} then there
+   exist $\idxm$ curves $\mathcal{W}_{1}\left(\Uvec_{L}\right),\ldots,\mathcal{W}_{\idxm}\left(\Uvec_{L}\right)$ through $\Uvec_{L}$ and if $\Uvec_{R}$
+   lies in any of these curves then the riemann problem can be solved with a simple solution:
+   \begin{align}
+     \mathcal{W}\left(\Uvec_{L}\right)&=\mathcal{W}_{1}\left(\Uvec_{L}\right)\cup\cdots\cup\mathcal{W}_{\idxm}\left(\Uvec_{L}\right)\\[-1\jot]
+     \mathcal{W}\left(\Uvec_{L}\right)&=
+     \begin{cases}
+         \mathcal{W}_{\idxj}=\mathcal{C}_{\idxj}(\Uvec_{L})&
+         \begin{aligned}
+             &\text{if the $\idxj$-th}\\ &\text{wave family is}\\ &\text{\textit{linearly degenerate}}
+         \end{aligned}\\
+         \mathcal{W}_{\idxj}=\mathcal{S}_{\idxj}(\Uvec_{L})\cup\mathcal{R}_{\idxj}(\Uvec_{L})&
+         \begin{aligned}
+            &\text{if the $\idxj$-th}\\ &\text{wave family is}\\ &\text{\textit{genuinely non-linear}}
+         \end{aligned}\\
+     \end{cases}\nonumber
+   \end{align}
+   \begin{circlelistnosep}
+       \item If $\Uvec_{R}\in\mathcal{R}_{\idxp}\left(\Uvec_{L}\right)\cup\mathcal{C}_{\idxj}(\Uvec_{L})$:
+       \begin{itemizenosep}
+           \item If $(\eigenval_{\idxp},\vec{r}_{\idxp})$ genuinely nonlinear $\Rightarrow$ rarefaction
+           \item If $(\eigenval_{\idxp},\vec{r}_{\idxp})$ linearly degenerate $\Rightarrow$ contact discontinuity
+       \end{itemizenosep}
+       \item If $\Uvec_{R}\in\mathcal{H}_{\idxp}\left(\Uvec_{L}\right)_{[-\widebar{\epsilonc},0]}\cup\mathcal{C}_{\idxj}(\Uvec_{L})=\mathcal{S}_{\idxp}\left(\Uvec_{L}\right)\cup\mathcal{C}_{\idxj}(\Uvec_{L})$:
+       \begin{itemizenosep}
+           \item If $(\eigenval_{\idxp},\vec{r}_{\idxp})$ genuinely nonlinear $\Rightarrow$ shocks
+           \item If $(\eigenval_{\idxp},\vec{r}_{\idxp})$ linearly degenerate $\Rightarrow$ contact discontinuity
+       \end{itemizenosep}
+   \end{circlelistnosep}
+   Each of the curves $\mathcal{R}_{\idxp}\left(\Uvec_{L}\right),\mathcal{C}_{\idxp}\left(\Uvec_{L}\right)$ and $\mathcal{R}_{\idxp}\left(\Uvec_{L}\right)$ can be paremeterized by some function:
+   \begin{align*}
+     \Wvec_{\idxj}\left(\Uvec_{L},\epsilonc\right)&&\epsilonc\in
+                                                     \begin{cases}
+                                                       &(-\widebar{\epsilonc},\widebar{\epsilonc})\\
+                                                       &(-\widebar{\epsilonc},0]\\
+                                                       &[0,\widebar{\epsilonc})
+                                                     \end{cases}&&\widebar{\epsilonc}(\Uvec_{L})>0
+   \end{align*}
+   \begin{itemizenosep}
+       \item \textit{Contact Discontinuity Integral Curves}:
+       \begin{align*}
+          \mathcal{C}_{\idxj}\left(\Uvec_{L}\right)=\left\{\Wvec_{\idxj}\left(\epsilonc^{*}\right)\in\R^{\idxm}: \epsilonc^{*}\in[-\widebar{\epsilonc},\widebar{\epsilonc})\right\}
+       \end{align*}
+       \item \textit{Rarefaction Integral Curves} $\mathcal{R}_{\idxp}\left(\Uvec_{L}\right)$:
+       \begin{align*}
+         \mathcal{R}_{\idxp}\left(\Uvec_{L}\right)=
+         \Big\{&\Wvec_{\idxp}(\epsilonc):
+         \dv{\Wvec_{\idxp}(t)}{t}=\vec{r}_{\idxp}\left(\Wvec_{\idxp}(\epsilonc)\right),\\[-1\jot]
+         &\Wvec_{\idxp}(0)=\Uvec_{L}, \epsilonc\in[0,\widebar{\epsilonc}]
+         \Big\}
+       \end{align*}
+       \item \textit{Hugoniot Locus}:
+       \begin{align*}
+         \mathcal{S}_{\idxp}\left(\Uvec_{L}\right)=\Big\{&\Wvec_{\idxj}(\epsilonc):\epsilonc\in[-\widebar{\epsilonc},0];\\[-1\jot]
+                                                         &\flux\left(\Wvec_{\idxj}(\epsilonc)\right)-\flux\left(\Uvec_{L}\right)=s \left(\Wvec_{\idxj}(\epsilonc)-\Uvec_{L}\right)\Big\}
+       \end{align*}
+   \end{itemizenosep}
+   For any $\Uvec\in\Wvec_{\idxj}\left(\Uvec_{L},\epsilonc\right)\in\mathcal{W}(\Uvec_{L})$, there exist then a \textit{simple solution} $\uvec_{\idxj}\left(\Uvec_{L},\epsilonc;x,t\right)$ that is
+   either of the formula \cref{eq:contact_discontinuity_solution_non_linear_systems_of_equations,eq:rarefaction_solution_non_linear_systems_of_equations,eq:lax_entropy_contact_solution} depending whether $\Uvec_{R}$ lies in
+   $\mathcal{C}_{\idxj}(\Uvec_{L})$, $\mathcal{S}_{\idxj}$, $\mathcal{R}_{\idxj}$.
+\end{sectionbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../formulary"
+%%% End:

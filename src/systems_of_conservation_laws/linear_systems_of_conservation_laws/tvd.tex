@@ -1,0 +1,17 @@
+\todo[inline]{Check where to put this}
+\begin{defnbox}\nospacing
+    \begin{defn}[\newline Discrete Total Variation Diminishing \blackrb{TVD}]\label{defn:discrete_total_variation_diminishing_systems}
+        Hyperbolic linear systems of conservation laws
+        \begin{align}
+          \norm*{\Uvec^{n+1}}_{TV(\R)}:=&\sum_{\idxj}\norm*{\Uvec_{\idxj+1}^{n+1}-\Uvec_{\idxj}^{n+1}}\leq \sum_{\idxj}\norm*{\Uvec_{\idxj+1}^{n}-\Uvec_{\idxj}^{n}}\nonumber\\[-1\jot]
+          \label{eq:discrete_total_variation_diminishing_systems}
+          \leq&\sum_{\idxj}\sum_{\idxp}^{m}\abs*{U_{\idxj+1}^{\idxp,n}-U_{\idxj}^{\idxp,n}}
+        \end{align}
+    \end{defn}
+\end{defnbox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

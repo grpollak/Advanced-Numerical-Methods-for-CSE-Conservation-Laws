@@ -1,0 +1,33 @@
+\paragraph{L2-Norm}
+\begin{propertybox}\nospacing
+    \begin{property}[L2-Norm]\label{property:l2-norm_entropy_solution}
+       \begin{align}
+         S(u)=u^{2}&&\implies&&
+         \int_{\R}^{2}u(x,t)\diff x\leq
+                 \int_{\R}u_{0}^{2}(x)\diff x&&\forall t
+       \end{align}
+    \end{property}
+\end{propertybox}
+\paragraph{L1-Norm}
+\begin{propertybox}\nospacing
+    \begin{property}[L1-Norm]\label{property:l1-norm_entropy_solution}
+       \begin{align}
+         S(u)=\abs{u}&&\implies&&
+         \int_{\R}\abs{u(x,t)}\diff x\leq
+                 \int_{\R}\abs{u_{0}(x)}\diff x&&\forall t
+       \end{align}
+    \end{property}
+\end{propertybox}
+\paragraph{Lp-Norm}
+\begin{propertybox}\nospacing
+    \begin{property}[L1-Norm]\label{property:l1-norm_entropy_solution}
+       \begin{align}
+         \norm{u(\cdot,t)}_{L^{p}}\leq\norm{u_{0}}_{L^{p}}&&\forall1\leq p\leq\infty
+       \end{align}
+    \end{property}
+\end{propertybox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

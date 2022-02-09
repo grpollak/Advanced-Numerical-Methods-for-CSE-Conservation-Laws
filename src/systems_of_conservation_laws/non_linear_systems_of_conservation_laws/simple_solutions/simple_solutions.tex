@@ -1,0 +1,69 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[\newline Riemann Problem for Sys.\ of Non-linear Cons. Laws]\label{defn:riemann_problem_for_non_linear_systems_of_conservations_laws}
+            \begin{align}
+              \begin{aligned}
+                \partial_{t}\Uvec+\partial_{x}\fluxvec\left(\Uvec\right)&=\vec{0}\\[-2\jot]
+                \Uvec(x,0)&=\Uvec_{0}(x)=\begin{cases}
+                        U_{R}&\text{if }x>0 \\
+                        U_{L}&\text{if }x<0
+                \end{cases}
+                \end{aligned}\label{eq:riemann_problem_nonlinear_systems_of_conservation_laws}
+            \end{align}
+        \end{defn}
+\end{defnbox}
+\begin{sectionbox}[Recall]\nospacing
+    For Riemann problems of scalar conservation laws we obtain different solutions:
+    \begin{circlelistnosep}
+        \item Shock Solutions\cref{cor:shock_wave_solution}
+        \item Rarefaction Solutions\cref{cor:rarefaction_solution_riemann_problem}
+    \end{circlelistnosep}
+    we now study solutions of non-linear systems of conservation laws \cref{eq:riemann_problem_nonlinear_systems_of_conservation_laws}.
+\end{sectionbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\proofref{proof:eigenvalue_problem_conservation_laws}\newline Eigenvalue Problem for Non-lin.\ sys.\ of cons.\ laws]\label{defn:eigenvalue_problem_non-lin._sys._of_con.s_laws}
+        Is the problem we need to solve in order to find solutions to non-linear systems of conservation laws\cref{defn:nonlinear_systems_of_conservation_laws}:
+        \begin{align}
+          \fluxvec'\left(\vvec(\xic)\right)\vvec'(\xic)=\xic\vvec'(\xic)&&
+          \begin{aligned}
+                \vvec'\left(\xic\right)&=\vec{r}_{\idxj}\left(\vvec\left(\xic\right)\right)\\
+                \xic&=\eigenval_{\idxj}\left(\vvec\left(\xic\right)\right)
+          \end{aligned}&&\idxj\in \left\{1,\ldots,\idxm\right\}\label{eq:eigenvalue_problem_simple_solutions}
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\proofref{proof:defn:simple_ode}\newline Simple ODE]\label{defn:simple_ode}
+        Is the shifted problem \cref{eq:eigenvalue_problem_simple_solutions} with initial conditions at zero:
+        \begin{align}
+          \begin{aligned}
+            \Wvec'\left(\epsilonc\right)&=\vec{r}_{\idxj}\left(\Wvec(\epsilonc)\right) \\
+            \Wvec_{\idxj}(0)&=\Uvec_{L}
+          \end{aligned}&&\epsilonc=\xic-\eigenval_{\idxj}\left(\Uvec_{L}\right)\label{eq:simple_ode}
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{notebox}[Note: Piccard-Lindeloef Theorem]\nospacing
+    Recall from analysis If $\vec{r}_{\idxp}\left(\Wvec_{\idxp}(t)\right)$ is Lipschitz continuous\cref{defn:lipschitz_continuity} then
+    \cref{eq:simple_ode} has a solution for $\epsilonc\in \left[0-\widebar{\epsilonc},0+\widebar{\epsilonc}\right]$.
+\end{notebox}
+\begin{explanationbox}\nospacing
+    \begin{explanation}[Integral Curves]\leavevmode\\
+        \begin{minipage}[c]{0.45\textwidth}
+            The solution of equation \cref{eq:simple_ode} is given by integral curves that are tangent to the eigenvectors
+            $\vec{r}_{\idxp}\left(\Wvec_{\idxp}(t)\right)$ of the wave families.
+        \end{minipage}
+        \begin{minipage}{0.5\textwidth}
+            \begin{figure}[H]
+                \centering{
+                  \def\svgwidth{120pt}
+                  \resizebox{\linewidth}{!}{\input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/simple_solutions/figures/integral_curve.pdf_tex}}
+                }
+            \end{figure}
+        \end{minipage}
+    \end{explanation}
+\end{explanationbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../formulary"
+%%% End:

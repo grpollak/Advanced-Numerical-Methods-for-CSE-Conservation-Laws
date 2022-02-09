@@ -1,0 +1,25 @@
+\begin{propositionbox}\nospacing
+    \begin{proposition}[\newline Heun's Method for Systems of Conservation Laws]\label{proposition:heun's_method_for_systems_of_conservation_laws}
+        Given a system of conservation laws the following scheme:
+        \begin{align*}
+          \dv{t}\Uvec_{\idxj}(t)=&-\frac{\Delta t}{\Delta x}
+          \left(\Fluxvec\left(\Uvec_{\idxj^{+}}^{n},\Uvec_{{\idxj+1}^{-}}^{n}\right)-
+         \Fluxvec \left(\Uvec_{{\idxj-1}^{+}}^{n},\Uvec_{{\idxj}^{-}}^{n}\right) \right)\\[-1\jot]
+          &-\frac{\Delta t}{\Delta x}
+          \left(\Fluxvec_{\idxj+1/2}(t)-
+         \Fluxvec_{\idxj-1/2}\right)=:\LT \left(\Uvec(t)\right)_{\idxj}
+        \end{align*}
+        \begin{align*}
+          \Uvec_{\idxj}^{+}=\polynomial(x_{\idxj+1/2})&&\Uvec_{\idxj}^{-}=\polynomial(x_{\idxj-1/2})
+        \end{align*}
+        \scalematho[.99]{\begin{align*}
+          \dv{t}\Uvec(t)=\LT \left(\Uvec(t)\right)&&\Uvec(t):=\bmat{\cdots&\Uvec_{\idxj-1}&\Uvec_{\idxj}&\Uvec_{\idxj+1}&\cdots}
+        \end{align*}}
+        with Heun's Method\cref{defn:heuns_method} is 2nd-order in time.
+    \end{proposition}
+\end{propositionbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../../formulary"
+%%% End:

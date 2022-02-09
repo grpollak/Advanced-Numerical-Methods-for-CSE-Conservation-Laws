@@ -1,0 +1,52 @@
+\begin{sectionbox}\nospacing
+    We have seen:
+    \begin{itemizenosep}
+        \item Smooth genuinely non-linear solutions -- Rarefactions
+        \item Discontinuous linear degenerate solutions -- Contact Discontinuous
+    \end{itemizenosep}
+    but what about genuinely non-linear discountinuties -- real shocks?
+\end{sectionbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Hugoniot Locus]\label{defn:hugoniot_locus}
+        \begin{align}
+          \mathcal{H}\left(\Uvec_{L}\right)=\Big\{&\Uvec_{R}\in\admissibleset:\exists s\in\R\text{ s.t. }\nonumber\\[-1\jot]
+          &\flux\left(\Uvec_{R}\right)-\flux\left(\Uvec_{L}\right)=s \left(\Uvec_{R}-\Uvec_{L}\right)\Big\}\label{eq:hugoniot_locus}
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{notebox}[Notes]\nospacing
+   \begin{itemizenosep}
+       \item The set of the Hugoniot Locus consist of all $\Uvec_{R}\in\admissibleset$ s.t:
+        \begin{align*}
+          &\Uvec(x,t)=
+          \left\{\begin{aligned}
+              &\Uvec_{L}&&\frac{x}{t}<s \\[-1\jot]
+              &\Uvec_{R}&&s<\frac{x}{t}
+          \end{aligned}\right.
+        \end{align*}\hfill
+       \item The set of contact discontinuities is a subset of the Hugoniot Locus i.e. $\mathcal{C}_{\idxj}\left(\Uvec_{L}\right)\in\mathcal{H}\left(\Uvec_{L}\right)$
+   \end{itemizenosep}
+\end{notebox}
+\begin{lemmabox}\nospacing
+    \begin{lemma}
+        Assume a strictly hyperbolic\cref{defn:strictly_hyperbolic_nonlinear_systems_of_conservation_laws} nonlinear scalar conservation law\cref{eq:nonlinear_systems_of_conservation_laws} with $\Uvec\in\Uvec_{L}$ then there exist $\idxm$ curves passing through $\Uvec_{L}$:
+        \begin{align}
+          \mathcal{H}\left(\Uvec_{L}\right)=\mathcal{H}_{1}\left(\Uvec_{L}\right)\cup\cdots\cup\mathcal{H}_{\idxm}\left(\Uvec_{L}\right)
+        \end{align}
+    \end{lemma}
+\end{lemmabox}
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\proofref{proof:defn:shock_wave_ode}\newline Shock Wave ODE]\label{defn:shock_wave_ode}
+        \begin{align}
+          \Wvec_{\idxj}^{'}(0)=\vec{r}_{\idxj}\left(\Uvec_{L}\right)&&\Wvec_{\idxj}(0)=\Uvec_{L}&&\forall\idxj=1,\ldots,\idxm
+        \end{align}
+    \end{defn}
+\end{defnbox}
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../../formulary"
+%%% End:

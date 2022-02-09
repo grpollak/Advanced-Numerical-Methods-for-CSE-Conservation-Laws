@@ -1,0 +1,32 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\tcblack{[Roe 1981]}\newline Superbee Limiter]\label{defn:superbee_limiter}
+        \begin{align}
+         &\sigmac_{\idxj}^{n}&=\text{maxmod} \left(\sigmac_{\idxj}^{L},\sigmac_{\idxj}^{R}\right)
+        \end{align}
+        \begin{align*}
+          \sigmac_{\idxj}^{L}&=\text{minmod} \left(\frac{u_{\idxj+1}^{n}-u_{\idxj}^{n}}{\Delta x},2\frac{u_{\idxj}^{n}-u_{\idxj-1}^{n}}{\Delta x}\right)\\[-1\jot]
+          \sigmac_{\idxj}^{R}&=\text{minmod} \left(2\frac{u_{\idxj+1}^{n}-u_{\idxj}^{n}}{\Delta x},\frac{u_{\idxj}^{n}-u_{\idxj-1}^{n}}{\Delta x}\right)
+        \end{align*}
+        \begin{align}
+          &\text{maxmod}\left(\mca_{1},\ldots,\mca_{n}\right)\\[-1\jot]
+          &\hspace{1mm}=\begin{cases}
+              \sign(\mca_{1})\max_{1\leq\idxk\leq n}\left(\abs{\mca_{\idxk}}\right)&\text{if }\sign(a_{1})=\cdots=\sign(a_{n}) \\
+              0&\text{otherwise}
+          \end{cases}\nonumber
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{corbox}\nospacing
+    \begin{cor}[Superbee is TVD]\label{cor:superbee_is_tvd}
+        If the reconstrution $\polynomial^{n}$ uses a superbee-mod limiter, then:
+        \begin{align}
+          \text{TV} \left(\polynomial^{n}\right)\leq \text{TV}\left(u^{n}\right)
+        \end{align}
+    \end{cor}
+\end{corbox}
+\todo[inline]{add proof}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../../../formulary"
+%%% End:

@@ -1,0 +1,38 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[CFL Condition]\label{defn:cfl_condition}\leavevmode\\
+        \begin{minipage}[t]{0.5\textwidth}
+            \begin{align}
+              \max_{\idxj}\abs{\flux' \left(U_{\idxj}^{n}\right)}\frac{\Delta t}{\Delta x}\leq\frac{1}{2}\label{eq:cfl_condition}
+            \end{align}
+        \end{minipage}
+        \begin{minipage}{0.45\textwidth}
+            \begin{figure}[H]
+                \centering{
+                  \def\svgwidth{100pt}
+                  \resizebox{\linewidth}{!}{\input{src/finite_volume_methods/gudonov_methods/figures/CFL.pdf_tex}}
+                }
+            \end{figure}
+        \end{minipage}
+    \end{defn}
+\end{defnbox}
+\begin{explanationbox}\nospacing
+    \begin{explanation}
+       Enforces that that neighbouring waves in a cell do not inersect each other:
+        \begin{align}
+          \text{\normalfont{CFL}}:=\max_{\idxj}\abs{\flux' \left(U_{\idxj}^{n}\right)}\Delta t\leq\underbrace{\frac{1}{2}\Delta x}_{\text{half the cell width}}
+          \label{eq:cfl_number}
+        \end{align}
+    \end{explanation}
+\end{explanationbox}
+\begin{corbox}\nospacing
+    \begin{cor}[The CFL condition can be used to calculate $\Delta t$]\label{cor:the_cfl_condition_can_be_used_to_calculate}
+        \begin{align}
+              \Delta t=\text{CFL}\frac{\Delta x}{\max_{\idxj}\abs{\flux' \left(U_{\idxj}^{n}\right)}}
+        \end{align}
+    \end{cor}
+\end{corbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

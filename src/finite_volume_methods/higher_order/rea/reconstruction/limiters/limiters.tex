@@ -1,0 +1,20 @@
+\begin{sectionbox}\nospacing
+    We have seen that schemes using simple finite differences for the reconstructions slope $\sigmac_{\idxj}^{n}$ are unstable and
+    we know that the evolution and averaging operations are TVD\cref{cor:evolution_is_tvd,cor:evolution_is_tvd} thus we need to ensure that the reconstruction is TVD as well:
+    \begin{align*}
+      \text{TV}\left(\polynomial^{n}\right)\leq\text{TV} \left(u^{n}\right)
+    \end{align*}
+    The problem is that schemes using simple finite differences for the slope are not TVD due to discontinuities.
+    \begin{figure}[H]
+        \centering{
+          \vspace{-1em}
+          \def\svgwidth{200pt}
+          \resizebox{\linewidth}{!}{\input{src/finite_volume_methods/higher_order/rea/reconstruction/limiters/figures/reconstruction_limiter.pdf_tex}}
+        }
+    \end{figure}
+\end{sectionbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../../../formulary"
+%%% End:

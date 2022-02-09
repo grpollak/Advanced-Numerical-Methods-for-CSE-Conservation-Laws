@@ -1,0 +1,67 @@
+\begin{examplebox}\nospacing
+    \begin{example}[\newline Burgers Equation Riemann Problem]\label{example:burgers_equation_riemann_problem}
+        \begin{align*}
+              \uldotted{u_t+u u_x}&=0 \nonumber\nalign
+              u(x,0)&=u_{0}(x)=\begin{cases}
+                    1&\text{if }x<0\\
+                    0&\text{if }x>0
+                    \end{cases}
+        \end{align*}
+        \begin{align*}
+        &\imp{\text{ODEs}}&&\frac{\diff t}{\diff r}=1\Rightarrow \diff t=\diff r&&\frac{\diff x}{\diff r}=\ul{\dv{x}{t}}=u&&\frac{\diff u}{\diff r}=0
+        \end{align*}
+        \begin{align*}
+          \dv{u\left(x(t),t\right)}{t}\eqs{\text{C.R.}}&=u_{t}\left(x(t),t\right)+u_{x}\left(x(t),t\right)\ul{\dv{x(t)}{t}} \\[-1\jot]
+          &=\uldotted{u_{t}\left(x(t),t\right)+u_{x}\left(x(t),t\right)u}=0
+        \end{align*}
+        thus $u$ is constant along the \text{projectd characteristics} $x(t)=x(r)$.\\
+        \imp{Problem}: let look at the inital data and the \textit{projected characteristcs}:
+        \begin{align*}
+          &\ul{\dv{x(t)}{t}}\Big|_{t=0}=u\left(x(t),t\right)\Big|_{t=0}=u_{0}(x_{0})=\begin{cases}1 &\text{if }x<0\\0&\text{if }x>0\end{cases}\\[-1\jot]
+          &\Rightarrow\left\{\begin{aligned}
+              &\int x(t)\diff x=\int 1\diff t&&\Rightarrow x(t)=x_{0}+t&&\text{if }x<0\\
+              &\int\dv{x(t)}{t}\diff t=\int 0\diff t&&\Rightarrow x(t)=x_{0}&&\text{if }x>0
+          \end{aligned}\right.
+        \end{align*}
+        \begin{figure}[H]
+            \centering{
+              \def\svgwidth{130pt}
+              \resizebox{0.7\linewidth}{!}{\input{src/conservation_laws/burgers_equation/figures/characteristics.pdf_tex}}
+            }
+        \end{figure}
+        Thus for $x>0$ we have intersecting \text{project.\ characteristics} i.e.\ a multivalued function that cannot be inverted.
+    \end{example}
+\end{examplebox}
+\begin{examplebox}\nospacing
+    \begin{example}[\newline Burgers Equation Continuous Initial Data]\label{example:burgers_equation_continous_initial_data}
+        \begin{align*}
+              \uldotted{u_t+u u_x}&=0 \nonumber\nalign
+              u(x,0)&=u_{0}(x)=\begin{cases}
+                    1&\text{if }x<0\\
+                    1-x&\text{if }0\leq x\leq 1\\
+                    0&\text{if }x>0
+                    \end{cases}
+        \end{align*}
+        \begin{figure}[H]
+            \vspace{-1em}
+            \centering{
+              \def\svgwidth{210pt}
+                \resizebox{\linewidth}{!}{\input{src/conservation_laws/burgers_equation/figures/compression_initial_data.pdf_tex}}
+            }
+        \end{figure}
+        \begin{figure}[H]
+            \vspace{-3em}
+            \centering{
+              \def\svgwidth{130pt}
+              \resizebox{0.7\linewidth}{!}{\input{src/conservation_laws/burgers_equation/figures/compression.pdf_tex}}
+            }
+        \end{figure}
+        \vspace{-1em}
+        Thus even for smooth initial data we will get intersection after the point $(1,1)$.
+    \end{example}
+\end{examplebox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

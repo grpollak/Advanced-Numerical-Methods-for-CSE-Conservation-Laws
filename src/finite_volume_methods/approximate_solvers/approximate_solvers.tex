@@ -1,0 +1,39 @@
+\begin{sectionbox}\nospacing
+    Solving the exact Riemann problem\cref{eq:gudunov_riemann_problem} can become very expensive.
+    Thus we want to find an approximate solution by \textit{linearizing} non-linear flux functions $\flux$:
+    \begin{align*}
+      \flux \left(u\right)=\flux \left(u_{\idxj}^{\idxn}\right)+\flux' \left(\thetac^{\idxn}_{\idxj+\frac{1}{2}}\right)\left(u-u_{\idxj}^{\idxn}\right)
+      \quad\thetac^{\idxn}_{\idxj+\frac{1}{2}}\in \left[u_{\idxj}^{\idxn},u_{\idxj+1}^{\idxn}\right]
+    \end{align*}
+    \begin{align}
+      \implies&&\flux' \left(u\right)_{x}=f' \left(\thetac^{\idxn}_{\idxj+\frac{1}{2}}\right)u_{x}=\approx\widehat{\mcA}_{\idxj+\frac{1}{2}}u_{x}
+    \end{align}
+    Where $\widehat{\mcA}_{\idxj+\frac{1}{2}}\left(\thetac^{\idxn}_{\idxj+\frac{1}{2}}\right)=\flux'\left(\thetac^{\idxn}_{\idxj+\frac{1}{2}}\right)$ is a constant state around which the nonlinear flux function is linearized.\\
+    The question that remains is at which point $\left(\thetac^{\idxn}_{\idxj+\frac{1}{2}}\right)\in \left[u_{\idxj}^{\idxn},u_{\idxj+1}^{\idxn}\right]$ should we evaluate
+    $\widehat{\mcA}_{\idxj+\frac{1}{2}}$.
+\end{sectionbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\tcblack{[Linear Transport Equation]}\newline Approximate Riemann Problem]\label{defn:approximate_riemann_problem}\leavevmode\\
+        \begin{align}
+          &u_{t}+\widehat{\mcA}_{\idxj+\frac{1}{2}}u_{x}=0 \\[-1\jot]
+          &u\left(x,t^{n}\right)=
+          \begin{cases}
+              u_{\idxj}^{n}&\text{if }x<x_{\idxj+1/2}\\
+              u_{\idxj+1}^{n}&\text{if }x>x_{\idxj+1/2}\\
+          \end{cases}\label{eq:approximate_riemann_problem}
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Arithmetic Average]\label{defn:arithmetic_average_flux}
+        \begin{align}
+          \widehat{\mcA}_{\idxj+\frac{1}{2}}=\flux' \left(\frac{u_{\idxj}^{\idxn}+u_{\idxj+1}^{\idxn}}{2}\right)
+        \end{align}
+    \end{defn}
+\end{defnbox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

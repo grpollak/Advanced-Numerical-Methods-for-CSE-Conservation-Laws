@@ -1,0 +1,57 @@
+\begin{examplebox}\nospacing
+    \begin{example}[Wave Equation]\label{example:wave_equation}
+        The wave equation:
+        \begin{align*}
+          \overbrace{u_{tt}}^{\text{acceleration}}-\mcc^{2}\overbrace{u_{xx}}^{\text{strain}}=0
+        \end{align*}
+        can be rewritten as a first-order system of equations by using the \textit{change of variables}:
+        \begin{align*}
+          v:=u_{t}&&w:=-c\mcc u_{x}
+        \end{align*}
+        \begin{align*}
+         u_{tt}-\mcc\left(\mcc u_{xx}\right)=0&&\implies&&v_{t}+\mcc w_{x}
+        \end{align*}
+        we can find a second equations to obtain a system:
+        \begin{align*}
+          w_{t}=-\mcc u_{xt}=-\mcc \left(u_{t}\right)_{x}=-\mcc v_{x}
+        \end{align*}
+        Hence it follows:
+        \begin{alignat}{4}
+          \begin{aligned}
+            v_{t}+\mcc w_{x}&=0\\
+            w_{t}+\mcc v_{x}&=0
+          \end{aligned}&&\iff&& \uvec_{t}+\Avec\uvec_{x}=0&\quad&\uvec:=\bmat{v \\ w},\Avec=\bmat{0 & \mcc\\ \mcc & 0}
+        \end{alignat}
+    \end{example}
+\end{examplebox}
+\begin{examplebox}\nospacing
+    \begin{example}[Linearized Euler Equations]\label{example:linearized_euler_equations}
+        \todo[inline]{check lecture 14 1h and linearize}
+    \end{example}
+\end{examplebox}
+\begin{examplebox}\nospacing
+    \begin{example}[Laplace's Equations]\label{example:laplace's_equations}
+        \begin{align*}
+         \Delta \uvec=0&&\implies&&u_{tt}+u_{xx}=0
+        \end{align*}
+        can be rewritten as a first-order system of equations by using the \textit{change of variables} similary to\cref{example:wave_equation} but
+        with $\mcc=1$ and a changed sign:
+        \begin{align*}
+          v:=u_{t}&&w:=u_{x}
+        \end{align*}
+        \begin{align*}
+         u_{tt}+u_{xx}=0&&\implies&&v_{t}+w_{x}
+        \end{align*}
+        we can find a second equations to obtain a system:
+        \begin{align*}
+          w_{t}=u_{xt}=\left(u_{t}\right)_{x}=v_{x}
+        \end{align*}
+        Hence it follows:
+        \begin{alignat}{4}
+          \begin{aligned}
+            v_{t}+w_{x}&=0\\
+            w_{t}-v_{x}&=0
+          \end{aligned}&&\iff&& \uvec_{t}+\Avec\uvec_{x}=0&\quad&\uvec:=\bmat{v \\ w},\Avec=\bmat{0 & 1\\ -1 & 0}
+        \end{alignat}
+    \end{example}
+\end{examplebox}

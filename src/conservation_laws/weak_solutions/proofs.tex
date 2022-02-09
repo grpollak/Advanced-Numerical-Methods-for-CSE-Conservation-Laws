@@ -1,0 +1,38 @@
+\begin{proofbox}\nospacing
+    \begin{proof}[Weak Solution\cref{defn:weak_solution}]\label{proof:defn:weak_solution}
+        We first multiply \label{eq:conservation_law1D} by a test function $\testfunc\in\sm_{0}^{1}\left(\R\times\Rp\right)$
+        and integrate over space and time:
+        \begin{align*}
+          \overbrace{\int_{-\infty}^{\infty}\underbrace{\int_{0}^{\infty}u_{t}\testfunc\diff t}_{I_{1a}}\diff x}^{I_{1}}+
+          \overbrace{\int_{0}^{\infty}\underbrace{\int_{-\infty}^{\infty}\flux(u)_{x}\testfunc\diff x}_{I_{2a}}\diff t}^{I_{2}}=0
+        \end{align*}
+        \begin{align*}
+            I_{1a}:&&\int_{0}^{+\infty}u_{t}\testfunc\eqs{\text{\cref{eq:integration_by_parts}}}&u(x,\infty)\underbrace{\testfunc(x,\infty)}_{\equiv0}-
+            \underbrace{u(x,0)}_{u_{0}(x)}\testfunc(x,0)&&\\[-1\jot]
+            &&&-\int_{0}^{\infty}u\testfunc_{t}\diff t&&
+        \end{align*}
+        \begin{align*}
+          I_{1}=-\int_{-\infty}^{\infty}\int_{0}^{+\infty}u\testfunc_{t}\diff t
+          -\int_{-\infty}^{\infty} u_{0}(x)\testfunc(x,0)\diff x
+        \end{align*}
+        \begin{align*}
+          I_{2a}:&&\int_{-\infty}^{+\infty}\flux(u)_{x}&\testfunc\diff x\eqs{\text{\cref{eq:integration_by_parts}}}\flux\left(u(\infty,t)\right)
+                                                                         \underbrace{\testfunc(\infty,t)}_{\equiv0}&&\\[-1\jot]
+                 &&&-\flux\left(u(-\infty,t)\right)\underbrace{\testfunc(-\infty,t)}_{\equiv0}-\int_{-\infty}^{\infty}\flux(u)\testfunc_{x}\diff x&&
+        \end{align*}
+        \begin{align*}
+            I_{2}=\int_{0}^{+\infty}\int_{-\infty}^{\infty}\flux(u)\testfunc_{x}\diff x\diff t
+        \end{align*}
+        \begin{align*}
+            &\int\limits_{-\infty}^\infty\int\limits_0^{\infty}
+            \left(u\testfunc_{t}+\flux(u)\testfunc_{x}\right)
+            \diff x \diff t+\int\limits_{-\infty}^\infty u_0(x)\mc[4]{\phi}(x,0)\diff x=0
+        \end{align*}
+    \end{proof}
+\end{proofbox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

@@ -1,0 +1,20 @@
+\begin{principbox}\nospacing
+    \begin{princip}[Discrete Maximum Principle]
+        \label{princip:discrete_maximum_principle}
+        \begin{align}
+          \min \left(u_{\idxj-1}^{n},u_{\idxj}^{n},u_{\idxj+1}^{n}\right)
+          \leq u_{\idxj}^{n}\leq\max\left(u_{\idxj-1}^{n},u_{\idxj}^{n},u_{\idxj+1}^{n}\right)
+        \end{align}
+        \begin{figure}[H]
+            \centering{
+              \def\svgwidth{120pt}
+              \resizebox{0.6\linewidth}{!}{\input{src/properties/discrete_maximum_principle/figures/max_disc.pdf_tex}}
+            }
+        \end{figure}
+    \end{princip}
+\end{principbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

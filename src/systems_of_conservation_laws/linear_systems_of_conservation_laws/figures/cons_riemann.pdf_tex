@@ -1,0 +1,90 @@
+%% Creator: Inkscape 1.1.1 (3bf5ae0d25, 2021-09-20, custom), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'cons_riemann.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{227.4811584bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.43676843)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{cons_riemann.pdf}}%
+    \put(0.96510531,0.0295335){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$x$\end{tabular}}}}%
+    \put(-0.01885215,0.42340883){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$t$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{cons_riemann.pdf}}%
+    \put(0.04748081,0.18862454){\rotatebox{64.069364}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$w_L^{1}$\end{tabular}}}}}%
+    \put(0.14308281,0.14234718){\rotatebox{70.319824}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$w_L^{2}$\end{tabular}}}}}%
+    \put(0.27849138,0.06697491){\rotatebox{70.319824}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$w_L^{\idxm}$\end{tabular}}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{cons_riemann.pdf}}%
+    \put(0.075409,0.25823051){\rotatebox{61.154447}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$w_{\rd{R}}^{1}$\end{tabular}}}}}%
+    \put(0.16767838,0.21236228){\rotatebox{65.019779}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$w_L^{2}$\end{tabular}}}}}%
+    \put(0.30533337,0.14262958){\rotatebox{67.720682}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$w_L^{\idxm}$\end{tabular}}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{cons_riemann.pdf}}%
+    \put(0.59577865,0.22669836){\rotatebox{-64.384488}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$w_L^{\idxm}$\end{tabular}}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{cons_riemann.pdf}}%
+    \put(0.93525284,0.28093776){\rotatebox{-66.125644}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$w_{\rd{R}}^{1}$\end{tabular}}}}}%
+    \put(0.8449004,0.22793261){\rotatebox{-65.404399}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$w_{\rd{R}}^{2}$\end{tabular}}}}}%
+    \put(0.6355955,0.14421222){\rotatebox{-67.849728}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$w_{\rd{R}}^{\idxm}$\end{tabular}}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{cons_riemann.pdf}}%
+    \put(0.7592918,0.19487165){\rotatebox{-65.404399}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$w_{\rd{R}}^{3}$\end{tabular}}}}}%
+    \put(0.79698978,0.32866454){\rotatebox{-65.404399}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$w_L^{2}$\end{tabular}}}}}%
+    \put(0.88871948,0.36421021){\rotatebox{-66.125644}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$w_L^{1}$\end{tabular}}}}}%
+    \put(0.71928089,0.2891941){\rotatebox{-65.404399}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$w_L^{3}$\end{tabular}}}}}%
+    \put(0.36022589,0.12699543){\rotatebox{5.4404751}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$w_L^{\idxm}$\end{tabular}}}}}%
+    \put(0.43361342,0.40492086){\rotatebox{3.6993191}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$w_{\rd{R}}^{1}$\end{tabular}}}}}%
+    \put(0.43845756,0.31461552){\rotatebox{4.4205641}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$w_{\rd{R}}^{2}$\end{tabular}}}}}%
+    \put(0.4538519,0.1376492){\rotatebox{3.0945094}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$w_L^{\idxm}$\end{tabular}}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{cons_riemann.pdf}}%
+    \put(0.34659913,0.30761531){\rotatebox{4.4205641}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$w_L^{2}$\end{tabular}}}}}%
+    \put(0.34175485,0.39792082){\rotatebox{3.6993191}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$w_L^{1}$\end{tabular}}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{cons_riemann.pdf}}%
+    \put(0.05031005,0.00207349){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\lambdac_{\idxp}<0$\end{tabular}}}}%
+    \put(0.82648353,0.00207349){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\lambdac_{\idxp}>0$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{cons_riemann.pdf}}%
+  \end{picture}%
+\endgroup%

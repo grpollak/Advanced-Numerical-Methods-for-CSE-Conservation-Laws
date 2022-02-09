@@ -1,0 +1,17 @@
+\begin{proofbox}\nospacing
+    \begin{proof}[Weaks Solutions\cref{defn:weak_solution_non_linear_scalar_conservation_law}]\leavevmode\\
+        \label{proof:defn:weak_solution_non_linear_scalar_conservation_law}
+        Multiply \cref{defn:nonlinear_systems_of_conservation_laws} by a test function $\testfunc\in\sm_{0}^{1}\left(\R\times\Rp\right)$
+        and integrate over space and time:
+        \begin{align*}
+            &&&\int\limits_{\Rp}\int\limits_{\R}\testfunc\partial_{t}\Uvec+\testfunc\partial_{x}\fluxvec\left(\Uvec\right)\diff x\diff t=0 \\[-1\jot]
+        \end{align*}
+        exactly as in \proofref{proof:defn:weak_solution} but now with vector valued functions.
+    \end{proof}
+\end{proofbox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

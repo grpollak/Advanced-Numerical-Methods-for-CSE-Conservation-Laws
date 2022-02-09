@@ -1,0 +1,72 @@
+\begin{proofbox}\nospacing
+    \begin{proof}[Total Variation Diminishing\cref{theorem:diminishing_total_variation}]\label{proof:theorem:diminishing_total_variation}
+        Lets $v^{\epsilonc}=u_{x}^{\epsilonc}$ and differentiate \cref{eq:viscous_approximation}:
+        \begin{align}
+          &u_{tx}^{\epsilonc}+\left(\flux' \left(u^{\epsilonc}\right)u_{x}^{\epsilonc}\right)_{x}=\epsilonc u_{xxx}^{\epsilonc}\nonumber\\[-1\jot]
+          &u_{xt}^{\epsilonc}\eqs{\cref{eq:product_rule}}
+            -\flux''\left(u^{\epsilonc}\right)\left(u_{x}^{\epsilonc}\right)^{2}-\flux'\left(u^{\epsilonc}\right)u_{xx}^{\epsilonc}
+            +\epsilonc u_{xxx}^{\epsilonc}\nonumber\\[-1\jot]
+          &v_{t}^{\epsilonc}=
+            -\flux''\left(u^{\epsilonc}\right)\left(v^{\epsilonc}\right)^{2}-\flux'\left(u^{\epsilonc}\right)v_{x}^{\epsilonc}
+            +\epsilonc v_{xx}^{\epsilonc}\label{eq:proof:theorem:diminishing_total_variation}
+        \end{align}
+        Now we define the test function:
+        \begin{align*}
+          \testfunc(v)=\etac(v)=\abs{v}&&\etac'(v)=\sign(v)&&\etac''(v)=2\deltac_{\{v=0\}}
+        \end{align*}
+        and multiply \cref{eq:proof:theorem:diminishing_total_variation} by $n'\left(v^{\epsilonc}\right)$
+        \begin{align*}
+          \etac'\left(v^{\epsilonc}\right) v_{t}^{\epsilonc}=&
+            -\flux'\left(u^{\epsilonc}\right)\etac'\left(v^{\epsilonc}\right)v_{x}^{\epsilonc}-\flux''\left(u^{\epsilonc}\right)\etac'\left(v^{\epsilonc}\right)\left(v^{\epsilonc}\right)^{2}\\[-1\jot]
+            &+\epsilonc\etac'\left(v^{\epsilonc}\right)v_{xx}^{\epsilonc}\\[-1\jot]
+          \partial_{t}\left(v^{\epsilonc}\right)=&
+            -\flux'\left(u^{\epsilonc}\right)\partial_{x}\left(v^{\epsilonc}\right)-\flux''\left(u^{\epsilonc}\right)\etac'\left(v^{\epsilonc}\right)\left(v^{\epsilonc}\right)^{2}\\[-1\jot]
+            &+\epsilonc\etac'\left(v^{\epsilonc}\right)v_{xx}^{\epsilonc}\\[-1\jot]
+          \int\limits_{\R}\partial_{t}\left(v^{\epsilonc}\right)=&
+            -\overbrace{\int\limits_{\R}\flux'\left(u^{\epsilonc}\right)\partial_{x}\left(v^{\epsilonc}\right)\diff x}^{I)}-\int\limits_{\R}\flux''\left(u^{\epsilonc}\right)\etac'\left(v^{\epsilonc}\right)\left(v^{\epsilonc}\right)^{2}\diff x\\[-1\jot]
+            &+\epsilonc\underbrace{\int\limits_{\R}\etac'\left(v^{\epsilonc}\right)v_{xx}^{\epsilonc}\diff x}_{II)}
+        \end{align*}
+        \begin{alignat*}{3}
+            I)&\eqs{\cref{eq:integration_by_parts}}&&\flux' \left(u^{\epsilonc}\right)\etac \left(v^{\epsilonc}\right)\Big|_{-\infty}^{\infty}
+            -\int_{\R}\left(\flux'\left(u^{\epsilonc}\right)\right)_{x}\etac\left(u^{\epsilonc}\right)\diff x \\[-1\jot]
+        &=&&\overbrace{\flux' \left(u^{\epsilonc}\right)\abs{u^{\epsilonc}}}^{u_{x}(\partial\Omega, t)=0\Rightarrow=0}\Big|_{-\infty}^{\infty}
+            -\int_{\R}\flux''\left(u^{\epsilonc}\right)u_{x}^{\epsilonc}\etac\left(u^{\epsilonc}\right)\diff x \\[-1\jot]
+        &=&&-\int_{\R}\flux''\left(u^{\epsilonc}\right)v^{\epsilonc}\etac\left(u^{\epsilonc}\right)\diff x
+        \end{alignat*}
+        \begin{alignat*}{3}
+            II)&\eqs{\cref{eq:integration_by_parts}}&&\overbrace{\etac'\left(v^{\epsilonc}\right)v_{x}^{\epsilonc}\Big|_{-\infty}^{\infty}}^{=0}
+            -\int_{\R}\left(\etac'\left(v^{\epsilonc}\right)\right)_{x}v_{x}^{\epsilonc}\diff x \\[-1\jot]
+        &=&&-\int_{\R}\etac''\left(v^{\epsilonc}\right)\left(v_{x}^{\epsilonc}\right)^{2}\diff x
+        \end{alignat*}
+        \begin{alignat*}{5}
+            &\implies&&
+          \dv{t}\int\limits_{\R}\etac\left(v^{\epsilonc}\right)\diff x&=&
+            +\int_{\R}\flux''\left(u^{\epsilonc}\right)v^{\epsilonc}\etac\left(u^{\epsilonc}\right)\diff x \\[-1\jot]
+            &&&&&-\int\limits_{\R}\flux''\left(u^{\epsilonc}\right)\etac'\left(v^{\epsilonc}\right)\left(v^{\epsilonc}\right)^{2}\diff x\\[-1\jot]
+            &&&&&-\epsilonc\int_{\R}\etac''\left(v^{\epsilonc}\right)\left(v_{x}^{\epsilonc}\right)^{2}\diff x \\[-1\jot]
+            &&&&=&+\int_{\R}\underbrace{\left[v^{\epsilonc}\etac\left(u^{\epsilonc}\right)-\etac'\left(v^{\epsilonc}\right)\left(v^{\epsilonc}\right)^{2}\right]}_{=0}\flux''\left(u^{\epsilonc}\right)\diff x \\[-1\jot]
+            &&&&&\underbrace{-2\epsilonc\int_{x:v^{\epsilonc}=0}\left(v_{x}^{\epsilonc}\right)^{2}\diff x}_{\leq 0}
+        \end{alignat*}
+        Thus it follows that:
+        \begin{align*}
+            \dv{t}\int\limits_{\R}\etac\left(v^{\epsilonc}\right)\diff x=\dv{t}\int\limits_{\R}\abs{u_{x}^{\epsilonc}}\diff x\leq0
+        \end{align*}
+    \end{proof}
+\end{proofbox}
+\begin{proofbox}\nospacing
+    \begin{proof}[TVD in time\cref{cor:total_variation_diminishing_in_time}]\label{proof:cor:total_variation_diminishing_in_time}
+        From \cref{eq:inviscide_conservation_law} we have:
+        \begin{align*}
+          &&&u_{t}^{\epsilonc}=-\flux'\left(u^{\epsilonc}\right)u_{x}^{\epsilonc}\\[-1\jot]
+          &\implies&&\abs*{u_{t}^{\epsilonc}}\stackrel{\cref{eq:cauchy_schwartz_inequality}}{\leq}\abs*{\flux'\left(u^{\epsilonc}\right)}\abs*{u_{x}^{\epsilonc}}
+            \stackrel{\substack{\cref{eq:maximum_principle_inviscid_conservation_law}\\ $\flux$ \text{convex}}}{=}\mcC\abs*{u_{x}^{\epsilonc}}\\[-1\jot]
+          &\implies&&\int_{\R}\abs*{u_{t}^{\epsilonc}(\cdot,t)}\diff x\leq\mcC\int_{\R}\abs*{u_{x}^{\epsilonc}(\cdot,t)}\diff x
+        \end{align*}
+    \end{proof}
+\end{proofbox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

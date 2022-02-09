@@ -1,0 +1,40 @@
+\begin{proofbox}\nospacing
+    \begin{proof}[Maximum Principle\cref{princip:maximum_principle}]\label{proof:princip:maximum_principle}\leavevmode
+        \begin{circlelistnosep}
+            \item Assume \cref{eq:inviscide_conservation_law} attains a strict maximum at its interior $\left(x^{*},t^{*}\right)$
+            \begin{align*}
+              u_{t}^{\epsilonc}\left(x^{*},t^{*}\right)\equiv0&&u_{x}^{\epsilonc}\left(x^{*},t^{*}\right)\equiv0
+                                                            &&u_{xx}^{\epsilonc}\left(x^{*},t^{*}\right)<0
+            \end{align*}
+            Now define the sum of all the terms\cref{eq:viscous_approximation}, which are supposed to equal zero if $u$ solves this equation:
+            \begin{align*}
+              R\left(x^{*},t^{*}\right):=&\underbrace{u_{t}^{\epsilonc}\left(x^{*},t^{*}\right)}_{=0}+\flux'\left(u^{\epsilonc}\left(x^{*},t^{*}\right)\right)
+                                           \underbrace{u_{x}^{\epsilonc}\left(x^{*},t^{*}\right)}_{=0}\\[-1\jot]
+              &-\underbrace{\epsilonc u_{xx}^{\epsilonc}\left(x^{*},t^{*}\right)}_{<0}
+            \end{align*}
+            But $R\left(x^{*},t^{*}\right)<0$ and not $0$ -- a contradiction, thus the maximums cannot be inside the interior.
+            \item Now assume $u$ attains a strict maximum at $\left(x^{*},T\right)$ at the time horizon boundary:
+            \begin{align*}
+              u_{x}^{\epsilonc}\left(x^{*},t^{*}\right)\equiv0&&u_{xx}^{\epsilonc}\left(x^{*},t^{*}\right)<0
+            \end{align*}
+            for the time derivative we can define the backward in time derivative:
+            \begin{align*}
+              u_{t}^{\epsilonc}\left(x, T\right)=\lim_{h\to0}\frac{u_{t}^{\epsilonc}\left(x,T\right)-u_{t}^{\epsilonc}\left(x,T-h\right)}{h}>0
+            \end{align*}
+            Thus $R\left(x, T\right)>0$ again a contradiction.
+            \imp{Note}: as $u_{t}^{\epsilonc}\left(x,T-h\right)$ is inside the interior and we already know that the interior has no maximum.
+            \begin{figure}[H]
+                \centering{
+                  \def\svgwidth{180pt}
+                  \resizebox{0.6\linewidth}{!}{\input{src/entropy_solutions/maximum_principle/figures/maximum_principle.pdf_tex}}
+                }
+            \end{figure}
+        \end{circlelistnosep}
+    \end{proof}
+\end{proofbox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

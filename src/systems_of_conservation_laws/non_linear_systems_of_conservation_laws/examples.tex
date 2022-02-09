@@ -1,0 +1,96 @@
+\begin{examplebox}\nospacing
+    \begin{example}[Shallow Water Equations]\label{example:shallow_water_equations}\leavevmode\\
+        \begin{minipage}{0.55\textwidth}
+            \begin{align}
+              &\partial_{t}h+\partial_{x}(hv)=0\nonumber \\[-1\jot]
+              &\partial_{t}(hv)+\partial_{x}\left(\frac{1}{2}gh^{2}+hv^{2}\right)=0\label{eq:shallow_water_equations}
+            \end{align}
+        \end{minipage}\hfill
+        \begin{minipage}[c]{0.38\textwidth}
+            \begin{figure}[H]
+                \centering{
+                  \def\svgwidth{100pt}
+                  \resizebox{\linewidth}{!}{\input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/figures/shallow_water.pdf_tex}}
+                }
+            \end{figure}
+        \end{minipage}
+        $v(x,t)$: horizontal velocity of water column at $x$.\\
+        With $m:=hv$ \cref{eq:shallow_water_equations} can be rewritten as non-linear scalar conservation law\cref{eq:nonlinear_systems_of_conservation_laws}:
+        \begin{align}
+          \Uvec=\pmat{h \\ m}&&\fluxvec(\Uvec)=\pmat{m \\ \frac{1}{2}gh^{2}+\frac{m^{2}}{h}}
+        \end{align}
+        \begin{align*}
+          \fluxvec'(\Uvec)=\pmat{
+          0  & 1 \\
+          gh & \frac{2m}{h}
+          }&&\abs*{\pmat{
+          0  & 1 \\
+          gh & \frac{2m}{h}
+               }}=gh \\[-1\jot]
+          \lambdac_{1/2}(\fluxvec'(\Uvec))\eqs{\substack{\cref{eq:eigenvalues_2x2}\\ \tr=0}}v\mp c&&c:=\sqrt{gh}\\[-1\jot]
+          \left(\fluxvec'(\Uvec)-\eigenval_{\idxj}\right)\vec{r}_{\idxj}(\Uvec)=0&&\implies\vec{r}_{1/2}(\Uvec)=\pmat{1 \\ v\mp c}
+        \end{align*}
+        \begin{itemizenosep}
+        \item Assuming that $h>0$ we find that\\ $\admissibleset=\left\{(h,m)\in\R^{2}:h>0\right\}$ s.t.\ \cref{eq:shallow_water_equations}
+        is \textit{hyperbolic}.
+        \item moreover we find that both wave families of \cref{eq:shallow_water_equations} are \textit{genuinely nonlinear}\cref{defn:hyperbolic_nonlinear_systems_of_conservation_laws}:
+        \begin{align*}
+          \nabla\eigenval_{1/2}(\Uvec)\cdot\vec{r}_{1/2}(\Uvec)=\mp\frac{3}{2}\sqrt{\frac{g}{h}}
+        \end{align*}
+        \end{itemizenosep}
+    \end{example}
+\end{examplebox}
+\begin{examplebox}\nospacing
+    \begin{example}[Compressible Euler Equations]\label{example:compressible_euler_equations}
+        \begin{align}
+          \partial_{t}\rhoc+\partial_{x}(\rhoc v)&=0 \\[-1\jot]
+          \partial_{t}(\rhoc v)+\partial_{x}\left(\rhoc v^{2}+p\right)&=0 \\[-1\jot]
+          \partial_{t}E+\partial_{x}\left((E+p)v\right)&=0
+        \end{align}
+        The pressure $p$ and the total energy $E$ are related by the equation of state:
+        \begin{align}
+          &E=\frac{p}{\gammac-1}+\frac{1}{2}\rhoc v^{2}&&\gammac>1: \text{ heat capacity ratio}
+        \end{align}
+        The compressible euler equations can be written as conservation law:
+        \begin{align*}
+          \Uvec=\pmat{\rhoc \\ m \\ E}&&
+          \fluxvec(\Uvec)=\pmat{\rhoc v \\  \rhoc v^{2}+p\\ (E+p)v}
+        \end{align*}
+        \begin{align*}
+          \begin{aligned}
+            &\eigenval_{1}=v-c \\[-1\jot]
+            &\eigenval_{2}=v \\[-1\jot]
+            &\eigenval_{3}=v+c
+          \end{aligned}&&c=\sqrt{\frac{\gammac p}{\rhoc}}&&v=\frac{m}{\rhoc}
+        \end{align*}
+        For non-antimatter the pressure has to be positive thus admissible set is given by:
+        \begin{align*}
+          \admissibleset=\left\{(p,m,E):p>0\iff E>\frac{m^{2}}{2\rhoc}\right\}
+        \end{align*}
+        and the euler equations are thus a \textit{strictly hyperbolic} system\cref{defn:strictly_hyperbolic_nonlinear_systems_of_conservation_laws}.
+        \begin{align*}
+            \begin{aligned}
+            \vec{r}_{1}&=\pmat{1 & v-c & H-vc}^{\T}\\[-1\jot]
+            \vec{r}_{2}&=\pmat{1 & v & \frac{v^{2}}{2}}^{\T} \\[-1\jot]
+            \vec{r}_{3}&=\pmat{1 & v+c &H+vc}^{\T}
+            \end{aligned}&&H=\frac{E+p}{\gammac}\text{ Enthalpy}
+        \end{align*}
+        The second wave family is \textit{linearly degenerated}:
+        \begin{align*}
+          \nabla\eigenval_{2}\cdot\vec{r}_{2}=
+          \pmat{-\frac{m}{\rhoc^{2}} \\ \frac{1}{\rhoc} \\ 0}^{\T}\vec{r}_{2}=-\frac{m}{\rhoc^{2}}+\frac{v}{\rhoc}=-\frac{v}{\rhoc}+\frac{v}{\rhoc}=0
+        \end{align*}
+        while the first and third wave family are \textit{genuinely non-linear}.
+    \end{example}
+\end{examplebox}
+\begin{notebox}[Note]\nospacing
+    \begin{align*}
+        &E=\frac{p}{\gammac-1}+\frac{1}{2}\rhoc v^{2}\implies p=()\gammac-1)\left(E-\frac{m^{2}}{2\rhoc}\right)
+    \end{align*}
+\end{notebox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

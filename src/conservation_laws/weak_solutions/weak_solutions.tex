@@ -1,0 +1,41 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[Test function\hfill\tcblack{$\testfunc\in\sm_{C}^{1}\left(\R\times[0,T]\right)$}]\label{defn:test_function}
+        \begin{minipage}[c]{0.5\textwidth}
+            Are smooth, compactly supported functions, that are easier to work with.\\
+            \imp{Idea}: use some test functions $\testfunc$ that has nicer properties and shift the derivative from $u$ to $\testfunc$ by using integration by parts.
+        \end{minipage}\hfill
+        \begin{minipage}{0.45\textwidth}
+           \begin{figure}[H]
+               \centering{
+                 \def\svgwidth{100pt}
+                 \resizebox{\linewidth}{!}{\input{src/conservation_laws/weak_solutions/figures/testfunc.pdf_tex}}
+               }
+           \end{figure}
+        \end{minipage}
+    \end{defn}
+\end{defnbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Weak Solutions\hfill\proofref{proof:defn:weak_solution}]\label{defn:weak_solutions}\leavevmode\\
+            For $u_0\in L^\infty(\R),\ u:\R\times]0,T[\mapsto\R$ is a weak solution of \cref{eq:inviscide_conservation_law} if:
+            \begin{align}
+                &\int\limits_{-\infty}^\infty\int\limits_0^T
+                \left(u\testfunc_{t}+\flux(u)\testfunc_{x}\right)
+                \diff x \diff t+\int\limits_{-\infty}^\infty u_0(x)\mc[4]{\phi}(x,0)\diff x=0\nonumber\nalign
+                &\rd{\land} u:\in L^\infty(\R\times]0,T[)
+                    \qquad\forall\mc[4]{\phi}\in C_0^\infty(\R\times\rd{[}0,T\rd{[}),\ \rd{\mc[4]{\phi}(\cdot,T)=0}
+            \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{notebox}[Note]\nospacing
+    Recall $L^\infty$ bounded but not necessarily differentiable functions i.e.\ step fucntions.
+\end{notebox}
+\begin{explanationbox}\nospacing
+    \begin{explanation}
+        Derivatives of $u$ are gone $\Rightarrow$ we do no longer have the exploding gradient problem\cref{lemma:exploding_gradient_problem}.
+    \end{explanation}
+\end{explanationbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

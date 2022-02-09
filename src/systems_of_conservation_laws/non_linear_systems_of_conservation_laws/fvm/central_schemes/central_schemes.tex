@@ -1,0 +1,18 @@
+\begin{sectionbox}[Ami (H)arten--Peter (L)ax--Bram van (L)eer\hfill 1779-80]\nospacing
+    We have seen that the Roe scheme\cref{eq:roe_flux_linearized_system} can very expensive.
+    Another idea by is to approximate the $\idxm$ waves/discontinuities by only $2\leq\idxl\leq\idxm$ waves/discontinuities and hope that they are enough to approximate our solution.
+    \begin{figure}[H]
+        \centering{
+          \def\svgwidth{130pt}
+          \resizebox{0.6\linewidth}{!}{
+            \input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/fvm/figures/central_schemes.pdf_tex}}
+        }
+        \caption{Example of possible waves that we might have to approximate}
+        \label{figure:euler_three_waves}
+    \end{figure}
+\end{sectionbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../../formulary"
+%%% End:

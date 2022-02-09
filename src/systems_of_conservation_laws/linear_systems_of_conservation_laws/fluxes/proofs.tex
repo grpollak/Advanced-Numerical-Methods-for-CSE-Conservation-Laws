@@ -1,0 +1,72 @@
+\begin{proofbox}\nospacing
+    \begin{proof}[Godunov Flux Systems of Cons.\ Laws.\cref{defn:gudonov_flux_systems}]\label{proof:gudonov_flux_systems_of_cons_laws}\leavevmode\\
+        Idea we split \Cref{eq:decoupled_riemann_problem_for_linear_systems}:
+        \begin{align*}
+            \Uvec_{R}-\Uvec_{L}&=\sum_{\idxp=1}^{\idxm}\alphac^{\idxp}r_{\idxp}
+        \end{align*}
+        into positive and negative jumps:
+        \begin{figure}[H]
+            \centering{
+              \def\svgwidth{130pt}
+              \resizebox{0.6\linewidth}{!}{
+                \input{src/systems_of_conservation_laws/linear_systems_of_conservation_laws/figures/godunov_scheme_wave_splitting.pdf_tex}}
+            }
+        \end{figure}
+        And then multiply by $\Avec$:
+        \begin{align}
+              &\Avec\Uvec_{\idxj+1/2}^{n}=\Avec\Uvec_{\idxj}+\Avec\sum_{\idxp:\eigenval_{\idxp}<0}^{\idxm}\alphac_{\idxj+1/2}^{\idxp}r_{\idxp}\label{eq:proof:gudonov_flux_systems_of_cons_laws_first}\\[-1\jot]
+              &\Avec\Uvec_{\idxj+1/2}^{n}=\Avec\Uvec_{\idxj+1}-\Avec\sum_{\idxp:\eigenval_{\idxp}\geq0}^{\idxm}\alphac_{\idxj+1/2}^{\idxp}r_{\idxp}\label{eq:proof:gudonov_flux_systems_of_cons_laws_second}
+        \end{align}
+        \begin{align*}
+          \ref{eq:proof:gudonov_flux_systems_of_cons_laws_first}
+            =&\Avec\Uvec_{\idxj}+\sum_{\idxp:\eigenval_{\idxp}<0}^{\idxm}\alphac_{\idxj+1/2}^{\idxp}\eigenval_{\idxp}r_{\idxp}&&\text{$r_{\idxp}$ eigenv. of $\Avec$}\\[-1\jot]
+            =&\Avec\Uvec_{\idxj}+\sum_{\idxp=1}^{\idxm}\eigenval_{\idxp}^{-}\alphac_{\idxj+1/2}^{\idxp}r_{\idxp}&&\\[-1\jot]
+          \ref{eq:proof:gudonov_flux_systems_of_cons_laws_second}
+            =&\Avec\Uvec_{\idxj+1}-\sum_{\idxp=1}^{\idxm}\eigenval_{\idxp}^{+}\alphac_{\idxj+1/2}^{\idxp}r_{\idxp}
+        \end{align*}
+        \begin{align*}
+          \frac{1}{2}(\ref{eq:proof:gudonov_flux_systems_of_cons_laws_first}+&\ref{eq:proof:gudonov_flux_systems_of_cons_laws_second})
+          =\Avec\Uvec_{\idxj+1/2}^{n}\\[-1\jot]
+          =&\frac{1}{2}\left(\Avec\Uvec_{\idxj}^{n}+\Avec\Uvec_{\idxj+1}^{n}-\sum_{\idxp=1}^{m}(\eigenval_{\idxp}^{+}-\eigenval_{\idxp}^{-})
+          \alphac_{\idxj+1/2}^{\idxp}r_{\idxp}\right)\\[-1\jot]
+          =&\frac{1}{2}\Avec\left(\Uvec_{\idxj}^{n}+\Uvec_{\idxj+1}^{n}\right)-\frac{1}{2}\sum_{\idxp=1}^{m}\ul[ulc2]{\abs{\eigenval_{\idxp}}}\ul{\alphac_{\idxj+1/2}^{\idxp}}
+             \ul[ulc3]{r_{\idxp}}\\[-1\jot]
+          =&\frac{1}{2}\Avec\left(\Uvec_{\idxj}^{n}+\Uvec_{\idxj+1}^{n}\right)-\frac{1}{2}\ul[ulc3]{\vec{R}}\ul[ulc2]{\abs{\Lambdac}}\ul{\vec{R}^{-1}\left(\Uvec_{\idxj+1}^{n}-\Uvec_{\idxj}^{n}\right)}
+        \end{align*}
+    \end{proof}
+\end{proofbox}
+\begin{notebox}[Notes]\nospacing
+    \begin{itemizenosep}
+        \item $a^{+}:=\max(a,0)$\hfil$a^{-}:=\min(a,0)$
+        \item $a=a^{+}+a^{-}$\hfil$a^{-}-a^{+}=\abs{a}$
+        \item $\abs{\Lambdac}=\diag(\abs{\eigenval_{1}},\ldots,\abs{\eigenval_{m}})$
+    \end{itemizenosep}
+\end{notebox}
+\begin{proofbox}\nospacing
+    \begin{proof}[Godunov TVB\cref{property:total_variation_bounded}]
+        \label{proof:property:total_variation_bounded}
+        \begin{align*}
+          \text{TV}(\Uvec^{n+1})=&\sum_{\idxj}\norm*{\Uvec_{\idxj+1}^{n+1}-\Uvec_{\idxj}^{n+1}}\\[-1\jot]
+          =&\sum_{\idxj}\norm*{\vec{R}\vec{W}_{\idxj+1}^{n+1}-\vec{R}\vec{W}_{\idxj}^{n+1}}\\[-1\jot]
+              =&\sum_{\idxj}\norm*{\vec{R}(\vec{W}_{\idxj+1}^{n+1}-\vec{W}_{\idxj}^{n+1})}\\[-1\jot]
+              \leq&\norm{\vec{R}}\sum_{\idxj}\norm*{\vec{W}_{\idxj+1}^{n+1}-\vec{W}_{\idxj}^{n+1}}
+        \end{align*}
+        we know that $w^{\idxp}$ solves the linear transport eq. s.t\ it holds:
+        \begin{align*}
+          \sum_{\idxj}\abs{w_{\idxj+1}^{\idxp,n+1}-w_{\idxj}^{\idxp,n+1}}
+          \leq\sum_{\idxj}\abs{w_{\idxj+1}^{\idxp,n}-w_{\idxj}^{\idxp,n}}
+        \end{align*}
+        \begin{align*}
+         \implies&\norm{\vec{R}}\sum_{\idxj}\norm*{\vec{W}_{\idxj+1}^{n+1}-\vec{W}_{\idxj}^{n+1}}\leq
+        \norm{\vec{R}}\sum_{\idxj}\norm*{\vec{W}_{\idxj+1}^{n}-\vec{W}_{\idxj}^{n}}\\[-1\jot]
+        &=\norm{\vec{R}}\sum_{\idxj}\norm*{\vec{R}^{-1}\vec{U}_{\idxj+1}^{n}-\vec{R}^{-1}\vec{U}_{\idxj}^{n}}\\[-1\jot]
+        &\leq\norm{\vec{R}}\norm{\vec{R}^{-1}}\sum_{\idxj}\norm*{\vec{U}_{\idxj+1}^{n}-\vec{U}_{\idxj}^{n}}
+        \end{align*}
+    \end{proof}
+\end{proofbox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../formulary"
+%%% End:

@@ -1,0 +1,124 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[Averaging Operator]\label{defn:averaging_operator}
+       \begin{align}
+         \text{Avg}(g)=\frac{1}{\Delta x}\int_{x_{\idxj-1/2}}^{x_{\idxj+1/2}}g(x)\diff x&&\text{if }x_{\idxj-1/2}\leq x\leq x_{\idxj+1/2}
+       \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{sectionbox}[Interpretation of Gurdonuv Type Schemes]\nospacing
+    \begin{align*}
+      \text{Given }\left\{u_{\idxj}^{n}\right\}_{\idxj}\xrightarrow[\text{Rieman Problem Sol.}]{\text{Evolve (approx.)}}\text{Average}
+    \end{align*}
+  \vspace{-10pt}
+    \begin{figure}[H]
+    \centering
+    \resizebox{0.4\linewidth}{!}{
+        \begin{tikzpicture}[sloped]
+            \tikzset{
+            box/.style = {
+                shape=rectangle,
+                    draw=attributes,
+                    align=center,
+                    %minimum size={10pt},
+                    text = black,
+                    ultra thick,
+                    minimum height=15mm,
+                    font=\fontsize{6}{6}\selectfont},
+            arrow/.style={
+                color=black,
+                draw=section,
+                thick,
+                -latex,
+                    font=\fontsize{6}{6}\selectfont},
+            }
+            \node[box](V){$\left\{u_{\idxj}^{\idxn}\right\}_{\idxj}$};
+            \node[box, right = of V](P){$\left\{u_{\idxj}^{\idxn+1}\right\}_{\idxj}$};
+            \draw[arrow, rounded corners=3mm](V.north) -- +(0,0.5) -| node[above, pos=0.25]{Evolve Solution} (P);
+            \draw[arrow, rounded corners=3mm](P.south) -- +(0,-0.5) -| node[above, pos=0.25]{Average} node[below, pos=0.25]{$\left\{u_{\idxj}^{\idxn}\right\}_{\idxj}\leftarrow\text{Avg}\left(\left\{u_{\idxj}^{\idxn+1}\right\}_{\idxj}\right)$} (V);
+            \end{tikzpicture}
+        }
+    \end{figure}
+\end{sectionbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Reconstruction]\label{defn:reconstruction}\leavevmode\\
+        \begin{minipage}{0.5\textwidth}
+        Replacing cell-averages\cref{defn:cell_averages} by \textit{piecewise-linears}:
+        \begin{align*}
+          &\polynomial^{n}(x)=\polynomial_{\idxj}^{n}\\[-1\jot]
+          &\text{if }x_{\idxj-1/2}\leq x\leq x_{\idxj+1/2}\\[-1\jot]
+          &\polynomial_{\idxj}^{n}(x):=\mca_{\idxj}^{n}x+\mcb^{n}
+        \end{align*}
+        \end{minipage}
+        \begin{minipage}[c]{0.45\textwidth}
+            \begin{figure}[H]
+                \centering{
+                  \def\svgwidth{100pt}
+                  \resizebox{0.85\linewidth}{!}{\input{src/finite_volume_methods/higher_order/reconstruction/figures/reconstruction.pdf_tex}}
+                }
+            \end{figure}
+        \end{minipage}
+    \end{defn}
+\end{defnbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[REA Algorithm]\label{defn:rea_algorithm}
+        \begin{align}
+          \text{\tc{Red}{R--E--A}--\tc{Blue}{R--E--A}--\tc{Green}{R--E--A}}
+        \end{align}
+        \begin{circlelistnosep}
+            \item Reconstruction: at time $t^{n}$ we know the approximate cell averages $u_{\idxj}^{n}$ and realize them by
+            some functions:
+            \begin{align*}
+                    u(x,t^{n})=\polynomial_{\idxj}^{n}(x)  &&x_{\idxj-1/2}\leq x \leq x_{\idxj+1/2}
+            \end{align*}
+            \item Evolution: the reconstruction function is evolved in time by solving the Riemann problem either exactly or approximately:
+            \begin{align*}
+              u(x,t^{n})\stackrel{\text{evolve}}{\mapsto}u(x,t^{n+1})
+            \end{align*}
+            \item Averaging: we average the solutions at the next time step $t^{n+1}$ over each control volume.
+        \end{circlelistnosep}
+    \end{defn}
+\end{defnbox}
+\begin{corbox}\nospacing
+    \begin{cor}[Evolution is TVD]\label{cor:evolution_is_tvd}
+        We have seen that all Riemann solver (apart from Roe-Scheme) are TVD\cref{defn:discrete_total_variation_diminishing}
+    \end{cor}
+\end{corbox}
+\begin{corbox}\nospacing
+    \begin{cor}[Averaging is TVD]\label{cor:averaging_is_tvd}\leavevmode\\
+        Given a function $f\in\text{Lip}(\Omega)$ then it holds that the average is TVD\cref{defn:discrete_total_variation_diminishing}:
+        \begin{align}
+          \text{TV}\left(\text{Av}\left(f\right)\right)\leq\text{TV}(f)&&
+          \text{Av}(f)_{\idxj}:=\frac{1}{\Delta x}\int_{x_{\idxj-1/2}}^{x_{\idxj+1/2}}f(x)\diff x
+        \end{align}
+    \end{cor}
+\end{corbox}
+\begin{lemmabox}
+    \begin{lemma}[Piecewise Constant Averaging]\label{piecewise_constant_averaging}\leavevmode\\
+        If we replace the exact solutions with piecewise constant averages then it holds for the error:
+        \begin{align}
+          \norm{g-\text{Avg}(g)}_{L^{1}}\leq \mcC\Delta X=\bigO{\Delta x}&&g\in L^{1}(\Omega)
+        \end{align}
+    \end{lemma}
+\end{lemmabox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Generalized Riemann Problem]
+        \label{defn:generalized_riemann_problem}
+            \begin{align}
+            u_{t}+\flux \left(u\right)_{x}&=0 \\[-1\jot]
+            u(x,t^{n})&=\polynomial^{n}(x)            \label{eq:generalized_riemann_problem}
+            \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{sectionbox}\nospacing
+   \begin{conslist}
+       \item Hard to solve exactly! (except for $\flux(u)=\mca u$)
+   \end{conslist}
+\end{sectionbox}
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../formulary"
+%%% End:

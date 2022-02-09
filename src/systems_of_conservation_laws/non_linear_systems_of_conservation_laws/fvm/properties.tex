@@ -1,0 +1,33 @@
+  \begin{propertybox}\nospacing
+      \begin{property}[Strict Hyperbolicity]\label{property:strict_hyperbolicity}\leavevmode\\
+          $\linfluxvec_{\idxj+1/2}^{n}\in\R^{\idxm\times\idxm}$ should be strictly hyperbolic\cref{cor:strictly_hyperbolic_system}.
+      \end{property}
+  \end{propertybox}
+  \begin{propertybox}\nospacing
+      \begin{property}[Consistency]\label{property:consistency}\leavevmode\\
+          $\linfluxvec_{\idxj+1/2}^{n}=\linfluxvec_{\idxj+1/2}^{n}\left(\uvec_{\idxj}^{n},\uvec_{\idxj}^{n+1}\right)$ should be consistent:
+          \begin{align}
+            \linfluxvec_{\idxj+1/2}^{n}\left(\uvec,\uvec\right)=\fluxvec'(\uvec)\label{eq:property:consistency}
+          \end{align}
+      \end{property}
+  \end{propertybox}
+\begin{explanationbox}\nospacing
+    \begin{explanation}
+        If the left and right states are consistent/have the same value then our approximation should do nothing and be equal to the real flux.
+    \end{explanation}
+\end{explanationbox}
+  \begin{propertybox}\nospacing
+      \begin{property}[\hfill\proofref{proof:property:roes_criterion}\newline Roes Criterion]\label{property:roes_criterion}
+          Isolated Discontinuities should be preserved exactly by our approximation:
+          \begin{align}
+            \fluxvec\left(\uvec_{\idxj+1}^{n}\right)-\fluxvec\left(\uvec_{\idxj}^{n}\right)=\linfluxvec_{\idxj+1/2}^{n}\left(\uvec_{\idxj+1}^{n}-\uvec_{\idxj}^{n}\right)
+            \label{eq:roes_criterion_non_linear_systems}
+          \end{align}
+      \end{property}
+  \end{propertybox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../formulary"
+%%% End:

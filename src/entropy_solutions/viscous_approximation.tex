@@ -1,0 +1,81 @@
+\begin{sectionbox}\nospacing
+    The Lax-Olenek entropy condition is based on the heuristic that information emanates from initial date, now we want to derive an entropy condition from a mathematical standpoint.
+\end{sectionbox}
+\begin{propositionbox}\nospacing
+    \begin{proposition}[Viscous Approximation]\label{proposition:viscous_approximation}
+        Is a parabolic \textit{convection-diffusion equation} of the form:
+        \begin{align}
+          u_{t}^{\epsilonc}+\flux \left(u_{t}^{\epsilonc}\right)_{x}=\epsilonc u^{\epsilonc}_{xx}&&\epsilonc>0\label{eq:viscous_approximation}
+        \end{align}
+    \end{proposition}
+\end{propositionbox}
+\begin{sectionbox}[Idea]\nospacing
+    In the limit $\epsilonc\to0$ we recover the inviscide scalar conservation law\cref{eq:inviscide_conservation_law}.
+    Thus we can study \cref{eq:viscous_approximation} in order to study \cref{eq:inviscide_conservation_law}.
+\end{sectionbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Vanishing Viscosity Solution]\label{defn:vanishing_viscosity_solution}
+        Is a weak solution $u$ that is the limit of solutions $u=\lim_{\epsilonc\to0}u^{\epsilonc}$ of the viscous equation\cref{eq:viscous_approximation}.
+    \end{defn}
+\end{defnbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Entropy Pair\hfill\tcblack{$(\entropy,q)$}]\label{defn:entropy_function}\leavevmode\\
+        The pair $(\entropy,q)$ is called entropy pair, where $\entropy$ is any \textit{strictly convex function}\cref{defn:stricly_convex_function}.
+        Then the entropy pair is defined by the relation:
+        \begin{align}
+          \qprob(u)=\int_{0}^{u}\flux'(\etac)\entropy'(\etac)\diff\etac&&\implies&&\qprob'=s'\flux'
+        \end{align}
+        \begin{align*}
+          \entropy:\text{ entropy function}&& \qprob:\text{ entropy flux}&&
+        \end{align*}
+    \end{defn}
+\end{defnbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Entropy Condition\hfill\proofref{proof:defn:entropy_condition}]\label{defn:entropy_condition}\leavevmode\\
+        Any vanishing viscosity solution\cref{defn:vanishing_viscosity_solution} $u$ satisfies:
+        \begin{align}
+          \entropy\left(u\right)_{t}+\qprob\left(u\right)_{x}\leq0\label{eq:entropy_condition}
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{corbox}\nospacing
+    \begin{cor}[\hfill\proofref{proof:cor:entropy_condition_for_distributions}
+        \newline Kruzkov's Entropy Condition]\label{cor:entropy_condition_for_distributions}
+        Is an entropy condition that holds for weak-solutions:
+          \begin{align}
+            \int_{\R}\int_{\R_{+}}&s \left(u(x,t)\right)\testfunc_{t}(x,t)+\qprob \left(u(x,t)\right)\testfunc_{x}\diff x\diff t\nonumber \\[-1\jot]
+            &+\int_{\R}s(u_{0}(x))\testfunc(x,0)\diff x\geq0\label{eq:kruzkov_entropy_condition}
+          \end{align}
+          \hfill$\qquad\forall\testfunc\in\sm_{C}^{1}\left(\R\times\R_{+}\right),\testfunc\geq0\nonumber$
+    \end{cor}
+\end{corbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Entropy Solution]\label{defn:entropy_solution}\leavevmode\\
+        A function $u\in L^{\infty}(\R,\R_{+})$ is an entropy solution of the inviscide scalar conservation law \cref{eq:inviscide_conservation_law} iff:
+        \begin{circlelistnosep}
+            \item $u$ is a \textit{weak solution}\cref{defn:weak_solutions} of \cref{eq:inviscide_conservation_law}.
+            \item $u$ satisfies the entropy condition\cref{eq:entropy_condition}/\cref{eq:kruzkov_entropy_condition} for all entropy pairs\cref{defn:entropy_function} $(s,\qprob)$
+        \end{circlelistnosep}
+    \end{defn}
+\end{defnbox}
+\begin{lawbox}\nospacing
+    \begin{law}[2nd Laws Of Thermodynamics\hfill\proofref{proof:law:2nd_laws_of_themordynamics}]\label{law:2nd_laws_of_themordynamics}\leavevmode\\
+        The total (mathematical) entropy $s$ decreases in time:
+        \begin{align}
+          &&&\dv{t}\int_{\R}S \left(u^{t}(x,t)\right)\quad\forall\text{ strict. Convex}\\[-1\jot]
+          &\iff&&\int_{\R}S \left(u^{\epsilonc}(x,t)\right)\diff x\leq
+                 \int_{\R}S \left(u_{0}(x)\right)\diff x&&\forall t
+        \end{align}
+    \end{law}
+\end{lawbox}
+\begin{notebox}[Note: mathematical entropy]\nospacing
+   The mathematical entropy is defined as the negative physical definition of the entropy $s^{\text{math}}=-s^{\text{phys}}$  $\Rightarrow$ decreases.
+\end{notebox}
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../formulary"
+%%% End:

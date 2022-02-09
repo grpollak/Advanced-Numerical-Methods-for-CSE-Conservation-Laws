@@ -1,0 +1,35 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[Consistent Schemes]\label{defn:consistent_schemes}
+        A $2\idxp+1$ point scheme
+        \begin{align}
+          \Flux_{\idxj+1/2}^{n}=\Flux \left(U_{\idxj-\idxp+1}^{n},\ldots,U_{\idxj+\idxp}^{n}\right)
+        \end{align}
+        is consistent if the Flux function $\flux$ is consitent with the numerical flux $\Flux$ i.e.:
+        \begin{align}
+          \Flux(U,\ldots,U)=\flux(u)
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{explanationbox}\nospacing
+    \begin{explanation}
+        This basically states that if the left and right states are consistent/have the same value then
+        our approximation should do nothing and be equal to the real flux.
+    \end{explanation}
+\end{explanationbox}
+\begin{corbox}\nospacing
+    \begin{cor}[Consitency for FVM]\label{cor:consitency_for_fvm}\leavevmode\\
+        A FVM\cref{defn:finite_volume_scheme} method is consistent iff for its numerical flux functions it holds that:
+        \begin{align}
+          \Flux(\mca,\mca)=\flux(\mca)
+        \end{align}
+    \end{cor}
+\end{corbox}
+\begin{notebox}[Note]\nospacing
+    Most of the schemes that we see in the next chapter are consistent and conservative.
+\end{notebox}
+\todo[inline]{See also lecture 09 min 30}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

@@ -1,0 +1,33 @@
+\begin{propositionbox}\nospacing
+    \begin{proposition}[\hfill\proofref{proof:proposition:decoupled_hyperbolic_lin_cons_law}
+        \newline Decoupled hyperbolic lin.\ Cons.\ Law] \label{proposition:decoupled_hyperbolic_lin._cons._law}\leavevmode\\
+        Hyperbolic linear systems of conservation laws\cref{defn:linear_system_of_conservation_laws} can be decoupled into $\idxm$
+        linear equations:
+        \begin{align*}
+          \Wvec_{t}+\Lambdac\Wvec_{x}=0&&\iff&&W_{t}^{\idxp}+\eigenval_{\idxp}W_{x}^{\idxp}=0\quad\forall\idxp=1,\ldots,\idxm
+        \end{align*}
+        \begin{align}
+          \Wvec=\vec{R}^{-1}\Uvec&&\vec{R}=\bmat{\vec{r}_{1}&\Cdots&\vec{r}_{\idxp}}&&\Avec\vec{r}_{\idxj}=\eigenval_{\idxj}\vec{r}\label{eq:decoupled_hyperbolic_conservation_law}
+        \end{align}
+    \end{proposition}
+\end{propositionbox}
+\begin{corbox}\nospacing
+    \begin{cor}[\hfill\proofref{proof:cor:solution_of_hyp_lin_cons_laws}\newline Solution of hyp.\ lin.\ cons.\ laws]\label{cor:solution_of_hyp_lin_cons_laws}
+        \begin{align}
+          W^{\idxp}(x,t)=W_{0}^{\idxp}(x-\eigenval_{\idxp}t)&&\Wvec_{0}(x)=\vec{R}^{-1}\Uvec_{0}(x)
+        \end{align}
+        \begin{align}
+          \Uvec(x,t)=\vec{R}\Wvec(x,t)
+        \end{align}
+    \end{cor}
+\end{corbox}
+\begin{proofbox}\nospacing
+    \begin{proof}[Solution of hyp.\ lin.\ cons.\ law]\label{proof:cor:solution_of_hyp_lin_cons_laws}
+        \todo[inline]{add method of characteristics lin. transport equation}
+    \end{proof}
+\end{proofbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

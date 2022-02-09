@@ -1,0 +1,56 @@
+\todo[inline]{Whats the difference}
+\begin{defnbox}\nospacing
+    \begin{defn}[Conservative Variables]\label{defn:conservative_variables}
+        Are the variables $\Uvec$ used to write a system in conservative form.
+    \end{defn}
+\end{defnbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Primitive Variables]\label{defn:primitive_variabels}
+        are called the Characteristic Variables.
+    \end{defn}
+\end{defnbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Characteristic Variabels]\label{defn:characteristic_variabels}
+        $\Wvec=\vec{R}^{-1}\Uvec$ are called the Characteristic Variables.
+    \end{defn}
+\end{defnbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Primitive Reconstruction]\label{defn:primitive_reconstruction}
+        Apply limiters\cref{subsubsec:limiters} componentwise to the primitve variables $\Uvec_{\idxj}$.
+    \end{defn}
+\end{defnbox}
+\begin{sectionbox}\nospacing
+   \begin{minipage}[t]{0.39\textwidth}
+       \begin{proslist}
+           \item Easy to apply
+       \end{proslist}
+   \end{minipage}
+   \begin{minipage}[c]{0.6\textwidth}
+      \begin{conslist}
+          \item Does not necessarily lead to TVB\cref{property:total_variation_bounded} stable reconstruction \cref{subsec:reconstruction} scheme.
+      \end{conslist}
+   \end{minipage}
+\end{sectionbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Characteristic Reconstruction]\label{defn:characteristic_reconstruction}
+        Apply limiters\cref{subsubsec:limiters} componentwise to the characteristic variables $\Wvec_{\idxj}$.
+        \begin{align}
+          \gammac_{\idxj}^{n}=\text{limiter}\left(\Wvec_{\idxj-1}^{n},\Wvec_{\idxj}^{n},\Wvec_{\idxj+1}^{n}\right)&&\implies&&\sigmac_{\idxj}^{n}=\vec{R}\gammac_{\idxj}^{n}
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{corbox}\nospacing
+    \begin{cor}
+        Scheme $\circledItem{3}$ \cref{defn:fvm_evolution_and_averaging} is:
+        \begin{itemizenosep}
+            \item is 2nd-order accurate in space formally.
+            \item is TVB-stable if $\sigmac$ is defined by Characteristic reconstruction.
+        \end{itemizenosep}
+    \end{cor}
+\end{corbox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../../formulary"
+%%% End:

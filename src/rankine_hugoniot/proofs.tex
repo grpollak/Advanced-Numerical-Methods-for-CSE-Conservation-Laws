@@ -1,0 +1,88 @@
+\begin{proofbox}\nospacing
+    \begin{proof}[Rankine-Hugoniot Condition\cref{defn:rankine-hugoniot_condition}]\label{proof:rankine-hugoniot_condition}
+        Lets consider a shock-wave\cref{defn:shock_waves}/discontinuity given by a curve:\\
+        \begin{minipage}[c]{0.4\textwidth}
+            \begin{figure}[H]
+                \centering{
+                  \def\svgwidth{100pt}
+                  \resizebox{\linewidth}{!}{\input{src/rankine_hugoniot/figures/disc.pdf_tex}}
+                }
+            \end{figure}
+        \end{minipage}\hfill
+        \begin{minipage}{0.4\textwidth}
+        \begin{align*}
+          &\Sigma=\left\{(x,t)\in \left(\R\times\R_{+}\right):x=\sigma(t)\right\}\\[-1\jot]
+          &\Sigma=\left(\sigma(t),t\right)\forall t
+        \end{align*}
+        \begin{flalign*}
+            &\text{s.t.}&&u^{\pm}(t):=\lim_{h\to0}u \left(\sigma(t)\pm ht\right)
+        \end{flalign*}
+        \begin{align*}
+          \qquad u^{+}(t)\neq u^{-}(t)
+        \end{align*}
+        \end{minipage}
+        Now we choose a test function $\testfunc\in\sm^{1}_{C}(\Omega)$ and $\sup(\testfunc)\subset\Omega$.\\
+        We know that $u$ is a \textit{weak solution} of $\Omega\subseteq\R\times\R_{+}$:
+        \begin{align*}
+                &\int_{\Omega}
+                \left(u\testfunc_{t}+\flux(u)\testfunc_{x}\right)
+                \diff x \diff t+\int\limits_{\R}u_0(x)\underbrace{\testfunc(x,0)}_{\equiv0}\diff x=0
+        \end{align*}
+        \begin{align*}
+                &\int_{\Omega}\left(u\testfunc_{t}+\flux(u)\testfunc_{x}\right)\diff x \diff t=0 \\[-1\jot]
+        \end{align*}
+        \begin{align*}
+          &\underbrace{\int_{\Omega_{-}}\left(u\testfunc_{t}+\flux(u)\testfunc_{x}\right)\diff x \diff t}_{I_{1}}
+            +\underbrace{\int_{\Omega_{+}}\left(u\testfunc_{t}+\flux(u)\testfunc_{x}\right)\diff x \diff t}_{I_{2}}=0
+        \end{align*}
+        using I.B.P. and the fact that $\testfunc\equiv0$ on $\partial\Omega$ we obtain:
+        \begin{align*}
+          I_{1}\eqs{\hphantom{\text{\cref{eq:greens_first_identity}}}}&\int_{\Omega_{-}}\grad\testfunc\bmat{\flux(u)\\u}\diff\Omega \\[-1\jot]
+               \eqs{\text{\cref{eq:greens_first_identity}}}&
+                 -\int_{\Omega_{-}}\divg_{x,t}\bmat{\flux(u)\\ u}\testfunc\diff\Omega
+                 +\int_{\partial\Omega_{-}}\bmat{\flux\left(u^{+}\right)\\ u^{+}}\vec{\nu}\testfunc\diff \Sigma
+          \\[-1\jot]
+               \eqs{\hphantom{\text{\cref{eq:greens_first_identity}}}}&
+                 -\int_{\Omega_{-}}\left(u_{t}+\flux(u)_{x}\right)\testfunc\diff x\diff t \\[-1\jot]
+               &+\int_{\Sigma}\left(u^{+}(t)\testfunc\nu_{t}^{+}+\flux \left(u^{+}(t)\right)\testfunc\nu_{x}^{+}\right)\testfunc\diff\Sigma
+        \end{align*}
+        \begin{minipage}[c]{0.3\textwidth}
+            \begin{figure}[H]
+                \centering{
+                  \def\svgwidth{60pt}
+                  \resizebox{\linewidth}{!}{\input{src/rankine_hugoniot/figures/disc_normals.pdf_tex}}
+                }
+            \end{figure}
+        \end{minipage}\hfill
+        \begin{minipage}{0.65\textwidth}
+            Where the line measure of the ``inner boundary'' is given by $\sigma$ and the unit normal of the line is given by:
+            \begin{align*}
+              \text{Tangent}&=\pmat{\sigma'(t) \\ 1}\\[-1\jot]
+              \nu&=\pmat{\nu_{x}\\\nu{t}}=\pmat{\frac{-1}{\sqrt{1+\sigma'(t)}}\\\frac{\sigma'(t)}{\sqrt{1+\sigma'(t)}}}
+            \end{align*}
+        \end{minipage}
+        $-\nu$ is the unit normal vector of $\Omega^{+}$ s.t. it follows:
+        \begin{align*}
+          I_{1}+I_{2}=&-\int_{\Omega_{-}\cup\Omega_{+}}\overbrace{\left(u_{t}+\flux(u)_{x}\right)}^{=0}\testfunc\diff x\diff t \\[-1\jot]
+                      &+\int_{\Sigma}\Big[\big(u^{+}(t)-u^{+}(t)\big)\nu_{t}\\[-1\jot]
+                    &+\big(\flux \big(u^{+}(t)\big)-\flux \big(u^{-}(t)\big)\big)\nu_{x}\Big]\testfunc(\sigma(t),t)\diff\Sigma\qquad\forall\testfunc
+        \end{align*}
+        \begin{flalign*}
+            &\Rightarrow&&\left(u^{+}(t)-u^{+}(t)\right)\nu_{t}+\flux \left(u^{+}(t)\right)-\flux \left(u^{-}(t)\right)\nu_{x}=0&&
+        \end{flalign*}
+        \begin{align*}
+          \frac{\sigma'(t)}{1+\sigma'(t)}&\left(u^{+}(t)-u^{+}(t)\right)\\[-1\jot]
+          &-\frac{1}{1+\sigma'(t)}\flux \left(u^{+}(t)\right)-\flux \left(u^{-}(t)\right)=0&&
+        \end{align*}
+        \begin{align*}
+          \flux \left(u^{+}(t)\right)-\flux \left(u^{-}(t)\right)
+          =\sigma'(t)\left(u^{+}(t)-u^{+}(t)\right)
+        \end{align*}
+    \end{proof}
+\end{proofbox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../formulary"
+%%% End:

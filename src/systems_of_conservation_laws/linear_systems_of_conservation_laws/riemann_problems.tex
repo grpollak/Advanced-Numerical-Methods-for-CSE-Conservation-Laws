@@ -1,0 +1,66 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[Decoupled Riemann Problem]\label{defn:decoupled_riemann_problem}
+        Splits the original Riemann data in multiple problems:
+        \begin{align}
+          \Wvec_{t}+\Lambdac\Wvec_{x}&=0\nonumber\\
+          \Wvec_{0}(x)&=\begin{cases}\Wvec_{L}=\vec{R}^{-1}\Uvec_{L}&\text{if }x<0\\
+                \Wvec_{R}=\vec{R}^{-1}\Uvec_{R}&\text{if }x>0
+              \end{cases}\label{eq:decoupled_riemann_problem}
+        \end{align}
+        \begin{figure}[H]
+            \vspace{-2em}
+            \centering{
+              \def\svgwidth{150pt}
+              \resizebox{0.7\linewidth}{!}{\input{src/systems_of_conservation_laws/linear_systems_of_conservation_laws/figures/cons_riemann_inital_data.pdf_tex}}
+            }
+        \end{figure}
+    \end{defn}
+\end{defnbox}
+\begin{corbox}\nospacing
+    \begin{cor}[\newline Riemann Problem for hyp.\ lin.\ cons.\ law]\label{cor:riemann_hyper_lin_cons_law}
+        The solution of a Riemann problem of a hyperbolic\cref{defn:hyperbolic_system} linear conservation law\cref{eq:decoupled_riemann_problem} is given by:
+        \begin{align}
+          W^{\idxp}(x,t)=W_{0}^{\idxp}(x-\eigenval_{\idxp}t)=
+          \begin{cases}
+              W_{L}^{\idxp}&\text{if }\eigenval_{\idxp}t<0\\
+              W_{R}^{\idxp}&\text{if }\eigenval_{\idxp}t>0
+          \end{cases}
+        \end{align}
+    \end{cor}
+\end{corbox}
+\todo[inline]{understand better where this comes from, probably RH condition}
+\begin{corbox}\nospacing
+    \begin{cor}[\hfill\proofref{proof:cor:jump_decomposition}\newline Jumps]\label{cor:jump_decomposition}
+        The Riemann problem of a linear system of conservation laws\cref{cor:riemann_hyper_lin_cons_law}
+        decomposed into $\idxm$ jumps s.t.\ we obtain $\idxm$ waves/solutions:\\
+        \begin{minipage}{0.45\textwidth}
+          \begin{align}
+            \Uvec_{R}-\Uvec_{L}&=\sum_{\idxp=1}^{\idxm}\alphac^{\idxp}r_{\idxp}\label{eq:decoupled_riemann_problem_for_linear_systems}
+          \end{align}
+        \end{minipage}\hfill
+        \begin{minipage}[c]{0.5\textwidth}
+           \begin{figure}[H]
+               \centering{
+                 \def\svgwidth{150pt}
+                 \resizebox{\linewidth}{!}{\input{src/systems_of_conservation_laws/linear_systems_of_conservation_laws/figures/cons_riemann.pdf_tex}}
+               }
+           \end{figure}
+        \end{minipage}
+          $\alphac^{\idxp}$: strength of the $\idxp$-th wave\\
+          $r_{\idxp}$: direction of the characteristics
+    \end{cor}
+\end{corbox}
+\begin{explanationbox}\nospacing
+    \begin{explanation}\leavevmode
+        \begin{itemizenosep}
+            \item $\eigenval_{\idxp}$ speed of the wave
+            \item $\eigenval_{\idxp}t$ is called the $\idxp$-th wave
+        \end{itemizenosep}
+    \end{explanation}
+\end{explanationbox}
+\todo[inline]{Lecture 15 end and script add example wave equation and solve}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

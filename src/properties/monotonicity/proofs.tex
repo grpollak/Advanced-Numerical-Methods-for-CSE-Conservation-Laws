@@ -1,0 +1,27 @@
+\begin{proofbox}\nospacing
+    \begin{proof}[Monotonicity Preserving Schemes\cref{cor:monotone_schemes_and_monotonicity}]\label{proof:cor:monotone_schemes_and_monotonicity}
+        Assume $u_{\idxj}^{n}\leq v_{\idxj}^{n}, \forall\idxj$ and $H$ is monotone:
+        \begin{align*}
+          u_{\idxj}^{n+1}&=H\left(u_{\idxj-1}^{n},u_{\idxj}^{n},u_{\idxj+1}^{n}\right)\\[-1\jot]
+          u_{\idxj}^{n+1}&\stackrel{\cref{eq:monotone_scheme}}{\leq}H\left(v_{\idxj-1}^{n},u_{\idxj}^{n},u_{\idxj+1}^{n}\right)\\[-1\jot]
+          u_{\idxj}^{n+1}&\stackrel{\cref{eq:monotone_scheme}}{\leq}H\left(v_{\idxj-1}^{n},v_{\idxj}^{n},u_{\idxj+1}^{n}\right)\\[-1\jot]
+          u_{\idxj}^{n+1}&\stackrel{\cref{eq:monotone_scheme}}{\leq}H\left(v_{\idxj-1}^{n},v_{\idxj}^{n},v_{\idxj+1}^{n}\right)
+        \end{align*}
+        \begin{align*}
+          &\implies&&u_{\idxj}^{n+1}\leq v_{\idxj}^{n+1}
+        \end{align*}
+    \end{proof}
+\end{proofbox}
+\begin{proofbox}\nospacing
+    \begin{proof}[Monotone FVS]\label{proof:cor:monotone_fvm}
+        \begin{align*}
+          H(x,y,z)=y-\frac{\Delta t}{\Delta x} \left(\Flux(x,z)-\Flux(x,y)\right)
+        \end{align*}
+        \begin{align*}
+          \pdv{H}{x}&=\frac{\Delta t}{\Delta x}\pdv{\Flux}{\mca}\left(x,y\right)\stackrel{\text{mon.\ non-dec.}}{\geq} 0 \\[-1\jot]
+          \pdv{H}{z}&=-\frac{\Delta t}{\Delta x}\pdv{\Flux}{\mcb}\left(y,z\right)\stackrel{\text{mon.\ non-inc.}}{\geq} 0 \\[-1\jot]
+          \pdv{H}{y}&=1-\frac{\Delta t}{\Delta x}\pdv{\Flux}{\mca}-\frac{\Delta t}{\Delta x}\pdv{\Flux}{\mcb}\stackrel{!}{\geq}0
+        \end{align*}
+        Thus in order for the last equation to hold we need to enforce\cref{eq:cfl_condition_for_fvs}.
+    \end{proof}
+\end{proofbox}

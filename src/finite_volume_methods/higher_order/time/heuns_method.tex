@@ -1,0 +1,15 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\proofref{proof:defn:heuns_method_tvd,proof:defn:heuns_method_order}\newline Heun's Method\hfill\blackrb{SSP-RK2}]\label{defn:heuns_method}\leavevmode\\
+        Applies forward Euler twice and averages them to obtain a 2nd-order method:
+        \begin{align}
+          \Uvec^{*}=&\Uvec^{n}+\Delta t\LT \left(\Uvec^{n}\right)\\[-1\jot]
+          \Uvec^{**}=&\Uvec^{*}+\Delta t\LT \left(\Uvec^{*}\right)\\[-1\jot]
+          \Uvec^{n+1}=&\frac{\Uvec^{n}+\Uvec^{**}}{2}
+        \end{align}
+    \end{defn}
+\end{defnbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../formulary"
+%%% End:

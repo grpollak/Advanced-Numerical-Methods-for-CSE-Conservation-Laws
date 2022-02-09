@@ -1,0 +1,62 @@
+\begin{proofbox}\nospacing
+    \begin{proof}[Sum of integrals]\label{proof:conservation_reconstruction_int}
+        \todo[inline]{todo}
+    \end{proof}
+\end{proofbox}
+\begin{proofbox}\nospacing
+    \begin{proof}[Conservation and reconstruction]\label{proof:conservation_reconstruction}
+        We calculate the flux at the interfaces $x_{\idxj}$ thus we need to recover the true value:
+        \begin{align}
+         \polynomial_{\idxj}^{n}(x_{\idxj})=u_{\idxj}^{n}
+        \end{align}
+    \end{proof}
+\end{proofbox}
+\begin{proofbox}\nospacing
+    \begin{proof}[\newline FVM Evolution and Averaging Incremental Form\cref{cor:fvm_evolution_and_averaging_in_incremental_form}]\label{proof:cor:fvm_evolution_and_averaging_in_incremental_form}\leavevmode\\
+        Add and subtract $\Flux \left(U_{\idxj^+}^{n},u_{\idxj^{-}}^{n}\right)$ from\cref{eq:evolution_and_averaging} and divide and multiply by
+        $U_{\idxj}^{n}-U_{\idxj-1}^{n}$:\leavevmode\\
+        \scalematho{
+        \begin{align*}
+          &U_{\idxj}^{n+1}=U_{\idxj}^{n}+\\[-1\jot]
+          &\quad+\overbrace{\frac{\Delta t}{\Delta x}\left[\frac{\Flux \left(U_{\idxj^+}^{n},u_{\idxj^{-}}^{n}\right)-\Flux \left(U_{\idxj^+}^{n},u_{\idxj+1^{-}}^{n}\right)}{u_{\idxj+1}^{n}-u_{\idxj}^{n}}\right]}^{\mcC_{\idxj+1/2}^{n}}\left(U_{\idxj+1}^{n}-U_{\idxj}^{n}\right)\\[-1\jot]
+          &\quad-\underbrace{\frac{\Delta t}{\Delta x}\left[\frac{\Flux \left(U_{\idxj+1^+}^{n},u_{\idxj+1^{-}}^{n}\right)-\Flux \left(U_{\idxj^+}^{n},u_{\idxj-1^{-}}^{n}\right)}{u_{\idxj+1}^{n}-u_{\idxj}^{n}} \right]}_{\mcD_{\idxj\rd{+}1/2}^{n}} \left(U_{\idxj}^{n}-U_{\idxj-1}^{n}\right)
+        \end{align*}}
+    \end{proof}
+\end{proofbox}
+\begin{proofbox}\nospacing
+    \begin{proof}[TVD FVM scheme$^{\text{\cref{eq:fvm_rea}}}$]\label{proof:eq:fvm_rea}
+        We need to show that evolution and averaging \cref{eq:evolution_and_averaging} is TVD i.e.\ fullfils hartens lemma \cref{eq:hartens_lemma}:
+        \begin{align*}
+          \mcc_{\idxj+1/2}^{n}&=\frac{\Delta t}{\Delta x}\frac{\Flux \left(u_{\idxj^+}^{n},\ul{u_{\idxj^{-}}^{n}}\right)-\Flux \left(u_{\idxj^+}^{n},\ul[ulc2]{u_{\idxj+1^{-}}^{n}}\right)}{u_{\idxj+1}^{n}-u_{\idxj}^{n}}\nonumber\\[-1\jot]
+                              &\eqs{\text{Lips. Cont.}}\frac{\Delta t}{\Delta x}\pdv{\Flux}{\mcb}\left(u_{\idxj^{+}}^{n},\cdot\right)
+                                \left(\frac{\ul{u_{\idxj^{-}}^{n}}-\ul[ulc2]{u_{\idxj+1^{-}}^{n}}}{u_{\idxj+1}^{n}-u_{\idxj}^{n}}\right)\\[-1\jot]
+                              &:=\frac{\Delta t}{\Delta x}\pdv{\Flux}{\mcb}\left(u_{\idxj^{+}}^{n},\cdot\right)\cdot\left(-T_{1}\right)
+                          \stackrel{\substack{1. T_{1}\geq0 \\2. \cref{eq:monotone_fvm_lipschitz_dec}}}{\geq}0
+        \end{align*}
+        \begin{align*}
+          \mcd_{\idxj-1/2}^{n}&=\frac{\Delta t}{\Delta x}\frac{\flux \left(\ul{u_{\idxj+1^+}^{n}},u_{\idxj+1^{-}}^{n}\right)-\flux \left(\ul[ulc2]{u_{\idxj^+}^{n}},u_{\idxj-1^{-}}^{n}\right)}{u_{\idxj+1}^{n}-u_{\idxj}^{n}}\nonumber\\[-1\jot]
+                              &\eqs{\text{Lips. Cont.}}\frac{\Delta t}{\Delta x}\pdv{\Flux}{\mca}\left(\cdot,u_{\idxj+1^{-}}^{n}\right)
+                                \left(\frac{\ul{u_{\idxj+1^{+}}^{n}}-\ul[ulc2]{u_{\idxj^{+}}^{n}}}{u_{\idxj+1}^{n}-u_{\idxj}^{n}}\right)\\[-1\jot]
+                              &:=\frac{\Delta t}{\Delta x}\pdv{\Flux}{\mca}\left(\cdot,u_{\idxj+1^{-}}^{n}\right)\cdot\left(T_{2}\right)
+                          \stackrel{\substack{1. T_{2}\geq0 \\2. \cref{eq:monotone_fvm_lipschitz_inc}}}{\geq}0
+        \end{align*}
+        next wee need to show that $\mcc_{\idxj+1/2}^{n}+\mcd_{\idxj\rd{+}1/2}^{n}\leq1$ of \cref{eq:hartens_lemma} if fullfiled:
+        \begin{align*}
+          \mcc_{\idxj+1/2}^{n}+\mcd_{\idxj\rd{+}1/2}^{n}=&
+          \frac{\Delta t}{\Delta x}
+          \left(-\pdv{\flux}{\mcb} \left(u_{\idxj^{+}}^{n},\cdot\right)\right)T_{1}\\[-1\jot]
+          &+\frac{\Delta t}{\Delta x}\left(\pdv{\flux}{\mca} \left(\cdot,u_{\idxj+1^{-}}^{n},\cdot\right)\right)T_{2}\\[-1\jot]
+          \leq&\frac{\Delta t}{\Delta x}\max_{\mca,\mcb}\left(\abs*{\pdv{\Flux}{\mca}},\abs*{\pdv{\Flux}{\mcb}}\right)(T_{1}+T_{2})\\[-1\jot]
+          \stackrel{{\text{\cref{eq:cfl_condition_for_fvs}}}}{\leq}&\frac{1}{2}(T_{1}+T_{2})\leq1
+        \end{align*}
+        \begin{align*}
+          \implies T_{1}+T_{2}\leq2
+        \end{align*}
+    \end{proof}
+\end{proofbox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../formulary"
+%%% End:

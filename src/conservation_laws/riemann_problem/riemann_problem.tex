@@ -1,0 +1,60 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[Riemann Problem Shock]\label{defn:riemann_problem}
+        Is an initial value problem of a conservation law with
+        picewise initial data with a single discontinuity of the form:\\
+        \begin{minipage}{0.4\textwidth}
+            \begin{align}
+            u_{t}+\flux \left(u\right)_{x}=0
+            \end{align}
+            \begin{align}
+            u_{0}=\begin{cases}
+                    U_{R}&\text{if }x>0\\
+                    U_{L}&\text{if }x<0
+                    \end{cases}
+            \label{eq:riemann_problem}
+                    U_{L}>U_{R}
+            \end{align}
+        \end{minipage}\hfil
+        \begin{minipage}[c]{0.4\textwidth}
+            \begin{figure}[H]
+                \centering{
+                  \def\svgwidth{100pt}
+                  \resizebox{\linewidth}{!}{\input{src/conservation_laws/riemann_problem/figures/riemann_problem.pdf_tex}}
+                }
+            \end{figure}
+        \end{minipage}
+    \end{defn}
+\end{defnbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Riemann Problem Rarefaction]\label{defn:riemann_problem_rarefaction}
+        Is an initial value problem of a conservation law with
+        picewise initial data with a single discontinuity of the form:\\
+        \begin{minipage}{0.4\textwidth}
+            \begin{align}
+            u_{t}+\flux \left(u\right)_{x}=0
+            \end{align}
+            \begin{align}
+            u_{0}=\begin{cases}
+                    U_{R}&\text{if }x>0\\
+                    U_{L}&\text{if }x<0
+                    \end{cases}
+                    U_{L}<U_{R}
+            \label{eq:riemann_problem}
+            \end{align}
+        \end{minipage}\hfil
+        \begin{minipage}[c]{0.4\textwidth}
+            \begin{figure}[H]
+                \centering{
+                  \def\svgwidth{100pt}
+                  \resizebox{\linewidth}{!}{\input{src/conservation_laws/riemann_problem/figures/riemann_problem_shock.pdf_tex}}
+                }
+            \end{figure}
+        \end{minipage}
+    \end{defn}
+\end{defnbox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

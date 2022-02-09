@@ -1,0 +1,35 @@
+\begin{sectionbox}\nospacing
+   \begin{circlelistnosep}
+       \item Conservation:
+       \begin{align*}
+         &&&\frac{1}{\Delta x}\int_{x_{\idxj-1/2}}^{x_{\idxj+1/2}}\polynomial_{\idxj}^{n}\diff x=u_{\idxj}^{n}\\[-1\jot]
+         &\stackrel{\text{proof~\ref{proof:conservation_reconstruction_int}}}{\implies}&&\int_{D}\polynomial^{n}(x)\diff x=\int_{D}u_{0}(x)\diff x \\[-1\jot]
+         &\stackrel{\text{proof~\ref{proof:conservation_reconstruction}}}{\implies}&&\polynomial_{\idxj}^{n}=u_{\idxj}^{n}+\sigmac_{\idxj}^{n} \left(x-x_{\idxj}\right)
+       \end{align*}
+       \item TVD: how would we choose the \textit{slope} $\sigmac_{\idxj}^{n}$?\\
+       Obvious choices would be:
+       \begin{itemizenosep}
+           \item Forward Differences:
+           \begin{align*}
+             \sigmac_{\idxj}^{n}=\frac{u_{\idxj+1}^{n}-u_{\idxj}^{n}}{\Delta x}
+           \end{align*}
+           \item Backward Differences:
+           \begin{align*}
+             \sigmac_{\idxj}^{n}=\frac{u_{\idxj}^{n}-u_{\idxj-1}^{n}}{\Delta x}
+           \end{align*}
+           \item Central Differences:
+           \begin{align*}
+             \sigmac_{\idxj}^{n}=\frac{u_{\idxj+1}^{n}-u_{\idxj-1}^{n}}{2\Delta x}
+           \end{align*}
+       \end{itemizenosep}
+   \end{circlelistnosep}
+   \imp{Problem}: schemes using this slopes are unstable, satisfy neither TVD nor-discrete maximum principle preserving.
+   \todo[inline]{understand/ask upwind scheme and FTCS lecture 12 min 13}
+\end{sectionbox}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../formulary"
+%%% End:

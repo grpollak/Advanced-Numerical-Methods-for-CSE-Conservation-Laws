@@ -1,0 +1,15 @@
+\begin{examplebox}\nospacing
+    \begin{example}[\hfill$\flux(u)=\mca u,\quad\mca>0$\newline Why do we need Semi-Disc. FVS\cref{defn:semi_discrete_fvm}]\label{example:defn:semi_discrete_fvm}
+        Consider the upwind flux $\Flux(u,u)=\mca u$ then it follows for the FVM\cref{defn:fvm_evolution_and_averaging}
+        \begin{align}
+          u_{\idxj}^{n+1}=u_{\idxj}^{n}-\frac{\mca\Delta t}{\Delta x}
+          \left(u_{\idxj^{+}}^{n}-u_{\idxj-1^{+}}^{n}\right)
+        \end{align}
+        and$\sigmac_{\idxj}^{n}\in\{\text{minmod,MC,superbee}\}$
+        it follows for the truncation error\cref{defn:truncation_error}:
+        \begin{align*}
+          \norm{\tauc_{\idxj}^{n}}\approx\bigO{\Delta x^{3}}+\bigO{\Delta t^{2}}\stackrel{\cref{eq:cfl_number}}{\approx}\bigO{\Delta x^{3}}+\bigO{\Delta x^{2}}
+        \end{align*}
+        thus schemes seem to be 2nd order may actually be first order due to the time-discretization.
+    \end{example}
+\end{examplebox}

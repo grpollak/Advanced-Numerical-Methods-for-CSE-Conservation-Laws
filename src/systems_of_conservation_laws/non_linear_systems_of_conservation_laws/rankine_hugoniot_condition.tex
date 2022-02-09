@@ -1,0 +1,35 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\proofref{proof:rankine-hugoniot_condition}\newline Rankine-Hugoniot Condition]\label{defn:rankine-hugoniot_condition_systems}
+        Is a condition on the \textit{shock-speed} $s(t)=\gammac'(t)$ of a shock\cref{defn:shock_waves} i.e.\ how fast the shock-wave travels:
+        \begin{align}
+          s(t)\left(\Uvec^{+}\left(t\right)-\Uvec^{-}\left(t\right)\right)=\fluxvec\left(\Uvec^{+}\left(t\right)\right)-\fluxvec\left(\Uvec^{-}\left(t\right)\right)
+          \label{eq:rankine-hugoniot_condition_systems}
+        \end{align}
+        \begin{align*}
+          \Uvec^{+}=\lim_{\mathclap{\xvec\to\vec{\gammac}^{+}(t)}}\Uvec(\xvec,t)&&\Uvec^{-}=\lim_{\mathclap{\xvec\to\vec{\gammac}^{-}(t)}}\Uvec(\xvec,t)
+        \end{align*}
+    \end{defn}
+\end{defnbox}
+\begin{corbox}\nospacing
+    \begin{cor}[Unknowns vs. Equations]\label{cor:unknowns_vs._equations}\leavevmode
+        \begin{itemize}
+            \item \imp{Unknown's}: $\Uvec^{+},\Uvec^{-}\in\R^{\idxm}$, $s(t)\in\R$ $\implies$ $2\idxm+1$
+            \item \imp{Equations}: $\fluxvec(\Uvec)\in\R^{\idxm}$ $\iff$ \Cref{eq:rankine-hugoniot_condition_systems}$\in\R^{\idxm}$ $\implies$ $\idxm$
+        \end{itemize}
+    \end{cor}
+\end{corbox}
+\begin{corbox}\nospacing
+    \begin{cor}[Relationship to Weak Solutions]\label{cor:relationship_to_weak_solutions}\leavevmode\\
+        If $\Uvec$ is a $\sm_{pw}^{1}$ function with only jump-type discontinuities, the following statemnts are equivialent:
+        \begin{itemizenosep}
+            \item $\Uvec$ is a weak solution\cref{defn:weak_solution_non_linear_scalar_conservation_law} of the conservation law\cref{defn:nonlinear_systems_of_conservation_laws}.
+            \item $\Uvec$ is a classical solution whenever it is $\sm^{1}$, and satisfies the Rankine-Hugoniot condition\cref{defn:rankine-hugoniot_condition_systems}
+            across every discontinuity $\xvec\to\gammac(t)$.
+        \end{itemizenosep}
+    \end{cor}
+\end{corbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

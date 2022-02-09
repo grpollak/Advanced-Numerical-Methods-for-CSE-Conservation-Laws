@@ -1,0 +1,53 @@
+\begin{proofbox}\nospacing
+    \begin{proof}[\newline Based on \textit{Cauchy-Kovalevskaya Procedure}\cref{defn:lax-wendroff_scheme}]\label{proof:defn:lax-wendroff_scheme}
+        Given
+        \begin{align*}
+        u_{t}+\flux \left(u\right)_{x}=0
+        \end{align*}
+        \begin{align*}
+        u(x,0)=u_{0}
+        \end{align*}
+        \imp{Idea}: replace temporal derivatives with spatial derivatives:
+        \begin{align*}
+         \ul[ulc2]{u_{t}}=-\flux(u)_{x}
+        \end{align*}
+        \begin{align*}
+         \ul[ulc3]{u_{tt}}&=-\flux(u)_{xt}\eqs{\text{C.R}}-\left(\flux'(u)\ul[ulc2]{u_{t}}\right)_{x}=\left(\flux'(u)\flux(u)_{x}\right)
+        \end{align*}
+        $\Rightarrow$ finite difference scheme $u_{\idxj}^{n}\approx u\left(x_{\idxj},t^{n}\right)$ but we want to find $u^{n+1}_{\idxj}$\\
+        \imp{Idea}: use 2$^{nd}$-order Taylor expansion:
+        \begin{align*}
+          u_{\idxj}^{n+1}\approx& u \left(x_{\idxj},t^{n+1}\right)
+          =u \left(x_{\idxj},t^{n}+\Delta t\right)\\[-1\jot]
+          =&u \left(x_{\idxj},t^{n}\right)+\Delta t \ul[ulc2]{u_{t}} \left(x_{\idxj},t^{n}\right)+\frac{\Delta t^{2}}{2}\ul[ulc3]{u_{tt}} \left(x_{\idxj},t^{n}\right)\\[-1\jot]
+          &+\bigO \left(\Delta t^{3}\right)
+        \end{align*}
+        This terms can now be approximated using central differences:
+        \begin{figure}[H]
+            \centering{
+              \def\svgwidth{140pt}
+              \resizebox{0.6\linewidth}{!}{\input{src/finite_volume_methods/higher_order/lax_wendroff_scheme/figures/LxW.pdf_tex}}
+            }
+        \end{figure}
+        \begin{align*}
+          u_{\idxj}^{n+1}\approx=u_{\idxj}^{n}&-\Delta t\uldotted{\flux(u)_{x} \left(x_{\idxj},t^{n}\right)}\\[-1\jot]
+                                  &+\frac{\Delta t^{2}}{2} \uldotted[ulc2]{\left(\flux'(u)\flux(u)_{x}\right)_{x} \left(x_{\idxj},t^{n}\right)}
+        \end{align*}
+        \begin{align*}
+          \uldotted{\flux(u)_{x} \left(x_{\idxj},t^{n}\right)}\approx\frac{\flux \left(u_{\idxj+1}^{n}\right)-\flux \left(u_{\idxj-1}^{n}\right)}{2\Delta x}
+        \end{align*}
+        \begin{align*}
+          &\uldotted[ulc2]{\left(\flux'(u)\flux(u)_{x}\right)_{x} \left(x_{\idxj},t^{n}\right)}\approx \\[-1\jot]
+          &\approx
+          \frac{\ul[ulc4]{\flux'(u)}\ul[ulc5]{\flux(u)_{x}}\left(x_{\idxj+1/2}\right)-\flux'(u)\flux(u)_{x}\left(x_{\idxj+1/2}\right)}{\Delta x}
+        \end{align*}
+        \begin{align*}
+          \ul[ulc4]{\flux'(u)}\left(x_{\idxj+1/2}\right)=\mca_{\idxj+1/2}^{n}
+          =\flux' \left(\frac{u_{\idxj}^{n}+u_{\idxj+1}^{n}}{2}\right)
+        \end{align*}
+        \begin{align*}
+          \ul[ulc5]{\flux(u)}\left(x_{\idxj+1/2}\right)\approx
+          \frac{\flux \left(u_{\idxj+1}^{n}\right)-\flux \left(u_{\idxj}^{n}\right)}{\Delta x}
+        \end{align*}
+    \end{proof}
+\end{proofbox}

@@ -1,0 +1,47 @@
+\begin{proofbox}\nospacing
+    \begin{proof}[Rarefaction Waves]\label{proof:rarefaction_waves}
+        The solution of the conservation law\cref{eq:conservation_law} is invariant to the scaling of the input parameters:
+        \begin{align*}
+          &&&u(x,t)\text{ solves \cref{eq:conservation_law}}\\[-1\jot]
+          &\implies&&w(x,t):=u(\lambdac x,\lambdac t)\text{ solves \cref{eq:conservation_law}}&&\lambdac\neq0
+        \end{align*}
+        thus it is natural to assume \text{self-similarity} -- i.e.\ a solution $v(\xic)$ that only depends on the ration $\xic:=x/t$:
+        \begin{align*}
+          u(x,t)=v \left(\frac{x}{t}\right)=v{\xic}
+        \end{align*}
+        \begin{align*}
+          &\xic_{t}=\frac{-x}{t^{2}}&&\xic_{x}=\frac{1}{t} \\[-1\jot]
+          &u_{t}=V'(\xic)\xic_{t}=V'(\xic)\frac{-x}{t^{2}}&&u_{x}=V'(\xic)\xic_{x}=V'(\xic)\frac{1}{t}
+        \end{align*}
+        \begin{align*}
+          \flux(u)_{x}=\flux'(u)u_{x}=\flux' \left(v(\xic)\right)v'(\xic)\xic_{x}
+          =\frac{1}{t}\flux' \left(v(\xic)\right)v'(\xic)
+        \end{align*}
+        Plug it into \cref{eq:conservation_law}:\hfil $0=\ul{u_{t}}+\ul[ulc2]{\flux(u)_{x}}=\ul{u_{t}}+\ul[ulc2]{\flux'(u) u_{x}}$
+        \begin{align*}
+          0&=\ul{V'(\xic)\frac{-x}{t^{2}}}+\ul[ulc2]{\frac{1}{t}\flux'\left(V(\xic)\right)V'(\xic)} \\[-1\jot]
+          &=\ul{V'(\xic)\frac{-\xic}{t}}+\ul[ulc2]{\frac{1}{t}\flux'\left(V(\xic)\right)V'(\xic)}&\Big|\cdot t
+        \end{align*}
+        \begin{align*}
+          \implies\quad\left(\flux' \left(V(\xic)\right)-\xic\right)V'=0
+        \end{align*}
+        Thus either $V'=0$ or in the non-trivial case it follows that for convex $\flux$ (invertible):
+        \begin{align*}
+          \left(\flux' \left(V(\xic)\right)-\xic\right)V'&=0&&\Big|/V' \\[-1\jot]
+          \flux' \left(V(\xic)\right)&=\xic
+        \end{align*}
+        \begin{align}
+          V \left(\frac{x}{t}\right)=\left(\flux'\right)^{-1}\left(\frac{x}{t}\right)
+        \end{align}
+        From this it follows that:
+        \begin{align*}
+          u(x,t):=\left(\flux'\right)^{-1}\left(\frac{x}{t}\right) &&\text{is a smooth solution of \cref{eq:conservation_law}}
+        \end{align*}
+    \end{proof}
+\end{proofbox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../formulary"
+%%% End:

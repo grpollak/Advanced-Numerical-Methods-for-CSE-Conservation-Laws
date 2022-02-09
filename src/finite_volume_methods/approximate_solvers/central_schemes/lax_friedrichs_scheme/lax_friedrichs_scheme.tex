@@ -1,0 +1,38 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[Lax Friedrichs Scheme]\label{defn:lax_friedrichs_scheme}
+        Chooses the wave speeds s.t.\ waves from neighboring Riemann problems do not interact with each other:
+        \begin{align}
+          s_{\idxj+1/2}^{l}=-\frac{\Delta x}{2\Delta t}&&s_{\idxj+1/2}^{r}=\frac{2\Delta x}{\Delta t}
+        \end{align}
+        with \cref{eq:central_scheme_symmetric_waves} it follows:
+        \begin{align}
+          \Flux_{\idxj+1/2}^{\idxn}&=\Flux^{\text{LxF}}\left(u^{\idxn}_{\idxj},u^{\idxn}_{\idxj+1}\right)\\[-1\jot]
+          &=\frac{\flux\left(u_{\idxj}^{n}\right)-\flux \left(u_{\idxj+1/2}^{n}\right)}{2}-\frac{\Delta x}{2\Delta t}\left(u_{\idxj+1}^{n}-u_{\idxj}^{n}\right)\nonumber
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{explanationbox}\nospacing
+    \begin{explanation}
+        LxF makes sure that waves do not interfere with each other, that is each wave can maximally travel a distance of $\Delta x=\abs*{\frac{\Delta t}{s_{\idxj+1/2}^{l}}}$ i.e.\ to the next interface until we the next time point.
+    \end{explanation}
+\end{explanationbox}
+\begin{sectionbox}\nospacing
+    \begin{minipage}[t]{0.4\textwidth}
+       \begin{proslist}
+           \item Easy to implement
+       \end{proslist}
+    \end{minipage}
+    \begin{minipage}[t]{0.55\textwidth}
+       \begin{conslist}
+           \item Does not take into account the local speeds
+           \item Is not the most accurate
+           \item Uses always an additional unnecessary grid point
+       \end{conslist}
+    \end{minipage}
+\end{sectionbox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../../formulary"
+%%% End:

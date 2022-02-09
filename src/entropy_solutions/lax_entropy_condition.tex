@@ -1,0 +1,30 @@
+\begin{propositionbox}\nospacing
+    \begin{proposition}[\hfill\blackrb{Burgers Equation}\newline Lax-Oleinik Entropy Condition]\label{proposition:lax_oleinik_entropy_condition_burger}
+        Characteristics of the Burgers equation have to flow into the shock and not emanate at it:
+        \begin{align}
+          u^{-}(t)>s(t)>u^{+}(t)
+        \end{align}
+    \end{proposition}
+\end{propositionbox}
+\begin{propositionbox}\nospacing
+    \begin{proposition}[\hfill\blackrb{Convex Functions}\newline Lax-Oleinik Entropy Condition]\label{proposition:lax_oleinik_entropy_condition}
+        Characteristics of general \textit{scalar conservation law} with \textit{convex} $\flux$ should flow into the shock:
+        \begin{align}
+          \flux'\left(u^{-}(t)\right)>s(t)>\flux'\left(u^{+}(t)\right)\label{eq:lax_entropy_oleinik_condtion_convex}
+        \end{align}
+    \end{proposition}
+\end{propositionbox}
+\begin{explanationbox}\nospacing
+    \begin{explanation}\leavevmode
+        \begin{itemizenosep}
+            \item For an evolution equation the flow of information should come from the initial data.
+            \item We want to require that information flows into and not out from a shock.
+        \end{itemizenosep}
+    \end{explanation}
+\end{explanationbox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../formulary"
+%%% End:

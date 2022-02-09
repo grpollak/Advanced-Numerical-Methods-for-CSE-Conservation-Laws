@@ -1,0 +1,42 @@
+\begin{lemmabox}\nospacing
+    \begin{lemma}[\hfill\tc{black}{\normalfont{[example~\ref{proof:tvd_minmod_limiter}]},\proofref{proof:lemma:tvd_fvm_rea_scheme}}\newline TVD FVM REA Scheme]\label{lemma:tvd_fvm_rea_scheme}
+        A three point FVM REA\cref{defn:rea_algorithm} scheme is TVD iff:
+        \begin{circlelistnosep}
+            \item \cref{eq:evolution_and_averaging} satisfies the CFL condition \cref{eq:cfl_condition_for_fvs}
+            \item and the following condition:
+            \begin{align}
+              -2\leq\frac{\deltac_{\idxj+1}^{n}-\deltac_{\idxj}^{n}}{u_{\idxj+1}^{n}-u_{\idxj}^{n}}\leq2&&\deltac_{\idxj}:=\sigmac_{\idxj}^{n}\Delta x
+            \end{align}
+        \end{circlelistnosep}
+    \end{lemma}
+\end{lemmabox}
+\begin{propositionbox}\nospacing
+    \begin{proposition}[Order of Accuracy]\leavevmode\\
+        \label{proposition:order_of_accuracy}
+        \begin{minipage}{0.45\textwidth}
+            Given $g(x)\in\sm^{2}$ and $g$ is monotone (no extreme) and not slope limited then it holds for\cref{defn:fvm_evolution_and_averaging}:
+            \begin{align}
+              \norm{g(x)-\polynomial_{n}(x)}_{L^{\infty}}\approx\bigO(\Delta x^{2})
+            \end{align}
+        \end{minipage}\hfill
+        \begin{minipage}[c]{0.5\textwidth}
+           \begin{figure}[H]
+            \centering{
+              \def\svgwidth{160pt}
+              \resizebox{\linewidth}{!}{\input{src/finite_volume_methods/higher_order/rea/figures/rea_order_of_accuracy.pdf_tex}}
+            }
+        \end{figure}
+        \end{minipage}\\
+            If we require TVD slope limiters however we will have again be of first order accuracy
+            at the regions of slope limiters/local extrema:
+            \begin{align}
+              \norm{g(x)-\polynomial_{n}(x)}_{L^{\infty}}\approx\bigO(\Delta x)
+            \end{align}
+    \end{proposition}
+\end{propositionbox}
+\todo[inline]{lecture 14 min 40 exam question understand!}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../formulary"
+%%% End:

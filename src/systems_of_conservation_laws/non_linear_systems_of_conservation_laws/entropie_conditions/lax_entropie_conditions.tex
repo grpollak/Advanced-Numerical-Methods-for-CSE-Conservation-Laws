@@ -1,0 +1,117 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\proofref{proof:defn:entropy_dissipation_contact,proof:defn:entropy_dissipation_gnl}\newline Entropy Dissipation]\label{defn:entropy_dissipation}
+        States that the entropy across a discontinuity can only decrease (in a mathematical sense):
+        \begin{align}
+          \left(\qprob \left(U^{+}\right)-\qprob \left(U^{-}\right)\right)-s \left(\entropy\left(U^{+}\right)-\entropy\left(U^{-}\right)\right)
+          \leq 0\label{eq:entropy_dissipation}
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Entropy Solution Equivalence]\label{defn:entropy_solution_equivalence}\leavevmode\\
+        Let $\Uvec\in\sm^{1}$ with jump discontinuities across smooth curves, then the following statements are equal:
+        \begin{itemizenosep}
+            \item $\Uvec$ is an entropy solution\cref{defn:entropy_solution_non_linear_conservation_laws} of \cref{eq:nonlinear_systems_of_conservation_laws}
+            \item $\Uvec$
+            \begin{itemizenosep}
+                \item is a classical solution of \cref{eq:nonlinear_systems_of_conservation_laws}, whenever $\Uvec\in\sm^{1}$
+                \item fulfills the entropy dissipation equation \cref{eq:entropy_dissipation} for all entropy pair $(\entropy,\qprob)$
+            \end{itemizenosep}
+        \end{itemizenosep}
+    \end{defn}
+\end{defnbox}
+\begin{propositionbox}\nospacing
+    \begin{proposition}[\hfill\proofref{proof:defn:entropy_dissipation_contact}
+        \newline Contact Discontinuity Entropy]\label{proposition:contact_discontinuity_entropy}\leavevmode\\
+        There is no entropy dissipation across \textit{contact discontinuities}\cref{defn:contact_discontinuity_solution_non_linear_systems_of_equations}:
+        \begin{align}
+          \dv{\epsilonc}E(\epsilonc)\equiv0&&E(\epsilonc)\equiv0
+        \end{align}
+    \end{proposition}
+\end{propositionbox}
+\begin{propositionbox}\nospacing
+    \begin{proposition}[\hfill\proofref{proof:defn:entropy_dissipation_gnl}\newline Lax Entropy Condition]\label{proposition:lax_entropy_condition}
+        For \textit{genuinely nonlinear} \textit{strictly hyperbolic systems}\cref{cor:strictly_hyperbolic_system} of conservation laws it holds:
+        \begin{align}
+            \eigenval_{\idxp}\left(\Uvec_{R}\right)<&s<\eigenval_{\idxp}\left(\Uvec_{L}\right)\label{eq:lax_entropy_condition_first}\\[-1\jot]
+          \eigenval_{\idxp-1}\left(\Uvec_{L}\right)<&s<\eigenval_{\idxp+1}\left(\Uvec_{R}\right)\label{eq:lax_entropy_condition_second}
+        \end{align}
+        \begin{figure}[H]
+            \centering
+            \begin{subfigure}{.45\columnwidth}
+                \centering{
+                  \def\svgwidth{100pt}
+                  \resizebox{\linewidth}{!}{\input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/entropie_conditions/figures/entropy_characteristics_contact_discontinuity.pdf_tex}}
+                }
+                \vspace{-1em}
+                \caption{$\idxj^{\text{th}}=\idxp^{\text{th}}$: wave family impingings on shock}
+                \label{figure:gnl_entrop_solution_pth_wave}
+            \end{subfigure}%
+            \hfil
+            \begin{subfigure}{.45\columnwidth}
+                \centering{
+                  \def\svgwidth{100pt}
+                  \resizebox{\linewidth}{!}{\input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/entropie_conditions/figures/entropy_characteristics_gnl_discontinuity.pdf_tex}}
+                }
+                \vspace{-1em}
+                \caption{$\idxj^{\text{th}}\neq\idxp^{\text{th}}$: wave families go through on shock}
+                \label{figure:gnl_entrop_solution_not_pth_wave}
+            \end{subfigure}
+        \end{figure}
+    \end{proposition}
+\end{propositionbox}
+\begin{corbox}\nospacing
+    \begin{cor}
+        Equation \cref{eq:lax_entropy_condition_second} can be rewritten as:
+        \begin{align}
+          \begin{aligned}
+            \eigenval_{\idxj}\left(\Uvec_{L}\right)<s&&
+            \eigenval_{\idxj}\left(\Uvec_{R}\right)<s
+          \end{aligned}&&1\leq\idxi\leq\idxj-1
+        \end{align}
+        and corresponds to characteristics that have both smaller speeds then the discontinuity.
+    \end{cor}
+\end{corbox}
+\begin{lemmabox}\nospacing
+    \begin{lemma}[Lax Entropy Solution]\label{lemma:lax_entropy_solution}\leavevmode\\
+        Let the $\idxj$-th wave family be \textit{genuinely nonlinear}\cref{defn:genuinely_nonlinear_wave_family} and let $\Uvec_{L}\in\admissibleset$.
+        Then there exists a curve:
+        \begin{align}
+          \mathcal{S}_{\idxj}(\Uvec_{L})=\Big\{&\Wvec_{\idxj}(\epsilonc):\epsilonc\in[-\widebar{\epsilonc},0];\\[-1\jot]
+          &\flux\left(\Wvec_{\idxj}(\epsilonc)\right)-\flux\left(\Uvec_{L}\right)=s \left(\Wvec_{\idxj}(\epsilonc)-\Uvec_{L}\right)\Big\}\label{eq:lax_entropy_contact_solution}
+        \end{align}
+        emanating from $\Uvec_{L}$.\\
+        If $\Uvec_{R}\in\mathcal{S}_{\idxj}(\Uvec_{L})$ then there exists an entropy solution
+        \cref{figure:gnl_entrop_solution_pth_wave,figure:gnl_entrop_solution_not_pth_wave}:
+        \begin{align}
+          \Uvec(x,t)=
+          \left\{\begin{alignedat}{5}
+              &\Uvec_{L}&\quad&\frac{x}{t}<&&s \\[-1\jot]
+              &\Uvec_{R}&&&&s<\frac{x}{t}
+          \end{alignedat}\right.
+        \end{align}
+    \end{lemma}
+\end{lemmabox}
+\begin{explanationbox}\nospacing
+    \begin{explanation}
+        We require the negative integral curve i.e.\ $-\widebar<\epsilonc\leq 0$ s.t.\ the entropy condition is fulfiled, which
+        leads in turn to the figures \cref{figure:gnl_entrop_solution_pth_wave,figure:gnl_entrop_solution_not_pth_wave}, depending on the wave family.
+    \end{explanation}
+\end{explanationbox}
+\begin{lemmabox}\nospacing
+    \begin{lemma}[Entropy Solution]
+        Assume a \textit{strictly hyperbolic} non-linear scalar system of conservation laws\cref{defn:strictly_hyperbolic_nonlinear_systems_of_conservation_laws} with only \textit{genuinely non-linear} or \textit{linear degenerate} wave families.
+        Then $\Uvec$ is an entropy solution of\cref{defn:nonlinear_systems_of_conservation_laws} if and only if at every jump $\exists\idxj\in\{1,\ldots,\idxm\}$:
+        \begin{itemizenosep}
+            \item the $\idxj$-th wave family is \cref{linearly degnerate} $\Rightarrow$ \cref{proposition:contact_discontinuity_entropy} and \cref{defn:contact_discontinuity_solution_non_linear_systems_of_equations}.
+            \item the $\idxj$-th wave family is genuinely nonlinear, and the \textit{Lax entropy condition} holds\cref{eq:lax_entropy_condition_first,eq:lax_entropy_condition_second} $\Rightarrow$ \cref{lemma:lax_entropy_solution}.
+        \end{itemizenosep}
+    \end{lemma}
+\end{lemmabox}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../formulary"
+%%% End:

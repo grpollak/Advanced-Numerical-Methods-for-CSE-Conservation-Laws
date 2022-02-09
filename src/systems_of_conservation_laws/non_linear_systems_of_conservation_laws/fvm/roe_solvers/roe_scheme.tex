@@ -1,0 +1,56 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\proofref{proof:gudonov_flux_systems_of_cons_laws}\newline Roe Flux]\label{defn:roe_flux_linearized_system}
+        \begin{align}
+          \Fluxvec_{\idxj+1/2}^{n}=&\linfluxvec\Uvec_{\idxj+1/2}=\frac{\Avec \left(\Uvec_{\idxj}^{n}+\Uvec_{\idxj+1}^{n}\right)}{2}\label{eq:roe_flux_linearized_system}\\[-1\jot]
+                                &-\frac{1}{2}\vec{R}_{\idxj+1/2}^{n}\abs*{\Lambdacvec_{\idxj+1/2}^{n}}\left(\vec{R}_{\idxj+1/2}^{n}\right)^{-1}\left(\Uvec_{\idxj+1}^{n}-\Uvec_{\idxj}^{n}\right)\nonumber
+        \end{align}
+        \begin{align*}
+          \vec{R}_{\idxj+1/2}^{n}&=\bmat{\vec{r}_{\idxj+1/2}^{1,n} & \Cdots & \vec{r}_{\idxj+1/2}^{\idxm,n}}\\[-1\jot]
+          \abs*{\Lambdacvec_{\idxj+1/2}^{n}}&=\bmat{\abs*{\eigenval_{\idxj+1/2}^{1,n}} & \Cdots & \abs*{\eigenval_{\idxj+1/2}^{\idxm,n}}}
+        \end{align*}
+        $\vec{r}_{\idxj+1/2}^{\idxp,n}, \eigenval_{\idxj+1/2}^{\idxp,n}$-pth eienvector pair of $\linfluxvec_{\idxj+1/2}^{n}$.
+   \end{defn}
+\end{defnbox}
+\begin{explanationbox}\nospacing
+    \begin{explanation}
+       \begin{align*}
+         \Fluxvec_{\idxj+1/2}^{n}=\text{Average Flux/Central Scheme}+\text{Numerical Diffusion}
+       \end{align*}
+       \begin{itemizenosep}
+           \item Central differences in space is unconditionally unstable.
+           \item Diffusion term helps to stabilize the computation
+           \item pth-component of \textit{Numerical Diffusion} $\propto\abs*{\eigenval_{\idxj+1/2}^{\idxp,n}}$
+           \item $\abs*{\eigenval_{\idxj+1/2}^{\idxp,n}}\propto\text{average}\left(\eigenval_{\idxj}^{\idxp,n},\eigenval_{\idxj+1}^{\idxp,n}\right)$ where
+           $\eigenval_{\idxj}^{\idxp,n}$-pth eigenvalue of $\fluxvec'(\Uvec_{\idxj}^{n})$
+       \end{itemizenosep}
+    \end{explanation}
+\end{explanationbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Roe Scheme]\label{defn:roe_scheme}
+        \begin{align}
+          \Cref{eq:finite_volume_scheme_for_non_linear_sytems_of_conservation_laws}+\Cref{eq:roe_flux_linearized_system}
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{sectionbox}\nospacing
+    \begin{minipage}[t]{0.45\textwidth}
+        \begin{proslist}
+            \item Great at approximating shocks
+            \item Approximates \textit{Linear}\\ systems of conservation laws exactly
+            \todo[inline]{check if this is true?}
+        \end{proslist}
+    \end{minipage}
+    \begin{minipage}[t]{0.45\textwidth}
+        \begin{conslist}
+            \item Fails at transonic\\ rarefactions
+            \item Computationally expensive as we eigenvaluedecomposition
+        \end{conslist}
+    \end{minipage}
+\end{sectionbox}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../../formulary"
+%%% End:

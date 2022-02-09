@@ -1,0 +1,47 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[Total Variation]\label{defn:total_variation}
+        If $g$ is differentiable $g\in\sm^{1}([\mca,\mcb])$ the total variation is defined as:
+        \begin{align}
+          \norm{g}_{\text{TV}([\mca,\mcb])}=\int_{\mca}^{\mcb}\abs*{\frac{\diff g}{\diff x}}\diff x
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{explanationbox}\nospacing
+    \begin{explanation}
+        Its a measure on how much a function varies/fluctuates within a interval $[\mca,\mcb]$.
+    \end{explanation}
+\end{explanationbox}
+\begin{theorembox}\nospacing
+    \begin{theorem}[\hfill\proofref{proof:theorem:diminishing_total_variation}\newline Total Variation Diminishing \rb{TVD}]\label{theorem:diminishing_total_variation}\leavevmode\\
+        The total variation of an entropy solutions diminished with time:
+        \begin{align}
+          \dv{t}\int_{\R}\abs{u_{x}^{\epsilonc}\left(\cdot,t\right)}\diff x\leq0
+        \end{align}
+        \begin{figure}[H]
+            \centering{
+              \def\svgwidth{150pt}
+              \resizebox{0.6\linewidth}{!}{\input{src/entropy_solutions/tvd/figures/tv.pdf_tex}}
+            }
+        \end{figure}
+    \end{theorem}
+\end{theorembox}
+\begin{corbox}\nospacing
+    \begin{cor}
+        \begin{align}
+          \int_{\R}\abs{u_{x}^{\epsilonc}\left(\cdot,t\right)}\diff x\leq\int_{\R}\abs*{u_{x}^{0}}\diff x
+        \end{align}
+    \end{cor}
+\end{corbox}
+\begin{corbox}\nospacing
+    \begin{cor}[\hfill\proofref{proof:cor:total_variation_diminishing_in_time}\newline Total Variation Diminishing in Time]\label{cor:total_variation_diminishing_in_time}
+        The total time variation is bounded by the space variation:
+        \begin{align}
+          \int_{\R}\abs{u_{t}^{\epsilonc}\left(\cdot,t\right)}\diff x\leq\mcC\int_{\R}\abs*{u_{x}^{\epsilonc}\left(\cdot,t\right)}\diff x
+        \end{align}
+    \end{cor}
+\end{corbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

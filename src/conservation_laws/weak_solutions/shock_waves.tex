@@ -1,0 +1,23 @@
+  \begin{defnbox}\nospacing
+      \begin{defn}[Shock Waves\hfill$\tcblack{\Gamma}$]\label{defn:shock_waves}\leavevmode\\
+          Is a curve $x=\gammac(t)\in\sm^{1}\left(Rp\right)$ along which the solution of a conservation law $U\in L^{\infty}\left(\R\times\Rp\right)$
+          is discontinuous is called a \textit{shock-wave}:
+          \begin{align}
+            &U(x,t)=
+            \begin{cases}
+                U^{-}(x,t)&\text{if }x<\gammac(t)\qquad U^{-}\in\sm^1\left(\Gamma^{-}\right)\\
+                U^{+}(x,t)&\text{if }x>\gammac(t)\qquad U^{+}\in\sm^1\left(\Gamma^{+}\right)
+            \end{cases}\nonumber
+          \end{align}
+        \begin{align}
+                        &\Gamma:=\left\{(x,t)\in\R\times\Rp|x=\gammac(t)\right\}\nonumber\\[-1\jot]
+                        &\Gamma^{+}:=\left\{(x,t)\in\R\times\Rp|x>\gammac(t)\right\}\label{eq:shock_wave}\\[-1\jot]
+                        &\Gamma^{-}:=\left\{(x,t)\in\R\times\Rp|x<\gammac(t)\right\}\nonumber
+        \end{align}
+      \end{defn}
+  \end{defnbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

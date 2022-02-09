@@ -1,0 +1,59 @@
+\begin{lemmabox}\nospacing
+    \begin{lemma}[Existence Contact Discontinuity]\label{lemma:existence_contact_discontinuity}\leavevmode\\
+        Let the $\idxj$-th wave family\cref{defn:wave_family} be \textit{linear degenerate}\cref{defn:linearly_degenerat_wave_family}
+        and let $\Uvec_{L}\in\admissibleset$.
+        Then by the Piccard-Lindeloef Theorem\cref{defn:todo} there exists an \textit{integral curve} solving \cref{eq:simple_ode}:
+        \begin{align}
+          \mathcal{C}_{\idxj}\left(\Uvec_{L}\right)=\left\{\Wvec_{\idxj}\left(\epsilonc^{*}\right)\in\R^{\idxm}: \epsilonc^{*}\in[-\widebar{\epsilonc},\widebar{\epsilonc})\right\}
+        \end{align}
+        if $\Uvec_{R}\in\mathcal{C}_{\idxj}\left(\Uvec_{L}\right)$ then there exists a \textit{contact discontinuity solution}\cref{defn:contact_discontinuity_solution_non_linear_systems_of_equations} $\Uvec$ to the Riemann problem \cref{eq:riemann_problem_nonlinear_systems_of_conservation_laws}.
+    \end{lemma}
+\end{lemmabox}
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\proofref{proof:contact_discontinuity}
+        \newline Contact Discontinuity Solution]
+        \label{defn:contact_discontinuity_solution_non_linear_systems_of_equations}\leavevmode\\
+        If \cref{lemma:existence_contact_discontinuity} is satisfied then the solution of \cref{eq:riemann_problem_nonlinear_systems_of_conservation_laws} is given by:\\
+        \begin{minipage}{0.55\textwidth}
+        \begin{align}
+          &\Uvec(x,t)=
+          \left\{\begin{aligned}
+              &\Uvec_{L}&&\frac{x}{t}<\eigenval_{\idxj}\left(\Uvec_{L}\right) \\
+              &\Uvec_{R}&&\eigenval_{\idxj}\left(\Uvec_{R}\right)<\frac{x}{t}
+          \end{aligned}\right.\label{eq:contact_discontinuity_solution_non_linear_systems_of_equations}
+        \end{align}\hfill
+        \end{minipage}
+        \begin{minipage}{0.44\textwidth}
+        \begin{figure}[H]
+            \centering{
+              \def\svgwidth{100pt}
+              \resizebox{\linewidth}{!}{
+                \input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/simple_solutions/figures/characteristics_contact_discontinuity.pdf_tex}}
+            }
+        \end{figure}
+        \end{minipage}
+    \end{defn}
+\end{defnbox}
+\begin{explanationbox}\nospacing
+    \begin{explanation}
+        Appear in gas genomics when a with a discontinuity in mass density but not in the pressure or velocity, in comparison
+        to real shocks, which move faster than the gas itself due to a discontinuity in pressure.
+    \end{explanation}
+\end{explanationbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\proofref{proof:defn:rankine-hugoniot_condition_contact_discontinuity}\newline Rankine-Hugoniot Condition]\label{defn:rankine-hugoniot_condition_contact_discontinuity}\leavevmode\\
+        A contact discontinuity solution\cref{defn:contact_discontinuity_solution_non_linear_systems_of_equations}
+        fulfills the Rankine-Hugoniot Condition:
+        \begin{align}
+          \flux\left(\Uvec_{R}\right)-\flux\left(\Uvec_{L}\right)
+          =s \left(\Uvec_{R}-\Uvec_{L}\right)&&s:=\eigenval_{\idxj} \left(\Uvec_{R}\right)=\eigenval_{\idxj} \left(\Uvec_{L}\right)
+        \end{align}
+    \end{defn}
+\end{defnbox}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../../../../formulary"
+%%% TeX-command-extra-options: "-shell-escape"
+%%% End:

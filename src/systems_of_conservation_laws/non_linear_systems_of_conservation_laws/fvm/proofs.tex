@@ -1,0 +1,63 @@
+\begin{proofbox}\nospacing
+    \begin{proof}[Locally Linearized Riemann Problem\cref{defn:locally_linearized_riemann_problem_approximation}]\label{proof:defn:locally_linearized_riemann_problem_approximation}
+        We locally $[\Uvec_{\idxj}^{n},\Uvec_{\idxj+1}^{n}]$ approximate $\fluxvec_{x}$ using Taylor:
+        \begin{align*}
+          \fluxvec(\uvec)\eqs{\cref{eq:Taylor}}&\fluxvec \left(\uvec_{\idxj}^{n}\right)+\fluxvec' \left(\thetacvec\right)\left(\uvec-\uvec_{\idxj}^{n}\right)&&\thetacvec\in[\Uvec_{\idxj}^{n},\Uvec_{\idxj+1}^{n}]\\[-1\jot]
+          \fluxvec(\uvec)\eqs{\hphantom{\cref{eq:Taylor}}}&\fluxvec'\left(\thetacvec\right)\uvec_{x}\approx\linfluxvec\left(\uvec_{\idxj}^{n},\uvec_{\idxj+1}^{n}\right)\uvec_{x}\\[-1\jot]
+        \end{align*}
+    \end{proof}
+\end{proofbox}
+\begin{proofbox}\nospacing
+    \begin{proof}[Roe Matrix\cref{defn:roe_matrices}]\label{proof:defn:roe_matrices}
+        We use the mean value theorem \cref{eq:mean_value_theorem} to relate \cref{eq:roes_criterion_non_linear_systems} and
+        the RH condition\cref{defn:rankine-hugoniot_condition_systems}:
+        \begin{align*}
+          \fluxvec\left(\Uvec_{\idxj+1/2}^{n}\right)&-\fluxvec\left(\Uvec_{\idxj}^{n}\right)\\[-1\jot]
+          &=\ul{\int_{0}^{1}\fluxvec' \left(\uvec_{\idxj}^{n}+\tauc \left(\uvec_{\idxj+1}^{n}-\uvec_{\idxj}^{n}\right)\right)}\left(\Uvec_{\idxj}^{n}-\Uvec_{\idxj+1}^{n}\right)\diff\tauc \\[-1\jot]
+          \fluxvec\left(\Uvec_{\idxj+1/2}^{n}\right)&-\fluxvec\left(\Uvec_{\idxj}^{n}\right)=\ul{\linfluxvec_{\idxj+1/2}^{n}}\left(\Uvec_{\idxj}^{n}-\Uvec_{\idxj+1}^{n}\right)
+        \end{align*}
+    \end{proof}
+\end{proofbox}
+\begin{proofbox}\nospacing
+    \begin{proof}[Roes Criterion -- \Cref{property:roes_criterion}]\label{proof:property:roes_criterion}\leavevmode\\
+        We assume that the exact solution of the non-linearized Riemann problem\cref{defn:fvm_riemann_problem_for_non_linear_systems_of_conservations_laws}
+        is given by a single discontinuity i.e.\ a \textit{shock wave} or a \textit{contact discontinuity} s.t.\ the exact solution is given by:
+        \begin{align*}
+          \Uvec(x,t)=
+          \left\{
+            \begin{aligned}
+                &\Uvec_{\idxj}^{n}&&x<x_{\idxj+1/2}+s_{\idxj+1/2}^{n}(t-t^{n})\\
+                &\Uvec_{\idxj+1}^{n}&&x>x_{\idxj+1/2}+s_{\idxj+1/2}^{n}(t-t^{n})
+            \end{aligned}
+          \right.
+        \end{align*}
+        and must satisfy the Rankine Heuginote condition\cref{rankine-hugoniot_condition_systems}:
+        \begin{align*}
+          \fluxvec\left(\Uvec_{\idxj+1}^{n}\left(t\right)\right)-\fluxvec\left(\Uvec_{\idxj}^{n}\left(t\right)\right)=s_{\idxj+1/2}^{n}\left(\Uvec_{\idxj}^{n}\left(t\right)-\Uvec_{\idxj+1}^{n}\left(t\right)\right)
+        \end{align*}
+        Plugging in Roes Criterion\cref{eq:roes_criterion_non_linear_systems} leads to:
+        \begin{align}
+            \linfluxvec_{\idxj+1/2}^{n}\left(\uvec_{\idxj}^{n},\uvec_{\idxj}^{n+1}\right)=s_{\idxj+1/2}^{n}\left(\Uvec_{\idxj}^{n}\left(t\right)-\Uvec_{\idxj+1}^{n}\left(t\right)\right)\label{eq:proof:property:roes_criterion}
+        \end{align}
+        This implies that $\left(\uvec_{\idxj}^{n},\uvec_{\idxj}^{n+1}\right)$ is an eigenvector of the matrix $\linfluxvec_{\idxj+1/2}^{n}$ and $s_{\idxj+1/2}^{n}$ is the corresponding eigenvalue.
+        Thus in order for equation \cref{eq:proof:property:roes_criterion} to hold we need to require:
+        \begin{align*}
+          &\exists\idxp\in\left\{1,\ldots,\idxm\right\}:&&
+          \begin{aligned}
+              s_{\idxj+1/2}^{n}&=\eigenval_{\idxj+1/2}^{\idxp,n} \\
+              \ul{\left(\uvec_{\idxj}^{n}-\uvec_{\idxj}^{n+1}\right)}&=\vec{r}_{\idxj+1/2}^{\idxp,n}
+          \end{aligned}
+        \end{align*}
+        \begin{align*}
+          \implies&&\left(\uvec_{\idxj}^{n}-\uvec_{\idxj}^{n+1}\right)\eqs{\text{\cref{eq:decoupled_riemann_problem_for_linear_systems}}}\sum_{\idxl=1}^{\idxm}\Wvec_{\idxj+1/2}^{\idxl,n}\vec{r}_{\idxj+1/2}^{\idxl,n}\eqs{!}
+          \ul{\vec{r}_{\idxj+1/2}^{\idxl,\idxp}}\\[-1\jot]
+          \implies&&\uvec\text{ is a solution}
+        \end{align*}
+        \todo[inline]{don't really get why this makes $u$ a solution/the point}
+    \end{proof}
+\end{proofbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../formulary"
+%%% End:

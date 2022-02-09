@@ -1,0 +1,74 @@
+\begin{examplebox}\nospacing
+    \begin{example}[\newline Roe Matrix for Shallow Water Equation\cref{proposition:roe_matrix_shallow_water}]\label{example:proposition:roe_matrix_shallow_water}\leavevmode\\
+        \begin{minipage}{0.55\textwidth}
+            \begin{align}
+              &\partial_{t}h+\partial_{x}(hv)=0\nonumber \\[-1\jot]
+              &\partial_{t}(hv)+\partial_{x}\left(\frac{1}{2}gh^{2}+hv^{2}\right)=0\label{eq:shallow_water_equations}
+            \end{align}
+        \end{minipage}\hfill
+        \begin{minipage}[c]{0.38\textwidth}
+            \begin{figure}[H]
+                \centering{
+                  \def\svgwidth{100pt}
+                  \resizebox{\linewidth}{!}{\input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/figures/shallow_water.pdf_tex}}
+                }
+            \end{figure}
+        \end{minipage}
+        $v(x,t)$: horizontal velocity of water column at $x$ and the moment is $m=hv$:
+        \begin{align}
+          \Uvec=\pmat{h \\ m}&&\fluxvec(\Uvec)=\pmat{m \\ \frac{1}{2}gh^{2}+\frac{m^{2}}{h}}
+        \end{align}
+        Thus we have:
+        \begin{align}
+          \dbracket{\Uvec}=\pmat{\dbracket{h} \\ \dbracket{hv}}&&\dbracket{\fluxvec}=\pmat{\dbracket{hv} \\ \dbracket{\frac{1}{2}gh^{2}+hv^{2}}}
+        \end{align}
+        From \cref{eq:roes_criterion_non_linear_systems} it follows:
+        \begin{align*}
+          \pmat{\dbracket{hv} \\ \dbracket{\frac{1}{2}gh^{2}+hv^{2}}}\eqs{!}\pmat{\linflux_{11}\dbracket{h} + \linflux_{12}\dbracket{hv}\\
+          \linflux_{21}\dbracket{h} + \linflux_{22}\dbracket{hv}}
+        \end{align*}
+        We see that $\linflux_{11}=0$ and $\linflux_{12}=1$ in order for the first equation to hold.\\
+        In order to solve the second rational equation we use the approach \cref{proposition:roe_matrix} and define:
+        \begin{align*}
+          z_{1}=\sqrt{h}&&z_{2}=\sqrt{h}v
+        \end{align*}
+        \begin{align*}
+          &\implies&& h=z_{1}^{2}&&hv=z_{1}z_{2} \\[-1\jot]
+          &\implies&& h^{2}=z^{4}&&hv^{2}=z_{2}^{2}
+        \end{align*}
+        Thus it follows for the second equation:
+        \begin{align*}
+         \left[\!\left[\frac{1}{2}gz_{1}^{4}+z_{2}^{2}\right]\!\right]\eqs{!}\linflux_{21}\dbracket{z_{1}^{2}} + \linflux_{22}\dbracket{z_{1}z_{2}}
+        \end{align*}
+        Using the identities from \cref{proposition:roe_matrix} we obtain:
+        \begin{align*}
+          2\widebar{z}_{2}+2g\widebar{z_{1}^{2}}\widebar{z}_{1}\dbracket{z_{1}}
+          =2\linflux_{21}\widebar{z}_{1}\dbracket{z_{1}}+\linflux_{22}\widebar{z}_{2}\dbracket{z_{1}}+\linflux_{22}\widebar{z}_{1}\dbracket{z_{2}}
+        \end{align*}
+        By comparing $\dbracket{\cdot}$ terms we find:
+       \begin{align*}
+         \linflux_{22}\widebar{z}_{1}=2\widebar{z}_{2}&&\implies&&\ul{\linflux_{22}}=\frac{2\widebar{z}_{2}}{\widebar{z}_{1}}\\[-1\jot]
+        2\linflux_{21}\widebar{z}_{1}+\linflux_{22}\widebar{z}_{2}=2g\widebar{z_{1}^{2}}\widebar{z}_{1}
+         &&\implies&&\linflux_{21}=g\widebar{z_{1}^{2}}-\ul{\linflux_{22}}\frac{\widebar{z}_{2}}{2\widebar{z}_{1}}
+       \end{align*}
+       \begin{align*}
+         \linflux_{22}=\frac{2\widebar{z}_{2}}{\widebar{z}_{1}}&&\linflux_{21}=g\widebar{z_{1}^{2}}-\left(\frac{\widebar{z}_{2}}{\widebar{z}_{1}}\right)^{2}
+       \end{align*}
+       Plugging in $z_{1}$ and $z_{2}$ leads to the Roe matrix:
+       \begin{align}
+         \linfluxvec_{\idxj+1/2}^{n}=\pmat{\linflux_{11}&\linflux_{12} \\ \linflux_{21}&\linflux_{22}}=
+                                                                                         \pmat{0 & 1\\ g\widebar{h}-\widehat{v}^{2} & 2\widehat{v}}&&
+       \end{align}
+       with the \rd{Roe Averages} defined as:
+       \begin{align}
+         \widebar{h}:=\frac{h_{\idxj}^{n}+h_{\idxj+1}^{n}}{2}&&\widehat{v}=\frac{\sqrt{h_{\idxj}}v_{\idxj}^{n}+\sqrt{h_{\idxj+1}^{n}}v_{\idxj+1}^{n}}{\sqrt{h_{\idxj}^{n}}+\sqrt{h_{\idxj+1}^{n}}}
+       \end{align}
+       Thus the Roe matrix is exactly equal to the Jaccobian of $\fluxvec'(\Uvec)$ \imp{but} evaluate at the \textit{Roe Averages}.
+    \end{example}
+\end{examplebox}
+\todo[inline]{Tell Mishra typo in script for second equation $2gz_{1}z_{1}$ instead of $z_{1}z_{1}^{2}$}
+\begin{examplebox}\nospacing
+    \begin{example}[\newline Roe Matrix for Euler Equation\cref{proposition:roe_matrix_shallow_water}]\label{example:proposition:roe_matrix_euler}\leavevmode\\
+        \todo[inline]{add}
+    \end{example}
+\end{examplebox}

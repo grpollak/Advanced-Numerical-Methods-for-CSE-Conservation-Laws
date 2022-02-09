@@ -1,0 +1,52 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\proofref{proof:defn:hll-3_hll-center}\newline HLL-3\bslash HLL-C\blackrb{enter}]\label{defn:hll-3_hll-center}
+        \begin{align}
+          \scalemath[0.95]{\Flux_{\idxj+1/2}^{\idxn}=\Flux\left(\Uvec^{\idxn}_{\idxj},\Uvec^{\idxn}_{\idxj+1}\right)=}\left\{
+                                     \begin{alignedat}{8}
+                                         &\Flux\left(\Uvec_{\idxj}^{\idxn}\right)&\quad&\text{if}&\quad&&&0&<&s_{\idxj+1/2}^{l,\idxn}\\
+                                         &\Flux_{\idxj+1/2}^{l,\idxn}&\quad&\text{if}&\quad&s_{\idxj+1/2}^{l,\idxn}&\leq&0&<&s_{\idxj+1/2}^{*,\idxn}\\
+                                         &\Flux_{\idxj+1/2}^{r,\idxn}&\quad&\text{if}&\quad&s_{\idxj+1/2}^{*,\idxn}&\leq&0&<&s_{\idxj+1/2}^{r,\idxn}\\
+                                         &\Flux\left(\Uvec_{\idxj}^{\idxn}\right)&\quad&\text{otherwise}\hspace{-8em}
+                                     \end{alignedat}\right.
+        \end{align}
+        \begin{align*}
+          \Flux_{\idxj+1/2}^{\thetac,\idxn}=\Flux\left(\Uvec_{\idxj+\idxk}^{\idxn}\right)
+          +s_{\idxj+1/2}^{\thetac,\idxn}\left(\Uvec_{\idxj+1/2}^{\thetac,\idxn}-\Uvec_{\idxj+\idxk}^{\idxn}\right)&&\idxk\in\{0,1\}
+        \end{align*}
+        \begin{figure}[H]
+            \centering{
+              \def\svgwidth{200pt}
+              \resizebox{\linewidth}{!}{\input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/fvm/figures/three_wave_flux.pdf_tex}}
+            }
+        \end{figure}
+        \scalematho{
+        \begin{align*}
+          &v_{\idxj+1/2}^{*,\idxn}=s_{\idxj+1/2}^{m,n}\\[-1\jot]
+          &\frac{\rhoc_{\idxj+1}^{\idxj}v_{\idxj+1}^{\idxn}\left(s_{\idxj+1/2}^{r,\idxn}-v_{\idxj+1}^{n}\right)
+                                   -\rhoc_{\idxj}^{\idxn}v_{\idxj}^{\idxn}\left(s_{\idxj+1/2}^{l,\idxn}-v_{\idxj}^{n}\right)
+                                   -\left(p_{\idxj}^{\idxj}-p_{\idxj}^{\idxn}\right)
+                                   }{
+                                   \rhoc_{\idxj+1}^{\idxn}\left(s_{\idxj+1/2}^{r,\idxn}-v_{\idxj+1}^{\idxn} \right)
+                                   \rhoc_{\idxj}^{\idxn}\left(s_{\idxj+1/2}^{l,\idxn}-v_{\idxj}^{\idxn} \right)
+                                   }
+        \end{align*}}
+             \begin{alignat*}{2}
+          \rhoc_{\idxj+1/2}^{l,\idxn}=\frac{\rhoc_{\idxj}^{n}(v_{\idxj}^{n}-s_{\idxj+1/2}^{l,n})}{(v_{\idxj+1/2}^{*}-s_{\idxj+1/2}^{l,\idxn})}
+                      &&\rhoc_{\idxj+1/2}^{r,\idxn}=\frac{\rhoc_{\idxj+1}^{n}(v_{\idxj+1}^{n}-s_{\idxj+1/2}^{r,n})}{(v_{\idxj+1/2}^{*}-s_{\idxj+1/2}^{r,\idxn})}
+        \end{alignat*}
+        \begin{align*}
+          p_{\idxj+1/2}^{*,\idxn}=p_{\idxj+\idxk}^{\idxn}+\rhoc_{\idxj+\idxk}^{\idxn}\left(v_{\idxj+\idxk}^{\idxn}-v_{\idxj+1/2}^{*,\idxn}\right)
+          \left(v_{\idxj+\idxk}^{\idxn}-s_{\idxj+1/2}^{\alphac,\idxn}\right)
+        \end{align*}
+    \end{defn}
+\end{defnbox}
+\begin{notebox}[Note]\nospacing
+    The third component of the RH condition will in general not be satisfied and we define the flux over either of the intermediate components
+    $\Flux_{\idxj+1/2}^{\thetac,\idxn}\approx\Flux\left(\Uvec_{\idxj+1/2}^{\thetac,\idxn}\right)$
+\end{notebox}
+\todo[inline]{watch last 20 min of lecture and add Runge Kutta method}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../../../formulary"
+%%% End:

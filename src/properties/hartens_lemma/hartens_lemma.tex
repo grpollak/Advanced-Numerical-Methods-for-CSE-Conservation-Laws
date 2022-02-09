@@ -1,0 +1,29 @@
+\begin{lemmabox}\nospacing
+    \begin{lemma}[\hfill\proofref{proof:lemma:hartens_lemma}\newline Harten's Lemma]\label{lemma:hartens_lemma}\leavevmode\\
+        A scheme in incremental form$^{\text{\cref{eq:finite_volume_scheme_incremental_form}}}$
+        \begin{align}
+        U_{\idxj}^{n+1}=U_{\idxj}^{n}+\mcC_{\idxj+1/2}^{n} \left(U_{\idxj+1}^{n}-U_{\idxj}^{n}\right)-\mcD_{\idxj-1/2}^{n} \left(U_{\idxj}^{n}-U_{\idxj-1}^{n}\right)\label{eq:finite_volume_scheme_incremental_form}
+        \end{align}
+        \begin{numberlistnosep}
+          \item with coefficients satisfying:
+        \begin{align}
+          &\mcC_{\idxj+1/2}^{n},\mcD_{\idxj+1/2}^{n}\geq0&&\text{and}&&\mcC_{\idxj+1/2}^{n}+\mcD_{\idxj+1/2}^{n}\leq1\nonumber\\[-1\jot]
+          &\forall\idxn,\idxj\label{eq:hartens_lemma}
+        \end{align}
+        is \textit{TVD}$^{\text{\cref{eq:discrete_total_variation_diminishing}}}$
+        \item with coefficients satisfying:
+        \begin{align}
+          &\mcC_{\idxj+1/2}^{n},\mcD_{\idxj+1/2}^{n}\geq0&&\text{and}&&\mcC_{\idxj+1/2}^{n}+\mcD_{\idxj-1/2}^{n}\leq1\nonumber\\[-1\jot]
+          &\forall\idxn,\idxj
+        \end{align}
+        \begin{align}
+          \norm{U^{n+1}}_{L^{\infty}}\leq\norm{U^{n}}_{L^{\infty}}&&\forall n
+        \end{align}
+        \end{numberlistnosep}
+    \end{lemma}
+\end{lemmabox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

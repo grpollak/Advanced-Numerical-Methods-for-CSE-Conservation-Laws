@@ -1,0 +1,77 @@
+\begin{sectionbox}\nospacing
+    The entropy conditions based on the Lax-Olenek entropy condition must of course also be satisfied for non-linear scalar conservation laws.
+\end{sectionbox}
+\begin{propositionbox}\nospacing
+    \begin{proposition}[Viscous Approximation]\label{proposition:viscous_approximation_non_linear_conservation_laws}\leavevmode\\
+        Is a parabolic \textit{convection-diffusion equation} of the form:
+        \begin{align}
+          \begin{aligned}
+            \partial_{t}\Uvec+\partial_{x}\fluxvec\left(\Uvec\right)&=\nuc\partial_{xx}\Uvec\\
+            \Uvec(x,0)&=\Uvec_{0}(x)
+        \end{aligned}&&
+        \begin{aligned}
+            &\Uvec:\R\times\Rp\to\admissibleset\in\R^{\idxm} \\[-1\jot]
+            &\Uvec\in L^{\infty}\left(\R\times[0,T];\admissibleset\right) \\[-1\jot]
+            &\fluxvec:\admissibleset\to\R^{\idxm}\text{ (nonlinear)}
+        \end{aligned}
+        \end{align}
+    \end{proposition}
+\end{propositionbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Vanishing Viscosity Solution]\label{defn:vanishing_viscosity_solution_non_linear_conservation_laws}\leavevmode\\
+        In the limit $\epsilonc\to0$ we recover the inviscide non-linear scalar conservation laws.
+        Thus we can study \cref{proposition:viscous_approximation_non_linear_conservation_laws} for $\epsilonc\to0$ in order to study small scale effects.
+    \end{defn}
+\end{defnbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\exampleref{example:shallow_water_equations_entropy_pair,example:compressible_euler_equations_entropy_pair}
+        \newline Entropy Pair\hfill\tcblack{$(s,q)$}]\label{defn:entropy_function_non_linear_conservation_laws}\leavevmode\\
+        The pair $(s,q)$ is called entropy pair, where $S$ is any \textit{strictly convex function}\cref{defn:stricly_convex_function}.
+        Then the entropy pair is defined by the relation:
+        \begin{align}
+          \qprob(\Uvec)=\int_{\vec{0}}^{\Uvec}\fluxvec'(\vec{\gammac})\entropyvec'(\gammac)\diff\gammac&&\implies&&\qprobvec'(\Uvec)^{\T}=\entropyvec'(\Uvec)^{\T}\fluxvec'(\Uvec)
+        \end{align}
+        \begin{flalign*}
+           &\text{Entropy function }\entropyvec&&\entropyvec:\admissibleset\subset\R^{\idxm}\to\R,\text{ strictly convex\cref{cor:postivie_eigenvalues_positive_definite_matrix}}&&\\[-1\jot]
+           &\text{Entropy flux }\qprobvec&&\qprobvec:\admissibleset\subset\R^{\idxm}\to\R&&
+        \end{flalign*}
+    \end{defn}
+\end{defnbox}
+\begin{notebox}[Note]\nospacing
+    For most physical nonlinear hyperbolic systems, there exists only one entropy, whereas for scalar conservation
+    laws there exist a pair for any convex entropy function $\entropy$.
+\end{notebox}
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\proofref{proof:defn:entropy_condition_non_linear_conservation_laws}\newline Entropy Condition]
+        \label{defn:entropy_condition_non_linear_conservation_laws}\leavevmode\\
+        Any vanishing viscosity solution\cref{defn:vanishing_viscosity_solution} $u$ satisfies:
+        \begin{align}
+          \partial_{t}\entropy\left(\Uvec\right)+\partial_{x}\qprob\left(\Uvec\right)\leq\vec{0}\label{eq:entropy_condition_non_linear_conservation_laws}
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{corbox}\nospacing
+    \begin{cor}[\hfill\tcblack{\normalfont{similar to}} \proofref{proof:cor:entropy_condition_for_distributions}
+        \newline Kruzkov's Entropy Condition]
+        \label{cor:entropy_condition_for_distributions_non_linear_conservation_laws}\leavevmode\\
+          A solution $\Uvec$ of\cref{eq:nonlinear_systems_of_conservation_laws} is a weak solution
+          if it satisfies the Kruzkov's Entropy Condition for all entropy pairs\cref{defn:entropy_function_non_linear_conservation_laws} $(\entropy,\qprob)$:
+          \begin{align}
+            \int_{\R}\int_{\R_{+}}&s \left(\Uvec(x,t)\right)\testfunc_{t}(x,t)+\qprob\left(\Uvec(x,t)\right)\testfunc_{x}\diff x\diff t\nonumber \\[-1\jot]
+            &+\int_{\R}\entropy(\Uvec_{0}(x))\testfunc(x,0)\diff x\geq0\label{eq:kruzkov_entropy_condition_non_linear_conservation_laws}
+          \end{align}
+          \hfill$\qquad\forall\testfunc\in\sm_{C}^{1}\left(\R\times\R_{+}\right),\testfunc\geq0\nonumber$
+    \end{cor}
+\end{corbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Entropy Solution]\label{defn:entropy_solution_non_linear_conservation_laws}\leavevmode\\
+        A \textit{weak solution}\cref{defn:weak_solutions} of \cref{eq:nonlinear_systems_of_conservation_laws} $\Uvec\in L^{\infty}(\R,\R_{+})$
+        is an entropy solution of the inviscide non-linear system of scalar conservation laws \cref{eq:nonlinear_systems_of_conservation_laws} iff
+        $\Uvec$ satisfies the entropy condition \cref{eq:kruzkov_entropy_condition_non_linear_conservation_laws} for all entropy pairs\cref{defn:entropy_function} $(s,\qprob)$
+    \end{defn}
+\end{defnbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../formulary"
+%%% End:

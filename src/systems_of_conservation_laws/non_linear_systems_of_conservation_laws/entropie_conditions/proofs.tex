@@ -1,0 +1,51 @@
+\begin{proofbox}\nospacing
+    \begin{proof}[Entropy Cond. Non-lin. Systems\cref{defn:entropy_condition_non_linear_conservation_laws}]
+        \label{proof:defn:entropy_condition_non_linear_conservation_laws}\leavevmode\\
+        Similar to \proofref{proof:defn:entropy_condition} but from \textit{stric convexity} it follows that the Hessian\cref{defn:Hessian}
+        matrix $\entropyvec''(\Uvec)$ is positive definite\cref{defn:positive_definite_matrix}.
+    \end{proof}
+\end{proofbox}
+\begin{proofbox}\nospacing
+    \begin{proof}[\newline Entropy Dissipation Contact Discontinuity\cref{defn:entropy_dissipation}]\label{proof:defn:entropy_dissipation_contact}\leavevmode\\
+        At contact discontinuities it holds:
+        \begin{align*}
+          \Wvec_{\idxj}'(\epsilonc)=\vec{r}_{\idxj}\left(\Wvec(\epsilonc)\right)&&\Wvec_{\idxj}(0)=\Uvec_{L} \\[-1\jot]
+          \eigenval_{\idxj}\left(\Wvec(\epsilonc)\right)=\eigenval_{\idxj}\left(\Uvec_{L}\right)=s
+        \end{align*}
+        \begin{align*}
+          E(\epsilonc):=\qprob \left(\Wvec_{\idxj}(\epsilonc)\right)-\qprob \left(\Uvec_{L}\right)-\eigenval_{\idxj}\left(\entropy\left(\Wvec_{\idxj}(\epsilonc)\right)-\entropy\left(\Uvec_{L}\right)\right)
+        \end{align*}
+        \begin{align*}
+          E(\epsilonc)'=&\qprob'\left(\Wvec_{\idxj}(\epsilonc)\right)\Wvec_{\idxj}'(\epsilonc)
+          -\eigenval_{\idxj}\left(\Uvec_{L}\right)\entropy'\left(\Wvec_{\idxj}(\epsilonc)\right)\Wvec_{\idxj}'(\epsilonc)\\[-1\jot]
+           &\entropyvec'\left(\Wvec_{\idxj}(\epsilonc)\right)^{\T}\fluxvec'\left(\Wvec_{\idxj}(\epsilonc)\right)\Wvec_{\idxj}'(\epsilonc)
+          -\eigenval_{\idxj}\left(\Uvec_{L}\right)\entropy'\left(\Wvec_{\idxj}(\epsilonc)\right)\Wvec_{\idxj}'(\epsilonc)\\[-1\jot]
+        &\entropyvec'\left(\Wvec_{\idxj}(\epsilonc)\right)^{\T}
+            \left[\fluxvec'\left(\Wvec_{\idxj}(\epsilonc)\right)\Wvec_{\idxj}'(\epsilonc)
+             -\eigenval_{\idxj}\left(\Uvec_{L}\right)\Wvec_{\idxj}'(\epsilonc)\right]\\[-1\jot]
+        &\entropyvec'\left(\Wvec_{\idxj}(\epsilonc)\right)^{\T}
+            \Big[\underbrace{\fluxvec'\left(\Wvec_{\idxj}(\epsilonc)\right)\vec{r}_{\idxj}(\epsilonc)
+             -\eigenval_{\idxj}\left(\Uvec_{L}\right)\Wvec_{\idxj}'(\epsilonc)}_{\text{eigenvalue equation}\implies\equiv0}\Big]
+        \end{align*}
+        Thus it follows that:
+        \begin{align}
+          \dv{\epsilonc}E(\epsilonc)\equiv&&\implies&&E(\epsilonc)=E(\Uvec_{L})\eqs{E(\Uvec_{L})\equiv0}
+        \end{align}
+    \end{proof}
+\end{proofbox}
+\begin{proofbox}\nospacing
+    \begin{proof}[\newline Entropy Dissipation Genuinely Nonlinear\cref{defn:entropy_dissipation}]\label{proof:defn:entropy_dissipation_gnl}\leavevmode\\
+        Consider a genuinely non-linear wave family $(\eigenval_{\idxj},\vec{r}_{\idxj})$ and define:
+        \begin{align*}
+          E(\epsilonc):=\qprob \left(\Wvec_{\idxj}(\epsilonc)\right)-\qprob \left(\Uvec_{L}\right)-\eigenval_{\idxj}\left(\entropy\left(\Wvec_{\idxj}(\epsilonc)\right)-\entropy\left(\Uvec_{L}\right)\right)
+        \end{align*}
+        together with the RH condition it follows through tedious computation that:
+        \begin{align*}
+          E(\epsilonc)<0&&\text{for $\epsilonc$ small}&&\iff&&\eigenval_{\idxj}\left(\Uvec_{R}\right)<s<\eigenval_{\idxj}\left(\Uvec_{L}\right)
+        \end{align*}
+        for \textit{strictly hyperbolic systems}\cref{cor:strictly_hyperbolic_system} one can also deduce for small $\epsilonc$ that:
+        \begin{align}
+          \eigenval_{\idxj-1}\left(\Uvec_{L}\right)<s<\eigenval_{\idxj+1}\left(\Uvec_{R}\right)
+        \end{align}
+    \end{proof}
+\end{proofbox}

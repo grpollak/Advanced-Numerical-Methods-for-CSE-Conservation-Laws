@@ -1,0 +1,32 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\exampleref{example:rk_for_riemann_problem},\proofref{proof:rankine-hugoniot_condition}\newline Rankine-Hugoniot Condition]\label{defn:rankine-hugoniot_condition}
+        Is a condition on the \textit{shock-speed} $s(t)=\gammac'(t)$ of a shock\cref{defn:shock_waves} i.e.\ how fast the shock-wave travels:
+        \begin{align}
+          s(t)\left(u^{+}\left(t\right)-u^{-}\left(t\right)\right)=\flux\left(u^{+}\left(t\right)\right)-\flux\left(u^{-}\left(t\right)\right) \label{eq:rankine-hugoniot_condition}
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{corbox}\nospacing
+    \begin{cor}[Shock Speed]\label{cor:shock_speed}
+        Is the speed of a shock wave\cref{defn:shock_waves}
+        \begin{align}
+          s(t)=\gammac'(t)=
+          \frac{f\left(u^{+}\left(t\right)\right)-f\left(u^{-}\left(t\right)\right)}{u^{+}\left(t\right)-u^{-}\left(t\right)}
+        \end{align}
+    \end{cor}
+\end{corbox}
+\begin{theorembox}\nospacing
+    \begin{theorem}[\newline Necessary Conditions for Weak Solutions and Shocks]\label{theorem:weak_solution}
+        Given a shock wave $\Gamma$\cref{defn:shock_waves} $u$ is a weak solution of \cref{eq:conservation_law} if and only if:
+        \begin{circlelistnosep}
+            \item $u^{-}$ and $u^{+}$ are classical solutions of \cref{eq:conservation_law}.
+            \item the shock speed $s(t)=\gammac'(t)$ satisfies the RH-condition\cref{eq:rankine-hugoniot_condition} at
+            any discontinuities $x=\gammac(t)$.
+        \end{circlelistnosep}
+    \end{theorem}
+\end{theorembox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../formulary"
+%%% End:

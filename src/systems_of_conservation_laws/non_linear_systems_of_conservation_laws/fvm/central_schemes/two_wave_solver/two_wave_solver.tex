@@ -1,0 +1,72 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\proofref{proof:defn:central_schemes}\newline Central Flux]\label{defn:central_flux_non_linear_systems}\leavevmode\\
+        % \begin{minipage}[t]{0.45\textwidth}
+            \begin{align*}
+              \scalemath[0.90]{\Flux_{\idxj+1/2}^{n}=\Flux \left(\Uvec_{\idxj}^{n},\Uvec_{\idxj+1}^{n}\right)=}&
+              \begin{cases}
+                \flux\left(\Uvec_{\idxj}^{n}\right)&\text{if }s_{\idxj+1/2}^{l,n}\geq0\\
+                \flux^{*}_{\idxj+1/2}&\text{if }s_{\idxj+1/2}^{l,n}<0<s_{\idxj+1/2}^{r,n}\\
+                \flux\left(\Uvec_{\idxj+1}^{n}\right)&\text{if }s_{\idxj+1/2}^{r,n}\leq0
+              \end{cases}
+            \end{align*}
+        \scalematho[0.89]{
+        \begin{align}
+          &\flux^{*}_{\idxj+1/2}=\\[-1\jot]
+          &\hspace{-0.2em}=\frac{s^{r}_{\idxj+1/2}\flux \left(\Uvec_{\idxj}^{n}\right)-s^{l}_{\idxj+1/2}\flux \left(\Uvec_{\idxj+1/2}^{n}\right)+s^{r}_{\idxj+1/2}s^{l}_{\idxj+1/2}\left(\Uvec_{\idxj+1}^{n}-\Uvec_{\idxj}^{n}\right)}{s^{r}_{\idxj+1/2}-s^{l}_{\idxj+1/2}}\nonumber
+        \end{align}}
+      The left $s^{l,n}_{\idxj+1/2}$ and right $s^{r,n}_{\idxj+1/2}$ speeds have to be specified and depend on the scheme.
+      \begin{figure}[H]
+          \centering{
+            \def\svgwidth{130pt}
+            \resizebox{0.6\linewidth}{!}{
+              \input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/fvm/figures/two_wave_flux.pdf_tex}}
+          }
+      \end{figure}
+    \end{defn}
+\end{defnbox}
+\begin{explanationbox}\nospacing
+    \begin{explanation}
+        Depending on our wave speeds we either take the exact left $\flux\left(\Uvec_{\idxj}^{n}\right)$, right $\flux\left(\Uvec_{\idxj+1}^{n}\right)$ flux or the approximate intermediate flux $\flux^{*}_{\idxj+1/2}\approx\flux\left(\Uvec^{*}\right)$
+        which is derived/approximated by conservation.\\
+        \begin{minipage}[t]{0.32\textwidth}
+            \begin{figure}[H]
+                \centering{
+                  \def\svgwidth{100pt}
+                  \resizebox{\linewidth}{!}{
+                    \input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/fvm/figures/two_wave_flux_left.pdf_tex}}
+                }
+            \end{figure}
+        \end{minipage}
+        \begin{minipage}[t]{0.32\textwidth}
+            \begin{figure}[H]
+                \centering{
+                  \def\svgwidth{100pt}
+                  \resizebox{\linewidth}{!}{
+                    \input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/fvm/figures/two_wave_flux.pdf_tex}}
+                }
+            \end{figure}
+        \end{minipage}
+        \begin{minipage}[t]{0.32\textwidth}
+            \begin{figure}[H]
+                \centering{
+                  \def\svgwidth{100pt}
+                  \resizebox{\linewidth}{!}{
+                    \input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/fvm/figures/two_wave_flux_right.pdf_tex}}
+                }
+            \end{figure}
+        \end{minipage}
+    \end{explanation}
+\end{explanationbox}
+\begin{corbox}\nospacing
+    \begin{cor}[\hfill\tcblack{$-s^{l}_{\idxj+1/2}=s^{r}_{\idxj+1/2}=:s_{\idxj+1/2}$}\newline Symmetric Waves]\label{cor:symmetric_waves_non_linear_cystems}\leavevmode\\
+        For anti-symmetric speeds we obtain:
+        \begin{align}
+          \flux^{*}_{\idxj+1/2}=\frac{\flux\left(\Uvec_{\idxj}^{n}\right)-\flux \left(\Uvec_{\idxj+1/2}^{n}\right)}{2}-\frac{s_{\idxj+1/2}}{2}\left(\Uvec_{\idxj+1}^{n}-\Uvec_{\idxj}^{n}\right)\label{eq:hll_symmetric_waves_systems}
+        \end{align}
+    \end{cor}
+\end{corbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../../../formulary"
+%%% End:

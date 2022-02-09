@@ -1,0 +1,24 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[Hyperbolic System]\label{defn:hyperbolic_system}\leavevmode\\
+        The linear system\cref{eq:linear_system_of_conservation_law,eq:linear_system_of_conservation_law_variable_coef}
+        are called \textit{hyperbolic} if the matrix $\Avec$ is diagonalizable and has $\idxm$ real eigenvalues:
+        \begin{align}
+          \text{spectrum}(\Avec)(\xvec,t)=\left\{\eigenval(\xvec,t)_{1},\ldots,\eigenval(\xvec,t)_{\idxm}\right\}\in\R&&\forall \xvec,t\label{eq:hyperbolic_system}
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{corbox}\nospacing
+    \begin{cor}[Strictly Hyperbolic System]\label{cor:strictly_hyperbolic_system}\leavevmode\\
+        The linear system\cref{eq:linear_system_of_conservation_law,eq:linear_system_of_conservation_law_variable_coef}
+        is called \textit{strictly hyperbolic} if it is \textit{hyperbolic}\cref{defn:hyperbolic_system} and all eigenvalues are distinct:
+        \begin{align}
+          \cref{eq:hyperbolic_system}&&+&&\eigenval_{1}\neq\eigenval_{2}\neq\ldots\neq\eigenval_{\idxm}
+        \end{align}
+    \end{cor}
+\end{corbox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../formulary"
+%%% End:

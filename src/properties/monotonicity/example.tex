@@ -1,0 +1,16 @@
+\begin{examplebox}\nospacing
+    \begin{example}[Monotoni-city LxF\cref{defn:cfl_condition_for_fvs}]\label{example:lxf_monotonicity}
+        Consider the LxF scheme\cref{defn:lax_friedrichs_scheme}:
+        \begin{align*}
+          \Flux(\mca,\mcb)=\frac{1}{2}\left(\flux(\mca)+\flux(\mcb)\right)-\frac{\Delta x}{2\Delta x} \left(\mcb-\mca\right)
+        \end{align*}
+        \begin{align*}
+          &\pdv{\flux}{\mca}=\frac{1}{2}\flux'(\mca)+\frac{1}{2}\frac{\Delta x}{\Delta t}=\frac{1}{2} \left(\frac{\Delta x}{\Delta t}+\flux'(\mca)\right)\stackrel{!}{\geq}0 \\[-1\jot]
+          &\pdv{\flux}{\mcb}=\frac{1}{2}\flux'(\mcb)-\frac{1}{2}\frac{\Delta x}{\Delta t}=-\frac{1}{2} \left(\frac{\Delta x}{\Delta t}-\flux'(\mcb)\right)\stackrel{!}{\geq}0
+        \end{align*}
+        In order for both of this equations to hold it follows the CFL condition:
+        \begin{align*}
+          \abs*{\flux'(x)}\leq\frac{\Delta x}{\Delta t}
+        \end{align*}
+    \end{example}
+\end{examplebox}

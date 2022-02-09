@@ -1,0 +1,50 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\proofref{proof:defn:roe_matrices}\newline Roe Matrices\hfill\tcblack{$\linfluxvec_{\idxj+1/2}^{n}$}]\label{defn:roe_matrices}\leavevmode\\
+        Are matrices that satisfy the \cref{property:strict_hyperbolicity,property:consistency,property:,property:roes_criterion}
+        \begin{align}
+          \linfluxvec_{\idxj+1/2}^{n}=\int_{0}^{1}\fluxvec' \left(\uvec_{\idxj}^{n}+\tauc \left(\uvec_{\idxj+1}^{n}-\uvec_{\idxj}^{n}\right)\right)\diff\tauc\label{eq:roe_matrices}
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{sectionbox}[Problem]\nospacing
+   \Cref{eq:roe_matrices} is not easy to calculate and in general not possible to calculate in general.
+\end{sectionbox}
+\begin{propositionbox}\nospacing
+    \begin{proposition}[\hfill\exampleref{example:proposition:roe_matrix_shallow_water,example:proposition:roe_matrix_euler}\newline Roe Matrix]\leavevmode\\
+        \label{proposition:roe_matrix}
+        We derive the row matrix by solving \cref{eq:roes_criterion_non_linear_systems}:\\
+        \scalematho[0.98]{\begin{align*}
+          &[[\fluxvec]]=\linfluxvec[[\uvec]]\iff
+          \fluxvec\left(\uvec_{\idxj+1}^{n}\right)-\fluxvec\left(\uvec_{\idxj}^{n}\right)=\linfluxvec_{\idxj+1/2}^{n}\left(\uvec_{\idxj+1}^{n}-\uvec_{\idxj}^{n}\right)
+        \end{align*}}
+        using a clever change of variables depenindg on the underlying problem:
+        \begin{align}
+          &\Zvec:\Uvec\mapsto\Zvec(U)&&\Zvec\in\admissibleset\subset\R^{\idxm}
+        \end{align}
+    \end{proposition}
+\end{propositionbox}
+\begin{explanationbox}\nospacing
+    \begin{explanation}
+        When writing down \cref{eq:roes_criterion_non_linear_systems} we often arrive at rational equations.
+        By a cleaver change of variables we can transform those equations into polynomial equations, which are much easier to solve.
+    \end{explanation}
+\end{explanationbox}
+\todo[inline]{Why/Does this automatically satisfy all the equations?}
+\begin{formulabox}\nospacing
+   \begin{formula}[Useful Identities]
+       \begin{align}
+         \widebar{a}:=\frac{a_{l}+a_{r}}{2}&&\dbracket{a}:=a_{r}-a_{l}
+       \end{align}
+       \begin{align}
+         &\dbracket{ab}=\widebar{b}\dbracket{a}+\widebar{a}\dbracket{b} \\[-1\jot]
+         &\dbracket{a^{2}}=2\widebar{a}\dbracket{a} \\[-1\jot]
+         &\dbracket{a^{4}}=4\widebar{a^{2}}\widebar{a}\dbracket{a}
+       \end{align}
+   \end{formula}
+\end{formulabox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../formulary"
+%%% End:

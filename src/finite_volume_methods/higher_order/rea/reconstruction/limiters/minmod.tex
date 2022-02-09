@@ -1,0 +1,40 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[Minmod Limiter]\label{defn:minmod_limiter}
+        Compare the upwind-and downwind slope and checks if they have the same sign.
+        If yes, it sets the slope to the smaller one otherwise it sets the slope to zero.
+        \begin{align}
+          \sigmac_{\idxj}^{n}=\text{minmod} \left(\frac{u_{\idxj+1}^{n}-u_{\idxj}^{n}}{\Delta x},\frac{u_{\idxj}^{n}-u_{\idxj-1}^{n}}{\Delta x}\right)
+        \end{align}
+        \begin{align}
+          &\text{minmod}\left(\mca_{1},\ldots,\mca_{n}\right)\\[-1\jot]
+          &\hspace{1mm}=\begin{cases}
+              \sign(\mca_{1})\min_{1\leq\idxk\leq n}\left(\abs{\mca_{\idxk}}\right)&\text{if }\sign(a_{1})=\cdots=\sign(a_{n}) \\
+              0&\text{otherwise}
+          \end{cases}\nonumber
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{corbox}\nospacing
+    \begin{cor}[\hfill\proofref{proof:tvd_minmod_limiter}\newline Minmod is TVD]\label{cor:minmod_is_tvd}\leavevmode\\
+        \begin{minipage}{0.47\textwidth}
+        If the reconstrution $\polynomial^{n}$ uses a min-mod limiter, then:
+        \begin{align}
+          \text{TV} \left(\polynomial^{n}\right)\leq \text{TV}\left(u^{n}\right)
+        \end{align}
+        \end{minipage}
+        \begin{minipage}[c]{0.5\textwidth}
+            \begin{figure}[H]
+                \centering{
+                  \def\svgwidth{160pt}
+                  \resizebox{\linewidth}{!}{\input{~/polybox/CSE/master/6th_term/Avanced Numerical Methods in CSE/formulary/src/finite_volume_methods/higher_order/rea/reconstruction/limiters/figures/minmod.pdf_tex}}
+                }
+            \end{figure}
+        \end{minipage}
+    \end{cor}
+\end{corbox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../../../formulary"
+%%% End:

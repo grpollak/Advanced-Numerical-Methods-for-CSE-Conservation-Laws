@@ -1,0 +1,58 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\proofref{proof:defn:lax-wendroff_scheme}\newline Lax-Wendroff Scheme]\label{defn:lax-wendroff_scheme}
+        \begin{align}
+          u_{\idxj}^{n+1}=u_{\idxj}^{n}&-\frac{\Delta t}{2\Delta x}
+          \left(\flux \left(u_{\idxj+1}^{n}\right)-\flux \left(u_{\idxj-1}^{n}\right)\right)\\[-1\jot]
+          &+\frac{\Delta t^{2}}{2\Delta x^{2}}
+            \Big[\mca^{n}_{\idxj+1/2}\left(\flux \left(u_{\idxj+1}^{n}\right)-\flux \left(u_{\idxj}^{n}\right)\right)\nonumber\\[-1\jot]
+            &-\mca_{\idxj-1/2}^{n}\left(\flux \left(u_{\idxj}^{n}\right)-\flux \left(u_{\idxj-1}^{n}\right)\right)\Big]\nonumber
+        \end{align}
+        \begin{align*}
+          \flux'(u)\left(x_{\idxj+1/2}\right)=:\mca_{\idxj+1/2}^{n}=\flux' \left(\frac{u_{\idxj}^{n}+u^{n}_{\idxj+1}}{2}\right)
+        \end{align*}
+    \end{defn}
+\end{defnbox}
+\begin{corbox}\nospacing
+    \begin{cor}[As a Finite Volume Scheme]\label{cor:as_a_finite_volume_scheme}\leavevmode\\
+        \begin{minipage}{0.45\textwidth}
+            \begin{align*}
+            u_{\idxj}^{n+1}=u_{\idxj}^{n}-\frac{\Delta t}{\Delta x} \left(\Flux_{\idxj+1/2}^{n}-\Flux_{\idxj-1/2}^{n}\right)
+            \end{align*}
+            \begin{align*}
+                &\Flux_{\idxj+1/2}^{n}=\Flux_{\idxj+1/2}^{n}\left(u_{\idxj}^{n},u_{\idxj+1}^{n}\right)
+            \end{align*}
+        \end{minipage}
+        \begin{minipage}[c]{0.3\textwidth}
+            \begin{figure}[H]
+                \centering{
+                  \def\svgwidth{70pt}
+                  \resizebox{\linewidth}{!}{\input{src/finite_volume_methods/higher_order/lax_wendroff_scheme/figures/FVM.pdf_tex}}
+                }
+            \end{figure}
+        \end{minipage}
+        \begin{align}
+          &\quad=\frac{\flux \left(u_{\idxj}^{n}\right)+\flux \left(u_{\idxj+1}^{n}\right)}{2}
+            -\frac{\Delta t}{\Delta x}\mca_{\idxj+1/2}^{n}
+            \left(\flux\left(u_{\idxj+1}^{n}\right)-\flux \left(u_{\idxj}^{n}\right)\right)\nonumber
+        \end{align}
+    \end{cor}
+\end{corbox}
+\begin{sectionbox}
+    \begin{proslist}
+        \item Formally 2$^{nd}$-order accurate
+        \item Is Consistent
+        \item Conservative
+    \end{proslist}
+    \begin{conslist}
+        \item Comes with oscillations
+        \item Not monotone
+        \item Not TVD
+        \item No discrete maximumprinciple
+    \end{conslist}
+\end{sectionbox}
+\todo[inline]{Why Oscillations only on one (lhs) side of the shock Lecture 11 min 41}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../formulary"
+%%% End:

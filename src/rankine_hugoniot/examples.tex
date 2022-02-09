@@ -1,0 +1,210 @@
+\begin{examplebox}\nospacing
+    \begin{example}[RK for Riemann Problem\cref{defn:rankine-hugoniot_condition}]\label{example:rk_for_riemann_problem}
+        \leavevmode\\
+        \begin{minipage}{0.4\textwidth}
+            \begin{align}
+            u_{t}+\left(\frac{u^{2}}{2}\right)_{x}=0
+            \end{align}
+            \begin{align}
+            u_{0}=\begin{cases}
+                    1&\text{if }x<0\\
+                    0&\text{if }x>0
+                    \end{cases}
+            \label{eq:riemann_problem}
+            \end{align}
+        \end{minipage}\hfil
+        \begin{minipage}[c]{0.4\textwidth}
+            \begin{figure}[H]
+                \centering{
+                  \def\svgwidth{100pt}
+                  \resizebox{\linewidth}{!}{\input{src/rankine_hugoniot/figures/riemann_problem.pdf_tex}}
+                }
+            \end{figure}
+        \end{minipage}
+        \begin{align*}
+          s(t)=\sigma'(t)&=\frac{\flux \left(u^{-}(t)\right)-\flux \left(u^{+}(t)\right)}{
+          u^{-}(t)-u^{+}(t)
+          }=\frac{\flux(1)-\flux(0)}{1-0}\\[-1\jot]
+          &=\frac{\frac{1}{2}-0}{1}=\frac{1}{2}\quad\Rightarrow\quad\sigma(t)=\frac{t}{2}
+        \end{align*}
+        \begin{minipage}[c]{0.55\textwidth}
+            \begin{align}
+            u=\begin{cases}
+                    1&\text{if }x<\frac{t}{2}\\
+                    0&\text{if }x>\frac{t}{2}
+                    \end{cases}
+            \label{eq:riemann_problem}
+            \end{align}
+        \end{minipage}
+        \vspace{-1em}
+        \begin{minipage}{0.3\textwidth}
+            \begin{figure}[H]
+                \centering{
+                  \def\svgwidth{50pt}
+                  \resizebox{0.9\linewidth}{!}{\input{src/rankine_hugoniot/figures/riemann_problem_speed.pdf_tex}}
+                }
+            \end{figure}
+        \end{minipage}
+        \begin{minipage}{0.4\textwidth}
+            \begin{figure}[H]
+                \centering{
+                  \def\svgwidth{70pt}
+                  \resizebox{\linewidth}{!}{\input{src/rankine_hugoniot/figures/riemann_problem_char.pdf_tex}}
+                }
+            \end{figure}
+        \end{minipage}\hfill
+        \begin{minipage}{0.55\textwidth}
+            \begin{figure}[H]
+                \centering{
+                  \def\svgwidth{110pt}
+                  \resizebox{\linewidth}{!}{\input{src/rankine_hugoniot/figures/riemann_problem_moving.pdf_tex}}
+                }
+            \end{figure}
+        \end{minipage}
+        Thus we found a weak solution, where the characteristics are colliding on a traveling discontinuity/shockwave\cref{defn:shock_waves}.
+    \end{example}
+\end{examplebox}
+\begin{examplebox}\nospacing
+    \begin{example}[RK for Riemann Problem emanating]\label{example:rk_for_riemann_problem_rarefaction}
+        \begin{minipage}{0.4\textwidth}
+            \begin{align}
+            u_{t}+\left(\frac{u^{2}}{2}\right)_{x}=0
+            \end{align}
+            \begin{align}
+            u_{0}=\begin{cases}
+                    0&\text{if }x<0\\
+                    1&\text{if }x>0
+                    \end{cases}
+            \label{eq:riemann_problem}
+            \end{align}
+        \end{minipage}\hfil
+        \begin{minipage}[c]{0.4\textwidth}
+            \begin{figure}[H]
+                \centering{
+                  \def\svgwidth{100pt}
+                  \resizebox{\linewidth}{!}{\input{src/rankine_hugoniot/figures/riemann_problem_rarefaction.pdf_tex}}
+                }
+            \end{figure}
+        \end{minipage}
+        \begin{align*}
+          s(t)=\sigma'(t)&=\frac{\flux \left(u^{-}(t)\right)-\flux \left(u^{+}(t)\right)}{
+          u^{-}(t)-u^{+}(t)
+          }=\frac{\flux(0)-\flux(1)}{0-1}\\[-1\jot]
+          &=\frac{-\frac{1}{2}-0}{-1}=\frac{1}{2}\quad\Rightarrow\quad\sigma(t)=\frac{t}{2}
+        \end{align*}
+        \begin{minipage}[c]{0.55\textwidth}
+            \begin{align}
+            u(x,t)=\begin{cases}
+                    0&\text{if }x<\frac{t}{2}\\
+                    1&\text{if }x>\frac{t}{2}
+                    \end{cases}
+            \label{eq:riemann_problem}
+            \end{align}
+        \end{minipage}
+        \vspace{-1em}
+        \begin{minipage}{0.3\textwidth}
+            \begin{figure}[H]
+                \centering{
+                  \def\svgwidth{50pt}
+                  \resizebox{0.9\linewidth}{!}{\input{src/rankine_hugoniot/figures/riemann_problem_speed.pdf_tex}}
+                }
+            \end{figure}
+        \end{minipage}
+        \begin{minipage}{0.4\textwidth}
+            \begin{figure}[H]
+                \centering{
+                  \def\svgwidth{70pt}
+                  \resizebox{\linewidth}{!}{\input{src/rankine_hugoniot/figures/riemann_problem_char_rarefaction.pdf_tex}}
+                }
+            \end{figure}
+        \end{minipage}\hfill
+        \begin{minipage}{0.55\textwidth}
+            \begin{figure}[H]
+                \centering{
+                  \def\svgwidth{110pt}
+                  \resizebox{\linewidth}{!}{\input{src/rankine_hugoniot/figures/riemann_problem_moving_rarefaction.pdf_tex}}
+                }
+            \end{figure}
+        \end{minipage}
+        \imp{Problem} we now get an area with characteristics emanating from the shock, thus we cannot track them back to the initial data.\\
+        This region of outflowing characteristics may in fact be filled in several ways see\cref{example:rk_for_riemann_problem_rarefaction_two}
+    \end{example}
+\end{examplebox}
+\begin{examplebox}\nospacing
+    \begin{example}[RK for Riemann Problem emanating]\label{example:rk_for_riemann_problem_rarefaction_two}
+        \begin{minipage}{0.4\textwidth}
+            \begin{align}
+            u_{t}+\left(\frac{u^{2}}{2}\right)_{x}=0
+            \end{align}
+            \begin{align}
+            u_{0}=\left\{\begin{aligned}
+                    0\\
+                    \frac{1}{2}\\
+                    1
+                    \end{aligned}\right.&&\text{if}&&
+                    \begin{aligned}
+                    &x<\frac{1}{4}t\\
+                    \frac{1}{4}t <&x<\frac{3}{4}t\\
+                    &x>\frac{3}{4}t
+                    \end{aligned}
+            \label{eq:riemann_problem}
+            \end{align}
+        \end{minipage}\hfil
+        \begin{minipage}[c]{0.4\textwidth}
+            \begin{figure}[H]
+                \centering{
+                  \def\svgwidth{100pt}
+                  \resizebox{\linewidth}{!}{\input{src/rankine_hugoniot/figures/riemann_problem_rarefaction.pdf_tex}}
+                }
+            \end{figure}
+        \end{minipage}
+        \begin{align*}
+          s(t)=\sigma'(t)&=\frac{\flux \left(u^{-}(t)\right)-\flux \left(u^{+}(t)\right)}{
+          u^{-}(t)-u^{+}(t)
+          }=\frac{\flux(0)-\flux(1)}{0-1}\\[-1\jot]
+          &=\frac{-\frac{1}{2}-0}{-1}=\frac{1}{2}\quad\Rightarrow\quad\sigma(t)=\frac{t}{2}
+        \end{align*}
+        \begin{minipage}[c]{0.55\textwidth}
+            \begin{align}
+            u(x,t)=\begin{cases}
+                    0&\text{if }x<\frac{t}{2}\\
+                    1&\text{if }x>\frac{t}{2}
+                    \end{cases}
+            \label{eq:riemann_problem}
+            \end{align}
+        \end{minipage}
+        \vspace{-1em}
+        \begin{minipage}{0.3\textwidth}
+            \begin{figure}[H]
+                \centering{
+                  \def\svgwidth{50pt}
+                  \resizebox{0.9\linewidth}{!}{\input{src/rankine_hugoniot/figures/riemann_problem_speed.pdf_tex}}
+                }
+            \end{figure}
+        \end{minipage}
+        \begin{minipage}{0.4\textwidth}
+            \begin{figure}[H]
+                \centering{
+                  \def\svgwidth{70pt}
+                  \resizebox{\linewidth}{!}{\input{src/rankine_hugoniot/figures/riemann_problem_char_rarefaction.pdf_tex}}
+                }
+            \end{figure}
+        \end{minipage}\hfill
+        \begin{minipage}{0.55\textwidth}
+            \begin{figure}[H]
+                \centering{
+                  \def\svgwidth{110pt}
+                  \resizebox{\linewidth}{!}{\input{src/rankine_hugoniot/figures/riemann_problem_moving_rarefaction.pdf_tex}}
+                }
+            \end{figure}
+        \end{minipage}
+        This solution obviously also fullfils the previous problem.
+        \imp{problem}: we thus can construct arbitrary many weak solutions by using the rh condition\cref{eq:rankine-hugoniot_condition} with different inermediate states.
+        \todo[inline]{finish example and understand why it also fullfils the previous example}
+    \end{example}
+\end{examplebox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../formulary"
+%%% TeX-command-extra-options: "-shell-escape"
+%%% End:

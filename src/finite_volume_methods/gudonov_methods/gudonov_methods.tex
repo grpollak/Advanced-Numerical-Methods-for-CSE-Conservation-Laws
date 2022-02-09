@@ -1,0 +1,45 @@
+\begin{sectionbox}[Problem]\nospacing
+    The finite volume method\cref{proposition:finite_volume_methods} requires us to calculate the integrated fluxes \cref{eq:integrated_fluxes}
+    but those depend again on the unknown solution $U$.\\
+    \begin{minipage}{0.45\textwidth}
+      However Gudonuv noticed that the cell \imp{averages} are constant in each cell $\mathcal{C}_{\idxj}$ for each time level s.t.\ each \textit{cell interface}
+      $x_{\idxj+1/2}$ defines a Riemann problem.
+    \end{minipage}\hfill
+    \begin{minipage}[c]{0.5\textwidth}
+        \begin{figure}[H]
+            \centering{
+              \def\svgwidth{120pt}
+              \resizebox{\linewidth}{!}{\input{src/finite_volume_methods/figures/fvm_riemann_problem.pdf_tex}}
+            }
+        \end{figure}
+    \end{minipage}
+\end{sectionbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[FVM Riemann Problem]\label{defn:gudunov_riemann_problem}
+        \begin{align}
+          &U_{t}+f(U)_{x}=0 \\[-1\jot]
+          &U\left(x,t^{n}\right)=
+          \begin{cases}
+              U_{\idxj}^{n}&\text{if }x<x_{\idxj+1/2}\\
+              U_{\idxj+1}^{n}&\text{if }x>x_{\idxj+1/2}\\
+          \end{cases}\label{eq:gudunov_riemann_problem}
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{corbox}\nospacing
+    \begin{cor}[Scaled Gudunov Riemann Problem]\label{cor:scaled_gudunov_riemann_problem}\leavevmode\\
+        For $U_{\idxj}(x,t)=U_{\idxj}\left(\frac{x-x_{\idxj+1/2}}{t-t^{n}}\right)$ the Riemann problem\cref{defn:gudunov_riemann_problem} becomes the standard Riemann problem:
+        \begin{align}
+            u(x,0)=\begin{cases}
+                    U_{\idxj}^{n}&\text{if }x<0\\
+                    U_{\idxj+1}^{n}&\text{if }x>0
+                    \end{cases}
+        \label{eq:riemann_problem_gudunov}
+        \end{align}
+    \end{cor}
+\end{corbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

@@ -1,0 +1,34 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[\newline Rusanov\aslash Local-Lax-Friedrichs Scheme]\label{defn:Rusanov_local_friedrichs_scheme_systems}\leavevmode\\
+        Takes also into account the local speeds of the waves:
+        \begin{align}
+          s_{\idxj+1/2}^{r,n}=-s_{\idxj+1/2}^{l,n}=
+          \max\left(\max_{\idxp}\abs*{\eigenval_{\idxj}^{n,\idxp}},\abs*{\eigenval_{\idxj+1}^{n,\idxp}}\right)&&
+        \end{align}
+        $\eigenval_{\idxj}^{\idxp,n}$/$\eigenval_{\idxj+1}^{\idxp,n}$ is the $\idxp$-th eigenvalue of $\fluxvec'\left(\Uvec_{\idxj}^{n}\right)$/$\fluxvec'\left(\Uvec_{\idxj+1}^{n}\right)$
+        with \cref{eq:hll_symmetric_waves_systems} and $s_{\idxj+1/2}^{r}=s_{\idxj+1/2}=-s_{\idxj+1/2}^{l}$ it follows:
+        \begin{align}
+          \Flux_{\idxj+1/2}^{\idxn}=&\Flux^{\text{Rus}}\left(\Uvec^{\idxn}_{\idxj},\Uvec^{\idxn}_{\idxj+1}\right)\\[-1\jot]
+                                   =&\frac{\flux\left(\Uvec_{\idxj}^{n}\right)-\flux \left(\Uvec_{\idxj+1/2}^{n}\right)}{2}\nonumber\\[-1\jot]
+          &-\frac{1}{2}\max\left(\max_{\idxp}\abs*{\eigenval_{\idxj}^{n,\idxp}},\abs*{\eigenval_{\idxj+1}^{n,\idxp}}\right)\left(\Uvec_{\idxj+1}^{n}-\Uvec_{\idxj}^{n}\right)\nonumber
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{sectionbox}\nospacing
+    \begin{minipage}[t]{0.4\textwidth}
+       \begin{proslist}
+           \item Easy to implement
+           \item Takes into account local information
+       \end{proslist}
+    \end{minipage}
+    \begin{minipage}[t]{0.55\textwidth}
+       \begin{conslist}
+           \item Is still a symmetric scheme i.e.\ problem when all waves go in one direction/are unidirectional.
+       \end{conslist}
+    \end{minipage}
+\end{sectionbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../../../formulary"
+%%% End:

@@ -1,0 +1,26 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\proofref{proof:gudonov_flux_systems_of_cons_laws}\newline Godunov Flux]\label{defn:gudonov_flux_systems}
+        \begin{align}
+          \Fluxvec&=\Avec\Uvec_{\idxj+1/2}\\[-1\jot]
+          &=\frac{1}{2}\Avec \left(\Uvec_{\idxj}^{n}+\Uvec_{\idxj+1}^{n}\right)-\frac{1}{2}\vec{R}\abs{\Lambdac}\vec{R}^{-1}\left(\Uvec_{\idxj+1}^{n}-\Uvec_{\idxj}^{n}\right)\nonumber
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{propertybox}\nospacing
+    \begin{property}[\hfill\proofref{proof:property:total_variation_bounded}\newline Total Variation \rd{Bounded} \blackrb{TVB}]\label{property:total_variation_bounded}
+        Godunov flux for systems of scalar conservation laws is total variation bounded:
+        \begin{align}
+          \text{TV}(\Uvec^{n+1})\leq\norm{\vec{R}}\norm{\vec{R^{-1}}}\text{TV}(\Uvec^{n})
+        \end{align}
+    \end{property}
+\end{propertybox}
+\begin{notebox}[Note]\nospacing
+    It is not TVD as we do not know what the condition numbers $\norm{\vec{R}}\norm{\vec{R^{-1}}}$ are.
+\end{notebox}
+\todo[inline]{Is Gudunov Flux called Godunov flux for linear systems and for non-linear systems Roe flux?}
+Godunov Flux is the
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../formulary"
+%%% End:

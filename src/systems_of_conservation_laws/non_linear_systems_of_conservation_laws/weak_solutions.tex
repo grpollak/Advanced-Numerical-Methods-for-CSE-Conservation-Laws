@@ -1,0 +1,23 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\proofref{proof:defn:weak_solution_non_linear_scalar_conservation_law}
+        \newline Weak Solution for \tcblack{~\ref{defn:nonlinear_systems_of_conservation_laws}}]
+        \label{defn:weak_solution_non_linear_scalar_conservation_law}
+        \leavevmode\\
+        $\Uvec\in L^{\infty}\left(\R\times\Rp\right)$ is a weak solution of \cref{defn:nonlinear_systems_of_conservation_laws} iff:
+        \begin{align}
+            &\int\limits_{\Rp}\int\limits_{\R}
+          \Uvec\partial_{t}\testfunc+\fluxvec\left(\Uvec\right)\partial_{x}\testfunc
+              +\int\limits_{\R}\Uvec_{0}(x)\testfunc(x,t)\diff x=0
+        \end{align}
+        \vspace{-1.5em}
+        \begin{flalign*}
+          &&\forall\testfunc\in\sm_{c}^{\infty}\left(\R\times[0,\infty)\right)
+        \end{flalign*}
+    \end{defn}
+\end{defnbox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

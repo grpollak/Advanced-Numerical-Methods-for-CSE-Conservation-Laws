@@ -1,0 +1,128 @@
+\begin{sectionbox}\nospacing
+    From the previous sections we have seen that the solution of conservation laws\cref{defn:conservation_law} are non-continuous s.t.\
+    point values may not be well defined.
+    A solution to this remedy is to work with averages, which are well defined for any integrable function and thus also solutions of conservation laws.
+\end{sectionbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Finite Volume Scheme Grid]\label{defn:fvs_grid}\leavevmode\\
+        \imp{Space Discretization}\hfill $\left[x_{L},x_{R}\right]$
+        \begin{align}
+          x_{\idxj}:&=x_{L}+\left(\idxj+\frac{1}{2}\right)\Delta x&&\Delta x:=\frac{x_{R}-x_{L}}{N+1} \\[-1\jot]
+          &=\frac{x_{\idxj-1/2}+x_{\idxj+1/2}}{2}
+        \end{align}
+        \begin{align}
+          x_{\idxj\pm\frac{1}{2}}:=x_{\idxj}\pm \Delta x/2=
+          \begin{cases}
+              x_{L}+\idxj\Delta x &\text{-}\\
+              x_{L}+(\idxj+1)\Delta x &\text{+}
+          \end{cases}
+        \end{align}
+        \begin{flalign*}
+          &&\idxj\in \left\{1,\ldots,N+1\right\}
+        \end{flalign*}
+        \imp{Time Discretization}\hfill$\left[0,T\right]$
+        \begin{align}
+          t^{n}:=n\Delta t
+        \end{align}
+        \vspace{-2em}
+        \begin{figure}[H]
+            \centering
+              \def\svgwidth{180pt}
+              \resizebox{0.8\linewidth}{!}{\input{src/finite_volume_methods/figures/grid.pdf_tex}}
+        \end{figure}
+    \end{defn}
+\end{defnbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Control Volumes\bslash Cells]\label{defn:cells_control_volumes}
+        Are cells defined over the meshpoints $x_{\idxj}$ of the grid:
+        \begin{align}
+          \mathcal{C}_{\idxj}:=\left[x_{\idxj-\frac{1}{2}},x_{\idxj+\frac{1}{2}}\right)
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Cell Averages]\label{defn:cell_averages}
+      Are averages calculated over the cells\cref{defn:cells_control_volumes} of a grid\cref{defn:fvs_grid}\leavevmode\\
+      \begin{minipage}{0.45\textwidth}
+      \begin{align}
+        U_{\idxj}^{n}:\approx\frac{1}{\Delta x}\int_{x_{\idxj-\frac{1}{2}}}^{x_{\idxj+\frac{1}{2}}}u\left(x,t^{n}\right)\diff x
+      \end{align}
+      \end{minipage}\hfill
+      \begin{minipage}[c]{0.45\textwidth}
+          \begin{figure}[H]
+              \centering{
+                \def\svgwidth{100pt}
+                \resizebox{\linewidth}{!}{\input{src/finite_volume_methods/figures/cell_averages.pdf_tex}}
+              }
+          \end{figure}
+      \end{minipage}
+    \end{defn}
+\end{defnbox}
+\begin{corbox}\nospacing
+    \begin{cor}[Initial Cell Averages]\label{cor:initial_cell_averages}
+      \begin{align}
+        U_{\idxj}^{0}:\approx\frac{1}{\Delta x}\int_{x_{\idxj-\frac{1}{2}}}^{x_{\idxj+\frac{1}{2}}}u_{0}\left(x\right)\diff x
+      \end{align}
+    \end{cor}
+\end{corbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Integrated \blackrb{Boundary} Fluxes]\label{defn:integrated_fluxes}
+        Is the flux of over left and right boundary of the cells:
+        \begin{align}
+          \widebar{F}_{\idxj\tc{seabornblue}{\pm}\frac{1}{2}}^{n,\tc{seaborn7}{\pm}}:=\int_{t_{n}}^{t_{n+1}}f \left(u\left(x_{\idxj\tc{seabornblue}{\pm}\frac{1}{2}}^{\tc{seaborn7}{\pm}}\right),t\right)\diff t\label{eq:integrated_fluxes}
+        \end{align}
+        \begin{figure}[H]
+            \centering{
+              \def\svgwidth{200pt}
+              \resizebox{0.9\linewidth}{!}{\input{src/finite_volume_methods/figures/integrated_fluxes.pdf_tex}}
+            }
+        \end{figure}
+    \end{defn}
+\end{defnbox}
+\begin{propositionbox}\nospacing
+    \begin{proposition}[\hfill\proofref{proof:proposition:finite_volume_methods}\newline Discontinuous Finite Volume Method \blackrb{FVM}]\leavevmode\\
+        \label{proposition:discontinuous_finite_volume_method}
+        discretize conservation laws and calculate cell averages\cref{defn:cell_averages} iteratively by integrating conservation laws\cref{defn:conservation_law}
+        over the domain $\left[x_{\idxj-1/2},x_{\idxj+1/2}\right)\times \left[t^{n},t^{n+1}\right)$:
+          \begin{align}
+            U_{\idxj}^{n+1}=U_{\idxj}^{n}-\frac{1}{\Delta x}\left(\widebar{F}_{\idxj+\frac{1}{2}}^{n,-}-\widebar{F}_{\idxj-\frac{1}{2}}^{n,+}\right)
+          \end{align}
+    \end{proposition}
+\end{propositionbox}
+\begin{explanationbox}\nospacing
+    \begin{explanation}
+      The values of the flux at the boundary points $x_{\idxj\pm1/2}$ may not be continuous, thus we take the values of the fluxes inside the cell over which we are integrating.
+    \end{explanation}
+\end{explanationbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\proofref{proof:gudonov_scheme}\newline Finite Volume Scheme]\label{defn:finite_volume_scheme}
+        discretize conservation laws and calculate cell averages\cref{defn:cell_averages} iteratively by integrating conservation laws\cref{defn:conservation_law}
+        over the domain $\left[x_{\idxj-1/2},x_{\idxj+1/2}\right)\times \left[t^{n},t^{n+1}\right)$:
+        \begin{align}
+          U_{\idxj}^{n+1}&=U_{\idxj}^{n}-\frac{\Delta t}{\Delta x}\left(\Flux^{n}_{\idxj+1/2}-\Flux^{n}_{\idxj-1/2}\right)\nonumber\\[-1\jot]
+          U_{\idxj}^{0}&=\frac{1}{\Delta x}\int^{x_{\idxj+1/2}}_{x_{\idxj+1/2}}U_{0}(x)\diff x\label{eq:finite_volume_scheme}
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{corbox}\nospacing
+    \begin{cor}[\hfill\proofref{proof:cor:finite_volume_scheme_incremental_form}\newline Finite Volume\bslash MCC Scheme Incremental Form]\label{cor:finite_volume_scheme_incremental_form}
+      \begin{align}
+        &U_{\idxj}^{n+1}=U_{\idxj}^{n}+\mcC_{\idxj+1/2}^{n} \left(U_{\idxj+1}^{n}-U_{\idxj}^{n}\right)-\mcD_{\idxj-1/2}^{n} \left(U_{\idxj}^{n}-U_{\idxj-1}^{n}\right)\label{eq:finite_volume_scheme_incremental_form}\nonumber \\[-1\jot]
+        &\text{For the FVM the coefficients are:}
+      \end{align}
+      \begin{align}
+        \mcC_{\idxj+1/2}^{n}:=\frac{\Delta t}{\Delta x}\left(\frac{\Flux \left(u_{\idxj},u_{\idxj}\right)-\Flux \left(u_{\idxj},u_{\idxj+1}\right)}{u_{\idxj+1}-u_{\idxj}}\right)\\[-1\jot]
+        \mcD_{\idxj-1/2}^{n}:=\frac{\Delta t}{\Delta x}\left(\frac{\Flux \left(u_{\idxj},u_{\idxj}\right)-\Flux \left(u_{\idxj},u_{\idxj-1}\right)}{u_{\idxj}-u_{\idxj-1}} \right)
+      \end{align}
+      if $\Flux$ is lipschitz\cref{defn:lipschitz_continuity} in both arguments this is equal to:
+      \begin{align}
+        \mcC_{\idxj+1/2}^{n}=-\frac{\Delta t}{\Delta x}\pdv{\Flux}{\mcb}\left(u_{\idxj}^{n},\cdot\right)\\[-1\jot]
+        \mcD_{\idxj+1/2}^{n}=-\frac{\Delta t}{\Delta x}\pdv{\Flux}{\mca}\left(\cdot,u_{\idxj}^{n}\right)
+      \end{align}
+    \end{cor}
+\end{corbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../formulary"
+%%% End:

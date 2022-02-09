@@ -1,0 +1,32 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[Godunov Flux]\label{defn:godunov_flux}
+        \begin{align}
+          \Flux^{n}_{\idxj+1/2}\left(U_{\idxj}^{n},U_{\idxj+1}^{n}\right)=
+          \begin{cases}
+            \min\limits_{U_{\idxj}^{n}\leq\thetac\leq U_{\idxj+1}^{n}}\flux(\thetac)&\text{if }U_{\idxj}^{n}\leq U_{\idxj+1}^{n}\\
+            \max\limits_{U_{\idxj+1}^{n}\leq\thetac\leq U_{\idxj}^{n}}\flux(\thetac)&\text{if }U_{\idxj}^{n}> U_{\idxj+1}^{n}\label{eq:godunov_flux}
+          \end{cases}
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{corbox}\nospacing
+    \begin{cor}[Godunov Flux for convex functions]\label{cor:godunov_flux_for_convex_functions}\leavevmode
+        For convex functions $\flux$ with $\alphac:=\min\flux(\thetac)$ it holds:
+        \scalematho[0.9]{
+        \begin{align*}
+          \Flux^{n}_{\idxj+1/2}\left(U_{\idxj}^{n},U_{\idxj+1}^{n}\right)=
+          \max \left(\flux \left(\max \left(U_{\idxj}^{n},\alphac\right)\right),\flux \left(\min \left(U_{\idxj+1}^{n},\alphac\right)\right)\right)
+        \end{align*}}
+    \end{cor}
+\end{corbox}
+\todo[inline]{add proof}
+\begin{sectionbox}\nospacing
+\begin{conslist}
+    \item Solving \Cref{eq:godunov_flux} many times for each timestep can become extremely expensive.
+\end{conslist}
+\end{sectionbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

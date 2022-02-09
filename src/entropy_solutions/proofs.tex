@@ -1,0 +1,76 @@
+\begin{proofbox}\nospacing
+    \begin{proof}[Entropy Condition]\label{proof:defn:entropy_condition}
+        We first multiply \cref{eq:viscous_approximation} by $s'(u^{\epsilonc})$:
+        \begin{align}
+          &&&S'(u^{\epsilonc})u_{t}^{\epsilonc}+S'(u^{\epsilonc})\flux'(u^{\epsilonc})u_{x}^{\epsilonc}=\epsilonc S'(u^{\epsilonc})u_{xx}^{\epsilonc}\nonumber\\[-1\jot]
+          &\Rightarrow&&
+          \partial_{t}S(u^{\epsilonc})+\qprob'(u^{\epsilonc})u_{x}^{\epsilonc}=\epsilonc\ul{S'(u^{\epsilonc})u_{xx}^{\epsilonc}}\nonumber\\[-1\jot]
+          \intertext{with $S(u)_{xx}=\left(S'(u)u_{x}\right)_{x}\eqs{P.R.}S''(u)u_{x}^{2}+\ul{S'(u)u_{xx}}$}
+          &\Rightarrow&&\partial_{t}S(u^{\epsilonc})+\partial_{x}\qprob(u^{\epsilonc})=\epsilonc S(u^{\epsilonc})_{xx}-\epsilonc\underbrace{S''(u^{\epsilonc})}_{\geq0\text{ convex}}\underbrace{(u_{x}^{\epsilonc})^{2}}_{\geq0}\nonumber\\[-1\jot]
+          &\Rightarrow&&\boxed{\partial_{t}S(u^{\epsilonc})+\partial_{x}\qprob(u^{\epsilonc)}\leq\epsilonc S(u^{\epsilonc})_{xx}}\label{eq:entropy_condition_derivation}
+        \end{align}
+        thus the vanishing viscosity solution $u=\lim_{\epsilonc\to0}u^{\epsilonc}$ satisfies\cref{eq:entropy_condition}.
+    \end{proof}
+\end{proofbox}
+\begin{proofbox}\nospacing
+    \begin{proof}[2nd law of thermodynamics\cref{law:2nd_laws_of_themordynamics}]\label{proof:law:2nd_laws_of_themordynamics}\leavevmode\\
+        Integrate \cref{eq:entropy_condition_derivation} in space:
+        \begin{align*}
+           &\int_{\R}\partial_{t}S(u^{\epsilonc})\diff x+\int_{\R}\partial_{x}\qprob(u^{\epsilonc})\diff x\leq\epsilonc\int_{\R} S(u^{\epsilonc})_{xx}\diff x \\[-1\jot]
+          &\partial_{t}\int_{\R}S(u^{\epsilonc})\diff x+\underbrace{\left[\qprob(u^{\epsilonc}(\infty,t))-\qprob(u^{\epsilonc}(-\infty,t))\right]}_{0}\\[-1\jot]
+            &\qquad\leq\epsilonc \underbrace{\left[s(u^{\epsilonc}(\infty,t))_{x}-s(u^{\epsilonc}(-\infty,t))_{x}\right]}_{0}
+        \end{align*}
+    \end{proof}
+\end{proofbox}
+\begin{notebox}[Note]\nospacing
+  $u^{\epsilonc}(\infty,t)=u^{\epsilonc}(-\infty,t)$  for periodic B.C. or zero otherwise.
+\end{notebox}
+\begin{proofbox}\nospacing
+    \begin{proof}[Entropy Condition for Distributions\cref{cor:entropy_condition_for_distributions}]\leavevmode\\
+        \label{proof:cor:entropy_condition_for_distributions}
+        Let $\testfunc\in\sm_{C}^{1}\left(\R\times\R_{+}\right), \testfunc\geq0$. Integrate \cref{eq:entropy_condition_derivation}
+        and multiply it by $\testfunc$:
+        \begin{align*}
+         \int\limits_{\mathclap\R\times\R_{+}}S(u^{\epsilonc})_{t}\testfunc+\qprob(u^{\epsilonc})_{x}\testfunc\diff x\diff t\leq\epsilonc\int\limits_{\R_{+}}\underbrace{\int\limits_{\R}S(u^{\epsilonc})_{xx}\testfunc\diff x}_{I_{c}}  \diff t
+        \end{align*}
+        \begin{align*}
+          I_{c}&\eqs{\cref{eq:integration_by_parts}}\underbrace{\testfunc(x,t)s\left(u^{\epsilonc}\right)_{x}\Big|_{-\infty}^{\infty}}_{0}
+          -\int_{-\infty}^{\infty}\testfunc_{x}(x,t)s\left(u^{\epsilonc}\right)_{x}\diff x \\[-1\jot]
+                         &\eqs{\cref{eq:integration_by_parts}}\underbrace{\testfunc(x,t)_{x}s\left(u^{\epsilonc}\right)\Big|_{-\infty}^{\infty}}_{0}
+                           -\int_{-\infty}^{\infty}\testfunc_{xx}(x,t)s\left(u^{\epsilonc}\right)\diff x
+        \end{align*}
+        \begin{align*}
+          \overbrace{\int_{-\infty}^{\infty}\underbrace{\int_{0}^{\infty}S\left(u^{\epsilonc}\right)_{t}\testfunc\diff t}_{I_{1a}}\diff x}^{I_{1}}+
+          \overbrace{\int_{0}^{\infty}\underbrace{\int_{-\infty}^{\infty}\qprob\left(u^{\epsilonc}\right)_{x}\testfunc\diff x}_{I_{2a}}\diff t}^{I_{2}}=0
+        \end{align*}
+        \begin{flalign*}
+          &I_{1a}:&&\int_{0}^{+\infty}S\left(u^{\epsilonc}\right)_{t}\testfunc\eqs{\text{\cref{eq:integration_by_parts}}}S\left(u^{\epsilonc}(x,\infty)\right)\underbrace{\testfunc(x,\infty)}_{\equiv0}
+                                                                                                                           \\[-1\jot]
+            &&&\qquad-\underbrace{S\left(u^{\epsilonc}(x,0)\right)}_{S\left(u_{0}(x)\right)}\testfunc(x,0)-\int_{0}^{\infty}S\left(u^{\epsilonc}\right)\testfunc_{t}\diff t&&
+        \end{flalign*}
+        \begin{align*}
+          I_{1}=-\int_{\R\times\Rp}S\left(u^{\epsilonc}\right)\testfunc_{t}\diff t
+          -\int_{-\infty}^{\infty} S\left(u_{0}(x)\right)\testfunc(x,0)\diff x
+        \end{align*}
+        \begin{flalign*}
+            &I_{2a}:&&\int_{-\infty}^{+\infty}\qprob\left(u^{\epsilonc}\right)_{x}\testfunc\diff x\eqs{\text{\cref{eq:integration_by_parts}}}
+            \qprob\left(u^{\epsilonc}(\infty,t)\right)\underbrace{\testfunc(\infty,t)}_{\equiv0}&&\\[-1\jot]
+            &&&\qquad-\qprob\left(u^{\epsilonc}(-\infty,t)\right)\underbrace{\testfunc(-\infty,t)}_{\equiv0}
+            -\int_{-\infty}^{\infty}\qprob\left(u^{\epsilonc}\right)\testfunc_{x}\diff x&&
+        \end{flalign*}
+        \begin{align*}
+            I_{2}=-\int_{0}^{+\infty}\int_{-\infty}^{\infty}\qprob\left(u^{\epsilonc}\right)\testfunc_{x}\diff x\diff t
+        \end{align*}
+        \begin{align*}
+            \implies\lim_{\epsilonc\to0}&\int\limits_{\R\times\Rp}
+            \left(S\left(u^{\epsilonc}\right)\testfunc_{t}+\qprob\left(u^{\epsilonc}\right)\testfunc_{x}\right)\diff x \diff t\\[-1\jot]
+          +&\int\limits_{-\infty}^\infty S\left(u_{0}(x)\right)\testfunc(x,0)\diff x \\[-1\jot]
+          &\geq\underbrace{\epsilonc\int\limits_{\R\times\Rp}^{\infty}\testfunc_{xx}(x,t)s\left(u^{\epsilonc}\right)\diff x\diff t}_{0}
+        \end{align*}
+    \end{proof}
+\end{proofbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../formulary"
+%%% End:

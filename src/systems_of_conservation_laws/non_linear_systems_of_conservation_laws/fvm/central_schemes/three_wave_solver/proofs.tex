@@ -1,0 +1,133 @@
+\begin{proofbox}\nospacing
+    \begin{proof}[HLL-3/HLLC\cref{defn:hll-3_hll-center}]\label{proof:defn:hll-3_hll-center}\leavevmode\\
+        \begin{circlelistnosep}
+            \item We have seen in \cref{example:compressible_euler_equations} that first and third wave families are genuinely non-linear while
+            the second wave family is linear degenerate and thus results in a contact discontinuity.\\
+            From this it follows that the pressure and the velocity are constant across the second discontinuity and that only the denity changes:
+            \todo[inline]{Why is this true?}
+            \begin{align*}
+              v_{\idxj+1/2}^{l,\idxn}=v_{\idxj+1/2}^{r,\idxn}=v_{\idxj+1/2}^{*,\idxn}&&
+              p_{\idxj+1/2}^{l,\idxn}=p_{\idxj+1/2}^{r,\idxn}=p_{\idxj+1/2}^{*,\idxn}&&
+            \end{align*}
+            \item Moreover from \cref{example:compressible_euler_equations} we also know that the speed of the second
+            contact discontinuity is equal to is eigenvalue which is equal to the velocity:
+           \begin{align*}
+             s_{\idxj+1/2}^{m,\idxn}=v^{*}
+           \end{align*}
+        \end{circlelistnosep}
+        Thus we can write the euler equations in terms of the conservative variables as:
+        \begin{align}
+          \begin{aligned}
+          \partial_{t}\rhoc+\partial_{x}(\rhoc v)&=0 \\[-1\jot]
+          \partial_{t}(\rhoc v)+\partial_{x}\left(\rhoc v^{2}+p\right)&=0 \\[-1\jot]
+          \partial_{t}E+\partial_{x}\left((E+p)v\right)&=0
+          \end{aligned}\label{eq:proof_euler_hll3}
+        \end{align}
+        \begin{align}
+          &E=\frac{p}{\gammac-1}+\frac{1}{2}\rhoc v^{2}&&\gammac>1: \text{ heat capacity ratio}
+        \end{align}
+        The compressible euler equations can be written as conservation law:
+        \begin{align*}
+          \Uvec=\pmat{\rhoc \\ m \\ E}=\pmat{\rhoc \\ mv \\ \frac{p}{\gammac-1}+\frac{1}{2}\rhoc v^{2}}&&
+          \fluxvec(\Uvec)=\pmat{\rhoc v \\  \rhoc v^{2}+p\\ (E+p)v}
+        \end{align*}
+        \begin{align*}
+          \Uvec_{\idxj+1/2}^{\alphac,\idxn}=\pmat{\rhoc_{\idxj+1/2}^{\alphac,n} \\
+          \rhoc_{\idxj+1/2}^{\alphac,n}v_{\idxj+1/2}^{*,\idxj} \\
+          \frac{p_{\idxj+1/2}^{*,n}}{\gammac-1}+\frac{1}{2}\rhoc_{\idxj+1/2}^{\alphac,n}\left(v_{\idxj+1/2}^{*,\idxj}\right)^{2}
+          }&&\alphac\in\{l,r\}
+        \end{align*}
+        Now we use conservation/the RH condition\cref{defn:rankine-hugoniot_condition_systems}:
+        \begin{alignat}{2}
+            &\Fluxvec\left(\Uvec_{\idxj+1/2}^{\thetac,n}\right)-\Fluxvec \left(\Uvec_{\idxj+\idxk}^{\thetac,n}\right)=s_{\idxj+1/2}^{\thetac,\idxn}\left(\Uvec_{\idxj+1/2}^{\thetac,\idxn}-\Uvec_{\idxj+\idxk}\right)\nonumber\\[-1\jot]
+            &\idxk\in\{0,1\}\label{eq:proof:defn:hll-3_hll-center_rh}
+        \end{alignat}
+        We begin with the left $l$ and right $r$ discontinuity for the first component of the Euler equations.
+        \begin{align}
+          \begin{aligned}
+            &\rhoc_{\idxj+1/2}^{l,\idxn}(v^{*}-s_{\idxj+1/2}^{l,\idxn})=\rhoc_{\idxj}^{n}(v_{\idxj}^{n}-s_{\idxj+1/2}^{l,n}) \\[-1\jot]
+            &\rhoc_{\idxj+1/2}^{r,\idxn}(v^{*}-s_{\idxj+1/2}^{r,\idxn})=\rhoc_{\idxj+1}^{n}(v_{\idxj+1}^{n}-s_{\idxj+1/2}^{r,n})
+          \end{aligned}\label{proof:defn:hll_3_hll-center_proof1}
+        \end{align}
+        Thus it follows:
+        \begin{alignat*}{2}
+          \rhoc_{\idxj+1/2}^{l,\idxn}=\frac{\rhoc_{\idxj}^{n}(v_{\idxj}^{n}-s_{\idxj+1/2}^{l,n})}{(v_{\idxj+1/2}^{*}-s_{\idxj+1/2}^{l,\idxn})}
+                      &&\rhoc_{\idxj+1/2}^{r,\idxn}=\frac{\rhoc_{\idxj+1}^{n}(v_{\idxj+1}^{n}-s_{\idxj+1/2}^{r,n})}{(v_{\idxj+1/2}^{*}-s_{\idxj+1/2}^{r,\idxn})}
+        \end{alignat*}
+        Next we look use either the left or right discontinuity with the second component of \cref{eq:proof:defn:hll-3_hll-center_rh} and use again the
+        RH condition\cref{defn:rankine-hugoniot_condition_systems}:
+        \begin{align*}
+          \rhoc_{\idxj+1/2}^{*,\idxn}&\left(v_{\idxj+1/2}^{*,\idxn}\right)^{2}+p_{\idxj+1/2}^{*,\idxn}-\rhoc_{\idxj}^{\idxn}(v_{\idxj}^{\idxn})^{2}-p_{\idxj}^{\idxn}\\[-1\jot]
+          &=s_{\idxj+1/2}^{m,\idxn} \left(\rhoc_{\idxj+1/2}^{*,\idxn}v_{\idxj+1/2}^{*,\idxn}-\rhoc_{\idxj}^{*,\idxn}v_{\idxj}^{*,\idxn}\right)
+        \end{align*}
+        With \cref{proof:defn:hll_3_hll-center_proof1} we can solve for $p_{\idxj+1/2}^{*,\idxn}$:
+        \begin{align*}
+          p_{\idxj+1/2}^{*,\idxn}=p_{\idxj+\idxk}^{\idxn}+\rhoc_{\idxj+\idxk}^{\idxn}\left(v_{\idxj+\idxk}^{\idxn}-v_{\idxj+1/2}^{*,\idxn}\right)
+          \left(v_{\idxj+\idxk}^{\idxn}-s_{\idxj+1/2}^{\alphac,\idxn}\right)
+        \end{align*}
+        \begin{align*}
+          &\alphac\in\left\{l,r\right\}&&\idxk\in\left\{0,1\right\}
+        \end{align*}
+        next we need to find a find an expression for $v_{\idxj+1/2}^{*,\idxn}$, we do this by using conservation over all three waves:
+        \begin{align*}
+          \Fluxvec\left(_{\idxj+1}^{\idxn}\right)-\Fluxvec\left(\Uvec_{\idxj}^{\idxn}\right)=&
+        s_{\idxj+1}^{r,\idxn}\left(\Uvec_{\idxj+1/2}^{\idxn}-\Uvec_{\idxj+1/2}^{r,\idxn}\right)\\[-1\jot]
+        &+s_{\idxj+1/2}^{m,\idxn}\left(\Uvec_{\idxj+1/2}^{r,\idxn}-\Uvec_{\idxj+1/2}^{l,\idxn}\right)\\[-1\jot]
+        &+s_{\idxj+1/2}^{l,\idxn}\left(\Uvec_{\idxj+1/2}^{l,\idxn}-\Uvec_{\idxj}^{\idxn}\right)
+        \end{align*}
+    \end{proof}
+\end{proofbox}
+\begin{proofbox}\nospacing
+    \begin{proof}
+        we compare the second component:
+        \begin{align*}
+          &\rhoc_{\idxj+1}^{\idxn}v_{\idxj+1}^{2}+p_{\idxj+1}^{\idxn}-\ccancel[ulc1]{\rhoc_{\idxj+1/2}^{r,\idxn}v_{\idxj+1/2}^{*}-p_{\idxj+1/2}^{*,\idxn}}\\[-1\jot]
+          &\ccancel[ulc1]{\rhoc_{\idxj+1/2}^{r,\idxn}\left(v_{\idxj+1/2}^{*,\idxn}\right)^{2}+p_{\idxj+1/2}^{*,\idxn}}-\ccancel[ulc2]{\rhoc_{\idxj+1/2}^{*,\idxn}\left(v_{\idxj+1/2}^{*,\idxn}\right)^{2}-p_{\idxj+1/2}^{*,\idxn}}\\[-1\jot]
+          &\ccancel[ulc2]{\rhoc_{\idxj+1/2}^{l,\idxn}\left(v_{\idxj+1/2}^{*,\idxn}\right)^{2}+p_{\idxj}^{*,\idxn}}-\rhoc_{\idxj}^{\idxn}\left(v_{\idxj}^{\idxn}\right)^{2}-p_{\idxj}^{\idxn} \\[-1\jot]
+          =&s_{\idxj+1/2}^{r,\idxn}\left(\rhoc_{\idxj+1}^{\idxn}v_{\idxj+1}^{\idxn}-\rhoc_{\idxj+1/2}^{r,\idxn}v_{\idxj+1/2}^{*,\idxn}\right)\\[-1\jot]
+            &v_{\idxj+1/2}^{*,\idxn}\left(\rhoc_{\idxj+1/2}^{r,\idxn}v_{\idxj+1/2}^{*,\idxn}-\rhoc_{\idxj+1/2}^{l,\idxn}v_{\idxj+1/2}^{*,\idxn}\right)\\[-1\jot]
+            &s_{\idxj+1/2}^{l,\idxn}\left(\rhoc_{\idxj+1/2}^{l,\idxn}v_{\idxj+1/2}^{*,\idxn}-\rhoc_{\idxj+1}^{\idxn}v_{\idxj+1}^{\idxn}\right)
+        \end{align*}
+        From this it follows:
+        \begin{align*}
+          &\ul{s_{\idxj+1/2}^{r,\idxn}\rhoc_{\idxj+1}^{\idxn}v_{\idxj+1}^{\idxn}}
+          \ul[ulc2]{-s_{\idxj+1/2}^{r,\idxn}\rhoc_{\idxj+1/2}^{r,\idxn}v_{\idxj+1/2}^{*,\idxn}}\\[-1\jot]
+          &\ul[ulc2]{+\rhoc_{\idxj+1/2}^{r,\idxn}\left(v_{\idxj+1/2}^{*,\idxn}\right)^{2}}
+          \ul[ulc2]{-\rhoc_{\idxj+r/2}^{l,\idxn}\left(v_{\idxj+1/2}^{*,\idxn}\right)^{2}}\\[-1\jot]
+          &\ul[ulc2]{+s_{\idxj+1/2}^{l,\idxn}\rhoc_{\idxj+1/2}^{l,\idxn}v_{\idxj+1/2}^{*,\idxn}}
+          \ul{-s_{\idxj+1/2}^{l,\idxn}\rhoc_{\idxj}^{\idxn}v_{\idxj}^{\idxn}}\\[-1\jot]
+          &=\rhoc_{\idxj+1}^{\idxn}\left(v_{\idxj+1}^{\idxn}\right)^{2}+p_{\idxj+1}^{\idxn}
+            -\rhoc_{\idxj}^{\idxn}\left(v_{\idxj}^{\idxn}\right)^{2}-p_{\idxj}^{\idxn}
+        \end{align*}
+        \begin{align*}
+          &\ul[ulc2]{v_{\idxj+1/2}^{*,\idxn}\rhoc_{\idxj+1/2}^{r,\idxn}\left(v_{\idxj+1/2}^{*,\idxn}-s_{\idxj+1/2}^{r,\idxn}\right)}
+            \\[-1\jot]
+        &\ul[ulc2]{-v_{\idxj+1/2}^{*,\idxn}\rhoc_{\idxj+1/2}^{l,\idxn}\left(v_{\idxj+1/2}^{*,\idxn}-s_{\idxj+1/2}^{l,\idxn}\right)
+            }\\[-1\jot]
+          &=\rhoc_{\idxj+1}^{\idxn}\left(v_{\idxj+1}^{\idxn}\right)^{2}+p_{\idxj+1}^{\idxn}
+            -\rhoc_{\idxj}^{\idxn}\left(v_{\idxj}^{\idxn}\right)^{2}-p_{\idxj}^{\idxn}    \\[-1\jot]
+            &\ul{-s_{\idxj+1/2}^{r,\idxn}\rhoc_{\idxj+1}^{\idxn}v_{\idxj+1}^{\idxn}
+            +s_{\idxj+1/2}^{l,\idxn}\rhoc_{\idxj}^{\idxn}v_{\idxj}^{\idxn}}
+        \end{align*}
+        pluggin in $\rhoc_{\idxj+1/2}^{l,\idxn}$ and $\rhoc_{\idxj+1/2}^{r,\idxn}$ on the lhs leads to:
+        \scalematho{
+        \begin{align*}
+          v_{\idxj+1/2}^{*,\idxn}\left(\rhoc_{\idxj+1}^{\idxn}\left(v_{\idxj+1}^{\idxn}-s_{\idxj+1/2}^{r,\idxn}\right)
+            -\rhoc_{\idxj}^{\idxn}\left(v_{\idxj}^{\idxn}-s_{\idxj+1/2}^{l,\idxn}\right)
+          \right)=\ditto
+        \end{align*}}
+        From this it follows:\\
+        \scalematho{
+        \begin{align*}
+          &v_{\idxj+1/2}^{*,\idxn}=\\[-1\jot]
+          &\frac{\rhoc_{\idxj+1}^{\idxj}v_{\idxj+1}^{\idxn}\left(s_{\idxj+1/2}^{r,\idxn}-v_{\idxj+1}^{n}\right)
+                                   -\rhoc_{\idxj}^{\idxn}v_{\idxj}^{\idxn}\left(s_{\idxj+1/2}^{l,\idxn}-v_{\idxj}^{n}\right)
+                                   -\left(p_{\idxj}^{\idxj}-p_{\idxj}^{\idxn}\right)
+                                   }{
+                                   \rhoc_{\idxj+1}^{\idxn}\left(s_{\idxj+1/2}^{r,\idxn}-v_{\idxj+1}^{\idxn} \right)
+                                   \rhoc_{\idxj}^{\idxn}\left(s_{\idxj+1/2}^{l,\idxn}-v_{\idxj}^{\idxn} \right)
+                                   }
+        \end{align*}}
+        \todo[inline]{is $\fluxvec$ and $\Fluxvec$ here the same?}
+    \end{proof}
+\end{proofbox}
