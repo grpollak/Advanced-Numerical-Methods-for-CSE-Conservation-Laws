@@ -1,7 +1,8 @@
 # Advanced Numerical Methods for CSE  
 This repository contains a LaTeX summary that originated during the "Advanced Numerical Methods for CSE" lecture at ETH Zurich, taught by Professor Siddhartha Mishra.  
 The summary covers various topics in numerical methods for science and engineering, focusing on advanced numerical methods in fluid dynamics and uncertainty quantification.
-If you find this summary helpful, I would be incredibly grateful if you could consider giving it a star ⭐ on GitHub. Your support motivates me to create more content like this.
+If you find this summary helpful, I would be incredibly grateful if you could consider giving it a star ⭐ on GitHub.   
+Your support motivates me to create more content like this.
 
 ![Thumbnail](overview.png)
 
