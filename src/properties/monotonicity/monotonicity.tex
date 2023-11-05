@@ -1,69 +1,23 @@
 \begin{defnbox}\nospacing
-    \begin{defn}[Monotone Scheme]\label{defn:monotone_scheme}
-        A numerical scheme \cref{defn:general_evolution_equation} is monotone if the update function $H$ is non-decreasing in each of its arguments:
+    \begin{defn}[Monotone Scheme]\label{defn:monotone_scheme}\leavevmode\\
+        A numerical scheme \cref{defn:general_evolution_equation} is monotone if the update function $H$ is non-decreasing\cref{defn:incresingFunction} in each of its arguments:
         \begin{align}
           &\mca\mapsto H(\mca,\ldots)&\uparrow\text{ when inceas. $\mca$ and fixing all others}\nonumber\\[-1\jot]
           &\mcb\mapsto H(\ldots,\mcb\ldots)&\uparrow\text{ when inceas. $\mcb$ and fixing all others}\nonumber\\[-1\jot]
           &\mcc\mapsto H(\ldots,\mcc,\ldots)&\uparrow\text{ when inceas. $\mcc$ and fixing all others}\label{eq:monotone_scheme}
         \end{align}
-        if $H$ is Lipschitz continuous this equals to:\
+        if $H$ is Lipschitz continuous\cref{defn:lipschitz_continuity} this equals to:\
         \begin{align}
           \pdv{H}{\mca},\pdv{H}{\mcb},\pdv{H}{\mcc},\ldots\geq0
         \end{align}
     \end{defn}
 \end{defnbox}
-\begin{defnbox}\nospacing
-    \begin{defn}[\hfill\exampleref{example:lxf_monotonicity}\proofref{proof:cor:monotone_fvm}\newline CFL Condition for FVS ]\label{defn:cfl_condition_for_fvs}\leavevmode\\
-        A FVS\cref{defn:finite_volume_scheme} with \textit{monotone} locally Lipschitz continuous two-point flux $\Flux(\mca,\mcb)$
-        has the following CFL (\cref{eq:cfl_condition}) type condition:
-        \begin{align}
-          &\quad\abs*{\pdv{\Flux}{\mca}\left(v,w\right)}+\abs*{\pdv{\Flux}{\mcb}\left(u,v\right)}&&\forall u,v,w\label{eq:cfl_condition_for_fvs}\\[-1\jot]
-          &\leq2\max_{\mca,\mcb}\left(\abs*{\pdv{\Flux}{\mca}\left(v,w\right)},\abs*{\pdv{\Flux}{\mcb}\left(u,v\right)}\right)\nonumber\\[-1\jot]
-          &\leq\frac{\Delta x}{\Delta t}\nonumber
-        \end{align}
-    \end{defn}
-\end{defnbox}
-\begin{defnbox}\nospacing
-    \begin{defn}[\newline Conversation Laws are Monotonicity Preserving]\label{defn:monotoniciy_preserving_conservation_laws}\leavevmode\\
-        If $U$ and $V$ are \textit{entropy solutiuons}\cref{defn:todo} of \cref{eq:inviscide_conservation_law} with initial data $U_{0}$ and $V_{0}$
-        then it holds:
+\begin{corbox}\nospacing
+    \begin{cor}[\hfill\proofref{proof:cor:monotone_schemes_and_monotonicity}\newline Monotonicity Preservation]\label{cor:monotone_schemes_and_monotonicity}
+        Monotone Schemes\cref{defn:monotone_scheme} are \textit{monotonicity preserving} \cref{property:monotoniciy_preserving_conservation_laws}.
         \begin{align}
           U_{0}(x)\leq V_{0}(x)\quad\forall x&&\implies&& U(x,t)\leq V(x,t)\quad\forall x,t
         \end{align}
-    \end{defn}
-\end{defnbox}
-\begin{corbox}\nospacing
-    \begin{cor}[\hfill\proofref{proof:cor:monotone_schemes_and_monotonicity}\newline Monotone Schemes and Monotonicity]\label{cor:monotone_schemes_and_monotonicity}
-        Monotone Schemes\cref{defn:monotone_scheme} are \textit{monotonicity preserving}\cref{defn:monotoniciy_preserving_conservation_laws}.
-    \end{cor}
-\end{corbox}
-\begin{corbox}\nospacing
-    \begin{cor}[\hfill\proofref{proof:cor:monotone_fvm}\newline Monotone FVM]\label{cor:monotone_fvm}
-        The FVS\cref{defn:finite_volume_scheme} is montone iff:
-        \begin{circlelistnosep}
-            \item
-        \begin{align}
-          &\mca\mapsto\Flux(\mca,\mcb)&&\text{is \imp{non-decreasing} for fixed }\mca \\[-1\jot]
-          &\mcb\mapsto\Flux(\mca,\mcb)&&\text{is \imp{non-increasing} for fixed }\mcb
-        \end{align}
-        if $\Flux$ is lipschitz cont.:
-        \begin{align}
-          &\pdv{\Flux(\mca,\cdot)}{\mca}\geq0\label{eq:monotone_fvm_lipschitz_inc}\\[-1\jot]
-          &\pdv{\Flux(\cdot,\mcb)}{\mcb}\leq0\label{eq:monotone_fvm_lipschitz_dec}
-        \end{align}
-        \item it fulfills the CFL-type condition\cref{defn:cfl_condition_for_fvs}
-        \end{circlelistnosep}
-    \end{cor}
-\end{corbox}
-\begin{corbox}\nospacing
-    \begin{cor}[\newline Monotone Consistent Conservative \blackrb{MCC} Schemes]\label{cor:monotone_consistent_convervative_schemes}
-        MCC schemes satisfy:
-        \begin{circlelistnosep}
-            \item Entropy Condition
-            \item Discrete Maximum Principle
-            \item TVD Property
-        \end{circlelistnosep}
-        $\implies$ MCC schemes will converge to the entropy solution as $\Delta x,\Delta t\to0$
     \end{cor}
 \end{corbox}
 %%% Local Variables:

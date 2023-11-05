@@ -1,12 +1,13 @@
 \begin{proofbox}\nospacing
-    \begin{proof}[Conservative Form Burgers Equation\cref{cor:burgers_equation_conservative_formulation}]\label{proof:cor:burgers_equation_conservative_formulation}
+    \begin{proof}[Conservative Form Burgers Equation \cref{cor:burgers_equation_conservative_formulation}]\label{proof:cor:burgers_equation_conservative_formulation}
         \begin{align*}
             \pdv{x}\frac{1}{2}u(\xvec,t)^2=\frac{2}{2}u(\xvec,t)_{\xvec} u(\xvec,t)
         \end{align*}
     \end{proof}
 \end{proofbox}
 \begin{proofbox}\nospacing
-    \begin{proof}[\newline Evolution of Spatial Gradients along Characteristics]\label{proof:burgers_gradient}
+    \begin{proof}[Exploding Gradient Problem\cref{lemma:exploding_gradient_problem}]\label{proof:burgers_gradient}\leavevmode\\
+     Evolution of Spatial Gradients along Characteristics
         \begin{align*}
              u_t+u u_x&=0 \\[-1\jot]
               u(x,0)&=u_{0}(x)
@@ -17,17 +18,22 @@
         \end{align*}
         \begin{empheq}[box=\fbox]{align}
              v_t+u v_x&=\ul[ulc2]{-v^{2}}\nonumber\\[-1\jot]
-             v(x,0)&=v_{0}(0)=u'_{0}(x)
+             v(x,0)&=v_{0}(x)=u'_{0}(x)
         \end{empheq}
         \begin{align*}
           &\imp{\text{ODEs} }u&&\dv{x}{t}=\ul{u} \left(x(t),t\right)\\[-1\jot]
-          &&&\dv{v\left(x(t),t\right)}{t}\eqs{\text{C.R.}}=v_{t}+v_{x}\ul{\dv{x}{t}}=\ul[ulc2]{v_{x}+v_{t}u}=-v^{2}\\[-1\jot]
-          &\imp{\text{ODEs} }v&&
-                                 \left.\begin{aligned}
-                                        \dv{v}{t}=-v^{2} \\[-1\jot] v(0)=v_{0}
-                                \end{aligned}\right\}\quad v(t)=\frac{v_{0}(x)}{1+v_{0}(x)t}=\frac{u'_{0}(x)}{1+u_{0}'(x)\ul[ulc3]{t}}
+          &&&\dv{v\left(x(t),t\right)}{t}\eqs{\text{C.R.}}v_{t}+v_{x}\ul{\dv{x}{t}}=\ul[ulc3]{v_{t}+v_{x}u}=-v^{2}
         \end{align*}
-          \todo[inline]{add integration of ODE}
+        \begin{flalign*}
+          &\imp{\text{ODEs} }v&&\dv{v}{t}=-v^{2} && v(0)=v_{0}&&
+        \end{flalign*}
+        \begin{align*}
+          -\int \frac{1}{v^{2}}\diff v=\int\diff t&&\implies&&\frac{1}{v}=t+C \\[-1\jot]
+          v(x,0)=\frac{1}{C}=v_{0}&&\implies&&C=\frac{1}{v_{0}}
+        \end{align*}
+        \begin{align*}
+          v(x,t)=\frac{1}{t+\frac{1}{v_{0}}}=\frac{1}{\frac{1}{v_{0}}(1+v_{0}t)}=\frac{v_{0}(x)}{1+v_{0}(x)t}=\frac{u'_{0}(x)}{1+u_{0}'(x)\ul[ulc3]{t}}
+        \end{align*}
           \begin{align*}
             \text{If }
             \left\{\begin{aligned}

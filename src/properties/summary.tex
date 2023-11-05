@@ -1,13 +1,13 @@
-\begin{sectionbox}\nospacing
+\begin{sectionbox}[Summary]\nospacing
 \begin{tabularx}{\textwidth}{c | c | c | c |}
     \hline
     & Monotone  & Consistent     & Conservative     \\ \hline
-    Godunov & \checkmark  & \checkmark     & \checkmark     \\ \hline
-    Roe &   & \checkmark     & \checkmark     \\ \hline
-    LxF & \checkmark  & \checkmark     & \checkmark     \\ \hline
-    EO & \checkmark  & \checkmark     & \checkmark     \\ \hline
-    Rusanov & \checkmark  & \checkmark     & \checkmark     \\ \hline
-    Central &   & \checkmark     & \checkmark     \\ \hline
+    Godunov & \tc{Green}{\cmark}  & \tc{Red}{\cmark}     & \tc{Green}{\cmark}     \\ \hline
+    Roe &  \tc{Red}{\xmark} & \tc{Green}{\cmark}     & \tc{Green}{\cmark}     \\ \hline
+    LxF & \tc{Green}{\cmark}  & \tc{Red}{\cmark}     & \tc{Green}{\cmark}     \\ \hline
+    EO & \tc{Green}{\cmark}  & \tc{Red}{\cmark}     & \tc{Green}{\cmark}     \\ \hline
+    Rusanov & \tc{Green}{\cmark}  & \tc{Red}{\cmark}     & \tc{Green}{\cmark}     \\ \hline
+    Central &  \tc{Red}{\xmark} & \tc{Green}{\cmark}     & \tc{Green}{\cmark}     \\ \hline
 \end{tabularx}
 \end{sectionbox}
 %%% Local Variables:

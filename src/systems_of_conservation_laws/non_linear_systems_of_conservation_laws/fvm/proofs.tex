@@ -1,9 +1,9 @@
 \begin{proofbox}\nospacing
-    \begin{proof}[Locally Linearized Riemann Problem\cref{defn:locally_linearized_riemann_problem_approximation}]\label{proof:defn:locally_linearized_riemann_problem_approximation}
+    \begin{proof}[Locally Linearized Riemann Problem\cref{defn:locally_linearized_riemann_problem_approximation}]\label{proof:defn:locally_linearized_riemann_problem_approximation}\leavevmode\\
         We locally $[\Uvec_{\idxj}^{n},\Uvec_{\idxj+1}^{n}]$ approximate $\fluxvec_{x}$ using Taylor:
         \begin{align*}
-          \fluxvec(\uvec)\eqs{\cref{eq:Taylor}}&\fluxvec \left(\uvec_{\idxj}^{n}\right)+\fluxvec' \left(\thetacvec\right)\left(\uvec-\uvec_{\idxj}^{n}\right)&&\thetacvec\in[\Uvec_{\idxj}^{n},\Uvec_{\idxj+1}^{n}]\\[-1\jot]
-          \fluxvec(\uvec)\eqs{\hphantom{\cref{eq:Taylor}}}&\fluxvec'\left(\thetacvec\right)\uvec_{x}\approx\linfluxvec\left(\uvec_{\idxj}^{n},\uvec_{\idxj+1}^{n}\right)\uvec_{x}\\[-1\jot]
+          \fluxvec(\uvec)\eqs{\cref{eq:Taylor}}&\fluxvec \left(\uvec_{\idxj}^{n}\right)+\fluxvec' \left(\thetacvec\right)\left(\uvec-\uvec_{\idxj}^{n}\right)&&\hspace{-2em}\thetacvec\in[\Uvec_{\idxj}^{n},\Uvec_{\idxj+1}^{n}]\\[-1\jot]
+          \fluxvec(\uvec)_{x}\eqs{\hphantom{\cref{eq:Taylor}}}&\fluxvec'\left(\thetacvec\right)\uvec_{x}:=\linfluxvec\left(\uvec_{\idxj}^{n},\uvec_{\idxj+1}^{n}\right)\uvec_{x}\\[-1\jot]
         \end{align*}
     \end{proof}
 \end{proofbox}

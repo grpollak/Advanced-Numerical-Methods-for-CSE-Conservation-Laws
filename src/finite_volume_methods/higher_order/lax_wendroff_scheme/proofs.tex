@@ -1,6 +1,6 @@
 \begin{proofbox}\nospacing
-    \begin{proof}[\newline Based on \textit{Cauchy-Kovalevskaya Procedure}\cref{defn:lax-wendroff_scheme}]\label{proof:defn:lax-wendroff_scheme}
-        Given
+    \begin{proof}[\newline Lax-Wndroff\cref{defn:lax-wendroff_scheme}]\label{proof:defn:lax-wendroff_scheme}
+        Based on \textit{Cauchy-Kovalevskaya Procedure}. Given:
         \begin{align*}
         u_{t}+\flux \left(u\right)_{x}=0
         \end{align*}
@@ -30,7 +30,7 @@
             }
         \end{figure}
         \begin{align*}
-          u_{\idxj}^{n+1}\approx=u_{\idxj}^{n}&-\Delta t\uldotted{\flux(u)_{x} \left(x_{\idxj},t^{n}\right)}\\[-1\jot]
+          u_{\idxj}^{n+1}\approx u_{\idxj}^{n}&-\Delta t\uldotted{\flux(u)_{x} \left(x_{\idxj},t^{n}\right)}\\[-1\jot]
                                   &+\frac{\Delta t^{2}}{2} \uldotted[ulc2]{\left(\flux'(u)\flux(u)_{x}\right)_{x} \left(x_{\idxj},t^{n}\right)}
         \end{align*}
         \begin{align*}
@@ -39,7 +39,7 @@
         \begin{align*}
           &\uldotted[ulc2]{\left(\flux'(u)\flux(u)_{x}\right)_{x} \left(x_{\idxj},t^{n}\right)}\approx \\[-1\jot]
           &\approx
-          \frac{\ul[ulc4]{\flux'(u)}\ul[ulc5]{\flux(u)_{x}}\left(x_{\idxj+1/2}\right)-\flux'(u)\flux(u)_{x}\left(x_{\idxj+1/2}\right)}{\Delta x}
+          \frac{\ul[ulc4]{\flux'(u)}\ul[ulc5]{\flux(u)_{x}}\left(x_{\idxj+1/2}\right)-\flux'(u)\flux(u)_{x}\left(x_{\idxj-1/2}\right)}{\Delta x}
         \end{align*}
         \begin{align*}
           \ul[ulc4]{\flux'(u)}\left(x_{\idxj+1/2}\right)=\mca_{\idxj+1/2}^{n}
@@ -51,3 +51,11 @@
         \end{align*}
     \end{proof}
 \end{proofbox}
+\begin{notebox}[Note]\nospacing
+    The gitter points are chosen such that in the end we can use $u_{\idxj-1},u_{\idxj},u_{\idxj+1}$
+\end{notebox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../../formulary"
+%%% End:

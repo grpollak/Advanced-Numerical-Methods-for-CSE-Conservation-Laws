@@ -1,0 +1,65 @@
+\begin{sectionbox}\nospacing
+   For a general introduction to the method of characteristics have a look at \Cref{subsec:method_of_characteristics}.
+\end{sectionbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\proofref{proof:defn:characteristic_equations_for_conservation_laws}\newline Characteristic Equations for Conservation Laws]
+        \label{defn:characteristic_equations_for_conservation_laws}\leavevmode\\
+        A curve $\Gammac:=(\gammac(\tauc),\tauc):[0,T]\mapsto\R\times]0,T[$ in $(x,t)$-plane is a \textit{characteristic curve}
+        for the conservation law \cref{eq:inviscide_conservation_law}, if:
+        \begin{align}
+          \dv{\tauc}\gammac(\tauc)=\flux' \left(u(\gammac(\tauc),\tauc)\right)&&0\leq\tauc\leq T\label{eq:characteristic_equations_for_conservation_laws}
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{corbox}\nospacing
+    \begin{cor}[$u$ is constant along Characteristics]
+        \begin{align}
+            u(\gammac(\tauc),\tauc)=u(\gammac(0),0)=u_{0}(\gammac_{0})\label{eq:u_const_along_characteristic}
+        \end{align}
+    \end{cor}
+\end{corbox}
+\begin{propositionbox}\nospacing
+    \begin{proposition}[\hfill\proofref{proof:proposition:general_solution_for_scalar_conservation_laws}\newline General Solution for scalar Conservation Laws]
+        \label{proposition:general_solution_for_scalar_conservation_laws}\leavevmode\\
+        The general solution of\cref{eq:inviscide_conservation_law} is given in terms of the inital condition
+        maybe a non-linear equations:
+        \begin{align}
+          u(x,t)=u_{0}\left(x-\flux' \left(u(x,t)\right)t\right)\label{eq:general_solution_for_scalar_conservation_laws}
+        \end{align}
+    \end{proposition}
+\end{propositionbox}
+\begin{corbox}\nospacing
+    \begin{cor}[\newline Riemann Problem Solution and Inital Data]
+        \label{cor:riemann_problem_solution_and_scalar_conservation_laws}\leavevmode\\
+        In case of a Riemann problem we see that the solution is given by a propagation of the inital data:
+        \begin{align}
+        u(x,t)=&\left\{\begin{aligned}
+                &U_{L}&&\text{if }x-\flux'\left(u_{0}\right)t<0\\
+                &U_{R}&&\text{if }x-\flux'\left(u_{0}\right)t>0
+            \end{aligned}\right.\\[-1\jot]
+          =&\left\{\begin{aligned}
+                &U_{L}&&\text{if }x<\flux'\left(u_{0}\right)t\\
+                &U_{R}&&\text{if }x>\flux'\left(u_{0}\right)t
+                \end{aligned}\right.\label{eq:riemann_problem_solution_and_scalar_conservation_laws}
+        \end{align}
+    \end{cor}
+\end{corbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\proofref{proof:proposition:general_solution_for_scalar_conservation_laws}
+        \newline Characteristics for Sclar Conservation Laws]\label{defn:characteristics_for_sclar_conservation_laws}\leavevmode\\
+        The characteristics going through $(x_{0},0)$ are given by the straight lines:
+        \begin{align}
+          x(t)=x_{0}+\flux'\left(u_{0}(x_{0})\right)t\label{eq:characteristics_for_sclar_conservation_laws}
+        \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{sectionbox}[Problem]\nospacing
+    We have seen by \cref{lemma:exploding_gradient_problem} that there exist problems where the spatial gradient explodes $\iff$ we
+    have discontinuous or multivalued solutions s.t.\ \cref{eq:general_solution_for_scalar_conservation_laws} and \cref{eq:inviscide_conservation_law}
+    are not even well defined.
+\end{sectionbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../formulary"
+%%% End:

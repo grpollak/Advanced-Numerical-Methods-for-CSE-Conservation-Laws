@@ -1,17 +1,45 @@
+\begin{sectionbox}\nospacing
+    We have seen that an emanating shock:
+    \begin{circlelistnosep}
+        \item admits infinitely many solutions
+        \item does not make any sense from a physical standpoint
+    \end{circlelistnosep}
+    \begin{minipage}{0.5\textwidth}
+    Question can we find a unique solution for the emanating shocks that does not flow out of the shocks?
+    \end{minipage}\hfill
+    \begin{minipage}[c]{0.45\textwidth}
+      \begin{figure}[H]
+          \centering{
+            \def\svgwidth{120pt}
+            \resizebox{\linewidth}{!}{\input{src/shock_waves/figures/emmenating_shock_general.pdf_tex}}
+          }
+      \end{figure}
+    \end{minipage}
+\end{sectionbox}
 \begin{defnbox}\nospacing
-    \begin{defn}[\hfill\proofref{proof:rarefaction_waves}\newline Rarefaction Wave]
-        \label{defn:rarefaction_wave}\leavevmode\\
-        A rarefaction wave is a \textit{self-similar} solutions of the form:
-        \begin{align}
-          u(x,t)=v \left(\frac{x}{t}\right)=\left(\flux^{'}\right)^{-1}\left(\frac{x}{t}\right)
-        \end{align}
-    \end{defn}
-\end{defnbox}
-\begin{corbox}\nospacing
-    \begin{cor}[\hfill\exampleref{example:cor:rarefaction_solution_riemann_problem}\newline Rarefaction Solution for the Riemann Problem]\leavevmode\\
-        \label{cor:rarefaction_solution_riemann_problem}
-        Consider the Riemann problem \cref{eq:riemann_problem}, then a
-        solution given by rarefaction wave is given by:
+    \begin{defn}[\hfill\exampleref{example:cor:rarefaction_solution_riemann_problem},\proofref{proof:rarefaction_waves}\newline Rarefaction Wave Solution for the Riemann Problem]
+        \label{defn:rarefactoin_wave_solution}\leavevmode
+        Let $\flux$ be a monotonic flux function s.t.:
+        \begin{flalign}
+            &\flux\in\sm^{2}(\R)\text{ is strictly }\left\{
+            \begin{aligned}
+                &\text{convex}\\
+                &\text{concave}
+            \end{aligned}\right.&&\text{and}&&
+            \begin{aligned}
+                &U_{L}<U_{R}\\
+                &U_{L}>U_{R}
+            \end{aligned}&&
+        \end{flalign}
+        Then the solution of the Riemann problem:
+        \begin{align*}
+        &u_{t}+\flux \left(u\right)_{x}=0
+        &&u_{0}=\begin{cases}
+                U_{L}&\text{if }x<0\\
+                U_{R}&\text{if }x>0
+                \end{cases}
+        \end{align*}
+        ion is given by a rarefaction wave:
         \begin{align}
           u(x,t)=
           \left\{\begin{aligned}
@@ -20,12 +48,26 @@
                   &u_{R}
           \end{aligned}\right.&&\text{if}&&
                                     \begin{aligned}
-                                     &x\leq\flux'\left(u_{L}\right)t\\
-                                     \flux'\left(u_{L}\right)t<&x\leq\flux'\left(u_{R}\right)t\\
-                                     &x>\flux'\left(u_{R}\right)t
-                                    \end{aligned}
+                                     &x\leq\min\overbrace{\left\{\flux'\left(u_{L}\right),\flux'\left(u_{R}\right)\right\}}^{:=\mca}t\\
+                                     &\mca t<x\leq\mcb t\\
+                                     &x>\underbrace{\max\left\{\flux'\left(u_{L}\right),\flux'\left(u_{R}\right)\right\}}_{:=\mcb}t
+                                    \end{aligned}\label{eq:rarefaction_wave}
         \end{align}
-        and satisfies the Lax-entropy condition:
+        \begin{figure}[H]
+            \vspace{-2em}
+            \centering{
+            \def\svgwidth{120pt}
+            \resizebox{0.6\linewidth}{!}{\input{src/rarefaction_waves/figures/rarefaction.pdf_tex}}
+            }
+        \end{figure}
+    \end{defn}
+\end{defnbox}
+\begin{corbox}\nospacing
+    \begin{cor}[Lax Olenik Entropy Condition]\label{cor:lax_olenik_entropy_condition}
+        \Cref{eq:rarefaction_wave} satisfies the Lax-Olenik entropy condition\cref{proposition:lax_oleinik_entropy_condition}:
+        \begin{align}
+          \flux'\left(u^{-}(t)\right)=s(t)=\flux'\left(u^{+}(t)\right)
+        \end{align}
     \end{cor}
 \end{corbox}
 %%% Local Variables:

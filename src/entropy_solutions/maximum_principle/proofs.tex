@@ -1,5 +1,5 @@
 \begin{proofbox}\nospacing
-    \begin{proof}[Maximum Principle\cref{princip:maximum_principle}]\label{proof:princip:maximum_principle}\leavevmode
+    \begin{proof}[Maximum \Cref{princip:maximum_principle}]\label{proof:princip:maximum_principle}\leavevmode
         \begin{circlelistnosep}
             \item Assume \cref{eq:inviscide_conservation_law} attains a strict maximum at its interior $\left(x^{*},t^{*}\right)$
             \begin{align*}
@@ -13,15 +13,15 @@
               &-\underbrace{\epsilonc u_{xx}^{\epsilonc}\left(x^{*},t^{*}\right)}_{<0}
             \end{align*}
             But $R\left(x^{*},t^{*}\right)<0$ and not $0$ -- a contradiction, thus the maximums cannot be inside the interior.
-            \item Now assume $u$ attains a strict maximum at $\left(x^{*},T\right)$ at the time horizon boundary:
+            \item Now assume $u$ attains a strict maximum at $\left(x^{*},T\right)$ the time horizon boundary:
             \begin{align*}
-              u_{x}^{\epsilonc}\left(x^{*},t^{*}\right)\equiv0&&u_{xx}^{\epsilonc}\left(x^{*},t^{*}\right)<0
+              u_{x}^{\epsilonc}\left(x^{*},T^{*}\right)\equiv0&&u_{xx}^{\epsilonc}\left(x^{*},T^{*}\right)<0
             \end{align*}
             for the time derivative we can define the backward in time derivative:
             \begin{align*}
               u_{t}^{\epsilonc}\left(x, T\right)=\lim_{h\to0}\frac{u_{t}^{\epsilonc}\left(x,T\right)-u_{t}^{\epsilonc}\left(x,T-h\right)}{h}>0
             \end{align*}
-            Thus $R\left(x, T\right)>0$ again a contradiction.
+            Thus $R\left(x, T\right)>0$ again a contradiction.\\
             \imp{Note}: as $u_{t}^{\epsilonc}\left(x,T-h\right)$ is inside the interior and we already know that the interior has no maximum.
             \begin{figure}[H]
                 \centering{

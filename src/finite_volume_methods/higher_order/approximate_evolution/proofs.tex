@@ -24,7 +24,7 @@
     \end{proof}
 \end{proofbox}
 \begin{proofbox}\nospacing
-    \begin{proof}[TVD FVM scheme$^{\text{\cref{eq:fvm_rea}}}$]\label{proof:eq:fvm_rea}
+    \begin{proof}[TVD FVM scheme$^{\text{\cref{eq:fvm_rea}}}$]\label{proof:eq:fvm_rea}\leavevmode\\
         We need to show that evolution and averaging \cref{eq:evolution_and_averaging} is TVD i.e.\ fullfils hartens lemma \cref{eq:hartens_lemma}:
         \begin{align*}
           \mcc_{\idxj+1/2}^{n}&=\frac{\Delta t}{\Delta x}\frac{\Flux \left(u_{\idxj^+}^{n},\ul{u_{\idxj^{-}}^{n}}\right)-\Flux \left(u_{\idxj^+}^{n},\ul[ulc2]{u_{\idxj+1^{-}}^{n}}\right)}{u_{\idxj+1}^{n}-u_{\idxj}^{n}}\nonumber\\[-1\jot]

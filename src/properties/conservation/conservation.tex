@@ -1,18 +1,24 @@
 \begin{defnbox}\nospacing
-    \begin{defn}[Conservative Schemes]\label{defn:conservative_schemes}
+    \begin{defn}[Conservative Schemes]\label{defn:conservative_schemes}\leavevmode\\
+        Are schemes\cref{defn:general_evolution_equation} that conserve our conservative quantities $U$ over time:
         \begin{align}
           \sum_{\idxj}U_{\idxj}^{\idxn+1}=\sum_{\idxj}U_{\idxj}^{\idxn}
         \end{align}
     \end{defn}
 \end{defnbox}
+\begin{explanationbox}\nospacing
+  \begin{explanation}
+    This is nothing else but the fundamental property of our analytic conservation laws.
+  \end{explanation}
+\end{explanationbox}
 \begin{corbox}\nospacing
-    \begin{cor}[FVS are conservative]\label{cor:fvs_are_conservative}
+    \begin{cor}[FVS are conservative]\label{cor:fvs_are_conservative}\leavevmode\\
         FVM schemes\cref{defn:finite_volume_scheme} are conservative.
     \end{cor}
 \end{corbox}
 \todo[inline]{add proof -- check script}
 \begin{notebox}[Note]\nospacing
-    Finite difference schemes are usually not conservative$\Rightarrow$blow up.
+    \textit{Finite difference schemes} i.e.\ upwind are usually not conservative$\Rightarrow$blow up.
 \end{notebox}
 
 %%% Local Variables:

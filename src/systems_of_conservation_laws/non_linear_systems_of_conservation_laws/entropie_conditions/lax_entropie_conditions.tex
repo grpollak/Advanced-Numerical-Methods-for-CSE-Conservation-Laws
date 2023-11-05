@@ -1,5 +1,5 @@
 \begin{defnbox}\nospacing
-    \begin{defn}[\hfill\proofref{proof:defn:entropy_dissipation_contact,proof:defn:entropy_dissipation_gnl}\newline Entropy Dissipation]\label{defn:entropy_dissipation}
+    \begin{defn}[\hfill\proofref{proof:defn:entropy_dissipation_contact},\proofref{proof:defn:entropy_dissipation_gnl}\newline Entropy Dissipation]\label{defn:entropy_dissipation}
         States that the entropy across a discontinuity can only decrease (in a mathematical sense):
         \begin{align}
           \left(\qprob \left(U^{+}\right)-\qprob \left(U^{-}\right)\right)-s \left(\entropy\left(U^{+}\right)-\entropy\left(U^{-}\right)\right)
@@ -99,12 +99,13 @@
     \end{explanation}
 \end{explanationbox}
 \begin{lemmabox}\nospacing
-    \begin{lemma}[Entropy Solution]
+    \begin{lemma}[Entropy Solution]\leavevmode\\
         Assume a \textit{strictly hyperbolic} non-linear scalar system of conservation laws\cref{defn:strictly_hyperbolic_nonlinear_systems_of_conservation_laws} with only \textit{genuinely non-linear} or \textit{linear degenerate} wave families.
         Then $\Uvec$ is an entropy solution of\cref{defn:nonlinear_systems_of_conservation_laws} if and only if at every jump $\exists\idxj\in\{1,\ldots,\idxm\}$:
         \begin{itemizenosep}
-            \item the $\idxj$-th wave family is \cref{linearly degnerate} $\Rightarrow$ \cref{proposition:contact_discontinuity_entropy} and \cref{defn:contact_discontinuity_solution_non_linear_systems_of_equations}.
-            \item the $\idxj$-th wave family is genuinely nonlinear, and the \textit{Lax entropy condition} holds\cref{eq:lax_entropy_condition_first,eq:lax_entropy_condition_second} $\Rightarrow$ \cref{lemma:lax_entropy_solution}.
+            \item the $\idxj$-th wave family is linear degenerate \cref{defn:linearly_degenerat_wave_family}\\
+            $\implies$ contact discontinuit \cref{proposition:contact_discontinuity_entropy} and \cref{defn:contact_discontinuity_solution_non_linear_systems_of_equations}.
+            \item the $\idxj$-th wave family is genuinely nonlinear, and the \textit{Lax entropy condition} holds \cref{eq:lax_entropy_condition_first,eq:lax_entropy_condition_second} $\Rightarrow$ \cref{lemma:lax_entropy_solution}.
         \end{itemizenosep}
     \end{lemma}
 \end{lemmabox}

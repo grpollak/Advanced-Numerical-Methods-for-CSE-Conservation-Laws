@@ -1,37 +1,88 @@
 \begin{examplebox}\nospacing
     \begin{example}[\newline Burgers Equation Riemann Problem]\label{example:burgers_equation_riemann_problem}
         \begin{align*}
-              \uldotted{u_t+u u_x}&=0 \nonumber\nalign
+              \uldotted{u_t+u u_x}&=0 \nonumber \\[-1.5\jot]
               u(x,0)&=u_{0}(x)=\begin{cases}
                     1&\text{if }x<0\\
                     0&\text{if }x>0
                     \end{cases}
         \end{align*}
+        \begin{flalign*}
+            &\imp{\text{ODEs}}
+            \qquad\left\{\qquad\begin{aligned}
+                &\frac{\diff t}{\diff r}=1\Rightarrow \diff t=\ul[ulc3]{\diff r}\\
+                &\frac{\diff x}{\ul[ulc3]{\diff r}}=\ul{\dv{x}{t}}=u\\
+                &\frac{\diff u}{\diff r}=0
+            \end{aligned}\right.&&
+        \end{flalign*}
         \begin{align*}
-        &\imp{\text{ODEs}}&&\frac{\diff t}{\diff r}=1\Rightarrow \diff t=\diff r&&\frac{\diff x}{\diff r}=\ul{\dv{x}{t}}=u&&\frac{\diff u}{\diff r}=0
-        \end{align*}
-        \begin{align*}
-          \dv{u\left(x(t),t\right)}{t}\eqs{\text{C.R.}}&=u_{t}\left(x(t),t\right)+u_{x}\left(x(t),t\right)\ul{\dv{x(t)}{t}} \\[-1\jot]
+          \dv{u\left(x(t),t\right)}{t}\eqs{\text{C.R.}}&u_{t}\left(x(t),t\right)+u_{x}\left(x(t),t\right)\ul{\dv{x(t)}{t}} \\[-1\jot]
           &=\uldotted{u_{t}\left(x(t),t\right)+u_{x}\left(x(t),t\right)u}=0
         \end{align*}
-        thus $u$ is constant along the \text{projectd characteristics} $x(t)=x(r)$.\\
-        \imp{Problem}: let look at the inital data and the \textit{projected characteristcs}:
+        thus $u$ is constant along the \text{projectd characteristics}
+        and it holds that $u(x(t),t)=u(x(0),0)=u_{0}(x_{0})$.\\
+        \\ $x(t)=x(r)$.\\
+        Lets look at the inital data and the \textit{projected characteristcs}:
         \begin{align*}
-          &\ul{\dv{x(t)}{t}}\Big|_{t=0}=u\left(x(t),t\right)\Big|_{t=0}=u_{0}(x_{0})=\begin{cases}1 &\text{if }x<0\\0&\text{if }x>0\end{cases}\\[-1\jot]
-          &\Rightarrow\left\{\begin{aligned}
+          \dv{u}{r}=\dv{u}{t}=0&&\implies&&u(x,t)=\ul[ulc4]{C}
+        \end{align*}
+        \begin{align*}
+          &\ul{\dv{x(t)}{t}}=u\left(x(t),t\right)=\ul[ulc4]{C}&&\implies&&\int_{x_0}^{x_t}\diff x(t)=\int_{0}^{t}C\diff t
+        \end{align*}
+        \begin{align*}
+          x(t)=x_{0}+Ct=x_{0}+ut&&x_{0}=x(t)-ut
+        \end{align*}
+        thus we have found the general solution:
+        \begin{align*}
+          u(x,t)=u_{0}\left(x_{0}\right)=u_{0}\left(x-ut\right)
+        \end{align*}
+        now lets look at the initial conditions for $u_{0}$:
+        \begin{align*}
+          &\ul{\dv{x(t)}{t}}\Big|_{t=0}=u\left(x(t),t\right)\Big|_{t=0}=u_{0}(x_{0})=\begin{cases}1 &\text{if }x<0\\0&\text{if }x>0\end{cases}
+        \end{align*}
+        \begin{flalign*}
+          &\implies&&\left\{\begin{aligned}
               &\int x(t)\diff x=\int 1\diff t&&\Rightarrow x(t)=x_{0}+t&&\text{if }x<0\\
               &\int\dv{x(t)}{t}\diff t=\int 0\diff t&&\Rightarrow x(t)=x_{0}&&\text{if }x>0
-          \end{aligned}\right.
-        \end{align*}
+          \end{aligned}\right.&&
+        \end{flalign*}
+        \begin{flalign*}
+          &\implies&&x(t)=
+                      \left\{\begin{aligned}
+                        &x_{0}+t&&\text{if }x<0\\
+                        &x_{0}&&\text{if }x>0
+                      \end{aligned}\right. &&
+        \end{flalign*}
         \begin{figure}[H]
             \centering{
               \def\svgwidth{130pt}
               \resizebox{0.7\linewidth}{!}{\input{src/conservation_laws/burgers_equation/figures/characteristics.pdf_tex}}
             }
         \end{figure}
-        Thus for $x>0$ we have intersecting \text{project.\ characteristics} i.e.\ a multivalued function that cannot be inverted.
+        For $x<0$ we obtain the solutions:
+        \begin{align}
+          u(x,t)=u_{0}\left(x_{0}\right)=u_{0}\left(x-ut\right)
+        \end{align}
+        But for $x>0$ we have intersecting \text{project.\ characteristics} i.e.\ a multivalued function that cannot be inverted
+        and thus have no unique solution.
     \end{example}
 \end{examplebox}
+\begin{notebox}[Note]\nospacing
+    The characteristic ODEs are ODEs and thus equations of one independent variable.\\
+    The ODE $u(r)=u(t)$ is not to be confused with our solution $u(x,t)$.
+\end{notebox}
+\begin{notebox}[Physical Interpretation]
+ At the singularity (\rd{shockwave}) $t=t_{\rd{crit}}$ the faster characteristic (taller part of a wave) will overtake the slower one
+ (shorter part of wave), causing the wave to break.
+    \begin{figure}[H]
+        \centering{
+            \def\svgwidth{150pt}
+            \resizebox{0.8\linewidth}{!}{\input{src/method_of_characteristics/figures/waves.pdf_tex}}
+        }
+    \end{figure}
+    \imp{Thus} their exists a physical meaning after $t_{\rd{crit}}$ where the \rd{classical solution} does not exist anymore.
+    \imp{Question}: If there exists no \rd{strong solution} is there a way to find another solution? $\Rightarrow$ weak solutions.
+\end{notebox}
 \begin{examplebox}\nospacing
     \begin{example}[\newline Burgers Equation Continuous Initial Data]\label{example:burgers_equation_continous_initial_data}
         \begin{align*}

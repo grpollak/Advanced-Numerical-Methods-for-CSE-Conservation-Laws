@@ -1,33 +1,6 @@
 \begin{proofbox}\nospacing
     \begin{proof}[Godunov Scheme\cref{defn:gudunov_riemann_scheme}]\label{proof:gudonov_scheme}
-        \begin{align*}
-          \widebar{F}_{\idxj\tc{seabornblue}{+}\frac{1}{2}}^{n,\tc{seaborn7}{\pm}}
-          :=\int_{t_{n}}^{t_{n+1}}f \left(u\left(x_{\idxj\tc{seabornblue}{+}\frac{1}{2}}^{\tc{seaborn7}{\pm}},t\right)\right)\diff t
-        \end{align*}
-        Either $u$
-        \begin{itemizenosep}
-            \item is continuous at the boundary:
-                \begin{align*}
-                u\left(x_{\idxj\tc{seabornblue}{+}\frac{1}{2}}^{\tc{seaborn7}{+}},t\right)
-                =u\left(x_{\idxj\tc{seabornblue}{+}\frac{1}{2}}^{\tc{seaborn7}{-}},t\right)
-                \end{align*}
-            \item it is discontinuous at the boundary but smoothed out and we are fine
-            \item is a stationary shock at the boundaries $x_{\idxj+1/2}$ i.e.\ $s(t)=0$ thus from \cref{eq:rankine-hugoniot_condition}
-            it follows:
-            \begin{align*}
-             \flux\left(u\left(x_{\idxj\tc{seabornblue}{+}\frac{1}{2}}^{\tc{seaborn7}{-}},t\right)\right)
-              =\flux\left(u\left(x_{\idxj\tc{seabornblue}{+}\frac{1}{2}}^{\tc{seaborn7}{+}},t\right)\right)
-            \end{align*}
-        \end{itemizenosep}
-        thus it follow that the fluxes over the boundaries are conserved/continuous:
-        \begin{align}
-          \widebar{F}_{\idxj\tc{seabornblue}{+}\frac{1}{2}}^{n,\tc{seaborn7}{+}}
-          &=\int_{t_{n}}^{t_{n+1}}f \left(u\left(x_{\idxj\tc{seabornblue}{+}\frac{1}{2}}^{\tc{seaborn7}{+}},t\right)\right)\diff t \\[-1\jot]
-          &=\int_{t_{n}}^{t_{n+1}}f \left(u\left(x_{\idxj\tc{seabornblue}{+}\frac{1}{2}}^{\tc{seaborn7}{-}},t\right)\right)\diff t
-          =\widebar{F}_{\idxj\tc{seabornblue}{+}\frac{1}{2}}^{n,\tc{seaborn7}{-}}
-          =\Flux_{\idxj\tc{seabornblue}{+}\frac{1}{2}}
-        \end{align}
-        Furthermore we assume a \textit{self-similar} solution and want to have the Riemann problem at zero thus we subtract the offset $x_{\idxj+1/2}, t^{n}$:
+        We assume a \textit{self-similar} solution and want to have the Riemann problem at zero thus we subtract the offset $x_{\idxj+1/2}, t^{n}$:
         \begin{align}
           U_{\idxj}(x,t)=U_{\idxj}\left(\frac{x-x_{\idxj+1/2}}{t-t^{n}}\right)
         \end{align}
@@ -36,7 +9,7 @@
           \Flux_{\idxj\tc{seabornblue}{+}\frac{1}{2}}
           &=\int_{t_{n}}^{t_{n+1}}\flux \left(u\left(x_{\idxj\tc{seabornblue}{+}\frac{1}{2}},t\right)\right)\diff t \\[-1\jot]
             &=\int_{t_{n}}^{t_{n+1}}\flux \left(U\left(\frac{x_{\idxj+1/2}-x_{\idxj+1/2}}{t-t^{n}}\right)\right)\diff t
-            =\Delta t f \left(U\left(0\right)\right)
+            =\Delta t \flux \left(U\left(0\right)\right)
         \end{align*}
         where $U$ is the solution of the standard Riemann problem:
         \begin{align}
@@ -51,3 +24,9 @@
         \end{align}
     \end{proof}
 \end{proofbox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

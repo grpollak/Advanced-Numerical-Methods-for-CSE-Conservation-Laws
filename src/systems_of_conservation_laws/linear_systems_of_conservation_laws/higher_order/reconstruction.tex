@@ -1,22 +1,22 @@
-\todo[inline]{Whats the difference}
+\todo[inline]{Check if this is correct or if primitve and conservative is the same?}
 \begin{defnbox}\nospacing
-    \begin{defn}[Conservative Variables]\label{defn:conservative_variables}
+    \begin{defn}[Conservative Variables]\label{defn:conservative_variables}\leavevmode\\
         Are the variables $\Uvec$ used to write a system in conservative form.
     \end{defn}
 \end{defnbox}
 \begin{defnbox}\nospacing
     \begin{defn}[Primitive Variables]\label{defn:primitive_variabels}
-        are called the Characteristic Variables.
+        Are the variables, that make up the conservative variables.
     \end{defn}
 \end{defnbox}
 \begin{defnbox}\nospacing
-    \begin{defn}[Characteristic Variabels]\label{defn:characteristic_variabels}
-        $\Wvec=\vec{R}^{-1}\Uvec$ are called the Characteristic Variables.
+    \begin{defn}[Characteristic Variabels]\label{defn:characteristic_variabels}\leavevmode\\
+        Are the variables of the decoupled linear system $\Wvec=\vec{R}^{-1}\Uvec$ are called the Characteristic Variables.
     \end{defn}
 \end{defnbox}
 \begin{defnbox}\nospacing
-    \begin{defn}[Primitive Reconstruction]\label{defn:primitive_reconstruction}
-        Apply limiters\cref{subsubsec:limiters} componentwise to the primitve variables $\Uvec_{\idxj}$.
+    \begin{defn}[Primitive Reconstruction]\label{defn:primitive_reconstruction}\leavevmode\\
+        Apply limiters \cref{subsubsec:limiters} componentwise to the primitive variables $\Uvec_{\idxj}$.
     \end{defn}
 \end{defnbox}
 \begin{sectionbox}\nospacing
@@ -25,7 +25,7 @@
            \item Easy to apply
        \end{proslist}
    \end{minipage}
-   \begin{minipage}[c]{0.6\textwidth}
+   \begin{minipage}[t]{0.6\textwidth}
       \begin{conslist}
           \item Does not necessarily lead to TVB\cref{property:total_variation_bounded} stable reconstruction \cref{subsec:reconstruction} scheme.
       \end{conslist}
@@ -52,5 +52,5 @@
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-command-extra-options: "-shell-escape"
-%%% TeX-master: "../../../../../formulary"
+%%% TeX-master: "../../../../formulary"
 %%% End:

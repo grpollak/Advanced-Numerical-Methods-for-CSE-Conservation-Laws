@@ -1,0 +1,63 @@
+\begin{proofbox}\nospacing
+    \begin{proof}[Integral Surface\cref{explanation:integral_surface_and_pdes}]\label{proof:explanation:integral_surface_and_pdes}
+        \begin{align}
+            \vec{n}\cdot\vec{v}=0\Leftrightarrow\mc{a}\uvec_x+\mc{b}\uvec_y-\mc{c}=0\Leftrightarrow\cref{eq:moc1}
+        \end{align}
+    \end{proof}
+\end{proofbox}
+\begin{proofbox}\nospacing
+    \begin{proof}[Characteristic Equations\cref{defn:characteristic_equations_for_conservation_laws}]
+        \label{proof:defn:characteristic_equations_for_conservation_laws}\leavevmode\\
+        \begin{align*}
+          \dv{\tauc}u \left(\gammac(\tauc),\tauc\right)
+          \eqs{\text{C.R}}&u_{t}\left(\gammac(\tauc),\tauc\right)+u_{x}\left(\gammac(\tauc),\tauc\right)\dv{\gammac(\tauc)}{\tauc} \\[-1\jot]
+        \eqs{\text{\cref{eq:characteristic_equations_for_conservation_laws}}}&
+        u_{t}\left(\gammac(\tauc),\tauc\right)+u_{x}\left(\gammac(\tauc),\tauc\right)\flux'\left(\gammac(\tauc),\tauc\right)\\[-1\jot]
+        \eqs{\text{\cref{eq:inviscide_conservation_law}}}&0
+        \end{align*}
+    \end{proof}
+\end{proofbox}
+\begin{proofbox}\nospacing
+    \begin{proof}[\cref{proposition:general_solution_for_scalar_conservation_laws}]
+        \label{proof:proposition:general_solution_for_scalar_conservation_laws}\leavevmode\\
+               \begin{align*}
+              \uldotted{u_t+\flux(u)u_x}&=0 \nonumber \\[-1.5\jot]
+              u(x,0)&=u_{0}(x)
+        \end{align*}
+        \begin{flalign*}
+            &\imp{\text{ODEs}}
+            \qquad\left\{\qquad\begin{aligned}
+                &\frac{\diff t}{\diff r}=1\Rightarrow \diff t=\ul[ulc3]{\diff r}\\
+                &\dv{\gammac}{\tauc}=\frac{\diff x}{\ul[ulc3]{\diff r}}=\ul{\dv{x}{t}}=\flux'\left(u(x,t)\right)\eqs{\text{\cref{eq:u_const_along_characteristic}}}\hspace{-1em}\text{const}\\
+                &\frac{\diff u}{\diff r}=0
+            \end{aligned}\right.&&
+        \end{flalign*}
+        \begin{flalign*}
+            &\imp{\text{I.C.}}&&
+            t_{s}(0)=0&&x_{s}(0)=s&&u_{s}(0)=u_{0}(s)&&
+        \end{flalign*}
+        \rule{\linewidth}{0.3pt}
+        \begin{align*}
+          t_{s}(r)=r+C_{1}(s)\xrightarrow{t_{s}(0)=0}t=r
+        \end{align*}
+        \begin{align*}
+          \dv{u}{r}=\dv{u}{t}=0\Rightarrow u_{s}(r)=C_{2}(s)\xrightarrow{u_{s}(0)=u_{0}(s)}u_{s}(r)=u_{0}(s)&&
+        \end{align*}
+        From \cref{eq:u_const_along_characteristic} we know that $u(x,t)$ is constant along our characteristics and thus also
+        $\flux'\left(u_{0}(x,t)\right)$ must be constant along them:
+        \begin{align*}
+          &\dv{x}{r}=\flux'\left(u(x,t)\right)&&\implies&&\int\diff x=\int\flux(u(x,t))\diff r
+        \end{align*}
+        \begin{align*}
+          x(r)=C_{3}(s)+\flux'(u(x,t))r&&\xrightarrow{x_{s}(0)=s}x(r)=\ul[ulc3]{s}+\flux'(u(x,t))r
+        \end{align*}
+        thus we have found the general solution characteristics:
+        \begin{align*}
+          \lambdac_{s}(r)=\pmat{r & s+\flux'(u(x,t)) & u_{0}(s)}
+        \end{align*}
+        Again, from \cref{eq:u_const_along_characteristic} we know that $u(x,t)$ is constant along our characteristics and thus the solution is given by:
+        \begin{align*}
+          u(x,t)=u_{0}\left(\ul[ulc3]{s}\right)=u_{0}\left(x-\flux'(u(x,t)t\right)
+        \end{align*}
+    \end{proof}
+\end{proofbox}

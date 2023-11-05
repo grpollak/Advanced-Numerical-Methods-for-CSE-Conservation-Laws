@@ -5,13 +5,13 @@
           &&&u(x,t)\text{ solves \cref{eq:conservation_law}}\\[-1\jot]
           &\implies&&w(x,t):=u(\lambdac x,\lambdac t)\text{ solves \cref{eq:conservation_law}}&&\lambdac\neq0
         \end{align*}
-        thus it is natural to assume \text{self-similarity} -- i.e.\ a solution $v(\xic)$ that only depends on the ration $\xic:=x/t$:
+        thus it is natural to assume \text{self-similarity} -- i.e.\ a solution $v(\xic)$ that only depends on the ratio $\xic:=x/t$:
         \begin{align*}
-          u(x,t)=v \left(\frac{x}{t}\right)=v{\xic}
+          u(x,t)=v \left(\frac{x}{t}\right)=v(\xic)
         \end{align*}
         \begin{align*}
           &\xic_{t}=\frac{-x}{t^{2}}&&\xic_{x}=\frac{1}{t} \\[-1\jot]
-          &u_{t}=V'(\xic)\xic_{t}=V'(\xic)\frac{-x}{t^{2}}&&u_{x}=V'(\xic)\xic_{x}=V'(\xic)\frac{1}{t}
+          &u_{t}=v'(\xic)\xic_{t}=v'(\xic)\frac{-x}{t^{2}}&&u_{x}=v'(\xic)\xic_{x}=v'(\xic)\frac{1}{t}
         \end{align*}
         \begin{align*}
           \flux(u)_{x}=\flux'(u)u_{x}=\flux' \left(v(\xic)\right)v'(\xic)\xic_{x}
@@ -19,19 +19,19 @@
         \end{align*}
         Plug it into \cref{eq:conservation_law}:\hfil $0=\ul{u_{t}}+\ul[ulc2]{\flux(u)_{x}}=\ul{u_{t}}+\ul[ulc2]{\flux'(u) u_{x}}$
         \begin{align*}
-          0&=\ul{V'(\xic)\frac{-x}{t^{2}}}+\ul[ulc2]{\frac{1}{t}\flux'\left(V(\xic)\right)V'(\xic)} \\[-1\jot]
-          &=\ul{V'(\xic)\frac{-\xic}{t}}+\ul[ulc2]{\frac{1}{t}\flux'\left(V(\xic)\right)V'(\xic)}&\Big|\cdot t
+          0&=\ul{v'(\xic)\frac{-x}{t^{2}}}+\ul[ulc2]{\frac{1}{t}\flux'\left(v(\xic)\right)v'(\xic)} \\[-1\jot]
+          &=\ul{v'(\xic)\frac{-\xic}{t}}+\ul[ulc2]{\frac{1}{t}\flux'\left(v(\xic)\right)v'(\xic)}&\Big|\cdot t
         \end{align*}
         \begin{align*}
-          \implies\quad\left(\flux' \left(V(\xic)\right)-\xic\right)V'=0
+          \implies\quad\left(\flux' \left(v(\xic)\right)-\xic\right)v'=0
         \end{align*}
-        Thus either $V'=0$ or in the non-trivial case it follows that for convex $\flux$ (invertible):
+        Thus either $v'=0$ or in the non-trivial case it follows that for convex $\flux$ (invertible):
         \begin{align*}
-          \left(\flux' \left(V(\xic)\right)-\xic\right)V'&=0&&\Big|/V' \\[-1\jot]
-          \flux' \left(V(\xic)\right)&=\xic
+          \left(\flux' \left(v(\xic)\right)-\xic\right)v'&=0&&\Big|/v' \\[-1\jot]
+          \flux' \left(v(\xic)\right)&=\xic
         \end{align*}
         \begin{align}
-          V \left(\frac{x}{t}\right)=\left(\flux'\right)^{-1}\left(\frac{x}{t}\right)
+          v \left(\frac{x}{t}\right)=\left(\flux'\right)^{-1}\left(\frac{x}{t}\right)
         \end{align}
         From this it follows that:
         \begin{align*}

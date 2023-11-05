@@ -1,9 +1,9 @@
 \begin{lemmabox}\nospacing
-    \begin{lemma}[\hfill\tc{black}{\normalfont{[example~\ref{proof:tvd_minmod_limiter}]},\proofref{proof:lemma:tvd_fvm_rea_scheme}}\newline TVD FVM REA Scheme]\label{lemma:tvd_fvm_rea_scheme}
+    \begin{lemma}[\hfill\tc{black}{\normalfont{[example~\ref{proof:tvd_minmod_limiter}]},\proofref{proof:lemma:tvd_fvm_rea_scheme}}\newline TVD FVM REA Scheme]\label{lemma:tvd_fvm_rea_scheme}\leavevmode\\
         A three point FVM REA\cref{defn:rea_algorithm} scheme is TVD iff:
         \begin{circlelistnosep}
             \item \cref{eq:evolution_and_averaging} satisfies the CFL condition \cref{eq:cfl_condition_for_fvs}
-            \item and the following condition:
+            \item and the following condition is satisfied:
             \begin{align}
               -2\leq\frac{\deltac_{\idxj+1}^{n}-\deltac_{\idxj}^{n}}{u_{\idxj+1}^{n}-u_{\idxj}^{n}}\leq2&&\deltac_{\idxj}:=\sigmac_{\idxj}^{n}\Delta x
             \end{align}
@@ -27,14 +27,16 @@
             }
         \end{figure}
         \end{minipage}\\
-            If we require TVD slope limiters however we will have again be of first order accuracy
+            If we require TVD slope limiters however we will have again be first order accuracy
             at the regions of slope limiters/local extrema:
             \begin{align}
               \norm{g(x)-\polynomial_{n}(x)}_{L^{\infty}}\approx\bigO(\Delta x)
             \end{align}
     \end{proposition}
 \end{propositionbox}
-\todo[inline]{lecture 14 min 40 exam question understand!}
+\begin{notebox}[Note]\nospacing
+    Also have a look at \textit{expected order of convergence} (EOC) or rate of convergence\cref{defn:rate_of_convergence} for numerical experiments.
+\end{notebox}
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-command-extra-options: "-shell-escape"

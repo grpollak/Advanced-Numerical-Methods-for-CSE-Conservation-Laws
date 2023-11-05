@@ -17,7 +17,7 @@
 \begin{defnbox}\nospacing
     \begin{defn}[FVM Riemann Problem]\label{defn:gudunov_riemann_problem}
         \begin{align}
-          &U_{t}+f(U)_{x}=0 \\[-1\jot]
+          &U_{t}+\flux(U)_{x}=0 \\[-1\jot]
           &U\left(x,t^{n}\right)=
           \begin{cases}
               U_{\idxj}^{n}&\text{if }x<x_{\idxj+1/2}\\
@@ -27,7 +27,7 @@
     \end{defn}
 \end{defnbox}
 \begin{corbox}\nospacing
-    \begin{cor}[Scaled Gudunov Riemann Problem]\label{cor:scaled_gudunov_riemann_problem}\leavevmode\\
+    \begin{cor}[\hfill\proofref{proof:gudonov_scheme}\newline Scaled Gudunov Riemann Problem]\label{cor:scaled_gudunov_riemann_problem}\leavevmode\\
         For $U_{\idxj}(x,t)=U_{\idxj}\left(\frac{x-x_{\idxj+1/2}}{t-t^{n}}\right)$ the Riemann problem\cref{defn:gudunov_riemann_problem} becomes the standard Riemann problem:
         \begin{align}
             u(x,0)=\begin{cases}

@@ -7,20 +7,28 @@
     \end{defn}
 \end{defnbox}
 \begin{corbox}\nospacing
-    \begin{cor}[Shock Speed]\label{cor:shock_speed}
-        Is the speed of a shock wave\cref{defn:shock_waves}
+    \begin{cor}[Shock Speed]\label{cor:shock_speed}\leavevmode\\
+        Is the speed of a shock\cref{defn:shock_waves} i.e.\ the speed of the traveling discontinuity:
         \begin{align}
           s(t)=\gammac'(t)=
-          \frac{f\left(u^{+}\left(t\right)\right)-f\left(u^{-}\left(t\right)\right)}{u^{+}\left(t\right)-u^{-}\left(t\right)}
+          \frac{\flux\left(u^{+}\left(t\right)\right)-\flux\left(u^{-}\left(t\right)\right)}{u^{+}\left(t\right)-u^{-}\left(t\right)}\label{eq:shock_speed}
         \end{align}
     \end{cor}
 \end{corbox}
+\begin{explanationbox}\nospacing
+    \begin{explanation}\leavevmode\\
+       The location of a discontinuity which is initially located at $x_{0}=0$ is given by:
+       \begin{align*}
+         x(t)=x_{0}+s(t)t=x_{0}+\gammac'(t)t
+       \end{align*}
+    \end{explanation}
+\end{explanationbox}
 \begin{theorembox}\nospacing
     \begin{theorem}[\newline Necessary Conditions for Weak Solutions and Shocks]\label{theorem:weak_solution}
         Given a shock wave $\Gamma$\cref{defn:shock_waves} $u$ is a weak solution of \cref{eq:conservation_law} if and only if:
         \begin{circlelistnosep}
             \item $u^{-}$ and $u^{+}$ are classical solutions of \cref{eq:conservation_law}.
-            \item the shock speed $s(t)=\gammac'(t)$ satisfies the RH-condition\cref{eq:rankine-hugoniot_condition} at
+            \item the shock speed $s(t)=\gammac'(t)$ satisfies the RH-condition \cref{eq:rankine-hugoniot_condition} at
             any discontinuities $x=\gammac(t)$.
         \end{circlelistnosep}
     \end{theorem}

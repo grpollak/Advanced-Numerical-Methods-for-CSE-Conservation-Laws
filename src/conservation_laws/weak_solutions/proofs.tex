@@ -1,5 +1,5 @@
 \begin{proofbox}\nospacing
-    \begin{proof}[Weak Solution\cref{defn:weak_solution}]\label{proof:defn:weak_solution}
+    \begin{proof}[Weak Solution\cref{defn:weak_solution}]\label{proof:defn:weak_solution}\leavevmode\\
         We first multiply \label{eq:conservation_law1D} by a test function $\testfunc\in\sm_{0}^{1}\left(\R\times\Rp\right)$
         and integrate over space and time:
         \begin{align*}
@@ -7,12 +7,12 @@
           \overbrace{\int_{0}^{\infty}\underbrace{\int_{-\infty}^{\infty}\flux(u)_{x}\testfunc\diff x}_{I_{2a}}\diff t}^{I_{2}}=0
         \end{align*}
         \begin{align*}
-            I_{1a}:&&\int_{0}^{+\infty}u_{t}\testfunc\eqs{\text{\cref{eq:integration_by_parts}}}&u(x,\infty)\underbrace{\testfunc(x,\infty)}_{\equiv0}-
+            I_{1a}:&&\int_{0}^{+\infty}u_{t}\testfunc\diff t\eqs{\text{\cref{eq:integration_by_parts}}}&u(x,\infty)\underbrace{\testfunc(x,\infty)}_{\equiv0}-
             \underbrace{u(x,0)}_{u_{0}(x)}\testfunc(x,0)&&\\[-1\jot]
             &&&-\int_{0}^{\infty}u\testfunc_{t}\diff t&&
         \end{align*}
         \begin{align*}
-          I_{1}=-\int_{-\infty}^{\infty}\int_{0}^{+\infty}u\testfunc_{t}\diff t
+          I_{1}=-\int_{-\infty}^{\infty}\int_{0}^{+\infty}u\testfunc_{t}\diff t\diff x
           -\int_{-\infty}^{\infty} u_{0}(x)\testfunc(x,0)\diff x
         \end{align*}
         \begin{align*}

@@ -53,6 +53,7 @@
 % \input{mysubmodule_submodule/math.tex}
 % Other very usefull packages
 % ------------------------------------------------------------------------------
+% \usepackage[colorinlistoftodos,prependcaption,textsize=scriptsize]{todonotes}
 \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
 \usepackage{wrapfig}
 \usepackage[skip=0pt]{subcaption}
@@ -99,11 +100,15 @@
                 {src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/simple_solutions/figures/}
                 {src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/entropie_conditions/figures/}
                 {src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/fvm/figures/}
+                {src/method_of_characteristics/figures/}
+                {src/shock_waves/figures/}
           }
 % ==============================================================================
 % Document begin
 % ==============================================================================
 \begin{document}
+\tableofcontents
+\newpage
 % ------------------------------------------------------------------------------
 % Basics
 % ------------------------------------------------------------------------------
@@ -115,70 +120,85 @@
     \subsubsection{Traffic Flow}\label{subsec:traffic_flow}
     \subsubsection{Burgers Equation}\label{subsec:burgers_equation}
       \input{src/conservation_laws/burgers_equation/burgers_equation.tex}
+      \subsubsubsection{Exploding Gradient Problem}
+        \input{src/conservation_laws/riemann_problem/problems.tex}
     \subsubsection{Riemann Problem}\label{subsubsec:riemann_problem}
       \input{src/conservation_laws/riemann_problem/riemann_problem.tex}
-      \subsubsubsection*{Exploding Gradient Problem}
-        \input{src/conservation_laws/riemann_problem/problems.tex}
-    \subsection{Method Of Characteristics}\label{subsec:method_of_characteristics}
+    \subsubsection{Method of Characteristics}\label{subsubsec:for_conservation_laws}
+        \input{src/method_of_characteristics/conservation_laws.tex}
+
 \section{Weak Solutions}
   \input{src/conservation_laws/weak_solutions/motivation.tex}
-  \input{src/conservation_laws/weak_solutions/shock_waves.tex}
   \input{src/conservation_laws/weak_solutions/weak_solutions.tex}
+  \input{src/conservation_laws/weak_solutions/shock_waves.tex}
   \subsection{The Rankine-Hugoniot Condition}\label{subsec:}
   \input{src/rankine_hugoniot/rankine_hugoniot.tex}
     \subsubsection{Shock Waves}\label{subsubsec:shock_waves}
     \input{src/shock_waves/shock_waves.tex}
-    \subsubsection{Rarefaction Waves}\label{subsubsec:rarefaction_waves}
-    \subsubsubsection{Lax-Oleinik Entropy Condition}\label{subsubsec:lax-oleinik_entropy_condition}
+    \subsubsubsection{Lax-Oleinik Entropy Condition}\label{subsubsec:lax_oleinik_entropy_condition}
       \input{src/entropy_solutions/lax_entropy_condition.tex}
+    \subsubsection{Rarefaction Waves}\label{subsubsec:rarefaction_waves}
       \input{src/rarefaction_waves/rarefaction_waves.tex}
       \input{src/entropy_solutions/entropy_solutions.tex}
   \subsection{Entropy Solutions}\label{subsec:entropy_solutions}
         \input{src/entropy_solutions/viscous_approximation.tex}
       \subsubsection{Properties of Entropy Solutions}\label{subsubsec:properties_of_entropy_solutions}
         \input{src/entropy_solutions/properties.tex}
-        \subsubsubsection{$L^p$-bound on entropy solutions}\label{subsubsubsec:$l^p$-bound_on_entropy_solutions}
+      \subsubsubsection{$L^p$-bound on entropy solutions}\label{subsubsubsec:lp-bound_on_entropy_solutions}
         \input{src/entropy_solutions/properties/bounds.tex}
-  \subsubsubsection{Maximum Principle}\label{subsec:maximum_principle}
+      \subsubsubsection{Maximum Principle}\label{subsec:maximum_principle}
         \input{src/entropy_solutions/maximum_principle/maximum_principle.tex}
-  \subsubsubsection{Total Variation Diminishing}
+      \subsubsubsection{Total Variation Diminishing}
         \input{src/entropy_solutions/tvd/tvd.tex}
+      \subsubsubsection{Monotonicity Preservation}\label{subsubsubsec:monotonicity_preservation}
+        \input{src/entropy_solutions/monotonicity_preservation.tex}
+
+
 
 
 % ------------------------------------------------------------------------------
 % Finite Volume Methods
 % ------------------------------------------------------------------------------
 \newpage
-\section{Finite Volume Methods}\label{subsec:entropy_solutions}
+\section{Finite Volume Methods}\label{subsec:fvm}
   \input{src/finite_volume_methods/finite_volume_methods.tex}
   \subsection{Properties of Schemes}\label{subsec:properties_of_schemes}
-    \input{src/properties/properties.tex}
+    \subsubsection{The CFL Condition}\label{subsubsec:cfl_condition}
+      \input{src/finite_volume_methods/gudonov_methods/cfl.tex}
     \subsubsection{Conservative Schemes}\label{subsec:conservative_schemes}
       \input{src/properties/conservation/conservation.tex}
     \subsubsection{Consistent Schemes}\label{subsec:consistent_schemes}
       \input{src/properties/consistency/consistency.tex}
-    \subsubsection{Monotonicity Preserving Schemes}\label{subsec:monotonicity_preserving_schemes}
-      \input{src/properties/monotonicity/monotonicity.tex}
-      \input{src/properties/summary.tex}
     \subsubsection{Discrete Maximum Principle}\label{subsec:discrete_maximum_principle}
       \input{src/properties/discrete_maximum_principle/discrete_maximum_principle.tex}
-    \subsubsection{Discrete Total Variation Diminishing}\label{subsec:total_variation_diminishing}
+    \subsubsection{Discrete Total Variation Diminishing Property}\label{subsec:total_variation_diminishing}
       \input{src/properties/tvd/tvd.tex}
+      \paragraph{Bounded Variation}
+      \input{src/properties/tvd/bv.tex}
       \subsubsubsection{Harten's Lemma}\label{subsubsec:hartens_lemma}
       \input{src/properties/hartens_lemma/hartens_lemma.tex}
-\vfill\columnbreak
-\subsection*{Finite Volume Methods Scheme}
+    \subsubsection{Monotonicity Preserving Schemes}\label{subsec:monotonicity_preserving_schemes}
+      \input{src/properties/monotonicity/monotonicity.tex}
+      \subsubsubsection{Monotone Finite Volume Methods}\label{subsubsubsec:monotone_finite_volume_methods}
+        \input{src/properties/monotonicity/fvm.tex}
+    \subsection{MCC Schemes}\label{subsubsubsec:mcc_schemes}
+      \input{src/properties/monotonicity/mcc.tex}
+      \input{src/properties/summary.tex}
+      \newpage
+\stepcounter{section}
+\subsection*{Finite Volume Methods Schemes}
   \subsection{Exact Riemann Solvers}\label{subsec:exact_riemann_solvers}
     \subsubsection{Godunov Method}\label{subsec:godunov_method}
       \input{src/finite_volume_methods/gudonov_methods/gudonov_methods.tex}
       \input{src/finite_volume_methods/gudonov_methods/gudonov_scheme.tex}
-      \subsubsubsection{CFL Condition}\label{subsubsec:cfl_condition}
-      \input{src/finite_volume_methods/gudonov_methods/cfl.tex}
   \subsection{Approximate Riemann Solvers}\label{subsec:approximate_riemann_solvers}
-    \input{src/finite_volume_methods/approximate_solvers/approximate_solvers.tex}
-    \subsubsection{Murman Roe Scheme}\label{subsubsec:roes_scheme}
-      \input{src/finite_volume_methods/approximate_solvers/roe_average.tex}
-    \subsubsection{Central Schemes}\label{subsubsec:central_schemes}
+    \subsubsection{Linearized Riemann Solvers/Roe Schemes}
+      \input{src/finite_volume_methods/approximate_solvers/approximate_solvers.tex}
+      \subsubsubsection{Arithmetic Roe Average}\label{subsubsubsec:arithmetic_average}
+        \input{src/finite_volume_methods/approximate_solvers/arithmetic_average.tex}
+      \subsubsubsection{Murman Roe Scheme}\label{subsubsec:roes_scheme}
+        \input{src/finite_volume_methods/approximate_solvers/roe_average.tex}
+    \subsubsection{Central\aslash HLL Schemes}\label{subsubsec:central_schemes}
       \input{src/finite_volume_methods/approximate_solvers/central_schemes/central_schemes.tex}
       \subsubsubsection{Lax-Friedrichs Scheme}\label{subsubsubsec:lax-friedrichs_scheme}
         \input{src/finite_volume_methods/approximate_solvers/central_schemes/lax_friedrichs_scheme/lax_friedrichs_scheme.tex}
@@ -186,10 +206,11 @@
         \input{src/finite_volume_methods/approximate_solvers/central_schemes/rusanov_scheme/rusanov_scheme.tex}
       \subsubsubsection{Enquist-Osher Flux}\label{subsubsubsec:enquist-osher_flux}
         \input{src/finite_volume_methods/approximate_solvers/central_schemes/enquist_scheme/enquist_scheme.tex}
-  \vfill\columnbreak
-  \subsection{Higher Order Schemes}\label{subsec:higher_order_schemes}
+\newpage
+\stepcounter{section}
+  \subsection*{Higher Order Schemes}\label{subsec:higher_order_schemes}
     \input{src/finite_volume_methods/higher_order/higher_order.tex}
-    \subsubsection{Lax-Wendroff Scheme\hfill\tcblack{1961}}\label{subsubsec:lax-wendroff_scheme}
+  \subsection{Lax-Wendroff Scheme\hfill\tcblack{1961}}\label{subsubsec:lax-wendroff_scheme}
       \input{src/finite_volume_methods/higher_order/lax_wendroff_scheme/lax_wendroff_scheme.tex}
     \subsection{REA-Algorithms}\label{subsec:rea}
       \subsubsection{Reconstruction}\label{subsec:reconstruction}
@@ -208,21 +229,26 @@
           \input{src/finite_volume_methods/higher_order/rea/reconstruction/limiters/mc.tex}
     \subsubsection{TVD REA Schemes}\label{subsubsec:name}
       \input{src/finite_volume_methods/higher_order/rea/rea.tex}
-    \subsubsection{Higher Order Time Schemes}\label{subsubsec:higher_order_time_schemes}
-      \subsubsubsection{Semi-Discrete Schemes}\label{subsubsubsec:semi-discrete_schemes}
+    \subsection{Higher Order Time Schemes}\label{subsubsec:higher_order_time_schemes}
+      \subsubsection{Semi-Discrete Schemes}\label{subsubsubsec:semi-discrete_schemes}
       \input{src/finite_volume_methods/higher_order/time/semi_discrete.tex}
       \todo[inline]{add standard RK method}
-        \paragraph{Heun's Method}\label{para:heun's_method}
-        \input{src/finite_volume_methods/higher_order/time/heuns_method.tex}
+        \subsubsubsection{Heun's Method}
+          \input{src/finite_volume_methods/higher_order/time/heuns_method.tex}
+        \paragraph{Properties}
+          \input{src/finite_volume_methods/higher_order/time/heuns_method/properties.tex}
+
 \newpage
 \section{Systems of Conservation Laws}\label{subsec:systems_of_conservation_laws}
       \input{src/systems_of_conservation_laws/systems_of_conservation_laws.tex}
       \subsection{Linear System of Conservation Laws}\label{subsubsec:linear_system_of_conservation_laws}
       \input{src/systems_of_conservation_laws/linear_systems_of_conservation_laws/linear_systems_of_conservation_laws.tex}
-      \input{src/systems_of_conservation_laws/linear_systems_of_conservation_laws/tvd.tex}
       \subsubsection{Types of Linear Systems}\label{subsubsubsec:types_of_linear_systems}
         \input{src/systems_of_conservation_laws/classification.tex}
-      \subsubsection{Decoupling}\label{subsubsubsec:decoupeling}
+      \subsubsection{Properties of Schemes}\label{subsec:properties_of_schemes}
+        \subsubsubsection{Discrete Total Variation Diminishing Property}\label{subsec:total_variation_diminishing}
+        \input{src/systems_of_conservation_laws/linear_systems_of_conservation_laws/tvd.tex}
+      \subsection{Decoupling of Linear Systems}\label{subsubsubsec:decoupeling}
         \input{src/systems_of_conservation_laws/linear_systems_of_conservation_laws/decoupeling.tex}
         \subsubsubsection{Riemann Problems}\label{para:riemann_problems}
         \input{src/systems_of_conservation_laws/linear_systems_of_conservation_laws/riemann_problems.tex}
@@ -269,7 +295,7 @@
 \vfill\columnbreak
   \subsection*{Finite Volume Method}
   \input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/fvm/fvm.tex}
-  \subsection{Linearized Riemann Solvers/Roe Schemes}\label{subsubsubsec:properties}
+  \subsection{Linearized Riemann Solvers/Roe Schemes}
       \input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/linearized_solvers/linearized_solvers.tex}
       \subsubsection{Properties of linear Approximations}\label{subsubsubsec:properties}
         \input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/fvm/properties.tex}
@@ -283,7 +309,7 @@
         \input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/fvm/roe_solvers/roe_scheme.tex}
       \subsubsubsection{Harten's Entropy Fix}\label{subsubsubsec:harten's_entropy_fix}
         \input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/fvm/roe_solvers/hartens_scheme.tex}
-  \subsection{Central Schemes}\label{subsubsec:central}
+  \subsection{Central\aslash HLL Schemes}\label{subsubsec:central}
         \input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/fvm/central_schemes/central_schemes.tex}
       \subsubsection{Two Wave Solver}
         \input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/fvm/central_schemes/two_wave_solver/two_wave_solver.tex}
@@ -308,33 +334,50 @@
 
 
   \newpage
-  \subsection{Proofs}\label{subsec:proofs}
-    \input{src/conservation_laws/burgers_equation/proofs.tex}
-    \input{src/conservation_laws/weak_solutions/proofs.tex}
-    \input{src/rankine_hugoniot/proofs.tex}
-    \input{src/rarefaction_waves/proofs.tex}
-    \input{src/entropy_solutions/proofs.tex}
-    \input{src/entropy_solutions/maximum_principle/proofs.tex}
-    \input{src/entropy_solutions/tvd/proofs.tex}
-    \input{src/finite_volume_methods/proofs.tex}
-    \input{src/properties/monotonicity/proofs.tex}
-    \input{src/properties/hartens_lemma/proofs.tex}
-    \input{src/finite_volume_methods/gudonov_methods/proofs.tex}
-    \input{src/finite_volume_methods/approximate_solvers/central_schemes/proofs.tex}
-    \input{src/finite_volume_methods/higher_order/lax_wendroff_scheme/proofs.tex}
-    \input{src/finite_volume_methods/higher_order/approximate_evolution/proofs.tex}
-    \input{src/finite_volume_methods/higher_order/rea/proofs.tex}
-    \input{src/finite_volume_methods/higher_order/time/proofs.tex}
-    \input{src/systems_of_conservation_laws/proofs.tex}
-    \input{src/systems_of_conservation_laws/linear_systems_of_conservation_laws/proofs.tex}
-    \input{src/systems_of_conservation_laws/linear_systems_of_conservation_laws/fluxes/proofs.tex}
-    \input{src/systems_of_conservation_laws/linear_systems_of_conservation_laws/fvm/proofs.tex}
-    \input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/proofs.tex}
-    \input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/simple_solutions/proofs.tex}
-    \input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/entropie_conditions/proofs.tex}
-    \input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/fvm/proofs.tex}
-    \input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/fvm/central_schemes/three_wave_solver/proofs.tex}
-  \subsection{Examples}\label{subsec:examples}
+  \section{Proofs}\label{subsec:proofs}
+    \subsection{Conservation Laws}
+      \input{src/method_of_characteristics/proofs.tex}
+      \input{src/conservation_laws/burgers_equation/proofs.tex}
+    \subsection{Weak Solutions}
+      \input{src/conservation_laws/weak_solutions/proofs.tex}
+      \input{src/rankine_hugoniot/proofs.tex}
+      \input{src/shock_waves/proofs.tex}
+      \input{src/rarefaction_waves/proofs.tex}
+      \input{src/entropy_solutions/proofs.tex}
+      \input{src/entropy_solutions/maximum_principle/proofs.tex}
+      \input{src/entropy_solutions/tvd/proofs.tex}
+      \newpage
+    \subsection{Finite Volume Methods}
+      \input{src/finite_volume_methods/proofs.tex}
+      \input{src/properties/monotonicity/proofs.tex}
+      \input{src/properties/discrete_maximum_principle/proofs.tex}
+      \input{src/properties/hartens_lemma/proofs.tex}
+      \input{src/finite_volume_methods/gudonov_methods/proofs.tex}
+      \input{src/finite_volume_methods/approximate_solvers/proofs.tex}
+      \input{src/finite_volume_methods/approximate_solvers/central_schemes/proofs.tex}
+    \subsection{Higher Order Schemes}
+      \input{src/finite_volume_methods/higher_order/lax_wendroff_scheme/proofs.tex}
+      \input{src/finite_volume_methods/higher_order/approximate_evolution/proofs.tex}
+      \input{src/finite_volume_methods/higher_order/rea/proofs.tex}
+      \input{src/finite_volume_methods/higher_order/time/proofs.tex}
+      \newpage
+    \subsection{Systems of Conservation Laws}
+      \input{src/systems_of_conservation_laws/proofs.tex}
+      \input{src/systems_of_conservation_laws/linear_systems_of_conservation_laws/proofs.tex}
+      \input{src/systems_of_conservation_laws/linear_systems_of_conservation_laws/fluxes/proofs.tex}
+      \input{src/systems_of_conservation_laws/linear_systems_of_conservation_laws/fvm/proofs.tex}
+      \newpage
+    \subsection{Non-linear Systems of Conservation Laws}
+      \input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/proofs.tex}
+      \input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/simple_solutions/proofs.tex}
+      \input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/entropie_conditions/proofs.tex}
+      \input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/fvm/proofs.tex}
+      \input{src/systems_of_conservation_laws/non_linear_systems_of_conservation_laws/fvm/central_schemes/three_wave_solver/proofs.tex}
+\newpage
+  \section{Examples}\label{subsec:examples}
+    % \input{src/basics/examples.tex}
+    % \input{src/basics/pdes/algebraic_types/examples.tex}
+    % \input{src/basics/pdes/algebraic_types/2nd_order_with_two_coefficients/examples.tex}
     \input{src/conservation_laws/burgers_equation/examples.tex}
     \input{src/properties/monotonicity/example.tex}
     \input{src/rankine_hugoniot/examples.tex}
@@ -355,8 +398,8 @@
 % \section*{Machine Learning Appendix}\label{sec:ml_appendix}
 %   \input{ml_submodule/ml.tex}
 \newpage
-\section*{Math Appendix}\label{sec:math_appendix}
-  % \input{math_submodule/math.tex}
+\section{Math Appendix}\label{sec:math_appendix}
+  \input{math_submodule/math.tex}
 % ==============================================================================
 % Document end
 % ==============================================================================

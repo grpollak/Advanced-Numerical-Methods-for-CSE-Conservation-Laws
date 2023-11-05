@@ -1,5 +1,5 @@
 \begin{defnbox}\nospacing
-    \begin{defn}[Lax Friedrichs Scheme]\label{defn:lax_friedrichs_scheme_system}
+    \begin{defn}[Lax Friedrichs Scheme]\label{defn:lax_friedrichs_scheme_system}\leavevmode\\
         Chooses the wave speeds s.t.\ waves from neighboring Riemann problems do not interact with each other:
         \begin{align}
           s_{\idxj+1/2}^{l}=-\frac{\Delta x}{2\Delta t}&&s_{\idxj+1/2}^{r}=\frac{2\Delta x}{\Delta t}
@@ -7,7 +7,7 @@
         with \cref{eq:central_scheme_symmetric_waves} it follows:
         \begin{align}
           \Fluxvec_{\idxj+1/2}^{\idxn}&=\Fluxvec^{\text{LxF}}\left(\Uvec^{\idxn}_{\idxj},\Uvec^{\idxn}_{\idxj+1}\right)\\[-1\jot]
-          &=\frac{1}{2}\Avec \left(\Uvec_{\idxj}^{n}+\Uvec_{\idxj+1}^{n}\right)-\frac{\Delta x}{2\Delta t}\left(\Uvec_{\idxj+1}^{n}-\Uvec_{\idxj}^{n}\right)\nonumber
+          &=\frac{1}{2}\linfluxvec \left(\Uvec_{\idxj}^{n}+\Uvec_{\idxj+1}^{n}\right)-\frac{\Delta x}{2\Delta t}\left(\Uvec_{\idxj+1}^{n}-\Uvec_{\idxj}^{n}\right)\nonumber
         \end{align}
     \end{defn}
 \end{defnbox}

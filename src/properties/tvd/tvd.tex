@@ -8,29 +8,10 @@
     \end{defn}
 \end{defnbox}
 \begin{defnbox}\nospacing
-    \begin{defn}[\newline Discrete Total Variation Diminishing \blackrb{TVD}]\label{defn:discrete_total_variation_diminishing}
+    \begin{defn}[\newline Discrete Total Variation Diminishing \blackrb{TVD}]\label{defn:discrete_total_variation_diminishing}\leavevmode\\
+        Is the discrete form of \cref{theorem:diminishing_total_variation}:
         \begin{align}
           \norm*{U^{n+1}}_{TV(\R)}:=\sum_{\idxj}\abs*{U_{\idxj+1}^{n+1}-U_{\idxj}^{n+1}}\leq \sum_{\idxj}\abs*{U_{\idxj+1}^{n}-U_{\idxj}^{n}}\label{eq:discrete_total_variation_diminishing}
-        \end{align}
-    \end{defn}
-\end{defnbox}
-\begin{defnbox}\nospacing
-    \begin{defn}[Bounded Variation]\label{defn:bounded_variation}
-       \begin{align}
-         \norm{g}_{\text{BV}([\mca,\mcb])}=\norm{g}_{L^1([\mca,\mcb])}+\norm{g}_{\text{TV}([\mca,\mcb])}
-       \end{align}
-    \end{defn}
-\end{defnbox}
-\begin{explanationbox}\nospacing
-    \begin{explanation}
-        The total variation\cref{defn:total_variation} is only a semi-norm as the TV of any constant function is zero.
-        $\Rightarrow$ definition of bounded variation makes this a real norm.
-    \end{explanation}
-\end{explanationbox}
-\begin{defnbox}\nospacing
-    \begin{defn}[\newline Bounded Variation Function Space \hfill\tcblack{BV}]\label{defn:bounded_variation_functionspace}
-        \begin{align}
-          \text{BV}(\R):=\left\{g\in L^{1}(\R): \norm{g}_{\text{BV}(\R)}<\infty\right\}
         \end{align}
     \end{defn}
 \end{defnbox}

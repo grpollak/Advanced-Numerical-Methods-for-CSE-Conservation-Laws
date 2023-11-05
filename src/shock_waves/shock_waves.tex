@@ -1,29 +1,55 @@
 \begin{defnbox}\nospacing
-    \begin{defn}[Shock Waves]\label{defn:riemann_shock_waves}
-        For conservation laws with convex flux function $\flux$ and Riemann data \cref{defn:riemann_problem}:
-            \begin{align}
-            u_{t}+\flux \left(u\right)_{x}=0
-            \end{align}
-            \begin{align}
-            u_{0}=\begin{cases}
-                    U_{R}&\text{if }x>0\\
-                    U_{L}&\text{if }x<0
-                    \end{cases}
-            \end{align}
-    \end{defn}
-\end{defnbox}
-\todo[inline]{check again this solution}
-\begin{corbox}\nospacing
-    \begin{cor}[Shock Wave Solution]\label{cor:shock_wave_solution}
+    \begin{defn}[\hfill\proofref{proof:defn:shock_wave_solution}\newline Shock Wave Solution for the Riemann Problem]\label{defn:shock_wave_solution}\leavevmode\\
+        For conservation laws with a \textit{monotonic} flux function $\flux$ and Riemann data \cref{defn:riemann_problem}:
+        \begin{align*}
+        &u_{t}+\flux \left(u\right)_{x}=0
+        &&u_{0}=\begin{cases}
+                U_{L}&\text{if }x<0\\
+                U_{R}&\text{if }x>0
+                \end{cases}
+        \end{align*}
+        The solution is given by
         \begin{align}
           u(x,t)=
           \begin{cases}
-              0&\text{ if }x<s(t)t\\
-              1&\text{ if }x>s(t)t
+              U_{L}&\text{ if }x<\gammac'(t)t\\
+              U_{R}&\text{ if }x>\gammac'(t)t
           \end{cases}
         \end{align}
-    \end{cor}
-\end{corbox}
+    \end{defn}
+\end{defnbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[Types of Shocks]\label{defn:shock_types}\leavevmode\\
+        There exist two types of shocks:
+        \begin{circlelistnosep}
+            \item \imp{Colliding Shocks}: are weak solutions where the inital data flows into the shock.
+            \item \imp{Emenating Shocks}: are weak solutions where the inital data flows out of the shock.
+        \end{circlelistnosep}
+        \begin{minipage}[t]{0.49\textwidth}
+            \vspace{-1em}
+          \begin{figure}[H]
+              \centering{
+                \def\svgwidth{130pt}
+                \resizebox{\linewidth}{!}{\input{src/shock_waves/figures/colliding_shock.pdf_tex}}
+              }
+              \vspace{-2em}
+              \caption{\scriptsize Colliding Shocks}
+          \end{figure}
+        \end{minipage}
+        \begin{minipage}[t]{0.49\textwidth}
+            \vspace{-1em}
+        \begin{figure}[H]
+            \centering{
+              \def\svgwidth{130pt}
+              \resizebox{\linewidth}{!}{\input{src/shock_waves/figures/emmenating_shock.pdf_tex}}
+            }
+            \vspace{-2em}
+            \caption{\scriptsize Emenating Shocks}
+        \end{figure}
+        \end{minipage}
+    \end{defn}
+\end{defnbox}
+
 
 %%% Local Variables:
 %%% mode: latex

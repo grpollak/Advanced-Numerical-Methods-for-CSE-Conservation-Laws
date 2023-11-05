@@ -1,12 +1,13 @@
 \begin{defnbox}\nospacing
-    \begin{defn}[Consistent Schemes]\label{defn:consistent_schemes}
-        A $2\idxp+1$ point scheme
+    \begin{defn}[Consistent Schemes]\label{defn:consistent_schemes}\leavevmode\\
+        A $2\idxp+1$ point scheme\cref{defn:general_evolution_equation} with numerical Fluxes
         \begin{align}
-          \Flux_{\idxj+1/2}^{n}=\Flux \left(U_{\idxj-\idxp+1}^{n},\ldots,U_{\idxj+\idxp}^{n}\right)
+          \Flux_{\idxj+1/2}^{n}&=\Flux \left(U_{\idxj-\idxp+1}^{n},\ldots,U_{\idxj+\idxp}^{n}\right)\\[-1\jot]
+          \Flux_{\idxj-1/2}^{n}&=\Flux \left(U_{\idxj-\idxp}^{n},\ldots,U_{\idxj+\idxp-1}^{n}\right)
         \end{align}
-        is consistent if the Flux function $\flux$ is consitent with the numerical flux $\Flux$ i.e.:
+        is consistent if the analytical flux function $\flux$ is consistent with the numerical flux $\Flux$ that is:
         \begin{align}
-          \Flux(U,\ldots,U)=\flux(u)
+          \Flux(U,\ldots,U)=\flux(u)\label{eq:consistent_schemes}
         \end{align}
     \end{defn}
 \end{defnbox}
@@ -27,7 +28,6 @@
 \begin{notebox}[Note]\nospacing
     Most of the schemes that we see in the next chapter are consistent and conservative.
 \end{notebox}
-\todo[inline]{See also lecture 09 min 30}
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-command-extra-options: "-shell-escape"

@@ -2,8 +2,8 @@
     \begin{defn}[\newline Engquist Osher Scheme]\label{defn:enquist_osher_scheme}\leavevmode\\
         Is related to\cref{defn:Rusanov_local_friedrichs_scheme} but is kind of a continuous version:
         \begin{align}
-          \Flux_{\idxj+1/2}^{\idxn}=&\Flux^{\text{EO}}\left(u^{\idxn}_{\idxj},u^{\idxn}_{\idxj+1}\right)\\[-1\jot]
-                                   =&\frac{\flux\left(u_{\idxj}^{n}\right)-\flux \left(u_{\idxj+1/2}^{n}\right)}{2} -\frac{1}{2}\int_{u_{\idxj}^{n}}^{u_{\idxj+1}^{n}}\abs*{f'(\thetac)}\diff\thetac\nonumber
+          \Flux_{\idxj+1/2}^{\idxn}=&\Flux^{\text{EO}}\left(U^{\idxn}_{\idxj},U^{\idxn}_{\idxj+1}\right)\\[-1\jot]
+                                   =&\frac{\flux\left(U_{\idxj}^{n}\right)+\flux \left(U_{\idxj+1}^{n}\right)}{2} -\frac{1}{2}\int_{U_{\idxj}^{n}}^{U_{\idxj+1}^{n}}\abs*{f'(\thetac)}\diff\thetac\nonumber
         \end{align}
     \end{defn}
 \end{defnbox}
@@ -11,7 +11,7 @@
     \begin{cor}[Engquist Oshner for Convex Functions]\label{cor:engquist_oshner_for_convex_functions}\leavevmode\\
         For convex functions $\flux$ with a single minimum $\alphac:=\min\flux(\thetac)$ it holds:
         \begin{align}
-          \Flux^{\text{EO}}\left(u^{\idxn}_{\idxj},u^{\idxn}_{\idxj+1}\right)=\flux^{+}\left(u_{\idxj}^{\idxn}\right)+\flux^{-}\left(u_{\idxj+1}^{\idxn}\right)
+          \Flux^{\text{EO}}\left(U^{\idxn}_{\idxj},U^{\idxn}_{\idxj+1}\right)=\flux^{+}\left(U_{\idxj}^{\idxn}\right)+\flux^{-}\left(U_{\idxj+1}^{\idxn}\right)
         \end{align}
         \begin{align*}
             \flux^{+}\left(u\right):=\flux \left(\max \left(u,\alphac\right) \right)\\[-1\jot]

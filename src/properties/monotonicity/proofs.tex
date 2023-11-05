@@ -13,7 +13,7 @@
     \end{proof}
 \end{proofbox}
 \begin{proofbox}\nospacing
-    \begin{proof}[Monotone FVS]\label{proof:cor:monotone_fvm}
+    \begin{proof}[Monotone FVS \cref{eq:cfl_condition_for_fvs}]\label{proof:cor:monotone_fvm}
         \begin{align*}
           H(x,y,z)=y-\frac{\Delta t}{\Delta x} \left(\Flux(x,z)-\Flux(x,y)\right)
         \end{align*}
@@ -22,6 +22,14 @@
           \pdv{H}{z}&=-\frac{\Delta t}{\Delta x}\pdv{\Flux}{\mcb}\left(y,z\right)\stackrel{\text{mon.\ non-inc.}}{\geq} 0 \\[-1\jot]
           \pdv{H}{y}&=1-\frac{\Delta t}{\Delta x}\pdv{\Flux}{\mca}-\frac{\Delta t}{\Delta x}\pdv{\Flux}{\mcb}\stackrel{!}{\geq}0
         \end{align*}
-        Thus in order for the last equation to hold we need to enforce\cref{eq:cfl_condition_for_fvs}.
+        \begin{flalign}
+            &\implies&&\abs*{\pdv{\Flux}{\mca}}+\abs*{\pdv{\Flux}{\mcb}}\leq\frac{\Delta t}{\Delta x}&&
+        \end{flalign}
     \end{proof}
 \end{proofbox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

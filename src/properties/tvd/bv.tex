@@ -1,0 +1,24 @@
+\begin{defnbox}\nospacing
+    \begin{defn}[Bounded Variation]\label{defn:bounded_variation}
+       \begin{align}
+         \norm{g}_{\text{BV}([\mca,\mcb])}=\norm{g}_{L^1([\mca,\mcb])}+\norm{g}_{\text{TV}([\mca,\mcb])}
+       \end{align}
+    \end{defn}
+\end{defnbox}
+\begin{explanationbox}\nospacing
+    \begin{explanation}
+        The total variation\cref{defn:total_variation} is only a semi-norm as the TV of any constant function is zero.
+        $\Rightarrow$ definition of bounded variation makes this a real norm.
+    \end{explanation}
+\end{explanationbox}
+\begin{defnbox}\nospacing
+    \begin{defn}[\newline Bounded Variation Function Space \hfill\tcblack{BV}]\label{defn:bounded_variation_functionspace}
+        \begin{align}
+          \text{BV}(\R):=\left\{g\in L^{1}(\R): \norm{g}_{\text{BV}(\R)}<\infty\right\}
+        \end{align}
+    \end{defn}
+\end{defnbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../../formulary"
+%%% End:

@@ -117,3 +117,5 @@ flycheck_*.el
 
 # directory configuration
 .dir-locals.el
+/_region_.prv/
+/_region_.tex

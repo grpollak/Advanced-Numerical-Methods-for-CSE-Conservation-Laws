@@ -9,7 +9,7 @@
     \begin{defn}[\hfill\proofref{proof:defn:central_schemes}\newline Central Schemes]\label{defn:central_schemes}\leavevmode\\
         \begin{minipage}[t]{0.45\textwidth}
             \begin{align*}
-              \Flux_{\idxj+1/2}^{n}&=\Flux \left(u_{\idxj}^{n},u_{\idxj+1}^{n}\right)\\[-1\jot]
+              \Flux_{\idxj+1/2}^{n}&=\Flux \left(U_{\idxj}^{n},U_{\idxj+1}^{n}\right)\\[-1\jot]
               &=\flux^{*}_{\idxj+1/2}\\
             \end{align*}
             \begin{flalign*}
@@ -27,7 +27,7 @@
         \scalematho{
         \begin{align}
           &\flux^{*}_{\idxj+1/2}=\\[-1\jot]
-          &\hfill\frac{s^{r}_{\idxj+1/2}\flux \left(u_{\idxj}^{n}\right)-s^{l}_{\idxj+1/2}\flux \left(u_{\idxj+1/2}^{n}\right)+s^{r}_{\idxj+1/2}s^{l}_{\idxj+1/2}\left(u_{\idxj+1}^{n}-u_{\idxj}^{n}\right)}{s^{r}_{\idxj+1/2}-s^{l}_{\idxj+1/2}}\nonumber
+          &\hfill\frac{s^{r}_{\idxj+1/2}\flux \left(U_{\idxj}^{n}\right)-s^{l}_{\idxj+1/2}\flux \left(U_{\idxj+1}^{n}\right)+s^{r}_{\idxj+1/2}s^{l}_{\idxj+1/2}\left(U_{\idxj+1}^{n}-U_{\idxj}^{n}\right)}{s^{r}_{\idxj+1/2}-s^{l}_{\idxj+1/2}}\nonumber
         \end{align}}
       The left $s^{l}_{\idxj+1/2}$ and right $s^{r}_{\idxj+1/2}$ speeds have to be specified and depend on the scheme.
     \end{defn}
@@ -36,7 +36,7 @@
     \begin{cor}[\hfill\tcblack{$-s^{l}_{\idxj+1/2}=s^{r}_{\idxj+1/2}=:s_{\idxj+1/2}$}\newline Symmetric Waves]\label{cor:symmetric_waves}\leavevmode\\
         For anti-symmetric speeds we obtain:
         \begin{align}
-          \flux^{*}_{\idxj+1/2}=\frac{\flux\left(u_{\idxj}^{n}\right)-\flux \left(u_{\idxj+1/2}^{n}\right)}{2}-\frac{s_{\idxj+1/2}}{2}\left(u_{\idxj+1}^{n}-u_{\idxj}^{n}\right)
+          \flux^{*}_{\idxj+1/2}=\frac{\flux\left(U_{\idxj}^{n}\right)+\flux \left(U_{\idxj+1}^{n}\right)}{2}-\frac{s_{\idxj+1/2}}{2}\left(U_{\idxj+1}^{n}-U_{\idxj}^{n}\right)
           \label{eq:central_scheme_symmetric_waves}
         \end{align}
     \end{cor}

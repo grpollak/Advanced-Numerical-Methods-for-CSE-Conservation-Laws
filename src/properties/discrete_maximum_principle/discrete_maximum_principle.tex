@@ -1,9 +1,9 @@
 \begin{principbox}\nospacing
-    \begin{princip}[Discrete Maximum Principle]
-        \label{princip:discrete_maximum_principle}
+    \begin{princip}[Discrete Maximum Principle]\label{princip:discrete_maximum_principle}\leavevmode\\
+        Is the discrete form of \cref{princip:maximum_principle}:
         \begin{align}
-          \min \left(u_{\idxj-1}^{n},u_{\idxj}^{n},u_{\idxj+1}^{n}\right)
-          \leq u_{\idxj}^{n}\leq\max\left(u_{\idxj-1}^{n},u_{\idxj}^{n},u_{\idxj+1}^{n}\right)
+          \min \left(U_{\idxj-1}^{\idxn},U_{\idxj}^{\idxn},U_{\idxj+1}^{\idxn}\right)
+          \leq U_{\idxj}^{\idxn+1}\leq\max\left(U_{\idxj-1}^{\idxn},U_{\idxj}^{\idxn},U_{\idxj+1}^{\idxn}\right)
         \end{align}
         \begin{figure}[H]
             \centering{
@@ -13,6 +13,22 @@
         \end{figure}
     \end{princip}
 \end{principbox}
+\begin{explanationbox}\nospacing
+    \begin{explanation}
+        The previous conserved quantities $U^{\idxn}$ corresponds to the initial data $U_{0}$ of the next
+        Riemann problem.
+    \end{explanation}
+\end{explanationbox}
+\begin{propertybox}\nospacing
+    \begin{property}[\hfill\proofref{proof:property:consistent_monotone_three_point_schemes}
+        \newline Consistent Monotone Three Point Schemes]\label{property:consistent_monotone_three_point_schemes}
+        Consistent Monotone Three Point Schemes of the form:
+        \begin{align}
+          U_{\idxj}^{\idxn+1}=H \left(U_{\idxj-1}^{\idxn},U_{\idxj}^{\idxn},U_{\idxj}^{\idxn}\right)
+        \end{align}
+        satisfy the discrete maximum \cref{princip:discrete_maximum_principle}.
+    \end{property}
+\end{propertybox}
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-command-extra-options: "-shell-escape"

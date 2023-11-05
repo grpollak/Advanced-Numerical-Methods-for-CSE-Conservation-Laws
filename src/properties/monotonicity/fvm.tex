@@ -1,0 +1,34 @@
+\begin{corbox}\nospacing
+    \begin{cor}[\hfill\exampleref{example:lxf_monotonicity}\proofref{proof:cor:monotone_fvm}\newline CFL Condition for FVS ]\label{cor:cfl_condition_for_fvs}\leavevmode\\
+        A FVS\cref{defn:finite_volume_scheme} with \textit{monotone} locally Lipschitz continuous\cref{defn:lipschitz_continuity} two-point flux $\Flux(\mca,\mcb)$
+        imposes the following CFL (\cref{eq:cfl_condition}) type condition:\leavevmode\\
+        \scalematho[0.97]{
+        \begin{align}
+          \abs*{\pdv{\Flux}{\mca}\left(v,w\right)}+\abs*{\pdv{\Flux}{\mcb}\left(u,v\right)} &\leq2\max_{\mca,\mcb}\left(\abs*{\pdv{\Flux}{\mca}\left(v,w\right)},\abs*{\pdv{\Flux}{\mcb}\left(u,v\right)}\right)\nonumber\\[-1\jot]
+          &\leq\frac{\Delta x}{\Delta t}\qquad\forall u,v,w\label{eq:cfl_condition_for_fvs}\\[-1\jot]\nonumber
+        \end{align}}
+    \end{cor}
+\end{corbox}
+\begin{corbox}\nospacing
+    \begin{cor}[\hfill\proofref{proof:cor:monotone_fvm}\newline Monotone Finite Volume Method]\label{cor:monotone_fvm}\leavevmode\\
+        A Finite Volume Method\cref{defn:finite_volume_scheme} is \textit{montone} iff:
+        \begin{circlelistnosep}
+            \item The flux functions are monotone increasing/decreasing:
+        \begin{align}
+          &\mca\mapsto\Flux(\mca,\mcb)&&\text{is \imp{non-decreasing} for fixed }\mca \\[-1\jot]
+          &\mcb\mapsto\Flux(\mca,\mcb)&&\text{is \imp{non-increasing} for fixed }\mcb
+        \end{align}
+        if $\Flux$ is lipschitz continuous\cref{defn:lipschitz_continuity}:
+        \begin{align}
+          &\pdv{\Flux(\mca,\cdot)}{\mca}\geq0\label{eq:monotone_fvm_lipschitz_inc}\\[-1\jot]
+          &\pdv{\Flux(\cdot,\mcb)}{\mcb}\leq0\label{eq:monotone_fvm_lipschitz_dec}
+        \end{align}
+        \item it fulfills the CFL-type condition\cref{cor:cfl_condition_for_fvs}
+        \end{circlelistnosep}
+    \end{cor}
+\end{corbox}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

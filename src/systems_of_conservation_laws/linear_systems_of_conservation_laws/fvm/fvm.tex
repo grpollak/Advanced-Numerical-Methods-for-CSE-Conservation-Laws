@@ -1,4 +1,5 @@
-\begin{sectionbox}[FVM Scheme]\nospacing
+\begin{defnbox}\nospacing
+    \begin{defn}[\hfill\proofref{proof:exact_flux_for_conservation_laws}\newline Finite Volume Scheme for Linear Systems]\label{defn:newline_finite_volume_scheme_for_linear_systems}\leavevmode\\
 \begin{circlelistnosep}
     \item \tc{section}{\imp{Reconstruction}}:
     \begin{align*}
@@ -12,7 +13,7 @@
     \end{align*}
     \item \tc{section}{\imp{Evolution}}: by solving Riemann problems:
     \begin{align*}
-          &\Uvec_{t}+\Avec\Uvec_{x}=0 \\[-1\jot]
+          &\Uvec_{t}+\linfluxvec\Uvec_{x}=0 \\[-1\jot]
           &\Uvec\left(x,t^{n}\right)=
           \begin{cases}
               \Uvec_{\idxj}^{n}&\text{if }x<x_{\idxj+1/2}\\
@@ -20,17 +21,18 @@
           \end{cases}
     \end{align*}
     \item \tc{section}{\imp{Averaging}}:
-    \begin{align*}
-      \Uvec_{\idxj}^{n+1}=\frac{1}{\Delta x}\int_{t^{n}}^{t^{n+1}}\Uvec(x,t^{n+1})\diff x
-    \end{align*}
+    % \begin{align*}
+    %   \Uvec_{\idxj}^{n+1}=\frac{1}{\Delta x}\int_{t^{n}}^{t^{n+1}}\Uvec(x,t^{n+1})\diff x
+    % \end{align*}
     \begin{align*}
       \Uvec_{\idxj}^{n+1}&=\Uvec_{\idxj}^{n}-\frac{\Delta t}{\Delta x}\left(\Fluxvec^{n}_{\idxj+1/2}-\Fluxvec^{n}_{\idxj-1/2}\right)
     \end{align*}
 \end{circlelistnosep}
     \begin{align*}
-        \Fluxvec^{n}_{\idxj\pm1/2}=\Fluxvec\left(\Uvec_{\idxj}^{n},\Uvec_{\idxj+1}^{n}\right)=\Avec_{\idxj\pm1/2}(x_{\idxj\pm1/2},t^{n})\text{ \proofref{proof:exact_flux_for_conservation_laws}}
+        \Fluxvec^{n}_{\idxj\pm1/2}=\Fluxvec\left(\Uvec_{\idxj}^{n},\Uvec_{\idxj+1}^{n}\right)=\linfluxvec_{\idxj\pm1/2}\Uvec(x_{\idxj\pm1/2},t^{n})
     \end{align*}
-\end{sectionbox}
+    \end{defn}
+\end{defnbox}
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-command-extra-options: "-shell-escape"

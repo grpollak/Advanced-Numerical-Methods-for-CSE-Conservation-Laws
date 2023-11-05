@@ -4,10 +4,10 @@
        \begin{align}
          \widehat{\mcA}_{\idxj+\frac{1}{2}}=
          \begin{cases}
-             \frac{\flux\left(u^{\idxn}_{\idxj+1}\right)-\flux\left(u^{\idxn}_{\idxj}\right)}{u^{\idxn}_{\idxj+1}-u^{\idxn}_{\idxj}}&
-             \text{if }u^{\idxn}_{\idxj+1}\neq u^{\idxn}_{\idxj} \\
-             \flux'\left(u^{\idxn}_{\idxj}\right)&\text{if }u^{\idxn}_{\idxj+1}=u^{\idxn}_{\idxj}
-         \end{cases}
+             \frac{\flux\left(U^{\idxn}_{\idxj+1}\right)-\flux\left(U^{\idxn}_{\idxj}\right)}{U^{\idxn}_{\idxj+1}-U^{\idxn}_{\idxj}}&
+             \text{if }U^{\idxn}_{\idxj+1}\neq U^{\idxn}_{\idxj} \\
+             \flux'\left(U^{\idxn}_{\idxj}\right)&\text{if }U^{\idxn}_{\idxj+1}=U^{\idxn}_{\idxj}
+         \end{cases}\label{eq:roe_average}
        \end{align}
     \end{defn}
 \end{defnbox}
@@ -16,23 +16,24 @@
         If $u^{\idxn}_{\idxj+1}=u^{\idxn}_{\idxj}$ we don't want to divide by zero.
     \end{explanation}
 \end{explanationbox}
-\begin{corbox}\nospacing
-    \begin{cor}[Roe Flux]\label{cor:roe_flux}
+\begin{defnbox}\nospacing
+    \begin{defn}[Roe Flux]\label{defn:roe_flux}\leavevmode\\
         Solving \cref{eq:approximate_riemann_problem} with \cref{eq:roe_average} leads to the Roe flux:
         \begin{align}
-          \Flux_{\idxj+1/2}^{\idxn}=\Flux^{\text{Roe}}\left(u^{\idxn}_{\idxj},u^{\idxn}_{\idxj+1}\right)=
+          \Flux_{\idxj+1/2}^{\idxn}=\Flux^{\text{Roe}}\left(U^{\idxn}_{\idxj},U^{\idxn}_{\idxj+1}\right)=
           \begin{cases}
-              \flux\left(u_{\idxj}^{\idxn}\right)&\text{if }\widehat{\mcA}_{\idxj+\frac{1}{2}}\geq0 \\
-              \flux\left(u_{\idxj+1}^{\idxn}\right)&\text{if }\widehat{\mcA}_{\idxj+\frac{1}{2}}<0 \\
+              \flux\left(U_{\idxj}^{\idxn}\right)&\text{if }\widehat{\mcA}_{\idxj+\frac{1}{2}}\geq0 \\
+              \flux\left(U_{\idxj+1}^{\idxn}\right)&\text{if }\widehat{\mcA}_{\idxj+\frac{1}{2}}<0 \\
           \end{cases}
         \end{align}
-    \end{cor}
-\end{corbox}
+    \end{defn}
+\end{defnbox}
+
 \begin{sectionbox}\nospacing
     \begin{minipage}{0.45\textwidth}
        \begin{proslist}
            \item is simpler in comparison to Godunov scheme
-           \item approximates the shock/non-entropy solutions
+           \item approximates shock/non-entropy solutions
        \end{proslist} 
     \end{minipage}\hfil
     \begin{minipage}{0.5\textwidth}

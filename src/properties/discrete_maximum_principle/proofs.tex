@@ -1,0 +1,15 @@
+\begin{proofbox}\nospacing
+    \begin{proof}[\Cref{property:consistent_monotone_three_point_schemes}]\label{proof:property:consistent_monotone_three_point_schemes}\leavevmode\\
+        Let $\widebar{U}_{\idxj}^{\idxn}=\max\left(U_{\idxj-1}^{\idxn},U_{\idxj}^{\idxn},U_{\idxj}^{\idxn}\right)$ and
+        let $H$ be a monotone update function:
+        \begin{align*}
+          U_{\idxj}^{\idxn+1}=H \left(U_{\idxj-1}^{\idxn},U_{\idxj}^{\idxn},U_{\idxj}^{\idxn}\right)
+          \stackrel{\cref{eq:monotone_scheme}}{\leq}&H \left(\widebar{U}_{\idxj}^{\idxn},U_{\idxj}^{\idxn},U_{\idxj}^{\idxn}\right)\\[-1\jot]
+          \stackrel{\cref{eq:monotone_scheme}}{\leq}&H \left(\widebar{U}_{\idxj}^{\idxn},\widebar{U}_{\idxj}^{\idxn},U_{\idxj}^{\idxn}\right)\\[-1\jot]
+          \stackrel{\cref{eq:monotone_scheme}}{\leq}&H \left(\widebar{U}_{\idxj}^{\idxn},\widebar{U}_{\idxj}^{\idxn},\widebar{U}_{\idxj}^{\idxn}\right)\\[-1\jot]
+          \eqs{\cref{eq:consistent_schemes}}&\widebar{U}_{\idxj}^{\idxn}\\[-1\jot]
+                                            &=\max\left(U_{\idxj-1}^{\idxn},U_{\idxj}^{\idxn},U_{\idxj}^{\idxn}\right)
+        \end{align*}
+        Similar for $\min$.
+    \end{proof}
+\end{proofbox}

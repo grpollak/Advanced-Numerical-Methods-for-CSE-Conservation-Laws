@@ -1,5 +1,5 @@
 \begin{defnbox}\nospacing
-    \begin{defn}[Decoupled Riemann Problem]\label{defn:decoupled_riemann_problem}
+    \begin{defn}[Decoupled Riemann Problem]\label{defn:decoupled_riemann_problem}\leavevmode\\
         Splits the original Riemann data in multiple problems:
         \begin{align}
           \Wvec_{t}+\Lambdac\Wvec_{x}&=0\nonumber\\
@@ -28,6 +28,14 @@
         \end{align}
     \end{cor}
 \end{corbox}
+\begin{explanationbox}\nospacing
+    \begin{explanation}\leavevmode
+        \begin{itemizenosep}
+            \item $\eigenval_{\idxp}$ speed of the wave
+            \item $\eigenval_{\idxp}t$ is called the $\idxp$-th wave
+        \end{itemizenosep}
+    \end{explanation}
+\end{explanationbox}
 \todo[inline]{understand better where this comes from, probably RH condition}
 \begin{corbox}\nospacing
     \begin{cor}[\hfill\proofref{proof:cor:jump_decomposition}\newline Jumps]\label{cor:jump_decomposition}
@@ -46,18 +54,10 @@
                }
            \end{figure}
         \end{minipage}
-          $\alphac^{\idxp}$: strength of the $\idxp$-th wave\\
+          $\alphac^{\idxp}:=(\Wvec_{R}-\Wvec_{L})$: strength of the $\idxp$-th wave\\
           $r_{\idxp}$: direction of the characteristics
     \end{cor}
 \end{corbox}
-\begin{explanationbox}\nospacing
-    \begin{explanation}\leavevmode
-        \begin{itemizenosep}
-            \item $\eigenval_{\idxp}$ speed of the wave
-            \item $\eigenval_{\idxp}t$ is called the $\idxp$-th wave
-        \end{itemizenosep}
-    \end{explanation}
-\end{explanationbox}
 \todo[inline]{Lecture 15 end and script add example wave equation and solve}
 %%% Local Variables:
 %%% mode: latex

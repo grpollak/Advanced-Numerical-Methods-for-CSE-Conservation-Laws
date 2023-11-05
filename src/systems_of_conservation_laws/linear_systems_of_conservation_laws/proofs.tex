@@ -4,15 +4,21 @@
           \Uvec_{t}+\Avec\Uvec_{x}=0&& \\[-1\jot]
           \Uvec_{t}+\vec{R}\Lambdac\vec{R}^{-1}\Uvec_{x}=0&&\Cref{eq:eigendecomposition}\\[-1\jot]
           (\vec{R}^{-1}\Uvec)_{t}+\vec{R}^{-1}\vec{R}\Lambdac(\vec{R}^{-1}\Uvec)_{x}=0&&\text{Multiplying by $\vec{R}^{-1}$}\\[-1\jot]
-          \Wvec_{t}+\Lambdac\Wvec_{x}=0&&\Wvec:=\vec{R}^{-1}\Uvec_{t}
+          \Wvec_{t}+\Lambdac\Wvec_{x}=0&&\Wvec:=\vec{R}^{-1}\Uvec
         \end{align*}
     \end{proof}
 \end{proofbox}
 \begin{proofbox}\nospacing
     \begin{proof}[Jump Decomposition\cref{cor:jump_decomposition}]\label{proof:cor:jump_decomposition}
         \begin{align*}
-          \Uvec_{R}-\Uvec_{L}&=\vec{R}(\Wvec_{R}-\Wvec_{L})=\sum_{\idxp=1}^{\idxm}\left(W_{R}^{\idxp}-W_{L}^{\idxp}\right)r_{\idxp}\nonumber\\[-1\jot]
+          \Uvec_{R}-\Uvec_{L}=\vec{R}(\Wvec_{R}-\Wvec_{L})&=\sum_{\idxp=1}^{\idxm}\left(W_{R}^{\idxp}-W_{L}^{\idxp}\right)r_{\idxp}\nonumber\\[-1\jot]
           &:=\sum_{\idxp=1}^{\idxm}\alphac^{\idxp}r_{\idxp}
         \end{align*}
     \end{proof}
 \end{proofbox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% TeX-master: "../../../formulary"
+%%% End:

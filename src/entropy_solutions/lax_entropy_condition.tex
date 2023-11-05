@@ -1,19 +1,63 @@
+\addcontentsline{toc}{subsubsubsection}{Problems with weak solutions}
+\begin{sectionbox}[Problem]\nospacing
+    \textit{Emenating shocks} admit infinitely many weak solutions:
+        \begin{minipage}[t]{0.49\textwidth}
+        \vspace{-1em}
+          \begin{figure}[H]
+              \centering{
+                \def\svgwidth{130pt}
+                \resizebox{\linewidth}{!}{\input{src/shock_waves/figures/emmenating_shock.pdf_tex}}
+              }
+              \vspace{-2em}
+              \caption{\scriptsize Emenating Shock 1}
+          \end{figure}
+        \end{minipage}
+        \begin{minipage}[t]{0.49\textwidth}
+        \begin{figure}[H]
+        \vspace{-1em}
+            \centering{
+              \def\svgwidth{130pt}
+              \resizebox{\linewidth}{!}{\input{src/shock_waves/figures/emmenating_shock_second.pdf_tex}}
+            }
+            \vspace{-2em}
+            \caption{\scriptsize Emenating Shock 2}
+        \end{figure}
+        \end{minipage}
+        Thus we allow only for \textit{colliding shocks} $\Rightarrow$ Lax-Oleinik Entropy Condition.
+\end{sectionbox}
 \begin{propositionbox}\nospacing
-    \begin{proposition}[\hfill\blackrb{Burgers Equation}\newline Lax-Oleinik Entropy Condition]\label{proposition:lax_oleinik_entropy_condition_burger}
-        Characteristics of the Burgers equation have to flow into the shock and not emanate at it:
-        \begin{align}
-          u^{-}(t)>s(t)>u^{+}(t)
-        \end{align}
-    \end{proposition}
-\end{propositionbox}
-\begin{propositionbox}\nospacing
-    \begin{proposition}[\hfill\blackrb{Convex Functions}\newline Lax-Oleinik Entropy Condition]\label{proposition:lax_oleinik_entropy_condition}
-        Characteristics of general \textit{scalar conservation law} with \textit{convex} $\flux$ should flow into the shock:
+    \begin{proposition}[\hfill\blackrb{Convex Functions}\newline Lax-Oleinik Entropy Condition]\label{proposition:lax_oleinik_entropy_condition}\leavevmode\\
+        The characteristics of a general \textit{scalar conservation law} with \textit{monotonic} $\flux$ function have to flow into the shock:
         \begin{align}
           \flux'\left(u^{-}(t)\right)>s(t)>\flux'\left(u^{+}(t)\right)\label{eq:lax_entropy_oleinik_condtion_convex}
         \end{align}
     \end{proposition}
 \end{propositionbox}
+\begin{attentionbox}
+   The characteristic equations $x(t)$ are plotted in terms of the $x-t$-plane thus the axes and slopes are turned around.
+\end{attentionbox}
+\begin{corbox}\nospacing
+    \begin{cor}[Categorization by $\flux$]
+        \begin{flalign*}
+            &\flux\left\{
+            \begin{aligned}
+                &\text{convex}  \\
+                &\text{concave}
+            \end{aligned}\right.&&\implies\flux'
+            \left\{\begin{aligned}
+                &\text{increasing}  \\
+                &\text{decreasing}
+            \end{aligned}\right.&&\Rightarrow\text{iff }
+            \left\{\begin{aligned}
+                &U_{L}>U_{R}\\
+                &U_{L}<U_{R}
+            \end{aligned}\right.
+        \end{flalign*}
+        \begin{align*}
+          &\implies&&\text{physical/colliding shock}
+        \end{align*}
+    \end{cor}
+\end{corbox}
 \begin{explanationbox}\nospacing
     \begin{explanation}\leavevmode
         \begin{itemizenosep}
@@ -22,6 +66,14 @@
         \end{itemizenosep}
     \end{explanation}
 \end{explanationbox}
+\begin{corbox}\nospacing
+    \begin{cor}[\hfill\blackrb{Burgers Equation}\newline Lax-Oleinik Entropy Condition]
+        Characteristics of the Burgers equation have to flow into the shock and not emanate at it:
+        \begin{align}
+          u^{-}(t)>s(t)>u^{+}(t)
+        \end{align}
+    \end{cor}
+\end{corbox}
 
 %%% Local Variables:
 %%% mode: latex

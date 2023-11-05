@@ -1,5 +1,5 @@
 \begin{proofbox}\nospacing
-    \begin{proof}[Rankine-Hugoniot Condition\cref{defn:rankine-hugoniot_condition}]\label{proof:rankine-hugoniot_condition}
+    \begin{proof}[Rankine-Hugoniot Condition\cref{defn:rankine-hugoniot_condition}]\label{proof:rankine-hugoniot_condition}\leavevmode\\
         Lets consider a shock-wave\cref{defn:shock_waves}/discontinuity given by a curve:\\
         \begin{minipage}[c]{0.4\textwidth}
             \begin{figure}[H]
@@ -26,7 +26,7 @@
         \begin{align*}
                 &\int_{\Omega}
                 \left(u\testfunc_{t}+\flux(u)\testfunc_{x}\right)
-                \diff x \diff t+\int\limits_{\R}u_0(x)\underbrace{\testfunc(x,0)}_{\equiv0}\diff x=0
+                \diff x \diff t+\int\limits_{\R}u_0(x)\underbrace{\testfunc(x,0)}_{\mathclap{\sup(\testfunc)\subset\Omega\Rightarrow\equiv0}}\diff x=0
         \end{align*}
         \begin{align*}
                 &\int_{\Omega}\left(u\testfunc_{t}+\flux(u)\testfunc_{x}\right)\diff x \diff t=0 \\[-1\jot]

@@ -3,8 +3,8 @@
         \begin{align*}
           \Fluxvec^{n}_{\idxj+1/2}&=\Fluxvec\left(\Uvec_{\idxj}^{n},\Uvec_{\idxj+1}^{n}\right)
           =\frac{1}{\Delta t}\int_{t^{n}}^{t^{n+1}}\vec{\flux}\left(\Uvec(x_{\idxj+1/2},t)\right)\diff t \\[-1\jot]
-          &=\frac{1}{\Delta t}\Avec\Uvec_{\idxj+1/2}\int_{t^{n}}^{t^{n+1}}\diff t
-          =\Avec_{\idxj+1/2}
+          &=\frac{1}{\Delta t}\linfluxvec\Uvec_{\idxj+1/2}\int_{t^{n}}^{t^{n+1}}\diff t
+          =\linfluxvec_{\idxj+1/2}\Uvec_{\idxj+1/2}\int_{t^{n}}
         \end{align*}
     \end{proof}
 \end{proofbox}

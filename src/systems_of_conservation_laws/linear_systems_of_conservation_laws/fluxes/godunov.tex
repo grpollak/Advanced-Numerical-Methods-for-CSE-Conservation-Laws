@@ -1,8 +1,8 @@
 \begin{defnbox}\nospacing
     \begin{defn}[\hfill\proofref{proof:gudonov_flux_systems_of_cons_laws}\newline Godunov Flux]\label{defn:gudonov_flux_systems}
         \begin{align}
-          \Fluxvec&=\Avec\Uvec_{\idxj+1/2}\\[-1\jot]
-          &=\frac{1}{2}\Avec \left(\Uvec_{\idxj}^{n}+\Uvec_{\idxj+1}^{n}\right)-\frac{1}{2}\vec{R}\abs{\Lambdac}\vec{R}^{-1}\left(\Uvec_{\idxj+1}^{n}-\Uvec_{\idxj}^{n}\right)\nonumber
+          \Fluxvec_{\idxj+1/2}^{\idxn}&=\linfluxvec\Uvec_{\idxj+1/2}\\[-1\jot]
+          &=\frac{1}{2}\linfluxvec \left(\Uvec_{\idxj}^{n}+\Uvec_{\idxj+1}^{n}\right)-\frac{1}{2}\vec{R}\abs{\Lambdac}\vec{R}^{-1}\left(\Uvec_{\idxj+1}^{n}-\Uvec_{\idxj}^{n}\right)\nonumber
         \end{align}
     \end{defn}
 \end{defnbox}
